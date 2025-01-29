@@ -53,7 +53,7 @@ int main() {
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
-	initInfo.windowTitle = "RADIENCE OF RUIN";
+	initInfo.windowTitle = "DANIEL SITORUS";
 
 	Window*w = Window::CreateGameWindow(initInfo);
 
