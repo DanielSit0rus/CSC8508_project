@@ -1,6 +1,6 @@
 #pragma once
 #include "GameWorld.h"
-#include "C:\CSC8503\CSC8503 Code 2024\CSC8503\StateGameObject.h"
+#include "../CSC8503/StateGameObject.h"
 
 namespace NCL {
 	namespace CSC8503 {
