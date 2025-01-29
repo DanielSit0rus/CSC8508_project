@@ -53,7 +53,7 @@ int main() {
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
-	initInfo.windowTitle = "DANIEL SITORUS";
+	initInfo.windowTitle = "Marvel Rivals or some shit";
 
 	Window*w = Window::CreateGameWindow(initInfo);
 

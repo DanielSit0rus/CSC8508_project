@@ -12,9 +12,9 @@
 #include <functional>
 #include <iostream>
 #include <set>
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
+#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
+#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
+#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
+#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
+#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus
