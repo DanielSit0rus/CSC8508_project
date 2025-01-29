@@ -53,7 +53,7 @@ int main() {
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
-	initInfo.windowTitle = "CSC8503 Game technology!";
+	initInfo.windowTitle = "RADIENCE OF RUIN";
 
 	Window*w = Window::CreateGameWindow(initInfo);
 

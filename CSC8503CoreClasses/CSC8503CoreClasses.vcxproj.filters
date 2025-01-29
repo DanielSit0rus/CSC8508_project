@@ -1,285 +1,285 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\cmake_pch.cxx">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\cmake_pch.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Debug.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Debug.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameObject.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameObject.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameWorld.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameWorld.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\RenderObject.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\RenderObject.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Transform.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Transform.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Debug.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameObject.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameWorld.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\RenderObject.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\RenderObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Transform.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourAction.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourAction.h">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourNode.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourNode.h">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourNodeWithChildren.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourNodeWithChildren.h">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourSelector.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourSelector.h">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourSelector.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourSelector.cpp">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourSequence.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourSequence.h">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\BehaviourSequence.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\BehaviourSequence.cpp">
       <Filter>AI\Behaviour Trees</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PushdownMachine.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PushdownMachine.h">
       <Filter>AI\Pushdown Automata</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PushdownMachine.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PushdownMachine.cpp">
       <Filter>AI\Pushdown Automata</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PushdownState.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PushdownState.h">
       <Filter>AI\Pushdown Automata</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PushdownState.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PushdownState.cpp">
       <Filter>AI\Pushdown Automata</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\State.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\State.h">
       <Filter>AI\State Machine</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\StateMachine.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\StateMachine.h">
       <Filter>AI\State Machine</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\StateMachine.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\StateMachine.cpp">
       <Filter>AI\State Machine</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\StateTransition.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\StateTransition.h">
       <Filter>AI\State Machine</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationGrid.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationGrid.h">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationGrid.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationGrid.cpp">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationMesh.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMesh.cpp">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationMesh.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMesh.h">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationMap.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMap.h">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NavigationPath.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationPath.h">
       <Filter>AI\Pathfinding</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\AABBVolume.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\AABBVolume.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.cpp">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CollisionDetection.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionDetection.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CollisionVolume.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionVolume.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\OBBVolume.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OBBVolume.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\QuadTree.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\QuadTree.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\QuadTree.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\QuadTree.cpp">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Ray.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Ray.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\SphereVolume.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\SphereVolume.h">
       <Filter>Collision Detection</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameClient.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameClient.h">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameClient.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameClient.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameServer.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameServer.h">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\GameServer.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameServer.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkBase.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkBase.h">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkBase.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkBase.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkObject.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkObject.h">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkObject.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkObject.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkState.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkState.h">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\NetworkState.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkState.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\Constraint.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Constraint.h">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PositionConstraint.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PositionConstraint.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PositionConstraint.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PositionConstraint.h">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.h">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PhysicsObject.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PhysicsObject.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PhysicsObject.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PhysicsObject.h">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PhysicsSystem.cpp">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PhysicsSystem.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\PhysicsSystem.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PhysicsSystem.h">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\callbacks.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\callbacks.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\list.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\list.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\list.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\list.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\protocol.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\protocol.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\protocol.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\protocol.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\win32.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\win32.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\enet.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\time.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\time.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\types.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\types.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\utility.h">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\utility.h">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\compress.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\compress.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\host.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\host.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\packet.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\packet.c">
       <Filter>eNet</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\peer.c">
+    <ClCompile Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\enet\peer.c">
       <Filter>eNet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\Debug\cmake_pch.hxx">
+    <ClInclude Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\Debug\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\Release\cmake_pch.hxx">
+    <ClInclude Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CMakeFiles\CSC8503CoreClasses.dir\Release\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\CMakeLists.txt" />
+    <CustomBuild Include="D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="AI">
-      <UniqueIdentifier>{E1AB4C73-5CCA-3FDE-9DC7-098EBAA55936}</UniqueIdentifier>
+      <UniqueIdentifier>{3D86672B-9414-3709-8A16-1A8ACB11153B}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\Behaviour Trees">
-      <UniqueIdentifier>{FF8E4E73-FE1D-35E3-A220-D8DAEBC82389}</UniqueIdentifier>
+      <UniqueIdentifier>{D2DF82EE-856B-3C99-A0FD-B7F308F5AB06}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\Pathfinding">
-      <UniqueIdentifier>{63939882-986D-3C2A-9263-9881F09B33D0}</UniqueIdentifier>
+      <UniqueIdentifier>{33B29EA5-3A22-335D-A47C-7ACFD681FBC7}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\Pushdown Automata">
-      <UniqueIdentifier>{83273023-D2AE-3650-A3B4-75AAB67EF8EA}</UniqueIdentifier>
+      <UniqueIdentifier>{28B92813-2681-36AF-BD7C-6511EB04E28F}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\State Machine">
-      <UniqueIdentifier>{74FB057D-4167-3317-8D0D-CBA85F1C0859}</UniqueIdentifier>
+      <UniqueIdentifier>{37D0D5E7-4683-32A2-B424-E7D61E17B8D9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Collision Detection">
-      <UniqueIdentifier>{E42E3233-AB74-38B9-AA68-B827DE2C998A}</UniqueIdentifier>
+      <UniqueIdentifier>{0108525B-D12F-36E0-9BD7-3BF3D0922C44}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{0D91EDA1-1878-31BB-BD76-B6A008B9FC81}</UniqueIdentifier>
+      <UniqueIdentifier>{47F9572B-2311-3262-9390-11C1CDC6960F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Networking">
-      <UniqueIdentifier>{679755BB-CE6B-3D09-87FC-2C5AB1162829}</UniqueIdentifier>
+      <UniqueIdentifier>{507D0EB1-0BEF-304C-9B8E-16058CF21C0A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Physics">
-      <UniqueIdentifier>{8CF74ED9-0173-36CC-9FBB-3FA4295DA851}</UniqueIdentifier>
+      <UniqueIdentifier>{0E0B94E9-9401-3C9F-A283-A8EDFFD3F50C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Precompile Header File">
-      <UniqueIdentifier>{439D7B1A-764B-3550-8E96-475CC50BA3B7}</UniqueIdentifier>
+      <UniqueIdentifier>{581E37EC-233B-3358-B694-8F02267B89FE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{289C1EF8-2EEA-39F1-9DBF-6D9EB69672B0}</UniqueIdentifier>
+      <UniqueIdentifier>{2DD906F5-4817-3D96-AD94-E1C880A07A4B}</UniqueIdentifier>
     </Filter>
     <Filter Include="eNet">
-      <UniqueIdentifier>{BA6EE892-B308-3C40-A477-FEA044771342}</UniqueIdentifier>
+      <UniqueIdentifier>{947B6892-C534-370B-8B25-9FEE0152A36C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
