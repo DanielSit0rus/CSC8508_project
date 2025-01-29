@@ -1,5 +1,6 @@
 #pragma once
 #include "GameWorld.h"
+#include "C:\CSC8503\CSC8503 Code 2024\CSC8503\StateGameObject.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -21,6 +22,10 @@ namespace NCL {
 			}
 
 			void SetGravity(const Vector3& g);
+
+			int score = 0;
+			bool catded = false;
+
 		protected:
 			void BasicCollisionDetection();
 			void BroadPhase();

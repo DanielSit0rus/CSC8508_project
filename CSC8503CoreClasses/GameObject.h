@@ -14,6 +14,8 @@ namespace NCL::CSC8503 {
 		GameObject(const std::string& name = "");
 		~GameObject();
 
+		bool athome = false;
+
 		void SetBoundingVolume(CollisionVolume* vol) {
 			boundingVolume = vol;
 		}
@@ -53,6 +55,9 @@ namespace NCL::CSC8503 {
 		const std::string& GetName() const {
 			return name;
 		}
+		void SetName(const std::string& objname){
+			name = objname;
+		}
 
 		virtual void OnCollisionBegin(GameObject* otherObject) {
 			//std::cout << "OnCollisionBegin event occured!\n";
@@ -70,9 +75,21 @@ namespace NCL::CSC8503 {
 			worldID = newID;
 		}
 
+		void following()
+		{
+			isFollowing = true;
+		}
+
+		bool getFollow()
+		{
+			return isFollowing;
+		}
+
 		int		GetWorldID() const {
 			return worldID;
 		}
+
+		bool isFollowing = false;
 
 	protected:
 		Transform			transform;
@@ -85,6 +102,7 @@ namespace NCL::CSC8503 {
 		bool		isActive;
 		int			worldID;
 		std::string	name;
+		//bool isFollowing = false;
 
 		Vector3 broadphaseAABB;
 	};

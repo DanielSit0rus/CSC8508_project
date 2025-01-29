@@ -12,6 +12,11 @@ namespace NCL {
 
 			bool Update(float dt);
 
+			PushdownState* getactiveState() {
+
+				return activeState;
+			}
+
 		protected:
 			PushdownState* activeState;
 			PushdownState* initialState;

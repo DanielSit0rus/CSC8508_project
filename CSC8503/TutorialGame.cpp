@@ -3,6 +3,7 @@
 #include "PhysicsObject.h"
 #include "RenderObject.h"
 #include "TextureLoader.h"
+#include "Vector.h"
 
 #include "PositionConstraint.h"
 #include "OrientationConstraint.h"
@@ -13,6 +14,8 @@
 using namespace NCL;
 using namespace CSC8503;
 
+
+
 TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *Window::GetWindow()->GetMouse()) {
 	world		= new GameWorld();
 #ifdef USEVULKAN
@@ -22,8 +25,8 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 #else 
 	renderer = new GameTechRenderer(*world);
 #endif
-
 	physics		= new PhysicsSystem(*world);
+	//PushMachine = new PushdownMachine(new gameScreen());
 
 	forceMagnitude	= 10.0f;
 	useGravity		= false;
@@ -53,6 +56,7 @@ void TutorialGame::InitialiseAssets() {
 	sphereMesh	= renderer->LoadMesh("sphere.msh");
 	catMesh		= renderer->LoadMesh("ORIGAMI_Chat.msh");
 	kittenMesh	= renderer->LoadMesh("Kitten.msh");
+	gooseMesh = renderer->LoadMesh("goose.msh");
 
 	enemyMesh	= renderer->LoadMesh("Keeper.msh");
 	bonusMesh	= renderer->LoadMesh("19463_Kitten_Head_v1.msh");
@@ -81,7 +85,29 @@ TutorialGame::~TutorialGame()	{
 	delete world;
 }
 
+bool TutorialGame::pauseGame(){
+
+	return pause = true;
+
+}
+bool TutorialGame::UnpauseGame() {
+
+	return pause = false;
+
+}
+
 void TutorialGame::UpdateGame(float dt) {
+
+
+	Debug::Print("Score : " + std::to_string(physics->score), Vector2(5, 90));
+	if (pause) {
+		// Only update the PushMachine and render the current frame.
+		//PushMachine->Update(dt);
+		renderer->Render();
+		return; // Skip the rest of the game updates.
+	}
+
+
 	if (!inSelectionMode) {
 		world->GetMainCamera().UpdateCamera(dt);
 	}
@@ -101,7 +127,33 @@ void TutorialGame::UpdateGame(float dt) {
 		world->GetMainCamera().SetYaw(angles.y);
 	}
 
+	if (!kittens.empty()) {
+		for (StateGameObject* kitten : kittens) {
+			if (kitten->getstateMachine()) {
+				kitten->getstateMachine()->Update(dt);
+			}
+		}
+	}
+	if (GooseObject)
+	{
+		GooseObject->Update(dt);
+	}
+	
+	//PushMachine->Update(dt);
+
 	UpdateKeys();
+	
+	if (playerObject) {
+		Vector3 playerPos = playerObject->GetTransform().GetPosition();
+
+		// Set the camera directly above the player with a fixed offset
+		Vector3 camPos = playerPos + Vector3(0, 20, 0); // Adjust height (Y) as needed
+		world->GetMainCamera().SetPosition(camPos);
+
+		// Orient the camera to look straight down
+		world->GetMainCamera().SetPitch(-90.0f); // Look straight down
+		world->GetMainCamera().SetYaw(0.0f);
+	} 
 
 	if (useGravity) {
 		Debug::Print("(G)ravity on", Vector2(5, 95), Debug::RED);
@@ -134,7 +186,7 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
-
+	
 	SelectObject();
 	MoveSelectedObject();
 
@@ -184,6 +236,67 @@ void TutorialGame::UpdateKeys() {
 	else {
 		DebugObjectMovement();
 	}
+
+	if (playerObject) {
+
+		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
+		Matrix4 camWorld = Matrix::Inverse(view);
+
+		//Vector3 rightAxis = Vector3(camWorld.GetColumn(0));
+		Vector3 right = Vector3(camWorld.GetColumn(0));
+		
+		//Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
+
+		Vector3 forward = Vector::Cross(Vector3(0, 1, 0), right);
+		
+
+		forward.y = 0; // Keep movement in the horizontal plane
+		right.y = 0;
+
+		forward = Vector::Normalise(forward);
+		right = Vector::Normalise(right);
+		Vector3 movement = Vector3(0, 0, 0);
+		if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
+			movement += forward * 20.0f;
+		}
+		if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
+			movement -= forward * 20.0f;
+		}
+		if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
+			movement -= right * 20.0f;
+		}
+		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
+			movement += right * 20.0f;
+		}
+		
+		// Apply movement force
+		if (Vector::Length(movement) > 0.0f) {
+			playerObject->GetPhysicsObject()->AddForce(movement);
+
+			// Turn the cat to face the movement direction
+		Vector3 velocity = playerObject->GetPhysicsObject()->GetLinearVelocity();
+			if (Vector::Length(velocity) > 0.01f) { // Only update if there's significant velocity
+				 // Current forward vector
+				Vector3 desiredDirection = Vector::Normalise(velocity); // Normalize velocity
+				Vector3 forwarddir = playerObject->GetTransform().GetOrientation() * Vector3(0, 0, 1);
+				Vector3 rotationAxis = Vector::Cross(forwarddir, desiredDirection);
+				float angle = acos(Vector::Dot(forwarddir, desiredDirection)); // Angle in radians
+
+				if (angle > 0.01f) { // Apply torque only if there's a meaningful angle
+					float torqueScale = 2.0f; // Arbitrary scale for control
+					Vector3 torque = rotationAxis * angle * torqueScale;
+					playerObject->GetPhysicsObject()->AddTorque(torque);
+				}
+			}
+
+		}
+		else {
+
+			playerObject->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
+			playerObject->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
+
+		}
+	} 
 }
 
 void TutorialGame::LockedObjectMovement() {
@@ -254,20 +367,180 @@ void TutorialGame::DebugObjectMovement() {
 void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetNearPlane(0.1f);
 	world->GetMainCamera().SetFarPlane(500.0f);
-	world->GetMainCamera().SetPitch(-15.0f);
-	world->GetMainCamera().SetYaw(315.0f);
-	world->GetMainCamera().SetPosition(Vector3(-60, 40, 60));
+
+	// Set initial top-down position and orientation
+	world->GetMainCamera().SetPosition(Vector3(0, 20, 0)); // Initial position
+	world->GetMainCamera().SetPitch(-90.0f);               // Look straight down
+	world->GetMainCamera().SetYaw(0.0f);
 	lockedObject = nullptr;
 }
+
+void TutorialGame::runKittenAI()
+{
+	
+	for (StateGameObject* kitten : kittens) {
+		State* stateIdle = new State([kitten](float dt) -> void {
+			//std::cout << "\nKitten is idle\n";
+			});
+
+		State* stateFollow = new State([kitten, this](float dt) -> void {
+			Vector3 playerPos = playerObject->GetTransform().GetPosition();
+			Vector3 kittenPos = kitten->GetTransform().GetPosition();
+			Vector3 direction = playerPos - kittenPos;
+
+			if (Vector::Length(direction) > 0.8f) {
+				direction = Vector::Normalise(direction);
+				kitten->GetPhysicsObject()->AddForce(direction * 25.0f);
+			}
+			else {
+				kitten->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
+				kitten->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
+			}
+
+			//std::cout << "\nKitten is following the player\n";
+			});
+
+		State* stateHome = new State([kitten](float dt) -> void {
+			kitten->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
+			kitten->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
+			kitten->GetTransform().SetPosition(Vector3(4, 0, -2.0f));
+			});
+
+		StateMachine* kittenStateMachine = new StateMachine();
+
+		kittenStateMachine->AddState(stateIdle);
+		kittenStateMachine->AddState(stateFollow);
+		kittenStateMachine->AddState(stateHome);
+
+		kittenStateMachine->AddTransition(new StateTransition(stateIdle, stateFollow, [kitten]() -> bool {
+			return kitten->isFollowing;
+			}));
+
+		kittenStateMachine->AddTransition(new StateTransition(stateFollow, stateHome, [kitten]() -> bool {
+			return !kitten->isFollowing;
+			}));
+
+		// Assign this state machine to the kitten
+		kitten->setstateMachine(kittenStateMachine);
+	}
+
+}
+
 
 void TutorialGame::InitWorld() {
 	world->ClearAndErase();
 	physics->Clear();
+	//BridgeConstraintTest();
+	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
+	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
+	//InitGameExamples();
+	playerObject = AddPlayerToWorld(Vector3(2, 1, 2));
+	//kittenObject1 = AddKitttenToWorld(Vector3(2, 2, 5));
+	AddStateObjectToWorld(Vector3(6, 1, 22), playerObject);
+	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
+	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
-	InitMixedGridWorld(15, 15, 3.5f, 3.5f);
+	AddcylinderToWorld(Vector3(2, 7, 5));
+	AddSphereToWorld(Vector3(2, 1, 5),1);
 
-	InitGameExamples();
+	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+	GooseObject = AddGooseToWorld(Vector3(10, 2, 10), playerObject);
+	//DoorFrame = AddCubeToWorld(Vector3(16, 2, 4), Vector3(1, 2, 1),0.0f, Vector4(1.0f,0.0f,0.0f,1.0f));
+	AddGate();
+	homecube = AddCubeToWorld(Vector3(4, 0, -2.0f), Vector3(1, 0.1f, 1), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+	homecube->SetName("home");
+
+	std::vector<std::vector<int>> mazePattern = {
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+	{1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1},
+	{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+	{1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1},
+	{1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
+	{1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1},
+	{1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1},
+	{1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+	{1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	};
+
+	InitMazeWorld(mazePattern, Vector3(1, 2, 1), 2.0f);
+	runKittenAI();
 	InitDefaultFloor();
+}
+
+void TutorialGame::AddGate() {
+
+	Vector3 gateSize = Vector3(1.0f, 2.0f, 0.3f); // Dimensions of the gate
+	float gateMass = 10.0f;                  // Mass of the gate
+	Vector3 pivotSize = Vector3(0.3f,0.3f, 0.3f); // Dimensions of the pivot (anchor)
+
+	Vector3 gateStartPos = Vector3(13, 2, 4); // Initial position of the gate
+	Vector3 pivotPos = Vector3(16, 2, 3);   // Position of the pivot point
+
+	// Create the pivot point (immovable)
+	GameObject* pivot = AddCubeToWorld(pivotPos, pivotSize, 0, Vector4(0.0f,0.0f,1.0f,1.0f)); // 0 mass = static
+
+	// Create the gate object (movable)
+	GameObject* gate = AddCubeToWorld(gateStartPos, gateSize, gateMass, Vector4(0.0f, 0.0f, 1.0f, 1.0f));
+
+	// Attach the gate to the pivot with a PositionConstraint
+	float hingeDistance = 2.0f; // Distance from pivot to gate (acts as a hinge radius)
+	PositionConstraint* gateConstraint = new PositionConstraint(pivot, gate, hingeDistance);
+	world->AddConstraint(gateConstraint);
+
+
+
+}
+
+void TutorialGame::BridgeConstraintTest() {
+	Vector3 cubeSize = Vector3(8, 8, 8);
+	float invCubeMass = 5; // how heavy the middle pieces are
+	int numLinks = 10;
+	float maxDistance = 30; // constraint distance
+	float cubeDistance = 20; // distance between links
+	Vector3 startPos = Vector3(0, 0, 0);
+	GameObject * start = AddCubeToWorld(startPos + Vector3(0, 0, 0), cubeSize, 0);
+	GameObject * end = AddCubeToWorld(startPos + Vector3((numLinks + 2) * cubeDistance, 0, 0), cubeSize, 0);
+	GameObject * previous = start;
+	for (int i = 0; i < numLinks; ++i) {
+		GameObject * block = AddCubeToWorld(startPos + Vector3((i + 1) * cubeDistance, 0, 0), cubeSize, invCubeMass);
+		PositionConstraint * constraint = new PositionConstraint(previous,block, maxDistance);
+		world -> AddConstraint(constraint);
+		previous = block;
+	}
+	PositionConstraint * constraint = new PositionConstraint(previous, end, maxDistance);
+	world -> AddConstraint(constraint);
+}
+
+
+
+StateGameObject* TutorialGame::AddStateObjectToWorld(const Vector3& position, GameObject* player)
+{
+	StateGameObject* kitten = new StateGameObject("Kitten", player);
+
+	SphereVolume* volume = new SphereVolume(0.2f);
+	kitten->SetBoundingVolume((CollisionVolume*)volume);
+	kitten->GetTransform()
+		.SetScale(Vector3(0.5f, 0.5f, 0.5f))
+		.SetPosition(position);
+
+	kitten->SetRenderObject(new RenderObject(&kitten->GetTransform(), catMesh, nullptr, basicShader));
+	kitten->SetPhysicsObject(new PhysicsObject(&kitten->GetTransform(), kitten->GetBoundingVolume()));
+
+	kitten->GetPhysicsObject()->SetInverseMass(1.0f);
+	kitten->GetPhysicsObject()->InitSphereInertia();
+	kitten->GetRenderObject()->SetColour(Vector4(1.0f, 1.0f, 0.0f, 1.0f));
+
+	world->AddGameObject(kitten);
+	kittens.push_back(kitten); // Add to the kittens container
+
+	return kitten;
 }
 
 /*
@@ -276,7 +549,7 @@ A single function to add a large immoveable cube to the bottom of our world
 
 */
 GameObject* TutorialGame::AddFloorToWorld(const Vector3& position) {
-	GameObject* floor = new GameObject();
+	GameObject* floor = new GameObject("Floor");
 
 	Vector3 floorSize = Vector3(200, 2, 200);
 	AABBVolume* volume = new AABBVolume(floorSize);
@@ -325,9 +598,8 @@ GameObject* TutorialGame::AddSphereToWorld(const Vector3& position, float radius
 	return sphere;
 }
 
-GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimensions, float inverseMass) {
-	GameObject* cube = new GameObject();
-
+GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimensions, float inverseMass, Vector4 color) {
+	GameObject* cube = new GameObject();	
 	AABBVolume* volume = new AABBVolume(dimensions);
 	cube->SetBoundingVolume((CollisionVolume*)volume);
 
@@ -340,6 +612,7 @@ GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimens
 
 	cube->GetPhysicsObject()->SetInverseMass(inverseMass);
 	cube->GetPhysicsObject()->InitCubeInertia();
+	cube->GetRenderObject()->SetColour(color);
 
 	world->AddGameObject(cube);
 
@@ -350,8 +623,8 @@ GameObject* TutorialGame::AddPlayerToWorld(const Vector3& position) {
 	float meshSize		= 1.0f;
 	float inverseMass	= 0.5f;
 
-	GameObject* character = new GameObject();
-	SphereVolume* volume  = new SphereVolume(1.0f);
+	GameObject* character = new GameObject("MAMA_CAT");
+	SphereVolume* volume  = new SphereVolume(0.4f);
 
 	character->SetBoundingVolume((CollisionVolume*)volume);
 
@@ -369,6 +642,62 @@ GameObject* TutorialGame::AddPlayerToWorld(const Vector3& position) {
 
 	return character;
 }
+
+
+GameObject* TutorialGame::AddKitttenToWorld(const Vector3& position) {
+	float meshSize = 0.5f;
+	float inverseMass = 0.2f;
+
+	GameObject* kitten = new GameObject("Kitten");
+	SphereVolume* volume = new SphereVolume(0.2f);
+
+	kitten->SetBoundingVolume((CollisionVolume*)volume);
+
+	kitten->GetTransform()
+		.SetScale(Vector3(meshSize, meshSize, meshSize))
+		.SetPosition(position);
+
+	kitten->SetRenderObject(new RenderObject(&kitten->GetTransform(), catMesh, nullptr, basicShader));
+	kitten->SetPhysicsObject(new PhysicsObject(&kitten->GetTransform(), kitten->GetBoundingVolume()));
+
+	kitten->GetRenderObject()->SetColour(Vector4(0.0f, 0.0f, 1.0f, 1.0f));
+
+	kitten->GetPhysicsObject()->SetInverseMass(inverseMass);
+	kitten->GetPhysicsObject()->InitSphereInertia();
+
+	world->AddGameObject(kitten);
+
+	return kitten;
+}
+
+Goose* TutorialGame::AddGooseToWorld(const Vector3& position, GameObject* player) {
+	float meshSize = 0.30f;
+	float inverseMass = 0.5f;
+
+	std::vector<Vector3> patrolNodes = { Vector3(10, 0, 10), Vector3(15, 0, 10), Vector3(19, 0, 10)};
+
+	Goose* goose = new Goose(player, patrolNodes, world);
+	SphereVolume* volume = new SphereVolume(0.5f);
+
+	goose->SetBoundingVolume((CollisionVolume*)volume);
+
+	goose->GetTransform()
+		.SetScale(Vector3(meshSize, meshSize, meshSize))
+		.SetPosition(position);
+
+	goose->SetRenderObject(new RenderObject(&goose->GetTransform(), gooseMesh, nullptr, basicShader));
+	goose->SetPhysicsObject(new PhysicsObject(&goose->GetTransform(), goose->GetBoundingVolume()));
+	
+	goose->GetRenderObject()->SetColour(Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+	goose->GetPhysicsObject()->SetInverseMass(inverseMass);
+	goose->GetPhysicsObject()->InitSphereInertia();
+	goose->SetName("Goose");
+
+	world->AddGameObject(goose);
+
+	return goose;
+}
+
 
 GameObject* TutorialGame::AddEnemyToWorld(const Vector3& position) {
 	float meshSize		= 3.0f;
@@ -414,8 +743,32 @@ GameObject* TutorialGame::AddBonusToWorld(const Vector3& position) {
 	return apple;
 }
 
+GameObject* TutorialGame::AddcylinderToWorld(const Vector3& position) {
+	GameObject* apple = new GameObject();
+
+	CapsuleVolume* volume = new CapsuleVolume(0.5f,0.5f);
+	apple->SetBoundingVolume((CollisionVolume*)volume);
+	apple->GetTransform()
+		.SetScale(Vector3(1, 1, 1))
+		.SetPosition(position);
+
+	apple->SetRenderObject(new RenderObject(&apple->GetTransform(), capsuleMesh, nullptr, basicShader));
+	apple->SetPhysicsObject(new PhysicsObject(&apple->GetTransform(), apple->GetBoundingVolume()));
+
+	apple->GetPhysicsObject()->SetInverseMass(1.0f);
+	apple->GetPhysicsObject()->InitSphereInertia();
+	apple->GetRenderObject()->SetColour(Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+	world->AddGameObject(apple);
+
+	return apple;
+}
+
+
+
+
+
 void TutorialGame::InitDefaultFloor() {
-	AddFloorToWorld(Vector3(0, -20, 0));
+	AddFloorToWorld(Vector3(0, -2, 0));
 }
 
 void TutorialGame::InitGameExamples() {
@@ -461,6 +814,18 @@ void TutorialGame::InitCubeGridWorld(int numRows, int numCols, float rowSpacing,
 	}
 }
 
+void TutorialGame::InitMazeWorld(const std::vector<std::vector<int>>& mazePattern, const Vector3& cubeDims, float spacing) {
+	// Loop through the 2D maze pattern
+	for (size_t x = 0; x < mazePattern.size(); ++x) {
+		for (size_t z = 0; z < mazePattern[x].size(); ++z) {
+			if (mazePattern[x][z] == 1) { // If the grid cell is 1, add a cube
+				Vector3 position = Vector3(x * spacing, cubeDims.y, z * spacing);
+				AddCubeToWorld(position, cubeDims, 0.0f); // 0.0f makes the cubes immovable (walls)
+			}
+		}
+	}
+}
+
 /*
 Every frame, this code will let you perform a raycast, to see if there's an object
 underneath the cursor, and if so 'select it' into a pointer, so that it can be 
@@ -469,6 +834,7 @@ letting you move the camera around.
 
 */
 bool TutorialGame::SelectObject() {
+
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::Q)) {
 		inSelectionMode = !inSelectionMode;
 		if (inSelectionMode) {
@@ -527,7 +893,7 @@ line - after the third, they'll be able to twist under torque aswell.
 */
 
 void TutorialGame::MoveSelectedObject() {
-	Debug::Print("Click Force:" + std::to_string(forceMagnitude), Vector2(5, 90));
+	
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 100.0f;
 
 	if (!selectionObject) {
@@ -546,4 +912,91 @@ void TutorialGame::MoveSelectedObject() {
 	}
 }
 
+
+void Goose::SetupStateMachine() {
+	stateMachine = new StateMachine();
+
+	// Patrol State
+	State* patrolState = new State([&](float dt) { Patrol(dt); });
+
+	// Chase State
+	State* chaseState = new State([&](float dt) { ChasePlayer(dt); });
+
+	stateMachine->AddState(patrolState);
+	stateMachine->AddState(chaseState);
+
+	// Transition from Patrol to Chase when player is visible
+	stateMachine->AddTransition(new StateTransition(patrolState, chaseState, [&]() -> bool {
+		return isPlayerVisible;
+		}));
+
+	// Transition from Chase to Patrol when player is not visible
+	stateMachine->AddTransition(new StateTransition(chaseState, patrolState, [&]() -> bool {
+		return !isPlayerVisible;
+		}));
+}
+
+void Goose::Patrol(float dt) {
+	if (patrolNodes.empty()) return;
+
+	Vector3 currentPos = GetTransform().GetPosition();
+	Vector3 targetNode = patrolNodes[currentNodeIndex];
+	Vector3 direction = targetNode - currentPos;
+	if (Vector::Length(direction) > 1.0f) {
+		direction = Vector::Normalise(direction);
+		GetPhysicsObject()->AddForce(direction * 10.0f);
+	}
+	else {
+		currentNodeIndex = (currentNodeIndex + 1) % patrolNodes.size(); // Move to next node
+	}
+
+	// Check for player's visibility
+	Raycast();
+}
+
+void Goose::ChasePlayer(float dt) {
+	Vector3 goosePos = GetTransform().GetPosition();
+	Vector3 playerPos = player->GetTransform().GetPosition();
+	Vector3 direction = playerPos - goosePos;
+
+	if (Vector::Length(direction) > 1.0f) {
+		direction = Vector::Normalise(direction);
+		GetPhysicsObject()->AddForce(direction * 10.0f);
+	}
+
+	// Check if player is still visible
+	Raycast();
+}
+
+void Goose::Raycast() {
+	Vector3 goosePos = GetTransform().GetPosition();
+	Vector3 playerPos = player->GetTransform().GetPosition();
+	Vector3 direction = playerPos - goosePos;
+
+	if (Vector::Length(direction) > 0.01f) {
+		direction = Vector::Normalise(direction);
+		Ray ray(goosePos, direction);
+
+		RayCollision collision;
+		isPlayerVisible = world->Raycast(ray, collision, true, this);
+
+		if (isPlayerVisible && collision.node == player) {
+			std::cout << "Player in sight!\n";
+		}
+		else {
+			isPlayerVisible = false;
+		}
+	}
+}
+
+void Goose::VisualizeRay() {
+	Vector3 goosePos = GetTransform().GetPosition();
+	Vector3 playerPos = player->GetTransform().GetPosition();
+	Vector3 direction = playerPos - goosePos;
+
+	if (Vector::Length(direction) > 0.01f) {
+		direction = Vector::Normalise(direction);
+		Debug::DrawLine(goosePos, goosePos + direction * 50.0f, Vector4(1, 0, 0, 1)); // Draw ray in red
+	}
+}
 

@@ -1,4 +1,4 @@
-# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering
+# Install script for directory: C:/CSC8503/CSC8503 Code 2024/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

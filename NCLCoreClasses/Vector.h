@@ -244,6 +244,20 @@ namespace NCL::Maths {
         return a;
     }
 
+    template <typename T, uint32_t n>
+    constexpr VectorTemplate<T, n>  Clamp(const VectorTemplate<T, n>& input, const VectorTemplate<T, n>& mins, const VectorTemplate<T, n>& maxs) {
+        VectorTemplate<T, n> output;
+        for (int i = 0; i < n; ++i) {
+            output.array[i] = std::clamp(input.array[i], mins.array[i], maxs.array[i]);
+        }
+        return output;
+    }
+    template <typename T>
+    constexpr T Clamp(T input, T min, T max) {
+        return std::max(min, std::min(input, max));
+    }
+
+
 
 
     namespace Vector {
