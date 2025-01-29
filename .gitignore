@@ -9,3 +9,24 @@
 /.vs
 /Build
 /out/build/x64-Debug
+
+# Build output
+/Build
+/out/build/
+bin/
+obj/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.make
+
+# Common ignores for C++ projects
+*.suo
+*.user
+*.exe
+*.dll
+*.so
+*.dylib
