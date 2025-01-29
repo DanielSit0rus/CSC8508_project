@@ -33,3 +33,10 @@ Makefile
 
 # Ignore precompiled header files
 *.pch
+
+
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+CMakeSettings.json
