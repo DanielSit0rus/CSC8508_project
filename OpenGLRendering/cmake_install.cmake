@@ -1,4 +1,4 @@
-# Install script for directory: F:/CSC8503 Code 2024/OpenGLRendering
+# Install script for directory: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

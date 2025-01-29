@@ -12,9 +12,9 @@
 #include <functional>
 #include <iostream>
 #include <set>
-#include "F:/CSC8503 Code 2024/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "F:/CSC8503 Code 2024/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "F:/CSC8503 Code 2024/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "F:/CSC8503 Code 2024/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "F:/CSC8503 Code 2024/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
+#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
+#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
+#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
+#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
+#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus

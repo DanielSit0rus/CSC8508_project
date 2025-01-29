@@ -1,1 +1,15 @@
-﻿
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeLists.txt
+  cmake_pch.cxx
+  OGLTexture.h
+  OGLShader.h
+  OGLRenderer.h
+  OGLMesh.h
+  OGLComputeShader.h
+  OGLTexture.cpp
+  OGLShader.cpp
+  OGLRenderer.cpp
+  OGLMesh.cpp
+  OGLComputeShader.cpp
+  gl.h
+  gl.c
+  OpenGLRendering.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib

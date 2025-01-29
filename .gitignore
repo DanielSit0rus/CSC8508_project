@@ -30,3 +30,6 @@ Makefile
 *.dll
 *.so
 *.dylib
+
+# Ignore precompiled header files
+*.pch

@@ -1,0 +1,10 @@
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503/CMakeLists.txt
+  cmake_pch.cxx
+  GameTechRenderer.cpp
+  Main.cpp
+  NetworkPlayer.cpp
+  NetworkedGame.cpp
+  StateGameObject.cpp
+  TutorialGame.cpp
+  Generating Code...
+  CSC8503.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503.exe
