@@ -283,7 +283,7 @@ void TutorialGame::UpdateKeys() {
 			movement -= rightAxis * 10.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-			movement += rightAxis * 20.0f;
+			movement += rightAxis * 50.0f;
 		}
 		
 		// Apply movement force

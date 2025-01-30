@@ -1,4 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -10,30 +11,30 @@
   GameWorld.cpp
   RenderObject.cpp
   Transform.cpp
-  AABBVolume.h
   BehaviourAction.h
   BehaviourNode.h
   BehaviourNodeWithChildren.h
-  CollisionVolume.h
-  Constraint.h
+  State.h
+  StateTransition.h
   NavigationMap.h
   NavigationPath.h
+  AABBVolume.h
+  CollisionVolume.h
   OBBVolume.h
   Ray.h
   SphereVolume.h
-  State.h
-  StateTransition.h
+  Constraint.h
   callbacks.c
-  compress.c
   enet.h
-  host.c
-  packet.c
-  peer.c
   time.h
-  Generating Code...
-  Compiling...
   types.h
   utility.h
+  compress.c
+  host.c
+  Generating Code...
+  Compiling...
+  packet.c
+  peer.c
   Generating Code...
   BehaviourSelector.h
   BehaviourSelector.cpp
@@ -79,4 +80,4 @@
   protocol.c
   win32.h
   win32.c
-  CSC8503CoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib

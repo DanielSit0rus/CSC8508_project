@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/NCLCoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Assets.cpp
   SimpleFont.cpp
@@ -28,4 +28,4 @@
   Win32Mouse.cpp
   Win32Window.cpp
   Generating Code...
-  NCLCoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+  NCLCoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
