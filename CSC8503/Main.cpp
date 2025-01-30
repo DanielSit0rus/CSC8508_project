@@ -113,7 +113,7 @@ void TestBehaviourTree() {
 			}
 
 		}
-		return state; // will be ’ ongoing ’ until success
+		return state; // will be ?ongoing ?until success
 		}
 	);
 	BehaviourAction* goToRoom = new BehaviourAction("Go To Room", [&](float dt, BehaviourState state) -> BehaviourState {
@@ -130,7 +130,7 @@ void TestBehaviourTree() {
 			}
 
 		}
-		return state; // will be ’ ongoing ’ until success
+		return state; // will be ?ongoing ?until success
 		}
 	);
 
@@ -495,7 +495,7 @@ int main() {
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
-	initInfo.windowTitle = "CSC8503 Game technology!";
+	initInfo.windowTitle = "CSC8508!";
 
 	Window*w = Window::CreateGameWindow(initInfo);
 	//TestPushdownAutomata(w);
