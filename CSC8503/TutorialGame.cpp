@@ -274,16 +274,16 @@ void TutorialGame::UpdateKeys() {
 		rightAxis = Vector::Normalise(rightAxis);
 		Vector3 movement = Vector3(0, 0, 0);
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-			movement += fwdAxis * 20.0f;
+			movement += fwdAxis * 50.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-			movement -= fwdAxis * 20.0f;
+			movement -= fwdAxis * 50.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-			movement -= rightAxis * 20.0f;
+			movement -= rightAxis * 50.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-			movement += rightAxis * 20.0f;
+			movement += rightAxis * 50.0f;
 		}
 		
 		// Apply movement force
