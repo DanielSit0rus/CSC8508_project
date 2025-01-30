@@ -152,8 +152,8 @@ void TutorialGame::UpdateGame(float dt) {
 		float yaw = 0.0f;
 		float pitch = 0.0f;
 
-		yaw -= mouseDelta.x * 0.1f;
-		pitch -= mouseDelta.y * 0.1f;
+		yaw -= mouseDelta.x * 1.1f;
+		pitch -= mouseDelta.y * 1.1f;
 		pitch = std::clamp(pitch, -89.0f, 89.0f);
 
 		Quaternion yawRotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 1, 0), yaw);
@@ -249,13 +249,13 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (playerObject) {
-		//Matrix4 view = world->GetMainCamera().BuildViewMatrix();
-		//Matrix4 camWorld = Matrix::Inverse(view);
+		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
+		Matrix4 camWorld = Matrix::Inverse(view);
 
-		////Vector3 rightAxis = Vector3(camWorld.GetColumn(0));
+		Vector3 rightAxis = Vector3(camWorld.GetColumn(0));
 		//Vector3 right = Vector3(camWorld.GetColumn(0));
 		//
-		////Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
+		Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
 
 		//Vector3 forward = Vector::Cross(Vector3(0, 1, 0), right);
 		
@@ -264,8 +264,8 @@ void TutorialGame::UpdateKeys() {
 
 		// Extract the right and forward vectors from the player's orientation
 		Quaternion playerOrientation = playerTransform.GetOrientation();
-		Vector3 rightAxis = playerOrientation * Vector3(1, 0, 0); // Local right
-		Vector3 fwdAxis = playerOrientation * Vector3(0, 0, -1);
+		//Vector3 rightAxis = playerOrientation * Vector3(1, 0, 0); // Local right
+		//Vector3 fwdAxis = playerOrientation * Vector3(0, 0, -1);
 
 		fwdAxis.y = 0; // Keep movement in the horizontal plane
 		rightAxis.y = 0;
@@ -274,16 +274,16 @@ void TutorialGame::UpdateKeys() {
 		rightAxis = Vector::Normalise(rightAxis);
 		Vector3 movement = Vector3(0, 0, 0);
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-			movement += fwdAxis * 10.0f;
+			movement += fwdAxis * 20.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-			movement -= fwdAxis * 10.0f;
+			movement -= fwdAxis * 20.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-			movement -= rightAxis * 10.0f;
+			movement -= rightAxis * 20.0f;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-			movement += rightAxis * 50.0f;
+			movement += rightAxis * 20.0f;
 		}
 		
 		// Apply movement force
