@@ -1,4 +1,4 @@
-# Install script for directory: C:/CSC8503/CSC8503 Code 2024/CSC8503CoreClasses
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
