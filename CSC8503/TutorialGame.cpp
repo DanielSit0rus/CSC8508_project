@@ -226,21 +226,12 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (playerObject) {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> george
 
 
 		Vector3 playerPos = playerObject->GetTransform().GetPosition();
 		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
 		// Set the camera directly above the player with a fixed offset
-<<<<<<< HEAD
-		Vector3 camPos = playerPos + Vector3(0, 1, 1.0f); // Adjust height (Y) as needed
-=======
 		Vector3 camPos = playerPos + Vector3(0, 1, -0.1f); // Adjust height (Y) as needed
->>>>>>> george
 		world->GetMainCamera().SetPosition(camPos);
 		float yaw = 0.0f;
 		float pitch = 0.0f;
@@ -254,10 +245,6 @@ void TutorialGame::UpdateKeys() {
 		//Quaternion finalRotation = yawRotation * pitchRotation;
 		playerObject->GetTransform().SetOrientation(yawRotation);
 
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> george
 		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
 		Matrix4 camWorld = Matrix::Inverse(view);
 
@@ -470,19 +457,7 @@ void TutorialGame::InitWorld() {
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
 	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	AddcylinderToWorld(Vector3(2, 7, 5));
-=======
-	AddcylinderToWorld(Vector3(1, 6, 7));
->>>>>>> Stashed changes
-=======
-	AddcylinderToWorld(Vector3(1, 6, 7));
->>>>>>> Stashed changes
-=======
 	AddcylinderToWorld(Vector3(1, 6, 8));
->>>>>>> george
 	AddSphereToWorld(Vector3(2, 1, 5),1);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));

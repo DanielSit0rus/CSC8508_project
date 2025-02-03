@@ -1,24 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/OpenGLRendering/CMakeLists.txt
-=======
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
-=======
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
-=======
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> george
-=======
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
-=======
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeLists.txt
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
@@ -32,24 +12,4 @@
   OGLComputeShader.cpp
   gl.h
   gl.c
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  OpenGLRendering.vcxproj -> D:\D_Project\cpp\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
-=======
-  OpenGLRendering.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes
-=======
-  OpenGLRendering.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes
-=======
-  OpenGLRendering.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> george
-=======
-  OpenGLRendering.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes
-=======
-  OpenGLRendering.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes
+  OpenGLRendering.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib

@@ -1,16 +1,59 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+  cmake_pch.cxx
+  Debug.h
+  GameObject.h
+  GameWorld.h
+  RenderObject.h
+  Transform.h
+  Debug.cpp
+  GameObject.cpp
+  GameWorld.cpp
+  RenderObject.cpp
+  Transform.cpp
+  BehaviourAction.h
+  BehaviourNode.h
+  BehaviourNodeWithChildren.h
+  State.h
+  StateTransition.h
+  NavigationMap.h
+  NavigationPath.h
+  AABBVolume.h
+  CollisionVolume.h
+  OBBVolume.h
+  Ray.h
+  SphereVolume.h
+  Constraint.h
+  callbacks.c
+  enet.h
+  time.h
+  types.h
+  utility.h
+  compress.c
+  host.c
+  Generating Code...
+  Compiling...
+  packet.c
+  peer.c
+  Generating Code...
+  BehaviourSelector.h
+  BehaviourSelector.cpp
+  BehaviourSequence.h
+  BehaviourSequence.cpp
+  PushdownMachine.h
+  PushdownMachine.cpp
+  PushdownState.h
+  PushdownState.cpp
+  StateMachine.h
+  StateMachine.cpp
+  NavigationGrid.h
+  NavigationGrid.cpp
+  NavigationMesh.cpp
+  NavigationMesh.h
+  CapsuleVolume.h
+  CapsuleVolume.cpp
+  CollisionDetection.h
   CollisionDetection.cpp
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-D:\D_Project\cpp\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“../CSC8503CoreClasses/CollisionDetection.cpp”)
-  
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“../CSC8503CoreClasses/CollisionDetection.cpp”)
-  
   QuadTree.h
   QuadTree.cpp
   GameClient.h
@@ -30,9 +73,6 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   PhysicsObject.cpp
   PhysicsObject.h
   PhysicsSystem.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PhysicsSystem.cpp”)
-  
   PhysicsSystem.h
   list.h
   list.c
@@ -40,44 +80,4 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   protocol.c
   win32.h
   win32.c
-  CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
-=======
-  CSC8503CoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
->>>>>>> Stashed changes
-=======
-  CSC8503CoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
->>>>>>> Stashed changes
-=======
-  CSC8503CoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
->>>>>>> george
-=======
-=======
->>>>>>> Stashed changes
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp : error C2859: C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.pdb is not the pdb file that was used when this precompiled header was created, recreate the precompiled header.
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(345,1): error C2059: syntax error: '<<'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(348,24): error C2065: 'capsuleRadius': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(348,40): error C2065: 'capsuleRadius': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(348,53): error C2059: syntax error: ')'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(348,55): error C2143: syntax error: missing ';' before '{'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(352,56): error C2065: 'closestPointOnAABB': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(352,76): error C2065: 'collisionNormal': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(352,93): error C2065: 'penetration': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(352,104): error C2059: syntax error: ')'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(355,1): error C2947: expecting '>' to terminate template-argument-list, found '>>'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,2): error C2065: 'tEnd': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,39): error C2065: 'tEnd': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): error C2672: 'std::max': no matching overloaded function found
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(51,26): message : could be '_Ty std::max(std::initializer_list<_Elem>)'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): message : '_Ty std::max(std::initializer_list<_Elem>)': could not deduce template argument for 'std::initializer_list<_Elem>' from 'float'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(48,26): message : or       '_Ty std::max(std::initializer_list<_Elem>,_Pr)'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): message : '_Ty std::max(std::initializer_list<_Elem>,_Pr)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(41,6): message : or       'const _Ty &std::max(const _Ty &,const _Ty &) noexcept(<expr>)'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): message : 'const _Ty &std::max(const _Ty &,const _Ty &) noexcept(<expr>)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(31,33): message : or       'const _Ty &std::max(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): message : 'const _Ty &std::max(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)': expects 3 arguments - 1 provided
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(358,47): error C2065: 'tEnd': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(378,1): error C2059: syntax error: '<<'
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+  CSC8503CoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib

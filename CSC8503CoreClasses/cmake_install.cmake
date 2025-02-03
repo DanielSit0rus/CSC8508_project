@@ -1,24 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# Install script for directory: D:/D_Project/cpp/CSC8508_project/CSC8503CoreClasses
-=======
-# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
->>>>>>> Stashed changes
-=======
-# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
->>>>>>> Stashed changes
-=======
-# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
->>>>>>> george
-=======
-# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
->>>>>>> Stashed changes
-=======
-# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
->>>>>>> Stashed changes
+# Install script for directory: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,39 +1,6 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-D:/D_Project/cpp/CSC8508_project/CMakeFiles/ALL_BUILD.dir
-D:/D_Project/cpp/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
-D:/D_Project/cpp/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
-D:/D_Project/cpp/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
-D:/D_Project/cpp/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
-D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> george
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/ALL_BUILD.dir
-C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
-C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
-C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
-C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
-C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> george
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeFiles/ALL_BUILD.dir
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
+C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir

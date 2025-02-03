@@ -2,27 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      <FullPath>D:\D_Project\cpp\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
-=======
-      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
->>>>>>> Stashed changes
-=======
-      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
->>>>>>> Stashed changes
-=======
-      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
->>>>>>> george
-=======
-      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
->>>>>>> Stashed changes
-=======
-      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
->>>>>>> Stashed changes
+      <FullPath>C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

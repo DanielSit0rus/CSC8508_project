@@ -1,68 +1,12 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeLists.txt
-=======
-=======
->>>>>>> Stashed changes
-﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeLists.txt
-  Scanning sources for module dependencies...
-  Compiling...
-  std.ixx
-  std.compat.ixx
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503/CMakeLists.txt
   cmake_pch.cxx
   GameTechRenderer.cpp
   Main.cpp
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   NetworkPlayer.cpp
   NetworkedGame.cpp
   StateGameObject.cpp
   TutorialGame.cpp
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“TutorialGame.cpp”)
-  
-  正在生成代码...
-  CSC8503.vcxproj -> D:\D_Project\cpp\CSC8508_project\x64\Debug\CSC8503.exe
-  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
-  或批处理文件。
-=======
-=======
->>>>>>> Stashed changes
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Scanning sources for module dependencies...
-  TutorialGame.cpp
-  CSC8503.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503.exe
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-﻿  Scanning sources for module dependencies...
-  TutorialGame.cpp
-  CSC8503.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503.exe
->>>>>>> george
-=======
-=======
->>>>>>> Stashed changes
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(252,1): error C2059: syntax error: '<<'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(259,20): error C2065: 'playerPos': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(273,1): error C2059: syntax error: '>>'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(275,38): error C2065: 'view': undeclared identifier
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(482,1): error C2059: syntax error: '<<'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(485,1): error C2059: syntax error: '=='
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(487,1): error C2059: syntax error: '>>'
-C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(490,1): error C2059: syntax error: '>>'
   Generating Code...
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+  CSC8503.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503.exe
