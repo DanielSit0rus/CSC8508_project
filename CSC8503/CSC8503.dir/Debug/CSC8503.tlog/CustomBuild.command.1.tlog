@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ^D:\D_PROJECT\CPP\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
@@ -13,6 +14,11 @@ setlocal
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SC:/TeamProject/MainRep/CSC8508_project -BC:/TeamProject/MainRep/CSC8508_project --check-stamp-file C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
 >>>>>>> Stashed changes
+=======
+^C:\TEAMPROJECT\MAINREP\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/TeamProject/MainRep/CSC8508_project -BC:/TeamProject/MainRep/CSC8508_project --check-stamp-file C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
+>>>>>>> george
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

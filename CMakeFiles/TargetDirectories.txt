@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 D:/D_Project/cpp/CSC8508_project/CMakeFiles/ALL_BUILD.dir
@@ -9,13 +10,18 @@ D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/ALL_BUILD.dir
 C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
 C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
 C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
 C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
 C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george

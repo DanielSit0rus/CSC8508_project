@@ -1,4 +1,5 @@
 # CMake generation dependency list for this directory.
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 D:/D_Project/cpp/CSC8508_project/CMake/Default.cmake
@@ -14,3 +15,8 @@ C:/TeamProject/MainRep/CSC8508_project/CMake/Default.cmake
 C:/TeamProject/MainRep/CSC8508_project/CMake/DefaultCXX.cmake
 C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeLists.txt
 >>>>>>> Stashed changes
+=======
+C:/TeamProject/MainRep/CSC8508_project/CMake/Default.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMake/DefaultCXX.cmake
+C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeLists.txt
+>>>>>>> george

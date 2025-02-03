@@ -12,6 +12,7 @@
 #include <functional>
 #include <iostream>
 #include <set>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
@@ -22,13 +23,18 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 #endif // __cplusplus

@@ -342,6 +342,7 @@ bool CollisionDetection::AABBCapsuleIntersection(
 	tStart = std::max(0.0f, std::min(1.0f, tStart));
 	Vector3 closestPointStart = capsuleStart + d * tStart;
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 	// Step 5: Check if the distance is less than the capsule radius
@@ -353,6 +354,8 @@ bool CollisionDetection::AABBCapsuleIntersection(
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 	float tEnd = Vector::Dot(closestOnAABBEnd - capsuleStart, d) / Vector::Dot(d, d);
 	tEnd = std::max(0.0f, std::min(1.0f, tEnd));
 	Vector3 closestPointEnd = capsuleStart + d * tEnd;
@@ -375,10 +378,13 @@ bool CollisionDetection::AABBCapsuleIntersection(
 		}
 
 		collisionInfo.AddContactPoint(closestPointStart, closestOnAABBStart, collisionNormal, penetrationDepth);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 		return true;
 	}
 

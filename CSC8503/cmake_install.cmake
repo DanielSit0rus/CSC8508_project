@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 # Install script for directory: D:/D_Project/cpp/CSC8508_project/CSC8503
@@ -7,6 +8,9 @@
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
 >>>>>>> Stashed changes
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
+>>>>>>> george
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

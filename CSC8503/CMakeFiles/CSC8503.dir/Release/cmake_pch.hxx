@@ -14,6 +14,7 @@
 #include <iostream>
 #include <chrono>
 #include <sstream>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
@@ -24,13 +25,18 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> george
 #endif // __cplusplus

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeLists.txt
@@ -40,3 +41,8 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+﻿  Scanning sources for module dependencies...
+  TutorialGame.cpp
+  CSC8503.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503.exe
+>>>>>>> george
