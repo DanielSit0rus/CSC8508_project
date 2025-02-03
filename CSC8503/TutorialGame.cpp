@@ -249,6 +249,28 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (playerObject) {
+<<<<<<< Updated upstream
+=======
+
+
+		Vector3 playerPos = playerObject->GetTransform().GetPosition();
+		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
+		// Set the camera directly above the player with a fixed offset
+		Vector3 camPos = playerPos + Vector3(0, 1, 1.0f); // Adjust height (Y) as needed
+		world->GetMainCamera().SetPosition(camPos);
+		float yaw = 0.0f;
+		float pitch = 0.0f;
+
+		yaw -= mouseDelta.x * 1.1f;
+		pitch -= mouseDelta.y * 1.1f;
+		pitch = std::clamp(pitch, -89.0f, 89.0f);
+
+		Quaternion yawRotation = Quaternion::Quaternion(Vector3(0, 1, 0), yaw);
+		Quaternion pitchRotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), pitch);
+		//Quaternion finalRotation = yawRotation * pitchRotation;
+		playerObject->GetTransform().SetOrientation(yawRotation);
+
+>>>>>>> Stashed changes
 		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
 		Matrix4 camWorld = Matrix::Inverse(view);
 
@@ -457,7 +479,11 @@ void TutorialGame::InitWorld() {
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
 	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
+<<<<<<< Updated upstream
 	AddcylinderToWorld(Vector3(2, 7, 5));
+=======
+	AddcylinderToWorld(Vector3(1, 6, 7));
+>>>>>>> Stashed changes
 	AddSphereToWorld(Vector3(2, 1, 5),1);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));

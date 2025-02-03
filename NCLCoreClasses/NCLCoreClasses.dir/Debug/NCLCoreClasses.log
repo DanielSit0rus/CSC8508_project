@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 ﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+=======
+﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+>>>>>>> Stashed changes
   cmake_pch.cxx
   Assets.cpp
   SimpleFont.cpp
@@ -48,8 +52,13 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   (编译源文件“Win32Mouse.cpp”)
   
   Win32Window.cpp
+<<<<<<< Updated upstream
 D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Win32Window.cpp”)
   
   正在生成代码...
   NCLCoreClasses.vcxproj -> D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+=======
+  Generating Code...
+  NCLCoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+>>>>>>> Stashed changes

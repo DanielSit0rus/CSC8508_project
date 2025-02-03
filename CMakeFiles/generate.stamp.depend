@@ -1,4 +1,5 @@
 # CMake generation dependency list for this directory.
+<<<<<<< Updated upstream
 D:/CMake/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in
 D:/CMake/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
 D:/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake
@@ -81,3 +82,26 @@ D:/D_Project/cpp/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeCXXCompiler.cmake
 D:/D_Project/cpp/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeRCCompiler.cmake
 D:/D_Project/cpp/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeSystem.cmake
 D:/D_Project/cpp/CSC8508_project/CMakeLists.txt
+=======
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMake/Utils.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeCXXCompiler.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeRCCompiler.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMakeFiles/3.28.0-rc5/CMakeSystem.cmake
+C:/TeamProject/MainRep/CSC8508_project/CMakeLists.txt
+>>>>>>> Stashed changes
