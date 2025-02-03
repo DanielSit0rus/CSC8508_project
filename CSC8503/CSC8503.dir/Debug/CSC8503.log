@@ -1,29 +1,27 @@
-﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeLists.txt
+﻿  Building Custom Rule D:/vs代码/team/CSC8508_project/CSC8503/CMakeLists.txt
   cmake_pch.cxx
   GameTechRenderer.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“GameTechRenderer.cpp”)
   
   Main.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Main.cpp”)
   
-D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\vs代码\team\CSC8508_project\CSC8503\Main.cpp(110,28): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\vs代码\team\CSC8508_project\CSC8503\Main.cpp(210,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
   NetworkPlayer.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“NetworkPlayer.cpp”)
   
   NetworkedGame.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“NetworkedGame.cpp”)
   
   StateGameObject.cpp
   TutorialGame.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“TutorialGame.cpp”)
   
   正在生成代码...
-  CSC8503.vcxproj -> D:\D_Project\cpp\CSC8508_project\x64\Debug\CSC8503.exe
-  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
-  或批处理文件。
+  CSC8503.vcxproj -> D:\vs代码\team\CSC8508_project\x64\Debug\CSC8503.exe

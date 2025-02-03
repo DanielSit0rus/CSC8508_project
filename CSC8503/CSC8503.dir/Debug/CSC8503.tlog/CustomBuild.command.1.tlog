@@ -1,6 +1,6 @@
-^D:\D_PROJECT\CPP\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
+^D:\VS代码\TEAM\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
 setlocal
-D:\CMake\bin\cmake.exe -SD:/D_Project/cpp/CSC8508_project -BD:/D_Project/cpp/CSC8508_project --check-stamp-file D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
+D:\cMake\bin\cmake.exe -SD:/vs代码/team/CSC8508_project -BD:/vs代码/team/CSC8508_project --check-stamp-file D:/vs代码/team/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

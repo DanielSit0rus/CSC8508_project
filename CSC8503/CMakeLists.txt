@@ -201,6 +201,8 @@ target_link_libraries(${PROJECT_NAME} LINK_PUBLIC NCLCoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CSC8503CoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
 
+target_link_libraries(${PROJECT_NAME} LINK_PUBLIC nlohmann_json::nlohmann_json)
+
 if(USE_VULKAN)
     include_directories("../VulkanRendering/")
     target_link_libraries(${PROJECT_NAME} LINK_PUBLIC VulkanRendering)

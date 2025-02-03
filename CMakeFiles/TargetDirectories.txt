@@ -1,5 +1,6 @@
 D:/vs代码/team/CSC8508_project/CMakeFiles/ALL_BUILD.dir
 D:/vs代码/team/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
+D:/vs代码/team/CSC8508_project/SDK/nlohmannjson-json/CMakeFiles/ALL_BUILD.dir
 D:/vs代码/team/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
 D:/vs代码/team/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
 D:/vs代码/team/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir

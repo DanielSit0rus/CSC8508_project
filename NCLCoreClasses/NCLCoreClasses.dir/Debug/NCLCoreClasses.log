@@ -1,5 +1,4 @@
-﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/NCLCoreClasses/CMakeLists.txt
-  cmake_pch.cxx
+﻿  cmake_pch.cxx
   Assets.cpp
   SimpleFont.cpp
   TextureLoader.cpp
@@ -13,43 +12,43 @@
   MshLoader.cpp
   MeshMaterial.cpp
   RendererBase.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   Shader.cpp
   (编译源文件“RendererBase.cpp”)
   
   Texture.cpp
   Camera.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Camera.cpp”)
   
   GameTimer.cpp
   Keyboard.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Keyboard.cpp”)
   
   Mouse.cpp
   Window.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Window.cpp”)
   
   正在生成代码...
   正在编译...
   Controller.cpp
   KeyboardMouseController.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“KeyboardMouseController.cpp”)
   
   Win32Keyboard.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Win32Keyboard.cpp”)
   
   Win32Mouse.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Win32Mouse.cpp”)
   
   Win32Window.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\vs代码\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Win32Window.cpp”)
   
   正在生成代码...
-  NCLCoreClasses.vcxproj -> D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+  NCLCoreClasses.vcxproj -> D:\vs代码\team\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
