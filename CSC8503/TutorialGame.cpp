@@ -457,7 +457,7 @@ void TutorialGame::InitWorld() {
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
 	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
-	AddcylinderToWorld(Vector3(2, 2, 8));
+	AddcylinderToWorld(Vector3(1, 6, 8));
 	AddSphereToWorld(Vector3(2, 1, 5),1);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
