@@ -1,28 +1,25 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeLists.txt
+=======
+﻿  Building Custom Rule C:/TeamProject/MainRep/CSC8508_project/CSC8503/CMakeLists.txt
+  Scanning sources for module dependencies...
+  Compiling...
+  std.ixx
+  std.compat.ixx
+>>>>>>> Stashed changes
   cmake_pch.cxx
   GameTechRenderer.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameTechRenderer.cpp”)
-  
   Main.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Main.cpp”)
-  
-D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   NetworkPlayer.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“NetworkPlayer.cpp”)
-  
   NetworkedGame.cpp
-D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“NetworkedGame.cpp”)
-  
   StateGameObject.cpp
   TutorialGame.cpp
+<<<<<<< Updated upstream
 D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“TutorialGame.cpp”)
   
@@ -46,3 +43,14 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   TutorialGame.cpp
   CSC8503.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503.exe
 >>>>>>> george
+=======
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(252,1): error C2059: syntax error: '<<'
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(259,20): error C2065: 'playerPos': undeclared identifier
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(273,1): error C2059: syntax error: '>>'
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(275,38): error C2065: 'view': undeclared identifier
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(482,1): error C2059: syntax error: '<<'
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(485,1): error C2059: syntax error: '=='
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(487,1): error C2059: syntax error: '>>'
+C:\TeamProject\MainRep\CSC8508_project\CSC8503\TutorialGame.cpp(490,1): error C2059: syntax error: '>>'
+  Generating Code...
+>>>>>>> Stashed changes

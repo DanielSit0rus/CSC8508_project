@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -57,3 +58,6 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   Generating Code...
   NCLCoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
 >>>>>>> george
+=======
+﻿  NCLCoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+>>>>>>> Stashed changes

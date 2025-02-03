@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -11,6 +12,9 @@
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
 >>>>>>> george
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

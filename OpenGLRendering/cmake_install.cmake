@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -11,6 +12,9 @@
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering
 >>>>>>> george
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
