@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -12,6 +13,9 @@
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
 >>>>>>> george
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
+>>>>>>> Stashed changes
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
 >>>>>>> Stashed changes

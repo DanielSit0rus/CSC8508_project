@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -20,6 +21,11 @@ setlocal
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SC:/TeamProject/MainRep/CSC8508_project -BC:/TeamProject/MainRep/CSC8508_project --check-stamp-file C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeFiles/generate.stamp
 >>>>>>> george
+=======
+^C:\TEAMPROJECT\MAINREP\CSC8508_PROJECT\OPENGLRENDERING\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/TeamProject/MainRep/CSC8508_project -BC:/TeamProject/MainRep/CSC8508_project --check-stamp-file C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/CMakeFiles/generate.stamp
+>>>>>>> Stashed changes
 =======
 ^C:\TEAMPROJECT\MAINREP\CSC8508_PROJECT\OPENGLRENDERING\CMAKELISTS.TXT
 setlocal

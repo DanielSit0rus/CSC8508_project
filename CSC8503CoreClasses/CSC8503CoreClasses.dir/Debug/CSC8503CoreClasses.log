@@ -1,6 +1,7 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   CollisionDetection.cpp
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -50,6 +51,8 @@ D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 
   CSC8503CoreClasses.vcxproj -> C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
 >>>>>>> george
 =======
+=======
+>>>>>>> Stashed changes
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp : error C2859: C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.pdb is not the pdb file that was used when this precompiled header was created, recreate the precompiled header.
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(345,1): error C2059: syntax error: '<<'
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(348,24): error C2065: 'capsuleRadius': undeclared identifier
@@ -74,4 +77,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.3253
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(357,14): message : 'const _Ty &std::max(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)': expects 3 arguments - 1 provided
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(358,47): error C2065: 'tEnd': undeclared identifier
 C:\TeamProject\MainRep\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(378,1): error C2059: syntax error: '<<'
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
