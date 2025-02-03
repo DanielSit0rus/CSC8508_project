@@ -1,4 +1,4 @@
-# Install script for directory: D:/D_Project/cpp/CSC8508_project/CSC8503
+# Install script for directory: D:/vs代码/team/CSC8508_project/CSC8503
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
