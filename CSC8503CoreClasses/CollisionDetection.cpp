@@ -350,10 +350,14 @@ bool CollisionDetection::AABBCapsuleIntersection(
 		// Step 6: Add collision info (optional)
 		Vector3 collisionNormal = Vector::Normalise(delta);
 		float penetration = capsuleRadius - sqrt(distanceSquared);
+		if (distanceSquared == 0.0f) {
+			collisionNormal = Vector3(0, 1, 0); // Default upward normal
+		}
 		collisionInfo.AddContactPoint(closestPointOnCapsule, closestPointOnAABB, collisionNormal, penetration);
+		std::cout << "CAPSULE COLLISION DETECTED \n";
+		std::cout << "Distance Squared: " << distanceSquared << " Capsule Radius Squared: " << (capsuleRadius * capsuleRadius) << std::endl;
 		return true;
 	}
-
 	return false;
 }
 

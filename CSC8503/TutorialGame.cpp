@@ -142,29 +142,6 @@ void TutorialGame::UpdateGame(float dt) {
 	//PushMachine->Update(dt);
 
 	UpdateKeys();
-	
-	if (playerObject) {
-		Vector3 playerPos = playerObject->GetTransform().GetPosition();
-		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
-		// Set the camera directly above the player with a fixed offset
-		Vector3 camPos = playerPos + Vector3(0, 2, 0); // Adjust height (Y) as needed
-		world->GetMainCamera().SetPosition(camPos);
-		float yaw = 0.0f;
-		float pitch = 0.0f;
-
-		yaw -= mouseDelta.x * 1.1f;
-		pitch -= mouseDelta.y * 1.1f;
-		pitch = std::clamp(pitch, -89.0f, 89.0f);
-
-		Quaternion yawRotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 1, 0), yaw);
-		Quaternion pitchRotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), pitch);
-		Quaternion finalRotation = yawRotation * pitchRotation;
-		playerObject->GetTransform().SetOrientation(yawRotation);
-		//world->GetMainCamera().SetViewMatrix(playerTransform.GetMatrix());
-		// Orient the camera to look straight down
-		//world->GetMainCamera().SetPitch(0.0f); // Look straight down
-		//world->GetMainCamera().SetYaw(0.0f);
-	} 
 
 	if (useGravity) {
 		Debug::Print("(G)ravity on", Vector2(5, 95), Debug::RED);
@@ -249,6 +226,25 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (playerObject) {
+
+
+		Vector3 playerPos = playerObject->GetTransform().GetPosition();
+		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
+		// Set the camera directly above the player with a fixed offset
+		Vector3 camPos = playerPos + Vector3(0, 1, -0.1f); // Adjust height (Y) as needed
+		world->GetMainCamera().SetPosition(camPos);
+		float yaw = 0.0f;
+		float pitch = 0.0f;
+
+		yaw -= mouseDelta.x * 1.1f;
+		pitch -= mouseDelta.y * 1.1f;
+		pitch = std::clamp(pitch, -89.0f, 89.0f);
+
+		Quaternion yawRotation = Quaternion::Quaternion(Vector3(0, 1, 0), yaw);
+		Quaternion pitchRotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), pitch);
+		//Quaternion finalRotation = yawRotation * pitchRotation;
+		playerObject->GetTransform().SetOrientation(yawRotation);
+
 		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
 		Matrix4 camWorld = Matrix::Inverse(view);
 
@@ -264,6 +260,7 @@ void TutorialGame::UpdateKeys() {
 
 		// Extract the right and forward vectors from the player's orientation
 		Quaternion playerOrientation = playerTransform.GetOrientation();
+		Vector3 playerPosition = playerTransform.GetPosition();
 		//Vector3 rightAxis = playerOrientation * Vector3(1, 0, 0); // Local right
 		//Vector3 fwdAxis = playerOrientation * Vector3(0, 0, -1);
 
@@ -272,47 +269,50 @@ void TutorialGame::UpdateKeys() {
 
 		fwdAxis = Vector::Normalise(fwdAxis);
 		rightAxis = Vector::Normalise(rightAxis);
+
+		float moveSpeed = 9.0f * Window::GetTimer().GetTimeDeltaSeconds();
 		Vector3 movement = Vector3(0, 0, 0);
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-			movement += fwdAxis * 20.0f;
+			movement += fwdAxis * moveSpeed;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-			movement -= fwdAxis * 20.0f;
+			movement -= fwdAxis * moveSpeed;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-			movement -= rightAxis * 20.0f;
+			movement -= rightAxis * moveSpeed;
 		}
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-			movement += rightAxis * 20.0f;
+			movement += rightAxis * moveSpeed;
 		}
-		
+
+		playerObject->GetTransform().SetPosition(playerPosition + movement);
 		// Apply movement force
-		if (Vector::Length(movement) > 0.0f) {
-			playerObject->GetPhysicsObject()->AddForce(movement);
+		//if (Vector::Length(movement) > 0.0f) {
+		////	playerObject->GetPhysicsObject()->AddForce(movement);
 
-			// Turn the cat to face the movement direction
-		//Vector3 velocity = playerObject->GetPhysicsObject()->GetLinearVelocity();
-		//	if (Vector::Length(velocity) > 0.01f) { // Only update if there's significant velocity
-		//		 // Current forward vector
-		//		Vector3 desiredDirection = Vector::Normalise(velocity); // Normalize velocity
-		//		Vector3 forwarddir = playerObject->GetTransform().GetOrientation() * Vector3(0, 0, 1);
-		//		Vector3 rotationAxis = Vector::Cross(forwarddir, desiredDirection);
-		//		float angle = acos(Vector::Dot(forwarddir, desiredDirection)); // Angle in radians
+		////	// Turn the cat to face the movement direction
+		//// Vector3 velocity = playerObject->GetPhysicsObject()->GetLinearVelocity();
+		////	if (Vector::Length(velocity) > 0.01f) { // Only update if there's significant velocity
+		//////		 // Current forward vector
+		////		Vector3 desiredDirection = Vector::Normalise(velocity); // Normalize velocity
+		////		Vector3 forwarddir = playerObject->GetTransform().GetOrientation() * Vector3(0, 0, 1);
+		////		Vector3 rotationAxis = Vector::Cross(forwarddir, desiredDirection);
+		////		float angle = acos(Vector::Dot(forwarddir, desiredDirection)); // Angle in radians
 
-		//		if (angle > 0.01f) { // Apply torque only if there's a meaningful angle
-		//			float torqueScale = 2.0f; // Arbitrary scale for control
-		//			Vector3 torque = rotationAxis * angle * torqueScale;
-		//			playerObject->GetPhysicsObject()->AddTorque(torque);
-		//		}
-		//	}
+		////		if (angle > 0.01f) { // Apply torque only if there's a meaningful angle
+		////			float torqueScale = 2.0f; // Arbitrary scale for control
+		////			Vector3 torque = rotationAxis * angle * torqueScale;
+		////			playerObject->GetPhysicsObject()->AddTorque(torque);
+		////		}
+		////	}
 
-		}
-		else {
+		//}
+		//else {
 
-			playerObject->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
-			playerObject->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
+		//	playerObject->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
+		//	playerObject->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
 
-		}
+		//}
 	} 
 }
 
@@ -387,7 +387,7 @@ void TutorialGame::InitCamera() {
 
 	// Set initial top-down position and orientation
 	world->GetMainCamera().SetPosition(Vector3(0, 20, 0)); // Initial position
-	world->GetMainCamera().SetPitch(-90.0f);               // Look straight down
+	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 	lockedObject = nullptr;
 }
@@ -457,7 +457,7 @@ void TutorialGame::InitWorld() {
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
 	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
-	AddcylinderToWorld(Vector3(2, 7, 5));
+	AddcylinderToWorld(Vector3(2, 2, 8));
 	AddSphereToWorld(Vector3(2, 1, 5),1);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -649,7 +649,7 @@ GameObject* TutorialGame::AddPlayerToWorld(const Vector3& position) {
 		.SetScale(Vector3(meshSize, meshSize, meshSize))
 		.SetPosition(position);
 
-	character->SetRenderObject(new RenderObject(&character->GetTransform(), catMesh, nullptr, basicShader));
+	character->SetRenderObject(new RenderObject(&character->GetTransform(), enemyMesh, nullptr, basicShader));
 	character->SetPhysicsObject(new PhysicsObject(&character->GetTransform(), character->GetBoundingVolume()));
 
 	character->GetPhysicsObject()->SetInverseMass(inverseMass);
