@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Install script for directory: D:/D_Project/cpp/CSC8508_project
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project
+>>>>>>> Stashed changes
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project
 >>>>>>> Stashed changes
@@ -39,7 +43,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   include("D:/D_Project/cpp/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
+=======
+  include("C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
+>>>>>>> Stashed changes
 =======
   include("C:/TeamProject/MainRep/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
 >>>>>>> Stashed changes
@@ -48,7 +56,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   include("D:/D_Project/cpp/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
+=======
+  include("C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
+>>>>>>> Stashed changes
 =======
   include("C:/TeamProject/MainRep/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
 >>>>>>> Stashed changes
@@ -57,7 +69,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   include("D:/D_Project/cpp/CSC8508_project/OpenGLRendering/cmake_install.cmake")
+=======
+  include("C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/cmake_install.cmake")
+>>>>>>> Stashed changes
 =======
   include("C:/TeamProject/MainRep/CSC8508_project/OpenGLRendering/cmake_install.cmake")
 >>>>>>> Stashed changes
@@ -66,7 +82,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   include("D:/D_Project/cpp/CSC8508_project/CSC8503/cmake_install.cmake")
+=======
+  include("C:/TeamProject/MainRep/CSC8508_project/CSC8503/cmake_install.cmake")
+>>>>>>> Stashed changes
 =======
   include("C:/TeamProject/MainRep/CSC8508_project/CSC8503/cmake_install.cmake")
 >>>>>>> Stashed changes
@@ -81,7 +101,11 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 file(WRITE "D:/D_Project/cpp/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "C:/TeamProject/MainRep/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> Stashed changes
 =======
 file(WRITE "C:/TeamProject/MainRep/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
 >>>>>>> Stashed changes

@@ -3,10 +3,17 @@
   <ProjectOutputs>
     <ProjectOutput>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <FullPath>D:\D_Project\cpp\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\D_Project\cpp\CSC8508_project\x64\Debug\CSC8503.exe</FullPath>
+=======
+      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\CSC8503.exe</FullPath>
+>>>>>>> Stashed changes
 =======
       <FullPath>C:\TeamProject\MainRep\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>

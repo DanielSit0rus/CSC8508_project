@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Install script for directory: D:/D_Project/cpp/CSC8508_project/CSC8503
+=======
+# Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
+>>>>>>> Stashed changes
 =======
 # Install script for directory: C:/TeamProject/MainRep/CSC8508_project/CSC8503
 >>>>>>> Stashed changes

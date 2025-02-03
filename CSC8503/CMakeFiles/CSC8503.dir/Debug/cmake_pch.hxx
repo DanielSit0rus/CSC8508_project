@@ -15,16 +15,22 @@
 #include <chrono>
 #include <sstream>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
 #include "D:/D_Project/cpp/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
 =======
+=======
+>>>>>>> Stashed changes
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
 #include "C:/TeamProject/MainRep/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 #endif // __cplusplus

@@ -480,7 +480,11 @@ void TutorialGame::InitWorld() {
 	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	AddcylinderToWorld(Vector3(2, 7, 5));
+=======
+	AddcylinderToWorld(Vector3(1, 6, 7));
+>>>>>>> Stashed changes
 =======
 	AddcylinderToWorld(Vector3(1, 6, 7));
 >>>>>>> Stashed changes
