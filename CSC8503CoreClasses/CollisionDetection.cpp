@@ -327,17 +327,24 @@ bool CollisionDetection::AABBCapsuleIntersection(
 	const CapsuleVolume& volumeA, const Transform& worldTransformA,
 	const AABBVolume& volumeB, const Transform& worldTransformB, CollisionInfo& collisionInfo) {
 
-	Vector3 up = worldTransformA.GetOrientation() * Vector3(0, 0, 0);
-	Vector3 capsuleStart = worldTransformA.GetPosition() + up * volumeA.GetHalfHeight();
-	Vector3 capsuleEnd = worldTransformA.GetPosition() - up * volumeA.GetHalfHeight();
+	Vector3 up = worldTransformA.GetOrientation() * Vector3(0, 1, 0);  // Capsule's up vector based on orientation
+	Vector3 capsuleStart = worldTransformA.GetPosition() + up * volumeA.GetHalfHeight(); // Capsule top
+	Vector3 capsuleEnd = worldTransformA.GetPosition() - up * volumeA.GetHalfHeight();   // Capsule bottom
 
+	// AABB bounds
 	Vector3 boxCenter = worldTransformB.GetPosition();
 	Vector3 boxHalfSizes = volumeB.GetHalfDimensions();
+	Vector3 boxMin = boxCenter - boxHalfSizes;
+	Vector3 boxMax = boxCenter + boxHalfSizes;
 
-	Vector3 closestOnAABBStart = Maths::Clamp(capsuleStart, boxCenter - boxHalfSizes, boxCenter + boxHalfSizes);
-	Vector3 closestOnAABBEnd = Maths::Clamp(capsuleEnd, boxCenter - boxHalfSizes, boxCenter + boxHalfSizes);
+	// Calculate the closest points on the capsule
+	Vector3 closestOnAABBStart = Maths::Clamp(capsuleStart, boxMin, boxMax);
+	Vector3 closestOnAABBEnd = Maths::Clamp(capsuleEnd, boxMin, boxMax);
 
+	// Direction vector of the capsule
 	Vector3 d = capsuleEnd - capsuleStart;
+
+	// Calculate closest point on the capsule for both start and end
 	float tStart = Vector::Dot(closestOnAABBStart - capsuleStart, d) / Vector::Dot(d, d);
 	tStart = std::max(0.0f, std::min(1.0f, tStart));
 	Vector3 closestPointStart = capsuleStart + d * tStart;
@@ -346,14 +353,17 @@ bool CollisionDetection::AABBCapsuleIntersection(
 	tEnd = std::max(0.0f, std::min(1.0f, tEnd));
 	Vector3 closestPointEnd = capsuleStart + d * tEnd;
 
-
+	// Calculate the distance from the closest point to the AABB
 	float distStart = Vector::Length(closestPointStart - closestOnAABBStart);
 	float distEnd = Vector::Length(closestPointEnd - closestOnAABBEnd);
 
+	// Check if the capsule intersects with the AABB
 	if (distStart <= volumeA.GetRadius() || distEnd <= volumeA.GetRadius()) {
 
+		// Default collision normal if nothing is calculated yet
 		Vector3 collisionNormal;
 		float penetrationDepth;
+
 		if (distStart <= distEnd) {
 			collisionNormal = Vector::Normalise(closestOnAABBStart - closestPointStart);
 			penetrationDepth = volumeA.GetRadius() - distStart;
@@ -363,6 +373,19 @@ bool CollisionDetection::AABBCapsuleIntersection(
 			penetrationDepth = volumeA.GetRadius() - distEnd;
 		}
 
+		// Handle special case if capsule is nearly horizontal (falling sideways)
+		if (fabs(Vector::Dot(collisionNormal, Vector3(0, 1, 0))) < 0.2f) {
+			// If capsule is not upright, prefer a collision along the X or Z axis
+			if (fabs(collisionNormal.x) > fabs(collisionNormal.z)) {
+				collisionNormal = Vector3(collisionNormal.x, 0, 0);  // Prefer X-axis
+			}
+			else {
+				collisionNormal = Vector3(0, 0, collisionNormal.z);  // Prefer Z-axis
+			}
+			collisionNormal = Vector::Normalise(collisionNormal);
+		}
+
+		// Add the contact point for collision information
 		collisionInfo.AddContactPoint(closestPointStart, closestOnAABBStart, collisionNormal, penetrationDepth);
 		return true;
 	}

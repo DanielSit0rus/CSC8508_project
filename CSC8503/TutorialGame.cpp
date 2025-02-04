@@ -243,7 +243,11 @@ void TutorialGame::UpdateKeys() {
 		Quaternion yawRotation = Quaternion::Quaternion(Vector3(0, 1, 0), yaw);
 		Quaternion pitchRotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), pitch);
 		//Quaternion finalRotation = yawRotation * pitchRotation;
-		playerObject->GetTransform().SetOrientation(yawRotation);
+		Quaternion currentRotation = playerObject->GetTransform().GetOrientation();
+		Quaternion targetRotation = yawRotation * pitchRotation;
+		Quaternion smoothRotation = Quaternion::Slerp(currentRotation, targetRotation, 0.5f);
+
+		playerObject->GetTransform().SetOrientation(smoothRotation);
 
 		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
 		Matrix4 camWorld = Matrix::Inverse(view);
@@ -451,7 +455,7 @@ void TutorialGame::InitWorld() {
 	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
 	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
 	//InitGameExamples();
-	playerObject = AddPlayerToWorld(Vector3(2, 1, 2));
+	playerObject = AddPlayerToWorld(Vector3(2, 2, 2));
 	//kittenObject1 = AddKitttenToWorld(Vector3(2, 2, 5));
 	AddStateObjectToWorld(Vector3(6, 1, 22), playerObject);
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
@@ -638,18 +642,18 @@ GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimens
 
 GameObject* TutorialGame::AddPlayerToWorld(const Vector3& position) {
 	float meshSize		= 1.0f;
-	float inverseMass	= 0.5f;
+	float inverseMass	= 1.0f;
 
 	GameObject* character = new GameObject("MAMA_CAT");
-	SphereVolume* volume  = new SphereVolume(0.4f);
+	AABBVolume* volume = new AABBVolume(Vector3(0.5f, 1.5f, 0.5f));
 
 	character->SetBoundingVolume((CollisionVolume*)volume);
 
 	character->GetTransform()
-		.SetScale(Vector3(meshSize, meshSize, meshSize))
+		.SetScale(Vector3(0.5f, 1.5f, 0.5f))
 		.SetPosition(position);
 
-	character->SetRenderObject(new RenderObject(&character->GetTransform(), enemyMesh, nullptr, basicShader));
+	character->SetRenderObject(new RenderObject(&character->GetTransform(), cubeMesh, nullptr, basicShader));
 	character->SetPhysicsObject(new PhysicsObject(&character->GetTransform(), character->GetBoundingVolume()));
 
 	character->GetPhysicsObject()->SetInverseMass(inverseMass);
@@ -772,7 +776,7 @@ GameObject* TutorialGame::AddcylinderToWorld(const Vector3& position) {
 	apple->SetRenderObject(new RenderObject(&apple->GetTransform(), capsuleMesh, nullptr, basicShader));
 	apple->SetPhysicsObject(new PhysicsObject(&apple->GetTransform(), apple->GetBoundingVolume()));
 
-	apple->GetPhysicsObject()->SetInverseMass(1.0f);
+	apple->GetPhysicsObject()->SetInverseMass(10.0f);
 	apple->GetPhysicsObject()->InitSphereInertia();
 	apple->GetRenderObject()->SetColour(Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 	world->AddGameObject(apple);
