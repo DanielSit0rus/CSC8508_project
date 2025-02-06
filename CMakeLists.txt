@@ -71,6 +71,54 @@ if(MSVC)
     add_compile_definitions("WIN32_LEAN_AND_MEAN")  
 endif()
 
+################################################################################
+# FMOD Setup
+################################################################################
+# Set root path of FMOD
+set(FMOD_CORE_ROOT "${CMAKE_SOURCE_DIR}/SDK/FMOD Studio API Windows/api/core")
+set(FMOD_FSBANK_ROOT "${CMAKE_SOURCE_DIR}/SDK/FMOD Studio API Windows/api/fsbank")
+set(FMOD_STUDIO_ROOT "${CMAKE_SOURCE_DIR}/SDK/FMOD Studio API Windows/api/studio")
+
+# Set include path of FMOD
+include_directories(
+    ${FMOD_CORE_ROOT}/inc
+    ${FMOD_FSBANK_ROOT}/inc
+    ${FMOD_STUDIO_ROOT}/inc
+)
+
+# Set library path of FMOD
+link_directories(
+    ${FMOD_CORE_ROOT}/lib/x64
+    ${FMOD_FSBANK_ROOT}/lib/x64
+    ${FMOD_STUDIO_ROOT}/lib/x64
+)
+
+# set library file of FMOD
+set(FMOD_CORE_LIB fmod)            	# FMOD CORE lib
+set(FMOD_FSBANK_LIB fsbank)  		# FMOD Studio lib
+set(FMOD_STUDIO_LIB fmodstudio)  	# FMOD Studio lib
+
+################################################################################
+# ReactPhysics3D Setup
+################################################################################
+# set ReactPhysics3D root path
+set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
+include_directories(${ReactPhysics3D_ROOT}/include)
+
+# set ReactPhysics3D lib path
+link_directories(${ReactPhysics3D_ROOT}/lib)
+
+# set ReactPhysics3D lib name
+set(ReactPhysics3D_Lib reactphysics3d)
+
+# Visual Studio
+if(MSVC)
+    # Debug mode path
+    set(DEBUG_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Debug/${ReactPhysics3D_Lib}.lib")
+    
+    # Release mode path
+    set(RELEASE_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Release/${ReactPhysics3D_Lib}.lib")
+endif()
 
 ################################################################################
 # Sub-projects

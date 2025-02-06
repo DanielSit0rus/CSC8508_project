@@ -290,7 +290,7 @@ namespace NCL::Maths {
 
         template <typename T, uint32_t n>
         T Length(const VectorTemplate<T, n>& a) {
-            return std::sqrt(LengthSquared(a));
+            return sqrt(LengthSquared(a));
         }
 
         template <typename T, uint32_t n>
