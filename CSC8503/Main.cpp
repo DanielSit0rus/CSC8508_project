@@ -26,12 +26,17 @@
 
 #include <string>
 
+#include "AudioSystem.h"
+#include "EventManager.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
 #include <chrono>
 #include <thread>
 #include <sstream>
+
+AudioSystem& audioSystem = AudioSystem::GetInstance();
 
 vector <Vector3> testNodes;
 
@@ -490,8 +495,9 @@ protected:
 };
 
 
-
 int main() {
+	audioSystem.Init();
+
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
@@ -514,6 +520,8 @@ int main() {
 	//TestPathfinding();
 	TestNetworking();
 	
+	EventManager::Trigger(GameEventType::Game_Start);
+
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
 		float dt = w->GetTimer().GetTimeDeltaSeconds();
 		//TestStateMachine();
@@ -556,6 +564,12 @@ int main() {
 		}
 		g->UpdateGame(dt);
 		gamescore = g->getscore();
+
+		audioSystem.Update();
 	} 
+	EventManager::Trigger(GameEventType::Game_End);
+	audioSystem.Release();
+
+
 	Window::DestroyGameWindow();
 }
