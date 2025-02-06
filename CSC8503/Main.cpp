@@ -29,6 +29,8 @@
 #include "AudioSystem.h"
 #include "EventManager.h"
 
+#include "reactphysics3d/reactphysics3d.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -494,8 +496,16 @@ protected:
 	float pauseReminder = 1.0f;
 };
 
+int TestReactPhysics3d() {
+	reactphysics3d::PhysicsCommon physicsCommon;
+	reactphysics3d::PhysicsWorld* world = physicsCommon.createPhysicsWorld();
+	reactphysics3d::SphereShape* sphereShape = physicsCommon.createSphereShape(1);
+	return 0;
+}
 
 int main() {
+	//return TestReactPhysics3d();
+
 	audioSystem.Init();
 
 	WindowInitialisation initInfo;

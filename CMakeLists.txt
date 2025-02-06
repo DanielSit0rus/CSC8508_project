@@ -94,9 +94,31 @@ link_directories(
 )
 
 # set library file of FMOD
-set(FMOD_CORE_LIB fmod)            # FMOD CORE lib
-set(FMOD_FSBANK_LIB fsbank)  # FMOD Studio lib
-set(FMOD_STUDIO_LIB fmodstudio)  # FMOD Studio lib
+set(FMOD_CORE_LIB fmod)            	# FMOD CORE lib
+set(FMOD_FSBANK_LIB fsbank)  		# FMOD Studio lib
+set(FMOD_STUDIO_LIB fmodstudio)  	# FMOD Studio lib
+
+################################################################################
+# ReactPhysics3D Setup
+################################################################################
+# set ReactPhysics3D root path
+set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
+include_directories(${ReactPhysics3D_ROOT}/include)
+
+# set ReactPhysics3D lib path
+link_directories(${ReactPhysics3D_ROOT}/lib)
+
+# set ReactPhysics3D lib name
+set(ReactPhysics3D_Lib reactphysics3d)
+
+# Visual Studio
+if(MSVC)
+    # Debug mode path
+    set(DEBUG_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Debug/${ReactPhysics3D_Lib}.lib")
+    
+    # Release mode path
+    set(RELEASE_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Release/${ReactPhysics3D_Lib}.lib")
+endif()
 
 ################################################################################
 # Sub-projects
