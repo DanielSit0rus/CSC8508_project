@@ -17,7 +17,7 @@ GameTechRenderer::GameTechRenderer(GameWorld& world) : OGLRenderer(*Window::GetW
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
-	Light light1(Vector3(10, 20, 10), Vector4(1, 0, 0, 1), 50.0f);
+	Light light1(Vector3(10, 20, 10), Vector4(1, 1, 1, 1), 50.0f);
 	AddLight(light1);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
