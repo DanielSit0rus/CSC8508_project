@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503
-=======
-# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/CSC8503
->>>>>>> george
+# Install script for directory: D:/D_Project/cpp/CSC8508_project/CSC8503
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

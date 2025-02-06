@@ -1,18 +1,32 @@
-<<<<<<< HEAD
-﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503/CMakeLists.txt
+﻿  Building Custom Rule D:/D_Project/cpp/CSC8508_project/CSC8503/CMakeLists.txt
   cmake_pch.cxx
+  AudioSystem.cpp
+  EventManager.cpp
   GameTechRenderer.cpp
+D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GameTechRenderer.cpp”)
+  
+  Light.cpp
   Main.cpp
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\Main.cpp(103,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\Main.cpp(203,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“Main.cpp”)
+  
+D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(108,28): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\D_Project\cpp\CSC8508_project\CSC8503\Main.cpp(208,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
   NetworkPlayer.cpp
+D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“NetworkPlayer.cpp”)
+  
   NetworkedGame.cpp
+D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“NetworkedGame.cpp”)
+  
   StateGameObject.cpp
   TutorialGame.cpp
-  Generating Code...
-  CSC8503.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503.exe
-=======
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  GameTechRenderer.cpp
-  CSC8503.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\CSC8503.exe
->>>>>>> george
+D:\D_Project\cpp\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“TutorialGame.cpp”)
+  
+  正在生成代码...
+  CSC8503.vcxproj -> D:\D_Project\cpp\CSC8508_project\x64\Debug\CSC8503.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
