@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeLists.txt
+=======
+﻿  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering/CMakeLists.txt
+>>>>>>> george
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
@@ -12,4 +16,8 @@
   OGLComputeShader.cpp
   gl.h
   gl.c
+<<<<<<< HEAD
   OpenGLRendering.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+=======
+  OpenGLRendering.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+>>>>>>> george

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\GameTechRenderer.cpp;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameTechRenderer.obj
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\Main.cpp;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\Main.obj
@@ -5,3 +6,13 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\NetworkedGame.cpp;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkedGame.obj
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\StateGameObject.cpp;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\StateGameObject.obj
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\TutorialGame.cpp;C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
+=======
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\Light.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\Light.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\GameTechRenderer.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameTechRenderer.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\Main.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\Main.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\NetworkPlayer.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkPlayer.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\NetworkedGame.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkedGame.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\StateGameObject.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\StateGameObject.obj
+D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\TutorialGame.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
+>>>>>>> george

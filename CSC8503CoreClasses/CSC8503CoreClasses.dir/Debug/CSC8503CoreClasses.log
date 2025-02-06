@@ -80,4 +80,8 @@
   protocol.c
   win32.h
   win32.c
+<<<<<<< HEAD
   CSC8503CoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+=======
+  CSC8503CoreClasses.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+>>>>>>> george
