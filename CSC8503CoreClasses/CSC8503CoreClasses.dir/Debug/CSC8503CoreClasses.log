@@ -10,30 +10,30 @@
   GameWorld.cpp
   RenderObject.cpp
   Transform.cpp
+  AABBVolume.h
   BehaviourAction.h
   BehaviourNode.h
   BehaviourNodeWithChildren.h
-  State.h
-  StateTransition.h
+  CollisionVolume.h
+  Constraint.h
   NavigationMap.h
   NavigationPath.h
-  AABBVolume.h
-  CollisionVolume.h
   OBBVolume.h
   Ray.h
   SphereVolume.h
-  Constraint.h
+  State.h
+  StateTransition.h
   callbacks.c
-  enet.h
-  time.h
-  types.h
-  utility.h
   compress.c
+  enet.h
   host.c
-  Generating Code...
-  Compiling...
   packet.c
   peer.c
+  time.h
+  Generating Code...
+  Compiling...
+  types.h
+  utility.h
   Generating Code...
   BehaviourSelector.h
   BehaviourSelector.cpp

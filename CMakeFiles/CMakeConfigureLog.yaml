@@ -24,7 +24,7 @@ events:
       The output was:
       0
       閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.12.12+1cce77968
-      鐢熸垚鍚姩鏃堕棿涓?2025/1/30 15:50:59銆?
+      鐢熸垚鍚姩鏃堕棿涓?2025/2/6 0:40:15銆?
       
       鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\3.28.0-rc5\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
       PrepareForBuild:
@@ -62,7 +62,7 @@ events:
           0 涓鍛?
           0 涓敊璇?
       
-      宸茬敤鏃堕棿 00:00:00.90
+      宸茬敤鏃堕棿 00:00:00.94
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -81,8 +81,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-buetrt"
-      binary: "D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-buetrt"
+      source: "D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-c51d7v"
+      binary: "D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-c51d7v"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -91,49 +91,49 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-buetrt'
+        Change Dir: 'D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-c51d7v'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_510ad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b1654.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.12.12+1cce77968
-        鐢熸垚鍚姩鏃堕棿涓?2025/1/30 15:51:01銆?
+        鐢熸垚鍚姩鏃堕棿涓?2025/2/6 0:40:16銆?
         
-        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\cmTC_510ad.vcxproj鈥?榛樿鐩爣)銆?
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\cmTC_b1654.vcxproj鈥?榛樿鐩爣)銆?
         PrepareForBuild:
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_510ad.dir\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b1654.dir\\Debug\\鈥濄€?
           宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
-          姝ｅ湪鍒涘缓鐩綍鈥淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\鈥濄€?
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\鈥濄€?
         InitializeBuildStatus:
-          姝ｅ湪鍒涘缓鈥渃mTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
-          姝ｅ湪瀵光€渃mTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+          姝ｅ湪鍒涘缓鈥渃mTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "D:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Release"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_510ad.dir\\Debug\\\\" /Fd"cmTC_510ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b1654.dir\\Debug\\\\" /Fd"cmTC_b1654.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
           鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.42.34436 鐗?
           鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
-          cl /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_510ad.dir\\Debug\\\\" /Fd"cmTC_510ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b1654.dir\\Debug\\\\" /Fd"cmTC_b1654.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\cmTC_510ad.exe" /INCREMENTAL /ILK:"cmTC_510ad.dir\\Debug\\cmTC_510ad.ilk" /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-buetrt/Debug/cmTC_510ad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-buetrt/Debug/cmTC_510ad.lib" /MACHINE:X64  /machine:x64 cmTC_510ad.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_510ad.vcxproj -> D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\cmTC_510ad.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\cmTC_b1654.exe" /INCREMENTAL /ILK:"cmTC_b1654.dir\\Debug\\cmTC_b1654.ilk" /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-c51d7v/Debug/cmTC_b1654.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/D_Project/cpp/CSC8508_project/CMakeFiles/CMakeScratch/TryCompile-c51d7v/Debug/cmTC_b1654.lib" /MACHINE:X64  /machine:x64 cmTC_b1654.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_b1654.vcxproj -> D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\cmTC_b1654.exe
         AppLocalFromInstalled:
-          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\cmTC_510ad.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\cmTC_510ad.write.1u.tlog" "cmTC_510ad.dir\\Debug\\vcpkg.applocal.log"
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\cmTC_b1654.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\cmTC_b1654.write.1u.tlog" "cmTC_b1654.dir\\Debug\\vcpkg.applocal.log"
           'pwsh.exe' 涓嶆槸鍐呴儴鎴栧閮ㄥ懡浠わ紝涔熶笉鏄彲杩愯鐨勭▼搴?
           鎴栨壒澶勭悊鏂囦欢銆?
-          鍛戒护鈥減wsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\cmTC_510ad.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\cmTC_510ad.write.1u.tlog" "cmTC_510ad.dir\\Debug\\vcpkg.applocal.log"鈥濆凡閫€鍑猴紝浠ｇ爜涓?9009銆?
-          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\Debug\\cmTC_510ad.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\cmTC_510ad.write.1u.tlog" "cmTC_510ad.dir\\Debug\\vcpkg.applocal.log"
+          鍛戒护鈥減wsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\cmTC_b1654.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\cmTC_b1654.write.1u.tlog" "cmTC_b1654.dir\\Debug\\vcpkg.applocal.log"鈥濆凡閫€鍑猴紝浠ｇ爜涓?9009銆?
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\Debug\\cmTC_b1654.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "cmTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\cmTC_b1654.write.1u.tlog" "cmTC_b1654.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\unsuccessfulbuild鈥濄€?
-          姝ｅ湪瀵光€渃mTC_510ad.dir\\Debug\\cmTC_510ad.tlog\\cmTC_510ad.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-        宸插畬鎴愮敓鎴愰」鐩€淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-buetrt\\cmTC_510ad.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b1654.dir\\Debug\\cmTC_b1654.tlog\\cmTC_b1654.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\D_Project\\cpp\\CSC8508_project\\CMakeFiles\\CMakeScratch\\TryCompile-c51d7v\\cmTC_b1654.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
         
         宸叉垚鍔熺敓鎴愩€?
             0 涓鍛?
             0 涓敊璇?
         
-        宸茬敤鏃堕棿 00:00:00.86
+        宸茬敤鏃堕棿 00:00:00.87
         
       exitCode: 0
 ...

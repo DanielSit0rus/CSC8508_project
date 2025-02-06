@@ -26,6 +26,9 @@
 
 #include <string>
 
+#include "AudioSystem.h"
+#include "EventManager.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -33,8 +36,7 @@ using namespace CSC8503;
 #include <thread>
 #include <sstream>
 
-#include <fmod_studio.hpp>
-#pragma comment(lib, "fmodstudio_vc.lib")// link FMOD-Studio lib
+AudioSystem& audioSystem = AudioSystem::GetInstance();
 
 vector <Vector3> testNodes;
 
@@ -492,48 +494,9 @@ protected:
 	float pauseReminder = 1.0f;
 };
 
-//FMOD Audio Test (It will be encapsulated into an audio system class later)
-FMOD::Studio::System* studioSystem = nullptr;
-FMOD::Studio::Bank* masterBank = nullptr;
-FMOD::Studio::Bank* stringsBank = nullptr;
-FMOD::Studio::Bank* bgmBank = nullptr;
-FMOD::Studio::Bank* linBank = nullptr;
-FMOD::Studio::EventDescription* eventDescription = nullptr;
-FMOD::Studio::EventInstance* eventInstance = nullptr;
-void TestFmodStudioStart() {
-	FMOD::Studio::System::create(&studioSystem);
-	studioSystem->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr);
-
-	studioSystem->loadBankFile("../Assets/Sounds/Banks/Master.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank);
-	studioSystem->loadBankFile("../Assets/Sounds/Banks/Master.strings.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank);
-	studioSystem->loadBankFile("../Assets/Sounds/Banks/BGM.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &bgmBank);
-	studioSystem->loadBankFile("../Assets/Sounds/Banks/Lin.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &linBank);
-
-	studioSystem->getEvent("event:/BGM/BGM1", &eventDescription);
-	eventDescription->createInstance(&eventInstance);
-	eventInstance->start();
-}
-void TestFmodStudioUpdate() {
-	studioSystem->update();
-}
-void TestFmodStudioPause(bool isPaused) {
-	eventInstance->setPaused(isPaused);
-}
-void TestFmodStudioEnd() {
-	if (eventInstance)
-	{
-		eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-		eventInstance->release();
-		eventInstance = nullptr;
-	}
-
-	masterBank->unload();
-	stringsBank->unload();
-	studioSystem->release();
-}
 
 int main() {
-	TestFmodStudioStart();
+	audioSystem.Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -557,6 +520,8 @@ int main() {
 	//TestPathfinding();
 	TestNetworking();
 	
+	EventManager::Trigger(GameEventType::Game_Start);
+
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
 		float dt = w->GetTimer().GetTimeDeltaSeconds();
 		//TestStateMachine();
@@ -600,9 +565,11 @@ int main() {
 		g->UpdateGame(dt);
 		gamescore = g->getscore();
 
-		TestFmodStudioUpdate();
-		TestFmodStudioPause(paused);
+		audioSystem.Update();
 	} 
+	EventManager::Trigger(GameEventType::Game_End);
+	audioSystem.Release();
+
+
 	Window::DestroyGameWindow();
-	TestFmodStudioEnd();
 }
