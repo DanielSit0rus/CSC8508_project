@@ -24,6 +24,8 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	renderer->InitStructures();
 #else 
 	renderer = new GameTechRenderer(*world);
+	
+	//renderer->AddLight(light1);
 #endif
 	physics		= new PhysicsSystem(*world);
 	//PushMachine = new PushdownMachine(new gameScreen());
@@ -463,6 +465,8 @@ void TutorialGame::InitWorld() {
 
 	AddcylinderToWorld(Vector3(1, 6, 8));
 	AddSphereToWorld(Vector3(2, 1, 5),1);
+	Light light2(Vector3(2, 1, 5), Vector4(0, 1, 0, 1), 1.0f);
+	renderer->AddLight(light2);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 	GooseObject = AddGooseToWorld(Vector3(10, 2, 10), playerObject);
