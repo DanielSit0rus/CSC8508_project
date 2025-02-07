@@ -1,4 +1,4 @@
-# Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering
+# Install script for directory: F:/Gameprojects/CSC8508_project/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
