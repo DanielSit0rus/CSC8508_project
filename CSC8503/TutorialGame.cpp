@@ -9,11 +9,8 @@
 #include "OrientationConstraint.h"
 #include "StateGameObject.h"
 
-
-
 using namespace NCL;
 using namespace CSC8503;
-
 
 
 TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *Window::GetWindow()->GetMouse()) {
@@ -27,10 +24,13 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	
 	//renderer->AddLight(light1);
 #endif
+
+	RpWorld = physicsCommon.createPhysicsWorld(RpSettings);		//rp3d
+
 	physics		= new PhysicsSystem(*world);
 	//PushMachine = new PushdownMachine(new gameScreen());
 
-	forceMagnitude	= 10.0f;
+	forceMagnitude	= 60.0f;
 	useGravity		= false;
 	inSelectionMode = false;
 
@@ -67,8 +67,8 @@ void TutorialGame::InitialiseAssets() {
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
 
-	InitCamera();
 	InitWorld();
+	InitCamera();
 }
 
 TutorialGame::~TutorialGame()	{
@@ -100,8 +100,14 @@ bool TutorialGame::UnpauseGame() {
 
 void TutorialGame::UpdateGame(float dt) {
 
-
 	Debug::Print("Score : " + std::to_string(physics->score), Vector2(5, 90));
+
+	const Vector3& pos = (lockedObject) ?
+		lockedObject->GetTransform().GetPosition() : world->GetMainCamera().GetPosition();
+	std::string posString = std::to_string((int)pos.x) + ", "
+		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
+	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
+
 	if (pause) {
 		// Only update the PushMachine and render the current frame.
 		//PushMachine->Update(dt);
@@ -109,24 +115,16 @@ void TutorialGame::UpdateGame(float dt) {
 		return; // Skip the rest of the game updates.
 	}
 
-
-	if (!inSelectionMode) {
-		world->GetMainCamera().UpdateCamera(dt);
-	}
-	if (lockedObject != nullptr) {
+	if (lockedObject) {
 		Vector3 objPos = lockedObject->GetTransform().GetPosition();
 		Vector3 camPos = objPos + lockedOffset;
 
-		Matrix4 temp = Matrix::View(camPos, objPos, Vector3(0,1,0));
-
-		Matrix4 modelMat = Matrix::Inverse(temp);
-
-		Quaternion q(modelMat);
-		Vector3 angles = q.ToEuler(); //nearly there now!
-
+		world->GetMainCamera().UpdateCamera();
 		world->GetMainCamera().SetPosition(camPos);
-		world->GetMainCamera().SetPitch(angles.x);
-		world->GetMainCamera().SetYaw(angles.y);
+	}
+	else
+	{
+		world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
 	}
 
 	if (!kittens.empty()) {
@@ -180,9 +178,19 @@ void TutorialGame::UpdateGame(float dt) {
 	SelectObject();
 	MoveSelectedObject();
 
+	for (auto& obj : objList_rp3d) {
+		rp3d::Transform cubeTransform = obj->rigidBody->getTransform();
+		rp3d::Vector3 posTest = cubeTransform.getPosition();
+		obj->GetTransform().SetPosition(Vector3(posTest.x, posTest.y, posTest.z));
+		rp3d::Quaternion oriTest = cubeTransform.getOrientation();
+		obj->GetTransform().SetOrientation(Quaternion(oriTest.x, oriTest.y, oriTest.z, oriTest.w));
+	}
+
 	world->UpdateWorld(dt);
 	renderer->Update(dt);
 	physics->Update(dt);
+
+	RpWorld->update(dt);	//rp3d
 
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
@@ -227,8 +235,7 @@ void TutorialGame::UpdateKeys() {
 		DebugObjectMovement();
 	}
 
-	if (playerObject) {
-
+	if (lockedObject==playerObject) {
 
 		Vector3 playerPos = playerObject->GetTransform().GetPosition();
 		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
@@ -290,8 +297,8 @@ void TutorialGame::UpdateKeys() {
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
 			movement += rightAxis * moveSpeed;
 		}
-
 		playerObject->GetTransform().SetPosition(playerPosition + movement);
+
 		// Apply movement force
 		//if (Vector::Length(movement) > 0.0f) {
 		////	playerObject->GetPhysicsObject()->AddForce(movement);
@@ -395,7 +402,10 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetPosition(Vector3(0, 20, 0)); // Initial position
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
+
 	lockedObject = nullptr;
+	selectionObject = nullptr;
+	forceMagnitude = 60.0f;
 }
 
 void TutorialGame::runKittenAI()
@@ -457,7 +467,12 @@ void TutorialGame::InitWorld() {
 	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
 	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
 	//InitGameExamples();
+
 	playerObject = AddPlayerToWorld(Vector3(2, 2, 2));
+	lockedObject = nullptr;
+	selectionObject = nullptr;
+	forceMagnitude = 60.0f;
+
 	//kittenObject1 = AddKitttenToWorld(Vector3(2, 2, 5));
 	AddStateObjectToWorld(Vector3(6, 1, 22), playerObject);
 	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
@@ -474,6 +489,21 @@ void TutorialGame::InitWorld() {
 	AddGate();
 	homecube = AddCubeToWorld(Vector3(4, 0, -2.0f), Vector3(1, 0.1f, 1), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 	homecube->SetName("home");
+
+
+	//rp3d
+	objList_rp3d.clear();
+	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(0, 15, -30), Vector3(10, 1, 10), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_rp3d.push_back(AddRp3dObjToWorld(Vector3(0, 25, -30), Vector3(1, 1, 1), Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(0, 20, -30), Vector3(5, 1, 5), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	//rp3d
+	float angleInRadians = 30.0f * PI / 180.0f;
+	reactphysics3d::Quaternion rotation = reactphysics3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+	reactphysics3d::Transform currentTransform = objList_rp3d[2]->rigidBody->getTransform();
+	reactphysics3d::Quaternion currentRotation = currentTransform.getOrientation();
+	reactphysics3d::Quaternion newRotation = rotation * currentRotation;
+	currentTransform.setOrientation(newRotation);
+	objList_rp3d[2]->rigidBody->setTransform(currentTransform);
 
 	std::vector<std::vector<int>> mazePattern = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -638,6 +668,70 @@ GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimens
 	cube->GetPhysicsObject()->SetInverseMass(inverseMass);
 	cube->GetPhysicsObject()->InitCubeInertia();
 	cube->GetRenderObject()->SetColour(color);
+
+	world->AddGameObject(cube);
+
+	return cube;
+}
+
+GameObject* TutorialGame::AddRp3dCubeToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass, Vector4 color) {
+	GameObject* cube = new GameObject();
+
+	cube->GetTransform()
+		.SetPosition(position)
+		.SetOrientation(orientation)
+		.SetScale(dimensions * 2.0f);
+
+	cube->SetRenderObject(new RenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
+
+	cube->GetRenderObject()->SetColour(color);
+
+	rp3d::Vector3 pos(position.x, position.y, position.z);
+	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+	// create a rigid body
+	rp3d::Transform transform(pos, ori);
+	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(transform);
+	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
+	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
+	// create BoxShape
+	rp3d::BoxShape* cubeShape = physicsCommon.createBoxShape(halfExtents);
+	// bind BoxShape to rigid body
+	rp3d::Transform shapeTransform = rp3d::Transform::identity();
+	rp3d::Collider* cubeCollider = cubeBody->addCollider(cubeShape, shapeTransform);
+	//add rigid body to gameobject
+	cube->rigidBody = cubeBody;
+
+	world->AddGameObject(cube);
+
+	return cube;
+}
+GameObject* TutorialGame::AddRp3dObjToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass, Vector4 color) {
+	GameObject* cube = new GameObject();
+
+	cube->GetTransform()
+		.SetPosition(position)
+		.SetOrientation(orientation)
+		.SetScale(dimensions * 2.0f);
+
+	cube->SetRenderObject(new RenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
+
+	cube->GetRenderObject()->SetColour(color);
+
+	rp3d::Vector3 pos(position.x, position.y, position.z);
+	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+	// create a rigid body
+	rp3d::Transform transform(pos, ori);
+	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(transform);
+	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
+	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
+	// create Shape
+	//rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
+	rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
+	// bind Shape to rigid body
+	rp3d::Transform shapeTransform = rp3d::Transform::identity();
+	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+	//add rigid body to gameobject
+	cube->rigidBody = cubeBody;
 
 	world->AddGameObject(cube);
 
@@ -861,15 +955,7 @@ letting you move the camera around.
 bool TutorialGame::SelectObject() {
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::Q)) {
-		inSelectionMode = !inSelectionMode;
-		if (inSelectionMode) {
-			Window::GetWindow()->ShowOSPointer(true);
-			Window::GetWindow()->LockMouseToWindow(false);
-		}
-		else {
-			Window::GetWindow()->ShowOSPointer(false);
-			Window::GetWindow()->LockMouseToWindow(true);
-		}
+		FlipSelectMode();
 	}
 	if (inSelectionMode) {
 		Debug::Print("Press Q to change to camera mode!", Vector2(5, 85));
@@ -893,23 +979,40 @@ bool TutorialGame::SelectObject() {
 				return false;
 			}
 		}
-		if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
-			if (selectionObject) {
-				if (lockedObject == selectionObject) {
-					lockedObject = nullptr;
-				}
-				else {
-					lockedObject = selectionObject;
-				}
-			}
-		}
+
 	}
 	else {
 		Debug::Print("Press Q to change to select mode!", Vector2(5, 85));
 	}
+
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
+		if (selectionObject) {
+			if (lockedObject == selectionObject) {
+				lockedObject = nullptr;
+			}
+			else if (selectionObject == playerObject) {
+				lockedObject = selectionObject;
+				if (inSelectionMode) FlipSelectMode();
+			}
+		}
+		else lockedObject = nullptr;
+	}
+
 	return false;
 }
-
+void TutorialGame::FlipSelectMode(){
+	inSelectionMode = !inSelectionMode;
+	if (inSelectionMode) {
+		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
+		Window::GetWindow()->ShowOSPointer(true);
+		Window::GetWindow()->LockMouseToWindow(false);
+	}
+	else {
+		Window::GetWindow()->ShowOSPointer(false);
+		Window::GetWindow()->LockMouseToWindow(true);
+	}
+}
 /*
 If an object has been clicked, it can be pushed with the right mouse button, by an amount
 determined by the scroll wheel. In the first tutorial this won't do anything, as we haven't
@@ -918,8 +1021,8 @@ line - after the third, they'll be able to twist under torque aswell.
 */
 
 void TutorialGame::MoveSelectedObject() {
-	
-	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 100.0f;
+	Debug::Print("Click Force:" + std::to_string(forceMagnitude), Vector2(5, 80));
+	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	if (!selectionObject) {
 		return;//we haven't selected anything!

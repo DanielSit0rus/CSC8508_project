@@ -29,8 +29,6 @@
 #include "AudioSystem.h"
 #include "EventManager.h"
 
-#include "reactphysics3d/reactphysics3d.h"
-
 using namespace NCL;
 using namespace CSC8503;
 
@@ -496,15 +494,7 @@ protected:
 	float pauseReminder = 1.0f;
 };
 
-int TestReactPhysics3d() {
-	reactphysics3d::PhysicsCommon physicsCommon;
-	reactphysics3d::PhysicsWorld* world = physicsCommon.createPhysicsWorld();
-	reactphysics3d::SphereShape* sphereShape = physicsCommon.createSphereShape(1);
-	return 0;
-}
-
 int main() {
-	//return TestReactPhysics3d();
 
 	audioSystem.Init();
 
@@ -521,6 +511,9 @@ int main() {
 		return -1;
 	}	
 
+	w->SetWindowPosition(5, 30);
+	w->ShowConsole(false);
+
 	w->ShowOSPointer(false);
 	w->LockMouseToWindow(true);
 
@@ -528,7 +521,7 @@ int main() {
 	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen());
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
-	TestNetworking();
+	//TestNetworking();
 	
 	EventManager::Trigger(GameEventType::Game_Start);
 
@@ -580,6 +573,8 @@ int main() {
 	EventManager::Trigger(GameEventType::Game_End);
 	audioSystem.Release();
 
+	w->LockMouseToWindow(false);
+	w->ShowConsole(true);
 
 	Window::DestroyGameWindow();
 }

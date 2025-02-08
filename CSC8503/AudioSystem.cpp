@@ -24,10 +24,12 @@ bool AudioSystem::Init()
 
     buses["BGM"]->setVolume(0.15f);
 
+    /*
     EventManager::Subscribe(GameEventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(GameEventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(GameEventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(GameEventType::Game_End, [this]() {StopEvent("event:/BGM/BGM1"); });
+    */
 
     return true;
 }
