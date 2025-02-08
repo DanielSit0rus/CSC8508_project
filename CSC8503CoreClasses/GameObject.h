@@ -2,6 +2,8 @@
 #include "Transform.h"
 #include "CollisionVolume.h"
 
+#include <reactphysics3d/reactphysics3d.h>
+
 using std::vector;
 
 namespace NCL::CSC8503 {
@@ -91,13 +93,15 @@ namespace NCL::CSC8503 {
 
 		bool isFollowing = false;
 
+		rp3d::RigidBody* rigidBody;
+
 	protected:
 		Transform			transform;
 
 		CollisionVolume*	boundingVolume;
 		PhysicsObject*		physicsObject;
 		RenderObject*		renderObject;
-		NetworkObject*		networkObject;
+		NetworkObject*		networkObject;		
 
 		bool		isActive;
 		int			worldID;

@@ -255,7 +255,7 @@ void PhysicsSystem::ImpulseResolveCollision(GameObject& a, GameObject& b, Collis
 	float totalMass = physA -> GetInverseMass() + physB -> GetInverseMass();
 	
 	if (totalMass == 0) {
-		std::cout << "\n mass 0 detected \n";
+		//std::cout << "\n mass 0 detected \n";
 		return; // two static objects ??
 		
 	}
@@ -462,7 +462,8 @@ ones in the next 'game' frame.
 void PhysicsSystem::ClearForces() {
 	gameWorld.OperateOnContents(
 		[](GameObject* o) {
-			o->GetPhysicsObject()->ClearForces();
+			if (o->GetPhysicsObject())
+				o->GetPhysicsObject()->ClearForces();
 		}
 	);
 }

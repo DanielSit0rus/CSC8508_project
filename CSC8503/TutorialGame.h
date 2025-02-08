@@ -14,6 +14,7 @@
 
 #include "PushdownState.h"
 
+#include <reactphysics3d/reactphysics3d.h>
 
 namespace NCL {
 	namespace CSC8503 {
@@ -117,6 +118,12 @@ namespace NCL {
 			GameObject* AddEnemyToWorld(const Vector3& position);
 			GameObject* AddBonusToWorld(const Vector3& position);
 
+			void FlipSelectMode();
+
+			//rp3d
+			GameObject* AddRp3dCubeToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			GameObject* AddRp3dObjToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
 #else
@@ -156,6 +163,13 @@ namespace NCL {
 			}
 
 			GameObject* objClosest = nullptr;
+
+
+			//rp3d
+			rp3d::PhysicsCommon physicsCommon;
+			rp3d::PhysicsWorld* RpWorld = nullptr;
+			rp3d::PhysicsWorld::WorldSettings RpSettings;
+			vector<GameObject*> objList_rp3d;
 		};
 
 	}
