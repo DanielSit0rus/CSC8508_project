@@ -1,5 +1,31 @@
-﻿  Camera.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Camera.cpp')
-  
-  NCLCoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+﻿  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+  cmake_pch.cxx
+  Assets.cpp
+  SimpleFont.cpp
+  TextureLoader.cpp
+  TextureWriter.cpp
+  Maths.cpp
+  Plane.cpp
+  Frustum.cpp
+  Quaternion.cpp
+  MeshAnimation.cpp
+  Mesh.cpp
+  MshLoader.cpp
+  MeshMaterial.cpp
+  RendererBase.cpp
+  Shader.cpp
+  Texture.cpp
+  Camera.cpp
+  GameTimer.cpp
+  Keyboard.cpp
+  Mouse.cpp
+  Window.cpp
+  Generating Code...
+  Compiling...
+  Controller.cpp
+  KeyboardMouseController.cpp
+  Win32Keyboard.cpp
+  Win32Mouse.cpp
+  Win32Window.cpp
+  Generating Code...
+  NCLCoreClasses.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
