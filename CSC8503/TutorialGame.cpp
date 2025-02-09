@@ -85,6 +85,7 @@ TutorialGame::~TutorialGame()	{
 	delete physics;
 	delete renderer;
 	delete world;
+	physicsCommon.destroyPhysicsWorld(RpWorld);
 }
 
 bool TutorialGame::pauseGame(){
@@ -495,7 +496,7 @@ void TutorialGame::InitWorld() {
 	objList_rp3d.clear();
 	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(0, 15, -30), Vector3(10, 1, 10), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_rp3d.push_back(AddRp3dObjToWorld(Vector3(0, 25, -30), Vector3(1, 1, 1), Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(0, 20, -30), Vector3(5, 1, 5), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(1, 20, -30), Vector3(5, 1, 5), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	//rp3d
 	float angleInRadians = 30.0f * PI / 180.0f;
 	reactphysics3d::Quaternion rotation = reactphysics3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
