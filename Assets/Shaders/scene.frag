@@ -10,8 +10,10 @@ uniform sampler2DShadow shadowTex;
 
 struct Light {
     vec3 position;
+    vec3 direction; 
     vec4 color;
     float radius;
+    float cutoff;
 };
 
 uniform int numLights;
@@ -49,22 +51,23 @@ void main(void)
 
     vec3 totalLighting = vec3(0.01f) * shadow; // Ambient light, reduced further
 
-    for (int i = 0; i < numLights; i++) {
-        vec3 incident = normalize(lights[i].position - IN.worldPos);
-        float lambert = max(0.0, dot(incident, IN.normal)) * 0.9; 
+	for (int i = 0; i < numLights; i++) {
+    		vec3 lightDir = normalize(lights[i].position - IN.worldPos);
+    		float distance = length(lights[i].position - IN.worldPos);
+    		float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * (distance * distance));
 
-        vec3 viewDir = normalize(cameraPos - IN.worldPos);
-        vec3 halfDir = normalize(incident + viewDir);
+    		// Spotlight effect
+    		float theta = dot(lightDir, normalize(-lights[i].direction)); // Compare with light direction
+    		float epsilon = lights[i].cutoff - 0.02; // Soft edge cutoff
+    		float spotlightIntensity = clamp((theta - epsilon) / (lights[i].cutoff - epsilon), 0.0, 1.0);
 
-        float rFactor = max(0.0, dot(halfDir, IN.normal));
-        float sFactor = pow(rFactor, 80.0);
+    		float lambert = max(0.0, dot(lightDir, IN.normal));
+    		vec3 viewDir = normalize(cameraPos - IN.worldPos);
+    		vec3 halfDir = normalize(lightDir + viewDir);
+    		float specular = pow(max(dot(halfDir, IN.normal), 0.0), 80.0);
 
-        float distance = length(lights[i].position - IN.worldPos);
-        float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * (distance * distance));
-
-        totalLighting += albedo.rgb * lights[i].color.rgb * lambert * attenuation * shadow; // Apply shadow
-        totalLighting += lights[i].color.rgb * sFactor * attenuation * shadow; // Apply shadow to specular
-    }
+    		totalLighting += (lambert + specular) * lights[i].color.rgb * attenuation * spotlightIntensity * shadow;
+	}
 
     fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0 / 2.2f)); // Gamma correction
     fragColor.a = albedo.a;

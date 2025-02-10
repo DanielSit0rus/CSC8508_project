@@ -481,7 +481,7 @@ void TutorialGame::InitWorld() {
 
 	AddcylinderToWorld(Vector3(1, 6, 8));
 	AddSphereToWorld(Vector3(2, 1, 5),1);
-	Light light2(Vector3(2, 1, 5), Vector4(0, 1, 0, 1), 1.0f);
+	Light light2(Vector3(14, 4, 7), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
 	renderer->AddLight(light2);
 
 	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));

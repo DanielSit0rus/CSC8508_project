@@ -37,7 +37,7 @@ public:
     
    
     void SetPosition(const reactphysics3d::Vector3& newPos);
-    void SetPosition(const Vector3& newPos);
+    //void SetPosition(const Vector3& newPos);
     void SetPosition(const float& x, const float& y, const float& z);
 
     void SetOrientation(const reactphysics3d::Vector3& newRotEulerAngles);

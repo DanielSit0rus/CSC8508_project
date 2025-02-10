@@ -17,7 +17,7 @@ GameTechRenderer::GameTechRenderer(GameWorld& world) : OGLRenderer(*Window::GetW
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
-	Light light1(Vector3(10, 20, 10), Vector4(1, 1, 1, 1), 50.0f);
+	Light light1(Vector3(10, 40, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
 	AddLight(light1);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
@@ -288,15 +288,21 @@ void GameTechRenderer::RenderCamera() {
 
 			for (int i = 0; i < numLights; ++i) {
 				std::string index = std::to_string(i);
+
 				Vector3 pos = lights[i].GetPosition();
-				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + std::to_string(i) + "].position").c_str()), 1, (float*)&pos);
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].position").c_str()), 1, (float*)&pos);
 
 				Vector4 col = lights[i].GetColor();
-				glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + std::to_string(i) + "].color").c_str()), 1, (float*)&col);
-				
+				glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].color").c_str()), 1, (float*)&col);
+
 				float rad = lights[i].GetRadius();
-				
-				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + std::to_string(i) + "].radius").c_str()), lights[i].GetRadius());
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].radius").c_str()), rad);
+
+				Vector3 dir = lights[i].GetDirection(); // New: Spotlight direction
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].direction").c_str()), 1, (float*)&dir);
+
+				float cutoff = cos(lights[i].GetCutoff() * (3.14159265359f / 180.0f)); // Convert to radians
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].cutoff").c_str()), cutoff);
 			}
 
 			int shadowTexLocation = glGetUniformLocation(shader->GetProgramID(), "shadowTex");
