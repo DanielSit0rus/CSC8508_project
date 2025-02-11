@@ -45,6 +45,7 @@ namespace NCL {
 			void SetDebugLineBufferSizes(size_t newVertCount);
 
 			vector<const RenderObject*> activeObjects;
+			vector<const PaintballRenderObject*> activeObjects_pb;
 
 			OGLShader*  debugShader;
 			OGLShader*  skyboxShader;
