@@ -40,6 +40,11 @@ void GameWorld::AddGameObject(GameObject* o) {
 	o->SetWorldID(worldIDCounter++);
 	worldStateCounter++;
 }
+void GameWorld::AddGameObject(PaintballGameObject* o) {
+	gameObjects_pb.emplace_back(o);
+	o->SetWorldID(worldIDCounter++);
+	worldStateCounter++;
+}
 
 void GameWorld::RemoveGameObject(GameObject* o, bool andDelete) {
 	gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), o), gameObjects.end());
@@ -59,6 +64,12 @@ void GameWorld::GetObjectIterators(
 
 void GameWorld::OperateOnContents(GameObjectFunc f) {
 	for (GameObject* g : gameObjects) {
+		f(g);
+	}
+}
+
+void GameWorld::OperateOnContents(GameObjectFuncPb f) {
+	for (PaintballGameObject* g : gameObjects_pb) {
 		f(g);
 	}
 }

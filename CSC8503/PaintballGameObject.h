@@ -1,50 +1,74 @@
 #pragma once
 
 #include <reactphysics3d/reactphysics3d.h>
-
-using namespace reactphysics3d;
-
-
-class PaintballGameObject
-{
-
-protected:
-    reactphysics3d::PhysicsWorld& physicsWorld;  // Reference to the physics world for physics interactions
-    reactphysics3d::RigidBody* rigidBody;        // Pointer to the rigid body for physics computations
-    reactphysics3d::Collider* collider;
-
-    reactphysics3d::Transform transform;
-
-    reactphysics3d::Vector3 GetPosition() const;
-    reactphysics3d::Quaternion GetOrientation() const;
+#include "PaintballPhysicsObject.h"
+#include "PaintballRenderObject.h"
+#include "PaintballTransform.h"
 
 
-public:
-    PaintballGameObject(reactphysics3d::PhysicsWorld& physicsWorld); // add game world
-    ~PaintballGameObject();
+using std::vector;
 
-    void update();
-    void setRenderObject(); // need rendereing logic
-    void setPosition(const Vector3& position);
+namespace NCL::CSC8503 {
+    //class NetworkObject;
+    class PaintballRenderobject;
+    class PaintballPhysicsObject;
 
-    RigidBody* GetRigidbody() const { return rigidBody; }
-    void SetRigidbody(RigidBody* RP3DRigidbody) { rigidBody = RP3DRigidbody; }
-    void AddRigidbody();
+    class PaintballGameObject
+    {
+    public:
+        PaintballGameObject(const std::string& name = "");
+        ~PaintballGameObject();
 
-    Collider* GetCollider() const { return collider; };
-    void SetCollider(CollisionShape* RP3DCollisionShape, Transform collisionTransform = Transform::identity());
+        void Update();
 
-    
-   
-    void SetPosition(const reactphysics3d::Vector3& newPos);
-    //void SetPosition(const Vector3& newPos);
-    void SetPosition(const float& x, const float& y, const float& z);
+        bool IsActive() const {
+            return isActive;
+        }
 
-    void SetOrientation(const reactphysics3d::Vector3& newRotEulerAngles);
-    void SetOrientation(const Quaternion& rotation);
+        PaintballTransform& GetTransform() {
+            return transform;
+        }
 
+        PaintballRenderObject* GetRenderObject() const {
+            return renderObject;
+        }
 
- 
+        PaintballPhysicsObject* GetPhysicsObject() const {
+            return physicsObject;
+        }
 
-};
+        void SetRenderObject(PaintballRenderObject* newObject) {
+            renderObject = newObject;
+        }
 
+        void SetPhysicsObject(PaintballPhysicsObject* newObject) {
+            physicsObject = newObject;
+        }
+
+        const std::string& GetName() const {
+            return name;
+        }
+
+        
+		void SetWorldID(int newID) {
+			worldID = newID;
+		}
+
+		int		GetWorldID() const {
+			return worldID;
+		}
+
+    protected:
+        PaintballTransform transform;
+
+        PaintballRenderObject* renderObject;
+        PaintballPhysicsObject* physicsObject;
+
+        //NetworkObject* networkObject;
+
+        bool		isActive;
+        int			worldID;
+        std::string	name;
+    };
+
+}

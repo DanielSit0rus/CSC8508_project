@@ -179,12 +179,8 @@ void TutorialGame::UpdateGame(float dt) {
 	SelectObject();
 	MoveSelectedObject();
 
-	for (auto& obj : objList_rp3d) {
-		rp3d::Transform cubeTransform = obj->rigidBody->getTransform();
-		rp3d::Vector3 posTest = cubeTransform.getPosition();
-		obj->GetTransform().SetPosition(Vector3(posTest.x, posTest.y, posTest.z));
-		rp3d::Quaternion oriTest = cubeTransform.getOrientation();
-		obj->GetTransform().SetOrientation(Quaternion(oriTest.x, oriTest.y, oriTest.z, oriTest.w));
+	for (auto& obj : objList_pb) {
+		obj->Update();
 	}
 
 	world->UpdateWorld(dt);
@@ -464,6 +460,9 @@ void TutorialGame::runKittenAI()
 void TutorialGame::InitWorld() {
 	world->ClearAndErase();
 	physics->Clear();
+
+	kittens.clear();
+
 	//BridgeConstraintTest();
 	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
 	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
@@ -493,18 +492,20 @@ void TutorialGame::InitWorld() {
 
 
 	//rp3d
-	objList_rp3d.clear();
-	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(0, 15, -30), Vector3(10, 1, 10), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_rp3d.push_back(AddRp3dObjToWorld(Vector3(0, 25, -30), Vector3(1, 1, 1), Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_rp3d.push_back(AddRp3dCubeToWorld(Vector3(1, 20, -30), Vector3(5, 1, 5), Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.clear();
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
 	//rp3d
 	float angleInRadians = 30.0f * PI / 180.0f;
-	reactphysics3d::Quaternion rotation = reactphysics3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	reactphysics3d::Transform currentTransform = objList_rp3d[2]->rigidBody->getTransform();
-	reactphysics3d::Quaternion currentRotation = currentTransform.getOrientation();
-	reactphysics3d::Quaternion newRotation = rotation * currentRotation;
-	currentTransform.setOrientation(newRotation);
-	objList_rp3d[2]->rigidBody->setTransform(currentTransform);
+	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+	rp3d::Transform tempTransform = objList_pb[1]->GetTransform().GetRpTransform();
+	rp3d::Quaternion currentRotation = tempTransform.getOrientation();
+	rp3d::Quaternion newRotation = rotation * currentRotation;
+	tempTransform.setOrientation(newRotation);
+	objList_pb[1]->GetPhysicsObject()->GetRigidbody().setTransform(tempTransform);
 
 	std::vector<std::vector<int>> mazePattern = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -675,54 +676,49 @@ GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimens
 	return cube;
 }
 
-GameObject* TutorialGame::AddRp3dCubeToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass, Vector4 color) {
-	GameObject* cube = new GameObject();
+PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
+	PaintballGameObject* cube = new PaintballGameObject();
 
 	cube->GetTransform()
 		.SetPosition(position)
 		.SetOrientation(orientation)
 		.SetScale(dimensions * 2.0f);
 
-	cube->SetRenderObject(new RenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
+	cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
 
 	cube->GetRenderObject()->SetColour(color);
 
-	rp3d::Vector3 pos(position.x, position.y, position.z);
-	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
 	// create a rigid body
-	rp3d::Transform transform(pos, ori);
-	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(transform);
+	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
 	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
 	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
-	// create BoxShape
-	rp3d::BoxShape* cubeShape = physicsCommon.createBoxShape(halfExtents);
-	// bind BoxShape to rigid body
+	// create Shape
+	rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
+	//rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
+	// bind Shape to rigid body
 	rp3d::Transform shapeTransform = rp3d::Transform::identity();
-	rp3d::Collider* cubeCollider = cubeBody->addCollider(cubeShape, shapeTransform);
+	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
 	//add rigid body to gameobject
-	cube->rigidBody = cubeBody;
+	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
 
 	world->AddGameObject(cube);
 
 	return cube;
 }
-GameObject* TutorialGame::AddRp3dObjToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass, Vector4 color) {
-	GameObject* cube = new GameObject();
+PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
+	PaintballGameObject* cube = new PaintballGameObject();
 
 	cube->GetTransform()
 		.SetPosition(position)
 		.SetOrientation(orientation)
-		.SetScale(dimensions * 2.0f);
+		.SetScale(dimensions * 1.0f);
 
-	cube->SetRenderObject(new RenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
+	cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), sphereMesh, basicTex, basicShader));
 
 	cube->GetRenderObject()->SetColour(color);
 
-	rp3d::Vector3 pos(position.x, position.y, position.z);
-	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
 	// create a rigid body
-	rp3d::Transform transform(pos, ori);
-	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(transform);
+	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
 	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
 	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
 	// create Shape
@@ -732,7 +728,7 @@ GameObject* TutorialGame::AddRp3dObjToWorld(const Vector3& position, Vector3 dim
 	rp3d::Transform shapeTransform = rp3d::Transform::identity();
 	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
 	//add rigid body to gameobject
-	cube->rigidBody = cubeBody;
+	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
 
 	world->AddGameObject(cube);
 

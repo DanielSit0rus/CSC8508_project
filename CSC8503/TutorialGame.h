@@ -15,6 +15,7 @@
 #include "PushdownState.h"
 
 #include <reactphysics3d/reactphysics3d.h>
+#include "PaintballGameObject.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -121,8 +122,8 @@ namespace NCL {
 			void FlipSelectMode();
 
 			//rp3d
-			GameObject* AddRp3dCubeToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-			GameObject* AddRp3dObjToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			PaintballGameObject* AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			PaintballGameObject* AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
@@ -169,7 +170,7 @@ namespace NCL {
 			rp3d::PhysicsCommon physicsCommon;
 			rp3d::PhysicsWorld* RpWorld = nullptr;
 			rp3d::PhysicsWorld::WorldSettings RpSettings;
-			vector<GameObject*> objList_rp3d;
+			vector<PaintballGameObject*> objList_pb;
 		};
 
 	}
