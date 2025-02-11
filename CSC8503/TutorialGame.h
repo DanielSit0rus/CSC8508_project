@@ -107,7 +107,7 @@ namespace NCL {
 			GameObject* AddSphereToWorld(const Vector3& position, float radius, float inverseMass = 10.0f);
 			GameObject* AddCubeToWorld(const Vector3& position, Vector3 dimensions, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f,1.0f,1.0f,1.0f));
 			GameObject* playerObject;
-			GameObject* DoorFrame;
+			GameObject* DoorFrame; 
 			
 			GameObject* homecube;
 			Goose* GooseObject;
@@ -118,12 +118,14 @@ namespace NCL {
 			GameObject* AddEnemyToWorld(const Vector3& position);
 			GameObject* AddBonusToWorld(const Vector3& position);
 
+
 			void FlipSelectMode();
 
 			//rp3d
 			GameObject* AddRp3dCubeToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 			GameObject* AddRp3dObjToWorld(const Vector3& position, Vector3 dimensions, Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-
+			
+			
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
 #else
@@ -150,10 +152,11 @@ namespace NCL {
 
 			//Coursework Meshes
 			Mesh*	catMesh		= nullptr;
-			Mesh*	kittenMesh	= nullptr;
+			Mesh* kittenMesh = nullptr;
 			Mesh*	enemyMesh	= nullptr;
 			Mesh*	bonusMesh	= nullptr;
 			Mesh*	gooseMesh = nullptr;
+			Mesh* mapMesh = nullptr;
 
 			//Coursework Additional functionality	
 			GameObject* lockedObject	= nullptr;

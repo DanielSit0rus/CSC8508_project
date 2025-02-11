@@ -64,6 +64,8 @@ void TutorialGame::InitialiseAssets() {
 	bonusMesh	= renderer->LoadMesh("19463_Kitten_Head_v1.msh");
 	capsuleMesh = renderer->LoadMesh("capsule.msh");
 
+	mapMesh = renderer->LoadMesh("SampleMap.msh");
+
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
 
@@ -454,7 +456,7 @@ void TutorialGame::runKittenAI()
 			return !kitten->isFollowing;
 			}));
 
-		// Assign this state machine to the kitten
+		// Assign this state machine to the kitten hello
 		kitten->setstateMachine(kittenStateMachine);
 	}
 
@@ -736,6 +738,8 @@ GameObject* TutorialGame::AddRp3dObjToWorld(const Vector3& position, Vector3 dim
 
 	world->AddGameObject(cube);
 
+	
+
 	return cube;
 }
 
@@ -887,6 +891,8 @@ GameObject* TutorialGame::AddcylinderToWorld(const Vector3& position) {
 
 
 
+
+
 void TutorialGame::InitDefaultFloor() {
 	AddFloorToWorld(Vector3(0, -2, 0));
 }
@@ -905,6 +911,8 @@ void TutorialGame::InitSphereGridWorld(int numRows, int numCols, float rowSpacin
 		}
 	}
 	AddFloorToWorld(Vector3(0, -2, 0));
+	
+
 }
 
 void TutorialGame::InitMixedGridWorld(int numRows, int numCols, float rowSpacing, float colSpacing) {
@@ -1128,4 +1136,6 @@ void Goose::VisualizeRay() {
 		Debug::DrawLine(goosePos, goosePos + direction * 50.0f, Vector4(1, 0, 0, 1)); // Draw ray in red
 	}
 }
+
+
 
