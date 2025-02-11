@@ -64,7 +64,7 @@ void TutorialGame::InitialiseAssets() {
 	bonusMesh	= renderer->LoadMesh("19463_Kitten_Head_v1.msh");
 	capsuleMesh = renderer->LoadMesh("capsule.msh");
 
-	mapMesh = renderer->LoadMesh("SampleMap.msh");
+	//mapMesh = renderer->LoadMesh("SampleMap.msh");
 
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
