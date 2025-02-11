@@ -1,5 +1,5 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -31,11 +31,11 @@
   utility.h
   compress.c
   host.c
-  正在生成代码...
-  正在编译...
+  Generating Code...
+  Compiling...
   packet.c
   peer.c
-  正在生成代码...
+  Generating Code...
   BehaviourSelector.h
   BehaviourSelector.cpp
   BehaviourSequence.h
@@ -54,12 +54,6 @@
   CapsuleVolume.cpp
   CollisionDetection.h
   CollisionDetection.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“../CSC8503CoreClasses/CollisionDetection.cpp”)
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“../CSC8503CoreClasses/CollisionDetection.cpp”)
-  
   QuadTree.h
   QuadTree.cpp
   GameClient.h
@@ -79,9 +73,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   PhysicsObject.cpp
   PhysicsObject.h
   PhysicsSystem.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PhysicsSystem.cpp”)
-  
   PhysicsSystem.h
   list.h
   list.c
@@ -89,4 +80,4 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   protocol.c
   win32.h
   win32.c
-  CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib

@@ -37,15 +37,15 @@ out vec4 fragColor;
 void main(void)
 {
     float shadow = 1.0;
-    float shadowBias = 0.005;
+    float shadowBias = max(0.005 * (1.0 - dot(IN.normal, normalize(lights[0].position - IN.worldPos))), 0.0005);;
 
     if (IN.shadowProj.w > 0.0) {
-        shadow = textureProj(shadowTex, IN.shadowProj - vec4(0.0, 0.0, shadowBias, 0.0));
+        shadow = textureProj(shadowTex,  vec4(IN.shadowProj.xy, IN.shadowProj.z - shadowBias, IN.shadowProj.w));
     }
 
-    vec4 albedo = IN.colour;
+    vec4 albedo = pow(IN.colour, vec4(2.2));
     if (hasTexture) {
-        albedo *= texture(mainTex, IN.texCoord);
+        albedo *=  pow(texture(mainTex, IN.texCoord), vec4(2.2));
     }
     
 
@@ -64,11 +64,11 @@ void main(void)
     		float lambert = max(0.0, dot(lightDir, IN.normal));
     		vec3 viewDir = normalize(cameraPos - IN.worldPos);
     		vec3 halfDir = normalize(lightDir + viewDir);
-    		float specular = pow(max(dot(halfDir, IN.normal), 0.0), 80.0);
+    		float specular = pow(max(dot(halfDir, IN.normal), 0.0), 32.0);
 
     		totalLighting += (lambert + specular) * lights[i].color.rgb * attenuation * spotlightIntensity * shadow;
 	}
 
-    fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0 / 2.2f)); // Gamma correction
+    fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0f / 2.2f)); // Gamma correction
     fragColor.a = albedo.a;
 }
