@@ -378,9 +378,7 @@ hide or show the
 
 bool paused = false;
 bool reset = false;
-bool playerded = false;
 float elapsedTime = 120;
-int gamescore;
 
 class pauseScreen : public PushdownState {
 	PushdownResult OnUpdate(float dt,
@@ -468,22 +466,6 @@ class gameScreen : public PushdownState {
 			*newState = new pauseScreen();
 			return PushdownResult::Push;
 		}
-
-		if (elapsedTime <= 0.1f || playerded == true)
-		{
-			*newState = new gameOverScreen();
-			return PushdownResult::Push;
-		}
-		if (gamescore == 3 )
-		{
-			*newState = new WinScreen();
-			return PushdownResult::Push;
-		}
-
-		// Return to main menu
-
-		// Increment coins
-
 		return PushdownResult::NoChange;
 	}
 
@@ -564,14 +546,9 @@ int main() {
 		{
 			g = new TutorialGame();
 			reset = false;
-			playerded = false;
 		}
-		if (g->getcatstatus())
-		{
-			playerded = true;
-		}
+
 		g->UpdateGame(dt);
-		gamescore = g->getscore();
 
 		audioSystem.Update();
 	} 

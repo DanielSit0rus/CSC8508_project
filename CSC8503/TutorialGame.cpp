@@ -1,13 +1,8 @@
 #include "TutorialGame.h"
 #include "GameWorld.h"
-#include "PhysicsObject.h"
-#include "RenderObject.h"
 #include "TextureLoader.h"
 #include "Vector.h"
 
-#include "PositionConstraint.h"
-#include "OrientationConstraint.h"
-#include "StateGameObject.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -26,13 +21,6 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 #endif
 
 	RpWorld = physicsCommon.createPhysicsWorld(RpSettings);		//rp3d
-
-	physics		= new PhysicsSystem(*world);
-	//PushMachine = new PushdownMachine(new gameScreen());
-
-	forceMagnitude	= 60.0f;
-	useGravity		= false;
-	inSelectionMode = false;
 
 	world->GetMainCamera().SetController(controller);
 
@@ -86,102 +74,40 @@ TutorialGame::~TutorialGame()	{
 	delete basicTex;
 	delete basicShader;
 
-	delete physics;
 	delete renderer;
 	delete world;
 	physicsCommon.destroyPhysicsWorld(RpWorld);
 }
 
 bool TutorialGame::pauseGame(){
-
 	return pause = true;
 
 }
 bool TutorialGame::UnpauseGame() {
-
 	return pause = false;
-
 }
 
 void TutorialGame::UpdateGame(float dt) {
-
-	Debug::Print("Score : " + std::to_string(physics->score), Vector2(5, 90));
-
-	const Vector3& pos = (lockedObject) ?
-		lockedObject->GetTransform().GetPosition() : world->GetMainCamera().GetPosition();
+	const Vector3& pos = world->GetMainCamera().GetPosition();
 	std::string posString = std::to_string((int)pos.x) + ", "
 		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
 	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
 
 	if (pause) {
 		// Only update the PushMachine and render the current frame.
-		//PushMachine->Update(dt);
 		renderer->Render();
 		return; // Skip the rest of the game updates.
 	}
 
-	if (lockedObject) {
-		Vector3 objPos = lockedObject->GetTransform().GetPosition();
-		Vector3 camPos = objPos + lockedOffset;
 
-		world->GetMainCamera().UpdateCamera();
-		world->GetMainCamera().SetPosition(camPos);
-	}
-	else
-	{
-		world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
-	}
-
-	if (!kittens.empty()) {
-		for (StateGameObject* kitten : kittens) {
-			if (kitten->getstateMachine()) {
-				kitten->getstateMachine()->Update(dt);
-			}
-		}
-	}
-	if (GooseObject)
-	{
-		GooseObject->Update(dt);
-	}
+	world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
 	
-	//PushMachine->Update(dt);
-
 	UpdateKeys();
-
-	if (useGravity) {
-		Debug::Print("(G)ravity on", Vector2(5, 95), Debug::RED);
-	}
-	else {
-		Debug::Print("(G)ravity off", Vector2(5, 95), Debug::RED);
-	}
-	//This year we can draw debug textures as well!
-	//Debug::DrawTex(*basicTex, Vector2(10, 10), Vector2(5, 5), Debug::MAGENTA);
-
-	RayCollision closestCollision;
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::K) && selectionObject) {
-		Vector3 rayPos;
-		Vector3 rayDir;
-
-		rayDir = selectionObject->GetTransform().GetOrientation() * Vector3(0, 0, -1);
-
-		rayPos = selectionObject->GetTransform().GetPosition();
-
-		Ray r = Ray(rayPos, rayDir);
-
-		if (world->Raycast(r, closestCollision, true, selectionObject)) {
-			if (objClosest) {
-				objClosest->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-			}
-			objClosest = (GameObject*)closestCollision.node;
-
-			objClosest->GetRenderObject()->SetColour(Vector4(1, 0, 1, 1));
-		}
-	}
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 	
-	SelectObject();
-	MoveSelectedObject();
+	Debug::Print("Move Speed:" + std::to_string(forceMagnitude), Vector2(5, 80));
+	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	for (auto& obj : objList_pb) {
 		obj->Update();
@@ -189,7 +115,6 @@ void TutorialGame::UpdateGame(float dt) {
 
 	world->UpdateWorld(dt);
 	renderer->Update(dt);
-	physics->Update(dt);
 
 	RpWorld->update(dt);	//rp3d
 
@@ -200,21 +125,18 @@ void TutorialGame::UpdateGame(float dt) {
 void TutorialGame::UpdateKeys() {
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
 		InitWorld(); //We can reset the simulation at any time with F1
-		selectionObject = nullptr;
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {
 		InitCamera(); //F2 will reset the camera to a specific default place
 	}
 
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::G)) {
-		useGravity = !useGravity; //Toggle gravity!
-		physics->UseGravity(useGravity);
-	}
 	//Running certain physics updates in a consistent order might cause some
 	//bias in the calculations - the same objects might keep 'winning' the constraint
 	//allowing the other one to stretch too much etc. Shuffling the order so that it
 	//is random every frame can help reduce such bias.
+
+	/*
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F9)) {
 		world->ShuffleConstraints(true);
 	}
@@ -228,171 +150,7 @@ void TutorialGame::UpdateKeys() {
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F8)) {
 		world->ShuffleObjects(false);
 	}
-
-	if (lockedObject) {
-		LockedObjectMovement();
-	}
-	else {
-		DebugObjectMovement();
-	}
-
-	if (lockedObject==playerObject) {
-
-		Vector3 playerPos = playerObject->GetTransform().GetPosition();
-		Vector2 mouseDelta = Window::GetMouse()->GetRelativePosition();
-		// Set the camera directly above the player with a fixed offset
-		Vector3 camPos = playerPos + Vector3(0, 1, -0.1f); // Adjust height (Y) as needed
-		world->GetMainCamera().SetPosition(camPos);
-		float yaw = 0.0f;
-		float pitch = 0.0f;
-
-		yaw -= mouseDelta.x * 1.1f;
-		pitch -= mouseDelta.y * 1.1f;
-		pitch = std::clamp(pitch, -89.0f, 89.0f);
-
-		Quaternion yawRotation = Quaternion::Quaternion(Vector3(0, 1, 0), yaw);
-		Quaternion pitchRotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), pitch);
-		//Quaternion finalRotation = yawRotation * pitchRotation;
-		Quaternion currentRotation = playerObject->GetTransform().GetOrientation();
-		Quaternion targetRotation = yawRotation * pitchRotation;
-		Quaternion smoothRotation = Quaternion::Slerp(currentRotation, targetRotation, 0.5f);
-
-		playerObject->GetTransform().SetOrientation(smoothRotation);
-
-		Matrix4 view = world->GetMainCamera().BuildViewMatrix();
-		Matrix4 camWorld = Matrix::Inverse(view);
-
-		Vector3 rightAxis = Vector3(camWorld.GetColumn(0));
-		//Vector3 right = Vector3(camWorld.GetColumn(0));
-		//
-		Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
-
-		//Vector3 forward = Vector::Cross(Vector3(0, 1, 0), right);
-		
-
-		Transform playerTransform = playerObject->GetTransform();
-
-		// Extract the right and forward vectors from the player's orientation
-		Quaternion playerOrientation = playerTransform.GetOrientation();
-		Vector3 playerPosition = playerTransform.GetPosition();
-		//Vector3 rightAxis = playerOrientation * Vector3(1, 0, 0); // Local right
-		//Vector3 fwdAxis = playerOrientation * Vector3(0, 0, -1);
-
-		fwdAxis.y = 0; // Keep movement in the horizontal plane
-		rightAxis.y = 0;
-
-		fwdAxis = Vector::Normalise(fwdAxis);
-		rightAxis = Vector::Normalise(rightAxis);
-
-		float moveSpeed = 9.0f * Window::GetTimer().GetTimeDeltaSeconds();
-		Vector3 movement = Vector3(0, 0, 0);
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-			movement += fwdAxis * moveSpeed;
-		}
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-			movement -= fwdAxis * moveSpeed;
-		}
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-			movement -= rightAxis * moveSpeed;
-		}
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-			movement += rightAxis * moveSpeed;
-		}
-		playerObject->GetTransform().SetPosition(playerPosition + movement);
-
-		// Apply movement force
-		//if (Vector::Length(movement) > 0.0f) {
-		////	playerObject->GetPhysicsObject()->AddForce(movement);
-
-		////	// Turn the cat to face the movement direction
-		//// Vector3 velocity = playerObject->GetPhysicsObject()->GetLinearVelocity();
-		////	if (Vector::Length(velocity) > 0.01f) { // Only update if there's significant velocity
-		//////		 // Current forward vector
-		////		Vector3 desiredDirection = Vector::Normalise(velocity); // Normalize velocity
-		////		Vector3 forwarddir = playerObject->GetTransform().GetOrientation() * Vector3(0, 0, 1);
-		////		Vector3 rotationAxis = Vector::Cross(forwarddir, desiredDirection);
-		////		float angle = acos(Vector::Dot(forwarddir, desiredDirection)); // Angle in radians
-
-		////		if (angle > 0.01f) { // Apply torque only if there's a meaningful angle
-		////			float torqueScale = 2.0f; // Arbitrary scale for control
-		////			Vector3 torque = rotationAxis * angle * torqueScale;
-		////			playerObject->GetPhysicsObject()->AddTorque(torque);
-		////		}
-		////	}
-
-		//}
-		//else {
-
-		//	playerObject->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
-		//	playerObject->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
-
-		//}
-	} 
-}
-
-void TutorialGame::LockedObjectMovement() {
-	Matrix4 view		= world->GetMainCamera().BuildViewMatrix();
-	Matrix4 camWorld	= Matrix::Inverse(view);
-
-	Vector3 rightAxis = Vector3(camWorld.GetColumn(0)); //view is inverse of model!
-
-	//forward is more tricky -  camera forward is 'into' the screen...
-	//so we can take a guess, and use the cross of straight up, and
-	//the right axis, to hopefully get a vector that's good enough!
-
-	Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
-	fwdAxis.y = 0.0f;
-	fwdAxis = Vector::Normalise(fwdAxis);
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::UP)) {
-		selectionObject->GetPhysicsObject()->AddForce(fwdAxis);
-	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::DOWN)) {
-		selectionObject->GetPhysicsObject()->AddForce(-fwdAxis);
-	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::NEXT)) {
-		selectionObject->GetPhysicsObject()->AddForce(Vector3(0,-10,0));
-	}
-}
-
-void TutorialGame::DebugObjectMovement() {
-//If we've selected an object, we can manipulate it with some key presses
-	if (inSelectionMode && selectionObject) {
-		//Twist the selected object!
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::LEFT)) {
-			selectionObject->GetPhysicsObject()->AddTorque(Vector3(-10, 0, 0));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::RIGHT)) {
-			selectionObject->GetPhysicsObject()->AddTorque(Vector3(10, 0, 0));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::NUM7)) {
-			selectionObject->GetPhysicsObject()->AddTorque(Vector3(0, 10, 0));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::NUM8)) {
-			selectionObject->GetPhysicsObject()->AddTorque(Vector3(0, -10, 0));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::RIGHT)) {
-			selectionObject->GetPhysicsObject()->AddTorque(Vector3(10, 0, 0));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::UP)) {
-			selectionObject->GetPhysicsObject()->AddForce(Vector3(0, 0, -10));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::DOWN)) {
-			selectionObject->GetPhysicsObject()->AddForce(Vector3(0, 0, 10));
-		}
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::NUM5)) {
-			selectionObject->GetPhysicsObject()->AddForce(Vector3(0, -10, 0));
-		}
-	}
+	*/
 }
 
 void TutorialGame::InitCamera() {
@@ -404,212 +162,41 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 
-	lockedObject = nullptr;
-	selectionObject = nullptr;
 	forceMagnitude = 60.0f;
 }
 
-void TutorialGame::runKittenAI()
-{
-	
-	for (StateGameObject* kitten : kittens) {
-		State* stateIdle = new State([kitten](float dt) -> void {
-			//std::cout << "\nKitten is idle\n";
-			});
-
-		State* stateFollow = new State([kitten, this](float dt) -> void {
-			Vector3 playerPos = playerObject->GetTransform().GetPosition();
-			Vector3 kittenPos = kitten->GetTransform().GetPosition();
-			Vector3 direction = playerPos - kittenPos;
-
-			if (Vector::Length(direction) > 0.8f) {
-				direction = Vector::Normalise(direction);
-				kitten->GetPhysicsObject()->AddForce(direction * 25.0f);
-			}
-			else {
-				kitten->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
-				kitten->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
-			}
-
-			//std::cout << "\nKitten is following the player\n";
-			});
-
-		State* stateHome = new State([kitten](float dt) -> void {
-			kitten->GetPhysicsObject()->SetLinearVelocity(Vector3(0, 0, 0));
-			kitten->GetPhysicsObject()->SetAngularVelocity(Vector3(0, 0, 0));
-			kitten->GetTransform().SetPosition(Vector3(4, 0, -2.0f));
-			});
-
-		StateMachine* kittenStateMachine = new StateMachine();
-
-		kittenStateMachine->AddState(stateIdle);
-		kittenStateMachine->AddState(stateFollow);
-		kittenStateMachine->AddState(stateHome);
-
-		kittenStateMachine->AddTransition(new StateTransition(stateIdle, stateFollow, [kitten]() -> bool {
-			return kitten->isFollowing;
-			}));
-
-		kittenStateMachine->AddTransition(new StateTransition(stateFollow, stateHome, [kitten]() -> bool {
-			return !kitten->isFollowing;
-			}));
-
-		// Assign this state machine to the kitten hello
-		kitten->setstateMachine(kittenStateMachine);
-	}
-
-}
-
-
 void TutorialGame::InitWorld() {
 	world->ClearAndErase();
-	physics->Clear();
-
-	kittens.clear();
 
 	//BridgeConstraintTest();
 	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
 	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
 	//InitGameExamples();
 
-	playerObject = AddPlayerToWorld(Vector3(2, 2, 2));
-	lockedObject = nullptr;
-	selectionObject = nullptr;
+	playerObject = AddPlayerToWorld(rp3d::Vector3(2, 2, 2));
 	forceMagnitude = 60.0f;
 
-	//kittenObject1 = AddKitttenToWorld(Vector3(2, 2, 5));
-	AddStateObjectToWorld(Vector3(6, 1, 22), playerObject);
-	AddStateObjectToWorld(Vector3(18, 1, 2), playerObject);
-	AddStateObjectToWorld(Vector3(20, 1, 26), playerObject);
 
-	AddcylinderToWorld(Vector3(1, 6, 8));
-	AddSphereToWorld(Vector3(2, 1, 5),1);
 	Light light2(Vector3(14, 4, 7), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
 	renderer->AddLight(light2);
-
-	AddCubeToWorld(Vector3(22, 0, 22), Vector3(1, 2, 1), 100.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-	GooseObject = AddGooseToWorld(Vector3(10, 2, 10), playerObject);
-	//DoorFrame = AddCubeToWorld(Vector3(16, 2, 4), Vector3(1, 2, 1),0.0f, Vector4(1.0f,0.0f,0.0f,1.0f));
-	AddGate();
-	homecube = AddCubeToWorld(Vector3(4, 0, -2.0f), Vector3(1, 0.1f, 1), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-	homecube->SetName("home");
 
 
 	//rp3d
 	objList_pb.clear();
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-
-
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-
-
-
-	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(20, 10, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-
-	//rp3d
-	float angleInRadians = 30.0f * PI / 180.0f;
+	float angleInRadians = 10.0f * PI / 180.0f;
 	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	rp3d::Transform tempTransform = objList_pb[1]->GetTransform().GetRpTransform();
-	rp3d::Quaternion currentRotation = tempTransform.getOrientation();
-	rp3d::Quaternion newRotation = rotation * currentRotation;
-	tempTransform.setOrientation(newRotation);
-	objList_pb[1]->GetPhysicsObject()->GetRigidbody().setTransform(tempTransform);
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	std::vector<std::vector<int>> mazePattern = {
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-	{1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1},
-	{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-	{1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1},
-	{1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1},
-	{1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1},
-	{1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 
-	};
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	InitMazeWorld(mazePattern, Vector3(1, 2, 1), 2.0f);
-	runKittenAI();
+	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(20, 10, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
 	InitDefaultFloor();
-}
-
-void TutorialGame::AddGate() {
-
-	Vector3 gateSize = Vector3(1.0f, 2.0f, 0.3f); // Dimensions of the gate
-	float gateMass = 10.0f;                  // Mass of the gate
-	Vector3 pivotSize = Vector3(0.3f,0.3f, 0.3f); // Dimensions of the pivot (anchor)
-
-	Vector3 gateStartPos = Vector3(13, 2, 4); // Initial position of the gate
-	Vector3 pivotPos = Vector3(16, 2, 3);   // Position of the pivot point
-
-	// Create the pivot point (immovable)
-	GameObject* pivot = AddCubeToWorld(pivotPos, pivotSize, 0, Vector4(0.0f,0.0f,1.0f,1.0f)); // 0 mass = static
-
-	// Create the gate object (movable)
-	GameObject* gate = AddCubeToWorld(gateStartPos, gateSize, gateMass, Vector4(0.0f, 0.0f, 1.0f, 1.0f));
-
-	// Attach the gate to the pivot with a PositionConstraint
-	float hingeDistance = 2.0f; // Distance from pivot to gate (acts as a hinge radius)
-	PositionConstraint* gateConstraint = new PositionConstraint(pivot, gate, hingeDistance);
-	world->AddConstraint(gateConstraint);
-
-
-
-}
-
-void TutorialGame::BridgeConstraintTest() {
-	Vector3 cubeSize = Vector3(8, 8, 8);
-	float invCubeMass = 5; // how heavy the middle pieces are
-	int numLinks = 10;
-	float maxDistance = 30; // constraint distance
-	float cubeDistance = 20; // distance between links
-	Vector3 startPos = Vector3(0, 0, 0);
-	GameObject * start = AddCubeToWorld(startPos + Vector3(0, 0, 0), cubeSize, 0);
-	GameObject * end = AddCubeToWorld(startPos + Vector3((numLinks + 2) * cubeDistance, 0, 0), cubeSize, 0);
-	GameObject * previous = start;
-	for (int i = 0; i < numLinks; ++i) {
-		GameObject * block = AddCubeToWorld(startPos + Vector3((i + 1) * cubeDistance, 0, 0), cubeSize, invCubeMass);
-		PositionConstraint * constraint = new PositionConstraint(previous,block, maxDistance);
-		world -> AddConstraint(constraint);
-		previous = block;
-	}
-	PositionConstraint * constraint = new PositionConstraint(previous, end, maxDistance);
-	world -> AddConstraint(constraint);
-}
-
-
-
-StateGameObject* TutorialGame::AddStateObjectToWorld(const Vector3& position, GameObject* player)
-{
-	StateGameObject* kitten = new StateGameObject("Kitten", player);
-
-	SphereVolume* volume = new SphereVolume(0.2f);
-	kitten->SetBoundingVolume((CollisionVolume*)volume);
-	kitten->GetTransform()
-		.SetScale(Vector3(0.5f, 0.5f, 0.5f))
-		.SetPosition(position);
-
-	kitten->SetRenderObject(new RenderObject(&kitten->GetTransform(), catMesh, nullptr, basicShader));
-	kitten->SetPhysicsObject(new PhysicsObject(&kitten->GetTransform(), kitten->GetBoundingVolume()));
-
-	kitten->GetPhysicsObject()->SetInverseMass(1.0f);
-	kitten->GetPhysicsObject()->InitSphereInertia();
-	kitten->GetRenderObject()->SetColour(Vector4(1.0f, 1.0f, 0.0f, 1.0f));
-
-	world->AddGameObject(kitten);
-	kittens.push_back(kitten); // Add to the kittens container
-
-	return kitten;
 }
 
 /*
@@ -617,25 +204,8 @@ StateGameObject* TutorialGame::AddStateObjectToWorld(const Vector3& position, Ga
 A single function to add a large immoveable cube to the bottom of our world
 
 */
-GameObject* TutorialGame::AddFloorToWorld(const Vector3& position) {
-	GameObject* floor = new GameObject("Floor");
-
-	Vector3 floorSize = Vector3(200, 2, 200);
-	AABBVolume* volume = new AABBVolume(floorSize);
-	floor->SetBoundingVolume((CollisionVolume*)volume);
-	floor->GetTransform()
-		.SetScale(floorSize * 2.0f)
-		.SetPosition(position);
-
-	floor->SetRenderObject(new RenderObject(&floor->GetTransform(), cubeMesh, basicTex, basicShader));
-	floor->SetPhysicsObject(new PhysicsObject(&floor->GetTransform(), floor->GetBoundingVolume()));
-
-	floor->GetPhysicsObject()->SetInverseMass(0);
-	floor->GetPhysicsObject()->InitCubeInertia();
-
-	world->AddGameObject(floor);
-
-	return floor;
+PaintballGameObject* TutorialGame::AddFloorToWorld(const rp3d::Vector3& position) {	
+	return AddRp3dCubeToWorld(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f),0);
 }
 
 /*
@@ -645,50 +215,8 @@ rigid body representation. This and the cube function will let you build a lot o
 physics worlds. You'll probably need another function for the creation of OBB cubes too.
 
 */
-GameObject* TutorialGame::AddSphereToWorld(const Vector3& position, float radius, float inverseMass) {
-	GameObject* sphere = new GameObject();
 
-	Vector3 sphereSize = Vector3(radius, radius, radius);
-	SphereVolume* volume = new SphereVolume(radius);
-	sphere->SetBoundingVolume((CollisionVolume*)volume);
-
-	sphere->GetTransform()
-		.SetScale(sphereSize)
-		.SetPosition(position);
-
-	sphere->SetRenderObject(new RenderObject(&sphere->GetTransform(), sphereMesh, basicTex, basicShader));
-	sphere->SetPhysicsObject(new PhysicsObject(&sphere->GetTransform(), sphere->GetBoundingVolume()));
-
-	sphere->GetPhysicsObject()->SetInverseMass(inverseMass);
-	sphere->GetPhysicsObject()->InitSphereInertia();
-
-	world->AddGameObject(sphere);
-
-	return sphere;
-}
-
-GameObject* TutorialGame::AddCubeToWorld(const Vector3& position, Vector3 dimensions, float inverseMass, Vector4 color) {
-	GameObject* cube = new GameObject();	
-	AABBVolume* volume = new AABBVolume(dimensions);
-	cube->SetBoundingVolume((CollisionVolume*)volume);
-
-	cube->GetTransform()
-		.SetPosition(position)
-		.SetScale(dimensions * 2.0f);
-
-	cube->SetRenderObject(new RenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
-	cube->SetPhysicsObject(new PhysicsObject(&cube->GetTransform(), cube->GetBoundingVolume()));
-
-	cube->GetPhysicsObject()->SetInverseMass(inverseMass);
-	cube->GetPhysicsObject()->InitCubeInertia();
-	cube->GetRenderObject()->SetColour(color);
-
-	world->AddGameObject(cube);
-
-	return cube;
-}
-
-PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
+PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
 	PaintballGameObject* cube = new PaintballGameObject();
 
 	cube->GetTransform()
@@ -702,7 +230,6 @@ PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& posit
 
 	// create a rigid body
 	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
 	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
 	// create Shape
 	rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
@@ -712,12 +239,13 @@ PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& posit
 	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
 	//add rigid body to gameobject
 	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+	cube->GetPhysicsObject()->SetMass(mass);
 
 	world->AddGameObject(cube);
 
 	return cube;
 }
-PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
+PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
 	PaintballGameObject* cube = new PaintballGameObject();
 
 	cube->GetTransform()
@@ -731,7 +259,6 @@ PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& positi
 
 	// create a rigid body
 	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	cubeBody->setType(inverseMass != 0 ? rp3d::BodyType::DYNAMIC : rp3d::BodyType::STATIC);
 	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
 	// create Shape
 	//rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
@@ -739,226 +266,24 @@ PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& positi
 	// bind Shape to rigid body
 	rp3d::Transform shapeTransform = rp3d::Transform::identity();
 	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+	cubeBody->setAngularDamping(0.1f);
 	//add rigid body to gameobject
 	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+	cube->GetPhysicsObject()->SetMass(mass);
 
 	world->AddGameObject(cube);
-
-	
 
 	return cube;
 }
 
-GameObject* TutorialGame::AddPlayerToWorld(const Vector3& position) {
-	float meshSize		= 1.0f;
-	float inverseMass	= 1.0f;
-
-	GameObject* character = new GameObject("MAMA_CAT");
-	AABBVolume* volume = new AABBVolume(Vector3(0.5f, 1.5f, 0.5f));
-
-	character->SetBoundingVolume((CollisionVolume*)volume);
-
-	character->GetTransform()
-		.SetScale(Vector3(0.5f, 1.5f, 0.5f))
-		.SetPosition(position);
-
-	character->SetRenderObject(new RenderObject(&character->GetTransform(), cubeMesh, nullptr, basicShader));
-	character->SetPhysicsObject(new PhysicsObject(&character->GetTransform(), character->GetBoundingVolume()));
-
-	character->GetPhysicsObject()->SetInverseMass(inverseMass);
-	character->GetPhysicsObject()->InitSphereInertia();
-
-	world->AddGameObject(character);
-
-	return character;
+PaintballGameObject* TutorialGame::AddPlayerToWorld(const rp3d::Vector3& position) {
+	return AddRp3dCubeToWorld(position, rp3d::Vector3(0.3f, 1, 0.3f), rp3d::Quaternion(0, 0, 0, 1.0f));
 }
-
-
-GameObject* TutorialGame::AddKitttenToWorld(const Vector3& position) {
-	float meshSize = 0.5f;
-	float inverseMass = 0.2f;
-
-	GameObject* kitten = new GameObject("Kitten");
-	SphereVolume* volume = new SphereVolume(0.2f);
-
-	kitten->SetBoundingVolume((CollisionVolume*)volume);
-
-	kitten->GetTransform()
-		.SetScale(Vector3(meshSize, meshSize, meshSize))
-		.SetPosition(position);
-
-	kitten->SetRenderObject(new RenderObject(&kitten->GetTransform(), catMesh, nullptr, basicShader));
-	kitten->SetPhysicsObject(new PhysicsObject(&kitten->GetTransform(), kitten->GetBoundingVolume()));
-
-	kitten->GetRenderObject()->SetColour(Vector4(0.0f, 0.0f, 1.0f, 1.0f));
-
-	kitten->GetPhysicsObject()->SetInverseMass(inverseMass);
-	kitten->GetPhysicsObject()->InitSphereInertia();
-
-	world->AddGameObject(kitten);
-
-	return kitten;
-}
-
-Goose* TutorialGame::AddGooseToWorld(const Vector3& position, GameObject* player) {
-	float meshSize = 0.30f;
-	float inverseMass = 0.5f;
-
-	std::vector<Vector3> patrolNodes = { Vector3(10, 0, 10), Vector3(15, 0, 10), Vector3(19, 0, 10)};
-
-	Goose* goose = new Goose(player, patrolNodes, world);
-	SphereVolume* volume = new SphereVolume(0.5f);
-
-	goose->SetBoundingVolume((CollisionVolume*)volume);
-
-	goose->GetTransform()
-		.SetScale(Vector3(meshSize, meshSize, meshSize))
-		.SetPosition(position);
-
-	goose->SetRenderObject(new RenderObject(&goose->GetTransform(), gooseMesh, nullptr, basicShader));
-	goose->SetPhysicsObject(new PhysicsObject(&goose->GetTransform(), goose->GetBoundingVolume()));
-	
-	goose->GetRenderObject()->SetColour(Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-	goose->GetPhysicsObject()->SetInverseMass(inverseMass);
-	goose->GetPhysicsObject()->InitSphereInertia();
-	goose->SetName("Goose");
-
-	world->AddGameObject(goose);
-
-	return goose;
-}
-
-
-GameObject* TutorialGame::AddEnemyToWorld(const Vector3& position) {
-	float meshSize		= 3.0f;
-	float inverseMass	= 0.5f;
-
-	GameObject* character = new GameObject();
-
-	AABBVolume* volume = new AABBVolume(Vector3(0.3f, 0.9f, 0.3f) * meshSize);
-	character->SetBoundingVolume((CollisionVolume*)volume);
-
-	character->GetTransform()
-		.SetScale(Vector3(meshSize, meshSize, meshSize))
-		.SetPosition(position);
-
-	character->SetRenderObject(new RenderObject(&character->GetTransform(), enemyMesh, nullptr, basicShader));
-	character->SetPhysicsObject(new PhysicsObject(&character->GetTransform(), character->GetBoundingVolume()));
-
-	character->GetPhysicsObject()->SetInverseMass(inverseMass);
-	character->GetPhysicsObject()->InitSphereInertia();
-
-	world->AddGameObject(character);
-
-	return character;
-}
-
-GameObject* TutorialGame::AddBonusToWorld(const Vector3& position) {
-	GameObject* apple = new GameObject();
-
-	SphereVolume* volume = new SphereVolume(0.5f);
-	apple->SetBoundingVolume((CollisionVolume*)volume);
-	apple->GetTransform()
-		.SetScale(Vector3(2, 2, 2))
-		.SetPosition(position);
-
-	apple->SetRenderObject(new RenderObject(&apple->GetTransform(), bonusMesh, nullptr, basicShader));
-	apple->SetPhysicsObject(new PhysicsObject(&apple->GetTransform(), apple->GetBoundingVolume()));
-
-	apple->GetPhysicsObject()->SetInverseMass(1.0f);
-	apple->GetPhysicsObject()->InitSphereInertia();
-
-	world->AddGameObject(apple);
-
-	return apple;
-}
-
-GameObject* TutorialGame::AddcylinderToWorld(const Vector3& position) {
-	GameObject* apple = new GameObject();
-
-	CapsuleVolume* volume = new CapsuleVolume(0.5f,0.5f);
-	apple->SetBoundingVolume((CollisionVolume*)volume);
-	apple->GetTransform()
-		.SetScale(Vector3(1, 1, 1))
-		.SetPosition(position);
-
-	apple->SetRenderObject(new RenderObject(&apple->GetTransform(), capsuleMesh, nullptr, basicShader));
-	apple->SetPhysicsObject(new PhysicsObject(&apple->GetTransform(), apple->GetBoundingVolume()));
-
-	apple->GetPhysicsObject()->SetInverseMass(10.0f);
-	apple->GetPhysicsObject()->InitSphereInertia();
-	apple->GetRenderObject()->SetColour(Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-	world->AddGameObject(apple);
-
-	return apple;
-}
-
-
-
-
-
-
 
 void TutorialGame::InitDefaultFloor() {
-	AddFloorToWorld(Vector3(0, -2, 0));
+	AddFloorToWorld(rp3d::Vector3(0, -2, 0));
 }
 
-void TutorialGame::InitGameExamples() {
-	AddPlayerToWorld(Vector3(0, 5, 0));
-	AddEnemyToWorld(Vector3(5, 5, 0));
-	AddBonusToWorld(Vector3(10, 5, 0));
-}
-
-void TutorialGame::InitSphereGridWorld(int numRows, int numCols, float rowSpacing, float colSpacing, float radius) {
-	for (int x = 0; x < numCols; ++x) {
-		for (int z = 0; z < numRows; ++z) {
-			Vector3 position = Vector3(x * colSpacing, 10.0f, z * rowSpacing);
-			AddSphereToWorld(position, radius, 1.0f);
-		}
-	}
-	AddFloorToWorld(Vector3(0, -2, 0));
-	
-
-}
-
-void TutorialGame::InitMixedGridWorld(int numRows, int numCols, float rowSpacing, float colSpacing) {
-	float sphereRadius = 1.0f;
-	Vector3 cubeDims = Vector3(1, 1, 1);
-
-	for (int x = 0; x < numCols; ++x) {
-		for (int z = 0; z < numRows; ++z) {
-			Vector3 position = Vector3(x * colSpacing, 10.0f, z * rowSpacing);
-
-			if (rand() % 2) {
-				AddCubeToWorld(position, cubeDims);
-			}
-			else {
-				AddSphereToWorld(position, sphereRadius);
-			}
-		}
-	}
-}
-
-void TutorialGame::InitCubeGridWorld(int numRows, int numCols, float rowSpacing, float colSpacing, const Vector3& cubeDims) {
-	for (int x = 1; x < numCols+1; ++x) {
-		for (int z = 1; z < numRows+1; ++z) {
-			Vector3 position = Vector3(x * colSpacing, 10.0f, z * rowSpacing);
-			AddCubeToWorld(position, cubeDims, 1.0f);
-		}
-	}
-}
-
-void TutorialGame::InitMazeWorld(const std::vector<std::vector<int>>& mazePattern, const Vector3& cubeDims, float spacing) {
-	// Loop through the 2D maze pattern
-	for (size_t x = 0; x < mazePattern.size(); ++x) {
-		for (size_t z = 0; z < mazePattern[x].size(); ++z) {
-			if (mazePattern[x][z] == 1) { // If the grid cell is 1, add a cube
-				Vector3 position = Vector3(x * spacing, cubeDims.y, z * spacing);
-				AddCubeToWorld(position, cubeDims, 0.0f); // 0.0f makes the cubes immovable (walls)
-			}
-		}
-	}
-}
 
 /*
 Every frame, this code will let you perform a raycast, to see if there's an object
@@ -967,67 +292,7 @@ manipulated later. Pressing Q will let you toggle between this behaviour and ins
 letting you move the camera around. 
 
 */
-bool TutorialGame::SelectObject() {
 
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::Q)) {
-		FlipSelectMode();
-	}
-	if (inSelectionMode) {
-		Debug::Print("Press Q to change to camera mode!", Vector2(5, 85));
-
-		if (Window::GetMouse()->ButtonDown(NCL::MouseButtons::Left)) {
-			if (selectionObject) {	//set colour to deselected;
-				selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-				selectionObject = nullptr;
-			}
-
-			Ray ray = CollisionDetection::BuildRayFromMouse(world->GetMainCamera());
-
-			RayCollision closestCollision;
-			if (world->Raycast(ray, closestCollision, true)) {
-				selectionObject = (GameObject*)closestCollision.node;
-
-				selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-
-	}
-	else {
-		Debug::Print("Press Q to change to select mode!", Vector2(5, 85));
-	}
-
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
-		if (selectionObject) {
-			if (lockedObject == selectionObject) {
-				lockedObject = nullptr;
-			}
-			else if (selectionObject == playerObject) {
-				lockedObject = selectionObject;
-				if (inSelectionMode) FlipSelectMode();
-			}
-		}
-		else lockedObject = nullptr;
-	}
-
-	return false;
-}
-void TutorialGame::FlipSelectMode(){
-	inSelectionMode = !inSelectionMode;
-	if (inSelectionMode) {
-		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
-		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
-		Window::GetWindow()->ShowOSPointer(true);
-		Window::GetWindow()->LockMouseToWindow(false);
-	}
-	else {
-		Window::GetWindow()->ShowOSPointer(false);
-		Window::GetWindow()->LockMouseToWindow(true);
-	}
-}
 /*
 If an object has been clicked, it can be pushed with the right mouse button, by an amount
 determined by the scroll wheel. In the first tutorial this won't do anything, as we haven't
@@ -1035,118 +300,7 @@ added linear motion into our physics system. After the second tutorial, objects 
 line - after the third, they'll be able to twist under torque aswell.
 */
 
-void TutorialGame::MoveSelectedObject() {
-	Debug::Print("Click Force:" + std::to_string(forceMagnitude), Vector2(5, 80));
-	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
-
-	if (!selectionObject) {
-		return;//we haven't selected anything!
-	}
-	//Push the selected object!
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
-		Ray ray = CollisionDetection::BuildRayFromMouse(world->GetMainCamera());
-
-		RayCollision closestCollision;
-		if (world->Raycast(ray, closestCollision, true)) {
-			if (closestCollision.node == selectionObject) {
-				selectionObject->GetPhysicsObject()->AddForceAtPosition(ray.GetDirection() * forceMagnitude, closestCollision.collidedAt);
-			}
-		}
-	}
-}
-
-
-void Goose::SetupStateMachine() {
-	stateMachine = new StateMachine();
-
-	// Patrol State
-	State* patrolState = new State([&](float dt) { Patrol(dt); });
-
-	// Chase State
-	State* chaseState = new State([&](float dt) { ChasePlayer(dt); });
-
-	stateMachine->AddState(patrolState);
-	stateMachine->AddState(chaseState);
-
-	// Transition from Patrol to Chase when player is visible
-	stateMachine->AddTransition(new StateTransition(patrolState, chaseState, [&]() -> bool {
-		return isPlayerVisible;
-		}));
-
-	// Transition from Chase to Patrol when player is not visible
-	stateMachine->AddTransition(new StateTransition(chaseState, patrolState, [&]() -> bool {
-		return !isPlayerVisible;
-		}));
-}
-
-void Goose::Patrol(float dt) {
-	if (patrolNodes.empty()) return;
-
-	Vector3 currentPos = GetTransform().GetPosition();
-	Vector3 targetNode = patrolNodes[currentNodeIndex];
-	Vector3 direction = targetNode - currentPos;
-	if (Vector::Length(direction) > 1.0f) {
-		direction = Vector::Normalise(direction);
-		GetPhysicsObject()->AddForce(direction * 10.0f);
-	}
-	else {
-		currentNodeIndex = (currentNodeIndex + 1) % patrolNodes.size(); // Move to next node
-	}
-
-	// Check for player's visibility
-	Raycast();
-}
-
-void Goose::ChasePlayer(float dt) {
-	Vector3 goosePos = GetTransform().GetPosition();
-	Vector3 playerPos = player->GetTransform().GetPosition();
-	Vector3 direction = playerPos - goosePos;
-
-	if (Vector::Length(direction) > 1.0f) {
-		direction = Vector::Normalise(direction);
-		GetPhysicsObject()->AddForce(direction * 10.0f);
-	}
-
-	// Check if player is still visible
-	Raycast();
-}
-
-void Goose::Raycast() {
-	Vector3 goosePos = GetTransform().GetPosition();
-	Vector3 playerPos = player->GetTransform().GetPosition();
-	Vector3 direction = playerPos - goosePos;
-
-	if (Vector::Length(direction) > 0.01f) {
-		direction = Vector::Normalise(direction);
-		Ray ray(goosePos, direction);
-
-		RayCollision collision;
-		isPlayerVisible = world->Raycast(ray, collision, true, this);
-
-		if (isPlayerVisible && collision.node == player) {
-			std::cout << "Player in sight!\n";
-		}
-		else {
-			isPlayerVisible = false;
-		}
-	}
-}
-
-void Goose::VisualizeRay() {
-	Vector3 goosePos = GetTransform().GetPosition();
-	Vector3 playerPos = player->GetTransform().GetPosition();
-	Vector3 direction = playerPos - goosePos;
-
-	if (Vector::Length(direction) > 0.01f) {
-		direction = Vector::Normalise(direction);
-		Debug::DrawLine(goosePos, goosePos + direction * 50.0f, Vector4(1, 0, 0, 1)); // Draw ray in red
-	}
-}
-
 reactphysics3d::ConcaveMeshShape* TutorialGame::CreateConcaveMeshShape(Mesh* mesh) {
-
-
-
 	const void* vertStart = mesh->GetPositionData().data();
 	const void* indexStart = mesh->GetIndexData().data();
 

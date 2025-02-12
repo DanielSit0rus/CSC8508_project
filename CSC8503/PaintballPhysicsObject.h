@@ -34,25 +34,19 @@ namespace NCL {
 				return rigidBody.getForce();
 			}
 
-			void SetInverseMass(float invMass)
+			void SetMass(float mass)
 			{
-				if (invMass != 0) {
-					rigidBody.setType(rp3d::BodyType::DYNAMIC);
-					rigidBody.setMass(1 / invMass);
+				if (mass == 0) {
+					rigidBody.setType(rp3d::BodyType::STATIC);
+					rigidBody.setMass(mass);
 				}
 				else {
-					rigidBody.setType(rp3d::BodyType::STATIC);
+					rigidBody.setType(rp3d::BodyType::DYNAMIC);
 				}
 			}
 
-			float GetInverseMass() const {
-				float mass = rigidBody.getMass();
-				if (mass != 0) {
-					return 1 / mass;
-				}
-				else {
-					return 0;
-				}
+			float GetMass() const {
+				return rigidBody.getMass();
 			}
 
 			void SetElasticity(float e = 0.8) {
