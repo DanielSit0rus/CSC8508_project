@@ -15,6 +15,8 @@ namespace NCL {
 				static AudioSystem instance;
 				return instance;
 			}
+			AudioSystem(const AudioSystem&) = delete;
+			AudioSystem& operator=(const AudioSystem&) = delete;
 
 			bool Init();
 			void Update();
