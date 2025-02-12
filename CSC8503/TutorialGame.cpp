@@ -123,8 +123,9 @@ void TutorialGame::UpdateGame(float dt) {
 		rp3d::Ray ray(pos, pos + dir * 1000);
 		RaycastHitCallback  callback;
 		RpWorld->raycast(ray, &callback);
-		if (callback.rb)
-			callback.rb->applyWorldForceAtCenterOfMass(dir * forceMagnitude*100);
+		if (callback.rb) {
+			callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
+		}
 	}
 
 	world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);

@@ -77,14 +77,14 @@ namespace NCL {
 				return rigidBody.getCollider(idx)->getMaterial().getFrictionCoefficient();
 			}
 
-			void ApplyAngularImpulse(const Vector3& force);
-			void ApplyLinearImpulse(const Vector3& force);
+			void ApplyAngularImpulse(const rp3d::Vector3& force);
+			void ApplyLinearImpulse(const rp3d::Vector3& force);
 
-			void AddForce(const Vector3& force);
+			void AddForce(const rp3d::Vector3& force);
 
-			void AddForceAtPosition(const Vector3& force, const Vector3& position);
+			void AddForceAtPosition(const rp3d::Vector3& force, const rp3d::Vector3& position);
 
-			void AddTorque(const Vector3& torque);
+			void AddTorque(const rp3d::Vector3& torque);
 
 
 			void ClearForces();
@@ -97,13 +97,14 @@ namespace NCL {
 				rigidBody.setAngularVelocity(v);
 			}
 
+			Matrix3 GetInertiaTensor() const;
+
 		protected:
 			PaintballTransform* transform;
 
 			rp3d::RigidBody& rigidBody; // multiple colliders included
 
 			rp3d::PhysicsWorld& physicsWorld;
-
 		};
 	}
 }
