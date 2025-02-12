@@ -556,7 +556,7 @@ int main() {
 	//TestPathfinding();
 	//TestNetworking();
 	
-	EventManager::Trigger(GameEventType::Game_Start);
+	EventManager::Trigger(EventType::Game_Start);
 
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
 		float dt = w->GetTimer().GetTimeDeltaSeconds();
@@ -603,7 +603,7 @@ int main() {
 
 		audioSystem.Update();
 	} 
-	EventManager::Trigger(GameEventType::Game_End);
+	EventManager::Trigger(EventType::Game_End);
 	audioSystem.Release();
 
 	w->LockMouseToWindow(false);

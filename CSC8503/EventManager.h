@@ -6,7 +6,7 @@
 
 namespace NCL {
     namespace CSC8503 {
-        enum class GameEventType {
+        enum class EventType {
             Game_Start,
             Game_Pause,
             Game_Resume,
@@ -16,12 +16,17 @@ namespace NCL {
         class EventManager {
         public:
             using EventCallback = std::function<void()>;
+            using EventCallbackInt = std::function<void(int&)>;
 
-            static void Subscribe(GameEventType eventType, EventCallback callback);
-            static void Trigger(GameEventType eventType);
+            static void Subscribe(EventType eventType, EventCallback callback);
+            static void Subscribe(EventType eventType, EventCallbackInt callback);
+
+            static void Trigger(EventType eventType);
+            static void Trigger(EventType eventType, int& t);
 
         private:
-            static std::unordered_map<GameEventType, std::vector<EventCallback>> eventListeners;
+            static std::unordered_map<EventType, std::vector<EventCallback>> eventListeners;
+            static std::unordered_map<EventType, std::vector<EventCallbackInt>> eventListenersInt;
         };
     }
 }
