@@ -14,6 +14,8 @@
 
 #include "PushdownState.h"
 
+#include <reactphysics3d/reactphysics3d.h>
+#include "PaintballGameObject.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -117,6 +119,15 @@ namespace NCL {
 			GameObject* AddEnemyToWorld(const Vector3& position);
 			GameObject* AddBonusToWorld(const Vector3& position);
 
+			void FlipSelectMode();
+
+			//rp3d
+			PaintballGameObject* AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			PaintballGameObject* AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			PaintballGameObject* AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color);
+
+			reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
+
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
 #else
@@ -144,6 +155,7 @@ namespace NCL {
 			//Coursework Meshes
 			Mesh*	catMesh		= nullptr;
 			Mesh*	kittenMesh	= nullptr;
+			Mesh*   mapMesh     = nullptr;
 			Mesh*	enemyMesh	= nullptr;
 			Mesh*	bonusMesh	= nullptr;
 			Mesh*	gooseMesh = nullptr;
@@ -156,6 +168,13 @@ namespace NCL {
 			}
 
 			GameObject* objClosest = nullptr;
+
+
+			//rp3d
+			rp3d::PhysicsCommon physicsCommon;
+			rp3d::PhysicsWorld* RpWorld = nullptr;
+			rp3d::PhysicsWorld::WorldSettings RpSettings;
+			vector<PaintballGameObject*> objList_pb;
 		};
 
 	}

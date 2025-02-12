@@ -26,12 +26,8 @@
 
 #include <string>
 
-
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
-using json = nlohmann::json;  // 定义一个简化名称
-
+#include "AudioSystem.h"
+#include "EventManager.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -39,6 +35,8 @@ using namespace CSC8503;
 #include <chrono>
 #include <thread>
 #include <sstream>
+
+AudioSystem& audioSystem = AudioSystem::GetInstance();
 
 vector <Vector3> testNodes;
 
@@ -496,36 +494,9 @@ protected:
 	float pauseReminder = 1.0f;
 };
 
-void JsonIOTest() {
-	// 1. 创建一个 JSON 对象
-	json j;
-	j["name"] = "Alice";
-	j["age"] = 30;
-	j["is_student"] = false;
-
-	// 2. 将 JSON 对象写入文件
-	std::string file_path = "../Assets/Json/output_data.json";  // 指定保存文件的路径
-
-	// 使用 std::ofstream 创建文件输出流
-	std::ofstream file(file_path);
-
-	if (file.is_open()) {
-		// 将 JSON 对象序列化并写入文件
-		file << j.dump(4);  // dump(4) 会格式化 JSON 数据，缩进为4个空格
-		file.close();  // 关闭文件
-		std::cout << "JSON 文件已成功创建并保存到 " << file_path << std::endl;
-	}
-	else {
-		std::cerr << "无法打开文件: " << file_path << std::endl;
-	}
-
-	return;
-}
-
 int main() {
 
-	JsonIOTest();
-	return 0;
+	audioSystem.Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -540,6 +511,9 @@ int main() {
 		return -1;
 	}	
 
+	w->SetWindowPosition(5, 30);
+	w->ShowConsole(false);
+
 	w->ShowOSPointer(false);
 	w->LockMouseToWindow(true);
 
@@ -547,8 +521,10 @@ int main() {
 	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen());
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
-	TestNetworking();
+	//TestNetworking();
 	
+	EventManager::Trigger(GameEventType::Game_Start);
+
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
 		float dt = w->GetTimer().GetTimeDeltaSeconds();
 		//TestStateMachine();
@@ -591,6 +567,14 @@ int main() {
 		}
 		g->UpdateGame(dt);
 		gamescore = g->getscore();
+
+		audioSystem.Update();
 	} 
+	EventManager::Trigger(GameEventType::Game_End);
+	audioSystem.Release();
+
+	w->LockMouseToWindow(false);
+	w->ShowConsole(true);
+
 	Window::DestroyGameWindow();
 }

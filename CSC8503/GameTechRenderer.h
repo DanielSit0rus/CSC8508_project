@@ -5,6 +5,8 @@
 #include "OGLMesh.h"
 
 #include "GameWorld.h"
+#include <vector>
+#include "Light.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -14,6 +16,7 @@ namespace NCL {
 		public:
 			GameTechRenderer(GameWorld& world);
 			~GameTechRenderer();
+			void AddLight(const Light& light);
 
 			Mesh*		LoadMesh(const std::string& name);
 			Texture*	LoadTexture(const std::string& name);
@@ -42,6 +45,7 @@ namespace NCL {
 			void SetDebugLineBufferSizes(size_t newVertCount);
 
 			vector<const RenderObject*> activeObjects;
+			vector<const PaintballRenderObject*> activeObjects_pb;
 
 			OGLShader*  debugShader;
 			OGLShader*  skyboxShader;
@@ -65,6 +69,9 @@ namespace NCL {
 			vector<Vector3> debugTextPos;
 			vector<Vector4> debugTextColours;
 			vector<Vector2> debugTextUVs;
+			
+			std::vector<Light> lights;
+
 
 			GLuint lineVAO;
 			GLuint lineVertVBO;

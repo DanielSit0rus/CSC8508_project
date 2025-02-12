@@ -1,12 +1,23 @@
 #version 400 core
 
+#define MAX_LIGHTS 8
+
 uniform vec4 		objectColour;
 uniform sampler2D 	mainTex;
 uniform sampler2DShadow shadowTex;
 
-uniform vec3	lightPos;
-uniform float	lightRadius;
-uniform vec4	lightColour;
+
+
+struct Light {
+    vec3 position;
+    vec3 direction; 
+    vec4 color;
+    float radius;
+    float cutoff;
+};
+
+uniform int numLights;
+uniform Light lights[MAX_LIGHTS];
 
 uniform vec3	cameraPos;
 
@@ -25,44 +36,39 @@ out vec4 fragColor;
 
 void main(void)
 {
-	float shadow = 1.0; // New !
-	
-	if( IN . shadowProj . w > 0.0) { // New !
-		shadow = textureProj ( shadowTex , IN . shadowProj ) * 0.5f;
+    float shadow = 1.0;
+    float shadowBias = max(0.005 * (1.0 - dot(IN.normal, normalize(lights[0].position - IN.worldPos))), 0.0005);;
+
+    if (IN.shadowProj.w > 0.0) {
+        shadow = textureProj(shadowTex,  vec4(IN.shadowProj.xy, IN.shadowProj.z - shadowBias, IN.shadowProj.w));
+    }
+
+    vec4 albedo = pow(IN.colour, vec4(2.2));
+    if (hasTexture) {
+        albedo *=  pow(texture(mainTex, IN.texCoord), vec4(2.2));
+    }
+    
+
+    vec3 totalLighting = vec3(0.01f) * shadow; // Ambient light, reduced further
+
+	for (int i = 0; i < numLights; i++) {
+    		vec3 lightDir = normalize(lights[i].position - IN.worldPos);
+    		float distance = length(lights[i].position - IN.worldPos);
+    		float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * (distance * distance));
+
+    		// Spotlight effect
+    		float theta = dot(lightDir, normalize(-lights[i].direction)); // Compare with light direction
+    		float epsilon = lights[i].cutoff - 0.02; // Soft edge cutoff
+    		float spotlightIntensity = clamp((theta - epsilon) / (lights[i].cutoff - epsilon), 0.0, 1.0);
+
+    		float lambert = max(0.0, dot(lightDir, IN.normal));
+    		vec3 viewDir = normalize(cameraPos - IN.worldPos);
+    		vec3 halfDir = normalize(lightDir + viewDir);
+    		float specular = pow(max(dot(halfDir, IN.normal), 0.0), 32.0);
+
+    		totalLighting += (lambert + specular) * lights[i].color.rgb * attenuation * spotlightIntensity * shadow;
 	}
 
-	vec3  incident = normalize ( lightPos - IN.worldPos );
-	float lambert  = max (0.0 , dot ( incident , IN.normal )) * 0.9; 
-	
-	vec3 viewDir = normalize ( cameraPos - IN . worldPos );
-	vec3 halfDir = normalize ( incident + viewDir );
-
-	float rFactor = max (0.0 , dot ( halfDir , IN.normal ));
-	float sFactor = pow ( rFactor , 80.0 );
-	
-	vec4 albedo = IN.colour;
-	
-	if(hasTexture) {
-	 albedo *= texture(mainTex, IN.texCoord);
-	}
-	
-	albedo.rgb = pow(albedo.rgb, vec3(2.2));
-	
-	fragColor.rgb = albedo.rgb * 0.05f; //ambient
-	
-	fragColor.rgb += albedo.rgb * lightColour.rgb * lambert * shadow; //diffuse light
-	
-	fragColor.rgb += lightColour.rgb * sFactor * shadow; //specular light
-	
-	fragColor.rgb = pow(fragColor.rgb, vec3(1.0 / 2.2f));
-	
-	fragColor.a = albedo.a;
-
-//fragColor.rgb = IN.normal;
-
-	//fragColor = IN.colour;
-	
-	//fragColor.xy = IN.texCoord.xy;
-	
-	//fragColor = IN.colour;
+    fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0f / 2.2f)); // Gamma correction
+    fragColor.a = albedo.a;
 }

@@ -17,7 +17,8 @@ GameTechRenderer::GameTechRenderer(GameWorld& world) : OGLRenderer(*Window::GetW
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
-
+	Light light1(Vector3(10, 40, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
+	AddLight(light1);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -152,6 +153,21 @@ void GameTechRenderer::BuildObjectList() {
 			}
 		}
 	);
+
+	activeObjects_pb.clear();
+
+	gameWorld.OperateOnContents(
+		[&](PaintballGameObject* o) {
+			if (o->IsActive()) {
+				const PaintballRenderObject* g = o->GetRenderObject();
+				if (g) {
+					activeObjects_pb.emplace_back(g);
+				}
+			}
+		}
+	);
+
+
 }
 
 void GameTechRenderer::SortObjectList() {
@@ -170,7 +186,7 @@ void GameTechRenderer::RenderShadowMap() {
 	int mvpLocation = glGetUniformLocation(shadowShader->GetProgramID(), "mvpMatrix");
 
 	Matrix4 shadowViewMatrix = Matrix::View(lightPosition, Vector3(0, 0, 0), Vector3(0,1,0));
-	Matrix4 shadowProjMatrix = Matrix::Perspective(100.0f, 500.0f, 1.0f, 45.0f);
+	Matrix4 shadowProjMatrix = Matrix::Perspective(1.0f, 1000.0f, 1.0f, 90.0f);
 
 	Matrix4 mvMatrix = shadowProjMatrix * shadowViewMatrix;
 
@@ -186,12 +202,28 @@ void GameTechRenderer::RenderShadowMap() {
 			DrawBoundMesh((uint32_t)i);
 		}
 	}
+	for (const auto&i : activeObjects_pb) {
+		Matrix4 modelMatrix = (*i).GetTransform()->GetMatrix();
+		Matrix4 mvpMatrix	= mvMatrix * modelMatrix;
+		glUniformMatrix4fv(mvpLocation, 1, false, (float*)&mvpMatrix);
+		BindMesh((OGLMesh&)*(*i).GetMesh());
+		size_t layerCount = (*i).GetMesh()->GetSubMeshCount();
+		for (size_t i = 0; i < layerCount; ++i) {
+			DrawBoundMesh((uint32_t)i);
+		}
+	}
 
 	glViewport(0, 0, windowSize.x, windowSize.y);
 	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	glCullFace(GL_BACK);
+}
+
+void GameTechRenderer::AddLight(const Light& light) {
+	if (lights.size() < 8) { // Limit to 8 lights (defined in shader)
+		lights.push_back(light);
+	}
 }
 
 void GameTechRenderer::RenderSkybox() {
@@ -224,6 +256,7 @@ void GameTechRenderer::RenderSkybox() {
 }
 
 void GameTechRenderer::RenderCamera() {
+
 	Matrix4 viewMatrix = gameWorld.GetMainCamera().BuildViewMatrix();
 	Matrix4 projMatrix = gameWorld.GetMainCamera().BuildProjectionMatrix(hostWindow.GetScreenAspect());
 
@@ -263,9 +296,9 @@ void GameTechRenderer::RenderCamera() {
 			hasVColLocation = glGetUniformLocation(shader->GetProgramID(), "hasVertexColours");
 			hasTexLocation  = glGetUniformLocation(shader->GetProgramID(), "hasTexture");
 
-			lightPosLocation	= glGetUniformLocation(shader->GetProgramID(), "lightPos");
+			/*lightPosLocation	= glGetUniformLocation(shader->GetProgramID(), "lightPos");
 			lightColourLocation = glGetUniformLocation(shader->GetProgramID(), "lightColour");
-			lightRadiusLocation = glGetUniformLocation(shader->GetProgramID(), "lightRadius");
+			lightRadiusLocation = glGetUniformLocation(shader->GetProgramID(), "lightRadius");*/
 
 			cameraLocation = glGetUniformLocation(shader->GetProgramID(), "cameraPos");
 
@@ -275,16 +308,34 @@ void GameTechRenderer::RenderCamera() {
 			glUniformMatrix4fv(projLocation, 1, false, (float*)&projMatrix);
 			glUniformMatrix4fv(viewLocation, 1, false, (float*)&viewMatrix);
 
-			glUniform3fv(lightPosLocation	, 1, (float*)&lightPosition);
-			glUniform4fv(lightColourLocation, 1, (float*)&lightColour);
-			glUniform1f(lightRadiusLocation , lightRadius);
+			int numLights = (int)lights.size();
+			glUniform1i(glGetUniformLocation(shader->GetProgramID(), "numLights"), numLights);
+
+			for (int i = 0; i < numLights; ++i) {
+				std::string index = std::to_string(i);
+
+				Vector3 pos = lights[i].GetPosition();
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].position").c_str()), 1, (float*)&pos);
+
+				Vector4 col = lights[i].GetColor();
+				glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].color").c_str()), 1, (float*)&col);
+
+				float rad = lights[i].GetRadius();
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].radius").c_str()), rad);
+
+				Vector3 dir = lights[i].GetDirection(); // New: Spotlight direction
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].direction").c_str()), 1, (float*)&dir);
+
+				float cutoff = cos(lights[i].GetCutoff() * (3.14159265359f / 180.0f)); // Convert to radians
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].cutoff").c_str()), cutoff);
+			}
 
 			int shadowTexLocation = glGetUniformLocation(shader->GetProgramID(), "shadowTex");
 			glUniform1i(shadowTexLocation, 1);
 
 			activeShader = shader;
 		}
-
+		
 		Matrix4 modelMatrix = (*i).GetTransform()->GetMatrix();
 		glUniformMatrix4fv(modelLocation, 1, false, (float*)&modelMatrix);			
 		
@@ -304,6 +355,83 @@ void GameTechRenderer::RenderCamera() {
 			DrawBoundMesh((uint32_t)i);
 		}
 	}
+	for (const auto&i : activeObjects_pb) {
+		OGLShader* shader = (OGLShader*)(*i).GetShader();
+		UseShader(*shader);
+
+		if ((*i).GetDefaultTexture()) {
+			BindTextureToShader(*(OGLTexture*)(*i).GetDefaultTexture(), "mainTex", 0);
+		}
+
+		if (activeShader != shader) {
+			projLocation	= glGetUniformLocation(shader->GetProgramID(), "projMatrix");
+			viewLocation	= glGetUniformLocation(shader->GetProgramID(), "viewMatrix");
+			modelLocation	= glGetUniformLocation(shader->GetProgramID(), "modelMatrix");
+			shadowLocation  = glGetUniformLocation(shader->GetProgramID(), "shadowMatrix");
+			colourLocation  = glGetUniformLocation(shader->GetProgramID(), "objectColour");
+			hasVColLocation = glGetUniformLocation(shader->GetProgramID(), "hasVertexColours");
+			hasTexLocation  = glGetUniformLocation(shader->GetProgramID(), "hasTexture");
+
+			/*lightPosLocation	= glGetUniformLocation(shader->GetProgramID(), "lightPos");
+			lightColourLocation = glGetUniformLocation(shader->GetProgramID(), "lightColour");
+			lightRadiusLocation = glGetUniformLocation(shader->GetProgramID(), "lightRadius");*/
+
+			cameraLocation = glGetUniformLocation(shader->GetProgramID(), "cameraPos");
+
+			Vector3 camPos = gameWorld.GetMainCamera().GetPosition();
+			glUniform3fv(cameraLocation, 1, &camPos.x);
+
+			glUniformMatrix4fv(projLocation, 1, false, (float*)&projMatrix);
+			glUniformMatrix4fv(viewLocation, 1, false, (float*)&viewMatrix);
+
+			int numLights = (int)lights.size();
+			glUniform1i(glGetUniformLocation(shader->GetProgramID(), "numLights"), numLights);
+
+			for (int i = 0; i < numLights; ++i) {
+				std::string index = std::to_string(i);
+
+				Vector3 pos = lights[i].GetPosition();
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].position").c_str()), 1, (float*)&pos);
+
+				Vector4 col = lights[i].GetColor();
+				glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].color").c_str()), 1, (float*)&col);
+
+				float rad = lights[i].GetRadius();
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].radius").c_str()), rad);
+
+				Vector3 dir = lights[i].GetDirection(); // New: Spotlight direction
+				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].direction").c_str()), 1, (float*)&dir);
+
+				float cutoff = cos(lights[i].GetCutoff() * (3.14159265359f / 180.0f)); // Convert to radians
+				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].cutoff").c_str()), cutoff);
+			}
+
+			int shadowTexLocation = glGetUniformLocation(shader->GetProgramID(), "shadowTex");
+			glUniform1i(shadowTexLocation, 1);
+
+			activeShader = shader;
+		}
+		
+		Matrix4 modelMatrix = (*i).GetTransform()->GetMatrix();
+		glUniformMatrix4fv(modelLocation, 1, false, (float*)&modelMatrix);			
+		
+		Matrix4 fullShadowMat = shadowMatrix * modelMatrix;
+		glUniformMatrix4fv(shadowLocation, 1, false, (float*)&fullShadowMat);
+
+		Vector4 colour = i->GetColour();
+		glUniform4fv(colourLocation, 1, &colour.x);
+
+		glUniform1i(hasVColLocation, !(*i).GetMesh()->GetColourData().empty());
+
+		glUniform1i(hasTexLocation, (OGLTexture*)(*i).GetDefaultTexture() ? 1:0);
+
+		BindMesh((OGLMesh&)*(*i).GetMesh());
+		size_t layerCount = (*i).GetMesh()->GetSubMeshCount();
+		for (size_t i = 0; i < layerCount; ++i) {
+			DrawBoundMesh((uint32_t)i);
+		}
+	}
+
 }
 
 Mesh* GameTechRenderer::LoadMesh(const std::string& name) {
