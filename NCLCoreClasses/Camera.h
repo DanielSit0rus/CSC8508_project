@@ -10,6 +10,7 @@ https://research.ncl.ac.uk/game/
 #include "Vector.h"
 #include "Matrix.h"
 #include "Controller.h"
+#include "Window.h"
 
 namespace NCL {
 	using namespace NCL::Maths;
@@ -131,6 +132,17 @@ namespace NCL {
 		}
 
 		Matrix4 BuildProjectionMatrix(float aspectRatio = 1.0f) const override;
+
+		Vector3 GetMouseDir();
+		Vector3 GetScreenDir(float x, float y);
+		Vector3 Unproject(const Vector3& screenPos);
+		Matrix4 GenerateInverseView();
+		Matrix4 GenerateInverseProjection(float aspect, float fov, float nearPlane, float farPlane);
+
+#pragma region Ray
+
+#pragma endregion
+
 
 	protected:
 		float	fov;
