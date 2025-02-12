@@ -124,6 +124,9 @@ namespace NCL {
 			//rp3d
 			PaintballGameObject* AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 			PaintballGameObject* AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			PaintballGameObject* AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color);
+
+			reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
@@ -152,6 +155,7 @@ namespace NCL {
 			//Coursework Meshes
 			Mesh*	catMesh		= nullptr;
 			Mesh*	kittenMesh	= nullptr;
+			Mesh*   mapMesh     = nullptr;
 			Mesh*	enemyMesh	= nullptr;
 			Mesh*	bonusMesh	= nullptr;
 			Mesh*	gooseMesh = nullptr;
