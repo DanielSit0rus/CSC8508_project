@@ -100,18 +100,41 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 
+	if (false) {
+		const Camera& camera = world->GetMainCamera();
+		Vector3 camPos = camera.GetPosition();
+		float yaw = DegreesToRadians(camera.GetYaw());
+		float pitch = DegreesToRadians(-camera.GetPitch());
+		Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
+		front = -Vector::Normalise(front);
+		Vector3 target = camPos + front * 20.0f;
+		Debug::DrawLine(target, target + Vector3(1, 0, 0), Debug::RED);
+		Debug::DrawLine(target, target + Vector3(0, 1, 0), Debug::GREEN);
+		Debug::DrawLine(target, target + Vector3(0, 0, 1), Debug::BLUE);
+	}
+	else
+	{
+		Debug::Print("+", Vector2(49, 51));
+	}
+
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
+		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
+		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
+		rp3d::Ray ray(pos, pos + dir * 1000);
+		RaycastHitCallback  callback;
+		RpWorld->raycast(ray, &callback);
+		if (callback.rb)
+			callback.rb->applyWorldForceAtCenterOfMass(dir * forceMagnitude*100);
+	}
+
 	world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
 	
 	UpdateKeys();
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 	
-	Debug::Print("Move Speed:" + std::to_string(forceMagnitude), Vector2(5, 80));
+	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
-
-	for (auto& obj : objList_pb) {
-		obj->Update();
-	}
 
 	world->UpdateWorld(dt);
 	renderer->Update(dt);
@@ -230,9 +253,8 @@ PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& posit
 
 	// create a rigid body
 	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
 	// create Shape
-	rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
+	rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
 	//rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
 	// bind Shape to rigid body
 	rp3d::Transform shapeTransform = rp3d::Transform::identity();
@@ -259,10 +281,9 @@ PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& positi
 
 	// create a rigid body
 	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	rp3d::Vector3 halfExtents(dimensions.x, dimensions.y, dimensions.z);
 	// create Shape
-	//rp3d::BoxShape* shape = physicsCommon.createBoxShape(halfExtents);
-	rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
+	//rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+	rp3d::SphereShape* shape = physicsCommon.createSphereShape(dimensions.x);
 	// bind Shape to rigid body
 	rp3d::Transform shapeTransform = rp3d::Transform::identity();
 	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);

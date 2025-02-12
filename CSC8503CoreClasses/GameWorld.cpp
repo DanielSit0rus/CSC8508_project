@@ -20,6 +20,7 @@ GameWorld::~GameWorld()	{
 
 void GameWorld::Clear() {
 	gameObjects.clear();
+	gameObjects_pb.clear();
 	constraints.clear();
 	worldIDCounter		= 0;
 	worldStateCounter	= 0;
@@ -27,6 +28,9 @@ void GameWorld::Clear() {
 
 void GameWorld::ClearAndErase() {
 	for (auto& i : gameObjects) {
+		delete i;
+	}
+	for (auto& i : gameObjects_pb) {
 		delete i;
 	}
 	for (auto& i : constraints) {
@@ -79,6 +83,10 @@ void GameWorld::UpdateWorld(float dt) {
 
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::default_random_engine e(seed);
+
+	for (auto& obj : gameObjects_pb) {
+		obj->Update();
+	}
 
 	if (shuffleObjects) {
 		std::shuffle(gameObjects.begin(), gameObjects.end(), e);

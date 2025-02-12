@@ -8,9 +8,20 @@
 
 #include <reactphysics3d/reactphysics3d.h>
 #include "PaintballGameObject.h"
+#include "Util.h"
 
 namespace NCL {
 	namespace CSC8503 {
+
+		class RaycastHitCallback : public rp3d::RaycastCallback {
+		public:
+			rp3d::RigidBody* rb;
+			rp3d::decimal notifyRaycastHit(const rp3d::RaycastInfo& info) override {
+				rb = dynamic_cast<rp3d::RigidBody*>(info.body);
+				return info.hitFraction; // 继续检测其他碰撞物
+			}
+		};
+
 		class TutorialGame		{
 		public:
 			TutorialGame();
