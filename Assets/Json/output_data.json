@@ -1,9 +1,5 @@
 {
-  "playerdata": {
     "age": 30,
     "is_student": false,
     "name": "Alice"
-  }
-
-
 }

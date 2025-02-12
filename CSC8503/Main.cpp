@@ -29,6 +29,11 @@
 #include "AudioSystem.h"
 #include "EventManager.h"
 
+#include <iostream>
+#include <fstream>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;  // 定义一个简化名称
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -494,7 +499,35 @@ protected:
 	float pauseReminder = 1.0f;
 };
 
+void JsonIOTest() {
+	// 1. 创建一个 JSON 对象
+	json j;
+	j["name"] = "Alice";
+	j["age"] = 30;
+	j["is_student"] = false;
+
+	// 2. 将 JSON 对象写入文件
+	std::string file_path = "../Assets/Json/output_data.json";  // 指定保存文件的路径
+
+	// 使用 std::ofstream 创建文件输出流
+	std::ofstream file(file_path);
+
+	if (file.is_open()) {
+		// 将 JSON 对象序列化并写入文件
+		file << j.dump(4);  // dump(4) 会格式化 JSON 数据，缩进为4个空格
+		file.close();  // 关闭文件
+		std::cout << "JSON 文件已成功创建并保存到 " << file_path << std::endl;
+	}
+	else {
+		std::cerr << "无法打开文件: " << file_path << std::endl;
+	}
+
+	return;
+}
+
 int main() {
+
+	JsonIOTest();
 
 	audioSystem.Init();
 
