@@ -58,6 +58,7 @@ void TutorialGame::InitialiseAssets() {
 	sphereMesh	= renderer->LoadMesh("sphere.msh");
 	catMesh		= renderer->LoadMesh("ORIGAMI_Chat.msh");
 	kittenMesh	= renderer->LoadMesh("Kitten.msh");
+	mapMesh = renderer->LoadMesh("SampleMap.msh");
 	gooseMesh = renderer->LoadMesh("goose.msh");
 
 	enemyMesh	= renderer->LoadMesh("Keeper.msh");
@@ -80,6 +81,7 @@ TutorialGame::~TutorialGame()	{
 	delete kittenMesh;
 	delete enemyMesh;
 	delete bonusMesh;
+	delete mapMesh;
 
 	delete basicTex;
 	delete basicShader;
@@ -499,6 +501,14 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
+
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
+
+
+	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(20, 10, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 100, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 	//rp3d
 	float angleInRadians = 30.0f * PI / 180.0f;
@@ -1133,5 +1143,76 @@ void Goose::VisualizeRay() {
 	}
 }
 
+reactphysics3d::ConcaveMeshShape* TutorialGame::CreateConcaveMeshShape(Mesh* mesh) {
+
+
+
+	const void* vertStart = mesh->GetPositionData().data();
+	const void* indexStart = mesh->GetIndexData().data();
+
+	unsigned int vertCount = mesh->GetVertexCount();
+	unsigned int trianglesCount = mesh->GetIndexCount() / 3;
+
+	// Create the TriangleVertexArray
+	reactphysics3d::TriangleVertexArray* triangleArray = new reactphysics3d::TriangleVertexArray(
+		vertCount,                       // Number of vertices
+		vertStart,                       // Vertex position data
+		sizeof(Maths::Vector3),          // Stride between vertices
+		trianglesCount,                  // Number of triangles
+		indexStart,                      // Index data
+		3 * sizeof(int),                 // Stride between indices
+		reactphysics3d::TriangleVertexArray::VertexDataType::VERTEX_FLOAT_TYPE,
+		reactphysics3d::TriangleVertexArray::IndexDataType::INDEX_INTEGER_TYPE
+	);
+
+	// Vector to store messages from triangle mesh creation
+	std::vector<reactphysics3d::Message> messages;
+
+
+	// Create the TriangleMesh
+	reactphysics3d::TriangleMesh* triangleMesh = physicsCommon.createTriangleMesh(*triangleArray, messages);
+	const Vector3 scaling(1, 1, 1);
+
+	// Create the ConcaveMeshShape using the TriangleMesh
+	reactphysics3d::ConcaveMeshShape* concaveMeshShape = physicsCommon.createConcaveMeshShape(triangleMesh);
+
+	return concaveMeshShape;
+}
+
+
+PaintballGameObject* TutorialGame::AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
+	PaintballGameObject* concave = new PaintballGameObject();
+
+	concave->GetTransform()
+		.SetPosition(position)
+		.SetOrientation(orientation)
+		.SetScale(dimensions);
+
+	concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(), mapMesh, basicTex, basicShader));
+
+	concave->GetRenderObject()->SetColour(color);
+
+	rp3d::Vector3 pos(position.x, position.y, position.z);
+	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+
+
+	// create a rigid body
+	rp3d::Transform transform(pos, ori);
+	rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(transform);
+	concaveBody->setType(rp3d::BodyType::STATIC);
+	// create Shape
+	rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(mapMesh); // scale?
+	// bind Shape to rigid body
+	rp3d::Transform shapeTransform = rp3d::Transform::identity();
+	rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
+	//add rigid body to gameobject
+	concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
+
+	world->AddGameObject(concave);
+
+
+
+	return concave;
+}
 
 
