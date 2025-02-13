@@ -9,12 +9,24 @@ AudioSystem::~AudioSystem() {
 
 bool AudioSystem::Init()
 {
-    FMOD::Studio::System::create(&studioSystem);
-    if (!studioSystem) {
-        std::cout << "FMOD Studio 创建失败！" << std::endl;
+    FMOD_RESULT result;
+    result = FMOD::Studio::System::create(&studioSystem);
+    if (result != FMOD_OK) {
+        std::cerr << "FMOD Studio System creation failed: " << result << std::endl;
         return false;
     }
-    studioSystem->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_3D_RIGHTHANDED, nullptr);
+
+    result = studioSystem->initialize(512, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr);
+    if (result != FMOD_OK) {
+        std::cerr << "FMOD Studio System initialization failed: " << result << std::endl;
+        return false;
+    }
+
+    result = studioSystem->getCoreSystem(&coreSystem);
+    if (result != FMOD_OK) {
+        std::cerr << "Failed to get FMOD Core System: " << result << std::endl;
+        return false;
+    }
 
     LoadBank("Master.bank");
     LoadBank("Master.strings.bank");
@@ -22,7 +34,7 @@ bool AudioSystem::Init()
     LoadBank("Lin.bank");
     LoadBus("BGM");
 
-    buses["BGM"]->setVolume(0.15f);
+    buses["BGM"]->setVolume(1.0f);
 
     /*
     EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
@@ -32,6 +44,38 @@ bool AudioSystem::Init()
     */
 
     //EventManager::Subscribe(EventType::Game_Start, [this](int& a) {a = 2; });
+
+    FMOD::Studio::EventDescription* eventDescription = nullptr;
+    result = studioSystem->getEvent("event:/BGM/BGM1_3D", &eventDescription);
+    if (result != FMOD_OK) {
+        std::cerr << "Failed to get event description: " << result << std::endl;
+        return false;
+    }
+
+    result = eventDescription->createInstance(&eventInstance);
+    if (result != FMOD_OK) {
+        std::cerr << "Failed to create event instance: " << result << std::endl;
+        return false;
+    }
+
+    // 设置3D属性
+    sourceAttributes = new FMOD_3D_ATTRIBUTES();
+    sourceAttributes->position = { 0.0f, 0.0f, 0.0f }; // 设置音源位置
+    sourceAttributes->velocity = { 0.0f, 0.0f, 0.0f }; // 设置音源速度
+    sourceAttributes->forward = { 0.0f, 0.0f, 1.0f };  // 设置音源前方方向
+    sourceAttributes->up = { 0.0f, 1.0f, 0.0f };       // 设置音源上方方向
+
+    result = eventInstance->set3DAttributes(sourceAttributes);
+    if (result != FMOD_OK) {
+        std::cerr << "Failed to set 3D attributes: " << result << std::endl;
+        return false;
+    }
+
+    result = eventInstance->start();
+    if (result != FMOD_OK) {
+        std::cerr << "Failed to start event: " << result << std::endl;
+        return false;
+    }
 
     return true;
 }

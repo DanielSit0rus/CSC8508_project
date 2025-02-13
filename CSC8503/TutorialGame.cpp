@@ -118,11 +118,11 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
-	
+
 	UpdateKeys();
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
-	
+
 	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
@@ -133,6 +133,19 @@ void TutorialGame::UpdateGame(float dt) {
 
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
+
+	//Fmod
+	Matrix4 view = world->GetMainCamera().BuildViewMatrix();;
+	Vector3 forward = Vector::Normalise(Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
+	Vector3 up = Vector::Normalise(Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
+	listenerAttributes = new FMOD_3D_ATTRIBUTES();
+	listenerAttributes->position = { pos.x, pos.y, pos.z };
+	listenerAttributes->forward = { forward.x,forward.y,forward.z };
+	listenerAttributes->up = { up.x,up.y,up.z };
+	AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
+	rp3d::Vector3 pos2 = speakerObj->GetTransform().GetPosition();
+	AudioSystem::GetInstance().sourceAttributes->position = { pos2.x, pos2.y, pos2.z };
+	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
 }
 
 void TutorialGame::UpdateKeys() {
@@ -229,13 +242,14 @@ void TutorialGame::InitWorld() {
 	renderer->AddLight(light2);
 
 
+	speakerObj = AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+
 	//rp3d
 	objList_pb.clear();
 	float angleInRadians = 10.0f * PI / 180.0f;
 	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
