@@ -179,10 +179,6 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
-	//BridgeConstraintTest();
-	//InitMixedGridWorld(15, 15, 3.5f, 3.5f);
-	//testStateObject = AddStateObjectToWorld(Vector3(0, 10, -10));
-	//InitGameExamples();
 
 	playerObject = AddPlayerToWorld(rp3d::Vector3(2, 2, 2));
 
@@ -262,27 +258,6 @@ void TutorialGame::UpdateKeys() {
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {
 		InitCamera(); //F2 will reset the camera to a specific default place
 	}
-
-	//Running certain physics updates in a consistent order might cause some
-	//bias in the calculations - the same objects might keep 'winning' the constraint
-	//allowing the other one to stretch too much etc. Shuffling the order so that it
-	//is random every frame can help reduce such bias.
-
-	/*
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F9)) {
-		world->ShuffleConstraints(true);
-	}
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F10)) {
-		world->ShuffleConstraints(false);
-	}
-
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F7)) {
-		world->ShuffleObjects(true);
-	}
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F8)) {
-		world->ShuffleObjects(false);
-	}
-	*/
 }
 
 void TutorialGame::LockedObjectMovement() {

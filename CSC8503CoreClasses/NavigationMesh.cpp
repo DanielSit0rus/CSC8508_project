@@ -94,3 +94,32 @@ const NavigationMesh::NavTri* NavigationMesh::GetTriForPosition(const Vector3& p
 	}
 	return nullptr;
 }
+
+
+
+void NavigationMesh::DrawNavMesh() const {
+	// Define colors for clarity
+	Vector4 vertexColor = Vector4(1.0f, 0.0f, 0.0f, 1.0f); // Red for vertices
+	Vector4 edgeColor = Vector4(0.0f, 1.0f, 0.0f, 1.0f);   // Green for edges
+	Vector4 centroidColor = Vector4(0.0f, 0.0f, 1.0f, 1.0f); // Blue for centroids
+
+	// Draw vertices
+	for (const Vector3& vertex : allVerts) {
+		//Debug::DrawAxisLines(vertex, vertexColor);
+	}
+
+	// Draw triangles and edges
+	for (const NavTri& tri : allTris) {
+		const Vector3& v0 = allVerts[tri.indices[0]];
+		const Vector3& v1 = allVerts[tri.indices[1]];
+		const Vector3& v2 = allVerts[tri.indices[2]];
+
+		// Draw edges of the triangle
+		Debug::DrawLine(v0, v1, edgeColor);
+		Debug::DrawLine(v1, v2, edgeColor);
+		Debug::DrawLine(v2, v0, edgeColor);
+
+		// Draw centroid
+		//Debug::DrawAxisLines(tri.centroid, centroidColor);
+	}
+}

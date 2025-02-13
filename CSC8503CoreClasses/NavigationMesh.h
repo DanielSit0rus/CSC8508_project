@@ -3,6 +3,7 @@
 #include "Plane.h"
 #include <string>
 #include <vector>
+#include "Debug.h" 
 namespace NCL {
 	namespace CSC8503 {
 		class NavigationMesh : public NavigationMap	{
@@ -12,6 +13,8 @@ namespace NCL {
 			~NavigationMesh();
 
 			bool FindPath(const Vector3& from, const Vector3& to, NavigationPath& outPath) override;
+
+			void DrawNavMesh() const;
 		
 		protected:
 			struct NavTri {
