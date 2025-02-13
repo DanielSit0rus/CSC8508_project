@@ -241,7 +241,6 @@ class PauseScreen : public PushdownState {
 	}
 	void OnAwake() override {
 		std::cout << "Press U to unpause game ! \n";
-		
 	}
 	
 };
@@ -381,6 +380,10 @@ bool reset = false;
 float elapsedTime = 120;
 
 class pauseScreen : public PushdownState {
+public:
+	pauseScreen(Window* window) {
+		w = window;
+	}
 	PushdownResult OnUpdate(float dt,
 		PushdownState** newState) override {
 
@@ -398,8 +401,15 @@ class pauseScreen : public PushdownState {
 	void OnAwake() override {
 		paused = true;
 
+		w->ShowOSPointer(true);
+		w->LockMouseToWindow(false);
 	}
-
+	void OnSleep() override {
+		w->ShowOSPointer(false);
+		w->LockMouseToWindow(true);
+	}
+private:
+	Window* w;
 };
 
 class WinScreen : public PushdownState {
@@ -451,6 +461,10 @@ class gameOverScreen : public PushdownState {
 
 
 class gameScreen : public PushdownState {
+public:
+	gameScreen(Window* window) {
+		w = window;
+	}
 
 	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
 		//reset = false;
@@ -463,7 +477,7 @@ class gameScreen : public PushdownState {
 		Debug::Print("Starting Game, timer: " + std::to_string(elapsedTime), Vector2(5, 15));
 		// Pause state transition
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::P)) {
-			*newState = new pauseScreen();
+			*newState = new pauseScreen(w);
 			return PushdownResult::Push;
 		}
 		return PushdownResult::NoChange;
@@ -477,6 +491,7 @@ class gameScreen : public PushdownState {
 protected:
 	//int coinsMined = 0;
 	float pauseReminder = 1.0f;
+	Window* w;
 };
 
 int main() {
@@ -505,7 +520,7 @@ int main() {
 	w->LockMouseToWindow(true);
 
 	TutorialGame* g = new TutorialGame();
-	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen());
+	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen(w));
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
 	//TestNetworking();

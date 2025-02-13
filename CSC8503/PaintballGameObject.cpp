@@ -12,7 +12,8 @@ PaintballGameObject::PaintballGameObject(const std::string& objectName) {
 }
 
 PaintballGameObject::~PaintballGameObject() {
-
+    delete renderObject;
+    delete physicsObject;
 }
 
 void PaintballGameObject::Update() {

@@ -15,9 +15,9 @@ namespace NCL {
 
 		class RaycastHitCallback : public rp3d::RaycastCallback {
 		public:
-			rp3d::RigidBody* rb;
+			rp3d::RigidBody* rb = nullptr;
 			rp3d::Vector3 hitpoint;
-
+			
 			rp3d::decimal notifyRaycastHit(const rp3d::RaycastInfo& info) override {
 				rb = dynamic_cast<rp3d::RigidBody*>(info.body);
 				hitpoint = info.worldPoint;
@@ -94,6 +94,9 @@ namespace NCL {
 			rp3d::PhysicsWorld* RpWorld = nullptr;
 			rp3d::PhysicsWorld::WorldSettings RpSettings;
 			vector<PaintballGameObject*> objList_pb;
+
+			PaintballGameObject* selectionObject = nullptr;
+			PaintballGameObject* lockedObject = nullptr;
 		};
 
 	}

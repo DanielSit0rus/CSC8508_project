@@ -117,17 +117,6 @@ void TutorialGame::UpdateGame(float dt) {
 		Debug::Print("+", Vector2(49, 51));
 	}
 
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
-		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
-		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
-		rp3d::Ray ray(pos, pos + dir * 1000);
-		RaycastHitCallback  callback;
-		RpWorld->raycast(ray, &callback);
-		if (callback.rb) {
-			callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
-		}
-	}
-
 	world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
 	
 	UpdateKeys();
@@ -147,6 +136,37 @@ void TutorialGame::UpdateGame(float dt) {
 }
 
 void TutorialGame::UpdateKeys() {
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
+		if (selectionObject) {	//set colour to deselected;
+			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
+			selectionObject = nullptr;
+		}
+
+		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
+		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
+		rp3d::Ray ray(pos, pos + dir * 1000);
+		RaycastHitCallback  callback;
+		RpWorld->raycast(ray, &callback);
+		if (callback.rb && callback.rb->getUserData()) {
+			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
+			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
+		}
+	}
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
+		if (!selectionObject) return;
+
+		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
+		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
+		rp3d::Ray ray(pos, pos + dir * 1000);
+		RaycastHitCallback  callback;
+		RpWorld->raycast(ray, &callback);
+		if (callback.rb && callback.rb->getUserData()) {
+			if (selectionObject == (PaintballGameObject*)callback.rb->getUserData())
+				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
+		}
+	}
+
+
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
 		InitWorld(); //We can reset the simulation at any time with F1
 	}
@@ -186,10 +206,14 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 
+	lockedObject = nullptr;
+	selectionObject = nullptr;
 	forceMagnitude = 60.0f;
 }
 
 void TutorialGame::InitWorld() {
+	lockedObject = nullptr;
+
 	world->ClearAndErase();
 
 	//BridgeConstraintTest();

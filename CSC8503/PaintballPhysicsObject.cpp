@@ -8,7 +8,7 @@ PaintballPhysicsObject::PaintballPhysicsObject(PaintballTransform* parentTransfo
 }
 
 PaintballPhysicsObject::~PaintballPhysicsObject() {
-	
+	physicsWorld.destroyRigidBody(&rigidBody);
 }
 
 void PaintballPhysicsObject::ApplyAngularImpulse(const rp3d::Vector3& force) {
