@@ -43,6 +43,7 @@ namespace NCL::CSC8503 {
 
         void SetPhysicsObject(PaintballPhysicsObject* newObject) {
             physicsObject = newObject;
+            physicsObject->GetRigidbody().setUserData(this);
         }
 
         const std::string& GetName() const {
@@ -54,7 +55,7 @@ namespace NCL::CSC8503 {
 			worldID = newID;
 		}
 
-		int		GetWorldID() const {
+		int GetWorldID() const {
 			return worldID;
 		}
 
