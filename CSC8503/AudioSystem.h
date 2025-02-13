@@ -27,6 +27,13 @@ namespace NCL {
 			void PauseEvent(const std::string& eventName);
 			void ResumeEvent(const std::string& eventName);
 
+			FMOD::Studio::System* studioSystem = nullptr;
+			FMOD::System* coreSystem = nullptr;
+			FMOD::Studio::EventInstance* eventInstance = nullptr;
+			FMOD_3D_ATTRIBUTES* sourceAttributes = nullptr;
+
+
+
 		private:
 
 			AudioSystem() = default;
@@ -35,7 +42,6 @@ namespace NCL {
 			bool LoadBank(const std::string& bankFile);
 			bool LoadBus(const std::string& busName);
 
-			FMOD::Studio::System* studioSystem = nullptr;
 
 			const std::string bankPath = "../Assets/Sounds/Banks/";
 			std::unordered_map<std::string, FMOD::Studio::Bank*> banks;

@@ -10,6 +10,9 @@
 #include "PaintballGameObject.h"
 #include "Util.h"
 
+#include <fmod.h>
+#include "AudioSystem.h"
+
 namespace NCL {
 	namespace CSC8503 {
 
@@ -89,14 +92,19 @@ namespace NCL {
 			Mesh*	bonusMesh	= nullptr;
 			Mesh*	gooseMesh = nullptr;
 
+			PaintballGameObject* selectionObject = nullptr;
+			PaintballGameObject* lockedObject = nullptr;
+
 			//rp3d
 			rp3d::PhysicsCommon physicsCommon;
 			rp3d::PhysicsWorld* RpWorld = nullptr;
 			rp3d::PhysicsWorld::WorldSettings RpSettings;
 			vector<PaintballGameObject*> objList_pb;
 
-			PaintballGameObject* selectionObject = nullptr;
-			PaintballGameObject* lockedObject = nullptr;
+
+			//FMOD
+			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
+			PaintballGameObject* speakerObj = nullptr;
 		};
 
 	}
