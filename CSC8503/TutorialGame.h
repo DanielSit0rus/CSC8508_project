@@ -6,6 +6,9 @@
 #include "GameTechVulkanRenderer.h"
 #endif
 
+#include <iostream>
+#include <algorithm>
+
 #include <reactphysics3d/reactphysics3d.h>
 #include "PaintballGameObject.h"
 #include "Util.h"
@@ -15,19 +18,6 @@
 
 namespace NCL {
 	namespace CSC8503 {
-
-		class RaycastHitCallback : public rp3d::RaycastCallback {
-		public:
-			rp3d::RigidBody* rb = nullptr;
-			rp3d::Vector3 hitpoint;
-			
-			rp3d::decimal notifyRaycastHit(const rp3d::RaycastInfo& info) override {
-				rb = dynamic_cast<rp3d::RigidBody*>(info.body);
-				hitpoint = info.worldPoint;
-				return info.hitFraction;
-			}
-		};
-
 		class TutorialGame		{
 		public:
 			TutorialGame();
@@ -44,6 +34,7 @@ namespace NCL {
 
 			void InitCamera();
 			void UpdateKeys();
+			void LockedObjectMovement();
 
 			/*
 			These are some of the world/object creation functions I created when testing the functionality

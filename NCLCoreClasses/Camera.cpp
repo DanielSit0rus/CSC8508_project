@@ -89,6 +89,25 @@ void Camera::UpdateCamera(float dt, float sp) {
 
 }
 
+void Camera::UpdateCameraView3(Vector3 pos, float R) {
+	if (!activeController) {
+		return;
+	}
+
+	pitch = std::clamp(pitch - activeController->GetNamedAxis("YLook"), -90.0f, 90.0f);
+	yaw = fmod(yaw - activeController->GetNamedAxis("XLook") + 360.0f, 360.0f);
+
+	float radiansPitch = DegreesToRadians(pitch);
+	float radiansYaw = DegreesToRadians(yaw);
+
+	float cosPitch = cos(radiansPitch);
+
+	position = pos + Vector3(sin(radiansYaw), 0.0f, cos(radiansYaw)) * (pitch / 170);
+	position.x += R * cosPitch * sin(radiansYaw);
+	position.y += 1.5f - R * sin(radiansPitch);
+	position.z += R * cosPitch * cos(radiansYaw);
+}
+
 /*
 Generates a view matrix for the camera's viewpoint. This matrix can be sent
 straight to the shader...it's already an 'inverse camera' matrix.

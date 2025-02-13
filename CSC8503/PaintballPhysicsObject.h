@@ -8,6 +8,18 @@ namespace NCL {
 	namespace CSC8503 {
 		class Transform;
 
+		class RaycastHitCallback : public rp3d::RaycastCallback {
+		public:
+			rp3d::RigidBody* rb = nullptr;
+			rp3d::Vector3 hitpoint;
+
+			rp3d::decimal notifyRaycastHit(const rp3d::RaycastInfo& info) override {
+				rb = dynamic_cast<rp3d::RigidBody*>(info.body);
+				hitpoint = info.worldPoint;
+				return info.hitFraction;
+			}
+		};
+
 		class PaintballPhysicsObject {
 		public:
 			PaintballPhysicsObject(PaintballTransform* parentTransform, rp3d::RigidBody& rigidbody, rp3d::PhysicsWorld& world);
@@ -98,6 +110,18 @@ namespace NCL {
 			}
 
 			Matrix3 GetInertiaTensor() const;
+
+			bool isStand() {
+				rp3d::Ray ray(transform->GetPosition(),
+					transform->GetPosition() - rp3d::Vector3(0, transform->GetScale().y + 0.1f, 0));
+				RaycastHitCallback  callback;
+				physicsWorld.raycast(ray, &callback);
+
+				if (callback.rb) return true;
+
+				return false;
+			}
+
 
 		protected:
 			PaintballTransform* transform;

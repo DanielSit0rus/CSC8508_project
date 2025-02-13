@@ -34,8 +34,9 @@ namespace NCL {
 		~Camera(void) = default;
 
 		virtual void UpdateCamera(float dt);
-		virtual void UpdateCamera(float dt, float sp);
 		virtual void UpdateCamera();
+		virtual void UpdateCamera(float dt, float sp);
+		virtual void UpdateCameraView3(Vector3 pos, float R);
 
 		float GetNearPlane() const {
 			return nearPlane;
