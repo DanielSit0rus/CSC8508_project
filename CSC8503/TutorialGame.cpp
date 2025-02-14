@@ -88,20 +88,43 @@ bool TutorialGame::UnpauseGame() {
 }
 
 void TutorialGame::UpdateGame(float dt) {
-	const Camera& camera = world->GetMainCamera();
-
-	const Vector3& pos = camera.GetPosition();
-	std::string posString = std::to_string((int)pos.x) + ", "
-		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
-	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
-
 	if (pause) {
 		// Only update the PushMachine and render the current frame.
 		renderer->Render();
 		return; // Skip the rest of the game updates.
 	}
 
+	const Camera& camera = world->GetMainCamera();
 
+	UpdateKeys();
+
+	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
+
+	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
+	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+
+	world->UpdateWorld(dt);
+
+	RpWorld->update(dt);	//rp3d
+
+
+	if (lockedObject) {
+		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
+		LockedObjectMovement();
+
+		world->GetMainCamera().UpdateCameraView3(
+			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()),
+			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 5.0f);
+	}
+	else
+	{
+		world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
+	}
+
+	const Vector3& pos = camera.GetPosition();
+	std::string posString = std::to_string((int)pos.x) + ", "
+		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
+	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
 	if (false) {
 		Vector3 camPos = camera.GetPosition();
 		float yaw = DegreesToRadians(camera.GetYaw());
@@ -117,34 +140,6 @@ void TutorialGame::UpdateGame(float dt) {
 	{
 		Debug::Print("+", Vector2(49, 51));
 	}
-	if (lockedObject) {
-		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
-
-		world->GetMainCamera().UpdateCameraView3(
-			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()),
-			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 5.0f);
-
-		LockedObjectMovement();
-	}
-	else
-	{
-		world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
-	}
-
-	UpdateKeys();
-
-	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
-
-	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
-	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
-
-	world->UpdateWorld(dt);
-	renderer->Update(dt);
-
-	RpWorld->update(dt);	//rp3d
-
-	renderer->Render();
-	Debug::UpdateRenderables(dt);
 
 	//Fmod
 	Matrix4 view = camera.BuildViewMatrix();;
@@ -158,6 +153,9 @@ void TutorialGame::UpdateGame(float dt) {
 	rp3d::Vector3 pos2 = speakerObj->GetTransform().GetPosition();
 	AudioSystem::GetInstance().sourceAttributes->position = { pos2.x, pos2.y, pos2.z };
 	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
+
+	renderer->Render();
+	Debug::UpdateRenderables(dt);
 }
 
 void TutorialGame::InitCamera() {
