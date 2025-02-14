@@ -9,7 +9,7 @@ using namespace CSC8503;
 
 
 TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *Window::GetWindow()->GetMouse()) {
-	world		= new GameWorld();
+	world		= new PaintballGameWorld();
 #ifdef USEVULKAN
 	renderer	= new GameTechVulkanRenderer(*world);
 	renderer->Init();

@@ -6,6 +6,7 @@ d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503corecla
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\debug.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\host.obj
@@ -42,9 +43,14 @@ d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503corecla
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statemachine.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\capsulevolume.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\capsulevolume.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.h.obj
@@ -65,11 +71,6 @@ d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503corecla
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\protocol.c.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.c.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.cpp.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.h.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.cpp.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.h.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.h.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.cpp.obj
 d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.cpp.obj

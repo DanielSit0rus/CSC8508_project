@@ -10,6 +10,7 @@
 #include <algorithm>
 
 #include <reactphysics3d/reactphysics3d.h>
+#include "PaintballGameWorld.h"
 #include "PaintballGameObject.h"
 #include "Util.h"
 
@@ -62,7 +63,7 @@ namespace NCL {
 #else
 			GameTechRenderer* renderer;
 #endif
-			GameWorld*			world;
+			PaintballGameWorld*			world;
 
 			KeyboardMouseController controller;
 

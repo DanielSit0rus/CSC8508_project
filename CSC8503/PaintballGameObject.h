@@ -4,6 +4,7 @@
 #include "PaintballPhysicsObject.h"
 #include "PaintballRenderObject.h"
 #include "PaintballTransform.h"
+#include <NetworkObject.h>
 
 
 using std::vector;
@@ -37,6 +38,10 @@ namespace NCL::CSC8503 {
             return physicsObject;
         }
 
+        NetworkObject* GetNetworkObject() const {
+            return networkObject;
+        }
+
         void SetRenderObject(PaintballRenderObject* newObject) {
             renderObject = newObject;
         }
@@ -65,7 +70,7 @@ namespace NCL::CSC8503 {
         PaintballRenderObject* renderObject;
         PaintballPhysicsObject* physicsObject;
 
-        //NetworkObject* networkObject;
+        NetworkObject* networkObject;
 
         bool		isActive;
         int			worldID;

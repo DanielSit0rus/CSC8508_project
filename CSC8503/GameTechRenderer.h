@@ -4,7 +4,7 @@
 #include "OGLTexture.h"
 #include "OGLMesh.h"
 
-#include "GameWorld.h"
+#include "PaintballGameWorld.h"
 #include <vector>
 #include "Light.h"
 
@@ -14,7 +14,7 @@ namespace NCL {
 
 		class GameTechRenderer : public OGLRenderer	{
 		public:
-			GameTechRenderer(GameWorld& world);
+			GameTechRenderer(PaintballGameWorld& world);
 			~GameTechRenderer();
 			void AddLight(const Light& light);
 
@@ -31,7 +31,7 @@ namespace NCL {
 
 			OGLShader*		defaultShader;
 
-			GameWorld&	gameWorld;
+			PaintballGameWorld&	gameWorld;
 
 			void BuildObjectList();
 			void SortObjectList();

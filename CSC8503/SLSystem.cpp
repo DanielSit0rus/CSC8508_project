@@ -2,6 +2,13 @@
 using namespace NCL::CSC8503;
 using namespace NCL;
 
+SLSystem::~SLSystem()
+{
+    for (auto* item : saveableList) {
+        delete item;
+    }
+}
+
 void NCL::CSC8503::SLSystem::JsonSave() {
     // 创建 JSON 对象
     nlohmann::json j;

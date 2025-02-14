@@ -41,8 +41,8 @@ namespace NCL {
 
 			std::vector<NetworkObject*> networkObjects;
 
-			std::map<int, GameObject*> serverPlayers;
-			GameObject* localPlayer;
+			std::map<int, PaintballGameObject*> serverPlayers;
+			PaintballGameObject* localPlayer;
 		};
 	}
 }

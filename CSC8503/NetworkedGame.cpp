@@ -95,8 +95,8 @@ void NetworkedGame::UpdateAsClient(float dt) {
 }
 
 void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
-	std::vector<GameObject*>::const_iterator first;
-	std::vector<GameObject*>::const_iterator last;
+	std::vector<PaintballGameObject*>::const_iterator first;
+	std::vector<PaintballGameObject*>::const_iterator last;
 
 	world->GetObjectIterators(first, last);
 
@@ -130,8 +130,8 @@ void NetworkedGame::UpdateMinimumState() {
 	}
 	//every client has acknowledged reaching at least state minID
 	//so we can get rid of any old states!
-	std::vector<GameObject*>::const_iterator first;
-	std::vector<GameObject*>::const_iterator last;
+	std::vector<PaintballGameObject*>::const_iterator first;
+	std::vector<PaintballGameObject*>::const_iterator last;
 	world->GetObjectIterators(first, last);
 
 	for (auto i = first; i != last; ++i) {

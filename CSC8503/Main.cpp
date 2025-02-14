@@ -499,7 +499,7 @@ int main() {
 	
 
 	audioSystem.Init();
-	slSystem.JsonLoad();
+
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;

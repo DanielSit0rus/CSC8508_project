@@ -4,7 +4,6 @@
 #include "Ray.h"
 #include "CollisionDetection.h"
 #include "QuadTree.h"
-#include "../CSC8503/PaintballGameObject.h"
 
 namespace NCL {
 		class Camera;
@@ -14,7 +13,6 @@ namespace NCL {
 		class Constraint;
 
 		typedef std::function<void(GameObject*)> GameObjectFunc;
-		typedef std::function<void(PaintballGameObject*)> GameObjectFuncPb;
 		typedef std::vector<GameObject*>::const_iterator GameObjectIterator;
 
 		class GameWorld	{
@@ -26,7 +24,6 @@ namespace NCL {
 			void ClearAndErase();
 
 			void AddGameObject(GameObject* o);
-			void AddGameObject(PaintballGameObject* o);
 			void RemoveGameObject(GameObject* o, bool andDelete = false);
 
 			void AddConstraint(Constraint* c);
@@ -49,7 +46,6 @@ namespace NCL {
 			virtual void UpdateWorld(float dt);
 
 			void OperateOnContents(GameObjectFunc f);
-			void OperateOnContents(GameObjectFuncPb f);
 
 			void GetObjectIterators(
 				GameObjectIterator& first,
@@ -65,7 +61,6 @@ namespace NCL {
 
 		protected:
 			std::vector<GameObject*> gameObjects;
-			std::vector<PaintballGameObject*> gameObjects_pb;
 			std::vector<Constraint*> constraints;
 
 			PerspectiveCamera mainCamera;
