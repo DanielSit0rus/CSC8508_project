@@ -11,6 +11,9 @@ namespace NCL {
             Game_Pause,
             Game_Resume,
             Game_End,
+
+            Data_Save,
+            Data_Load,
         };
 
         class EventManager {

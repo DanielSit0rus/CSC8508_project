@@ -1,15 +1,17 @@
 #pragma once
-class ISaveable {
-public:
-    virtual ~ISaveable() = default;
+#include <nlohmann/json.hpp>
 
-    virtual  void RegisterSaveData() {
-        ;
-    }
-    virtual void UnRegisterSaveData() {
-        ;
-    }
+namespace NCL {
+    namespace CSC8503 {
+        class ISaveable {
+        public:
+            virtual ~ISaveable() = default;
 
-    virtual void SaveData() = 0;
-    virtual void LoadData() = 0;
-};
+            virtual void RegisterSL();    // Remember to register
+            virtual void UnRegisterSL();
+
+            virtual void SaveData(nlohmann::json j) = 0;
+            virtual void LoadData(nlohmann::json j) = 0;
+        };
+    }
+}

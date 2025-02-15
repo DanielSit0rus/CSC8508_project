@@ -4,8 +4,39 @@ using namespace NCL;
 
 SLSystem::~SLSystem()
 {
-    for (auto* item : saveableList) {
-        delete item;
+    saveableList.clear();
+}
+
+void SLSystem::Init()
+{
+    EventManager::Subscribe(EventType::Data_Save, [this]() {SaveAll(); });
+    EventManager::Subscribe(EventType::Data_Load, [this]() {LoadAll(); });
+}
+
+void SLSystem::RegisterISaveable(ISaveable* saveable) {
+    if (std::find(saveableList.begin(), saveableList.end(), saveable) == saveableList.end()) {
+        saveableList.push_back(saveable);
+    }
+}
+
+void SLSystem::UnRegisterISaveable(ISaveable* saveable) {
+    auto it = std::find(saveableList.begin(), saveableList.end(), saveable);
+    if (it != saveableList.end()) {
+        saveableList.erase(it);
+    }
+}
+
+void SLSystem::SaveAll() {
+    for (const auto& item : saveableList) {
+        item->SaveData(jsonData);
+    }
+}
+
+void SLSystem::LoadAll() {
+    std::cout << "\n\n========================="<< saveableList.size()<<"==============================\n\n";
+
+    for (const auto& item : saveableList) {
+        item->LoadData(jsonData);
     }
 }
 

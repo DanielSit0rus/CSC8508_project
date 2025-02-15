@@ -30,6 +30,7 @@
 #include "EventManager.h"
 #include "SLSystem.h"
 
+AudioSystem& audioSystem = AudioSystem::GetInstance();
 
 using namespace NCL;
 using namespace CSC8503;
@@ -38,9 +39,6 @@ using namespace CSC8503;
 #include <thread>
 #include <sstream>
 
-AudioSystem& audioSystem = AudioSystem::GetInstance();
-
-SLSystem& slSystem = SLSystem::GetInstance();
 vector <Vector3> testNodes;
 
 void TestPathfinding() {
@@ -495,9 +493,7 @@ protected:
 };
 
 int main() {
-
-	
-
+	SLSystem::GetInstance().Init();
 	audioSystem.Init();
 
 	WindowInitialisation initInfo;

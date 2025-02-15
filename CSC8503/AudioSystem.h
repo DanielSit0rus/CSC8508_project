@@ -11,7 +11,7 @@
 
 namespace NCL {
 	namespace CSC8503 {
-		class AudioSystem :public ISaveable {
+		class AudioSystem : public ISaveable {
 		public:
 			static AudioSystem& GetInstance() {
 				static AudioSystem instance;
@@ -29,12 +29,11 @@ namespace NCL {
 			void PauseEvent(const std::string& eventName);
 			void ResumeEvent(const std::string& eventName);
 
+			//3d test
 			FMOD::Studio::System* studioSystem = nullptr;
 			FMOD::System* coreSystem = nullptr;
 			FMOD::Studio::EventInstance* eventInstance = nullptr;
 			FMOD_3D_ATTRIBUTES* sourceAttributes = nullptr;
-
-
 
 		private:
 
@@ -44,11 +43,11 @@ namespace NCL {
 			bool LoadBank(const std::string& bankFile);
 			bool LoadBus(const std::string& busName);
 
-			void SaveData() {
-				;
+			void SaveData(nlohmann::json j) {
+				std::cout << "\n\n=========================AudioSystem : Save==============================\n\n";
 			}
-			void LoadData() {
-				;
+			void LoadData(nlohmann::json j) {
+				std::cout << "\n\n=========================AudioSystem : Load==============================\n\n";
 			}
 
 			const std::string bankPath = "../Assets/Sounds/Banks/";

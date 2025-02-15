@@ -36,6 +36,8 @@ bool AudioSystem::Init()
 
     buses["BGM"]->setVolume(1.0f);
 
+    RegisterSL();
+
     /*
     EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM1"); });
