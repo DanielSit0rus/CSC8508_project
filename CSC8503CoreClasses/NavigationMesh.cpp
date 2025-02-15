@@ -13,13 +13,21 @@ NavigationMesh::NavigationMesh()
 NavigationMesh::NavigationMesh(const std::string&filename)
 {
 	ifstream file(Assets::DATADIR + filename);
+	if (!file.is_open()) {
+		Debug::Print("Failed to open navigation mesh file: " + filename, Vector2(10, 10), Debug::RED);
+		return;
+	}
 
 	int numVertices = 0;
 	int numIndices	= 0;
 
 	file >> numVertices;
 	file >> numIndices;
+	Debug::Print("Loaded " + std::to_string(numVertices) + " vertices and " +
+		std::to_string(numIndices) + " indices.", Vector2(10, 20), Debug::GREEN);
 
+
+	allVerts.reserve(numVertices); // avoid reallocation
 	for (int i = 0; i < numVertices; ++i) {
 		Vector3 vert;
 		file >> vert.x;
@@ -59,6 +67,8 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 			}
 		}
 	}
+
+	Debug::Print("Navigation mesh loaded successfully.", Vector2(10, 30), Debug::GREEN);
 }
 
 NavigationMesh::~NavigationMesh()
@@ -98,14 +108,21 @@ const NavigationMesh::NavTri* NavigationMesh::GetTriForPosition(const Vector3& p
 
 
 void NavigationMesh::DrawNavMesh() const {
+
+	Debug::Print("Drawing NavMesh with " + std::to_string(allTris.size()) + " triangles.", Vector2(10, 40), Debug::YELLOW);
 	// Define colors for clarity
 	Vector4 vertexColor = Vector4(1.0f, 0.0f, 0.0f, 1.0f); // Red for vertices
 	Vector4 edgeColor = Vector4(0.0f, 1.0f, 0.0f, 1.0f);   // Green for edges
 	Vector4 centroidColor = Vector4(0.0f, 0.0f, 1.0f, 1.0f); // Blue for centroids
 
+	Vector3 boxSize = Vector3(0.1f, 0.1f, 0.1f);
+
+
 	// Draw vertices
 	for (const Vector3& vertex : allVerts) {
 		//Debug::DrawAxisLines(vertex, vertexColor);
+		Debug::DrawBox(vertex, boxSize, vertexColor, 0.05f);
+		
 	}
 
 	// Draw triangles and edges
@@ -120,6 +137,7 @@ void NavigationMesh::DrawNavMesh() const {
 		Debug::DrawLine(v2, v0, edgeColor);
 
 		// Draw centroid
-		//Debug::DrawAxisLines(tri.centroid, centroidColor);
+		Vector3 centroid = (v0 + v1 + v2) / 3.0f;
+		NCL::Debug::DrawBox(centroid, boxSize, centroidColor, 0.15f);
 	}
 }

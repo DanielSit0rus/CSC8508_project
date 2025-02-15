@@ -13,6 +13,7 @@
 #include "PaintballGameWorld.h"
 #include "PaintballGameObject.h"
 #include "Util.h"
+#include "NavigationMesh.h"
 
 #include <fmod.h>
 #include "AudioSystem.h"
@@ -97,6 +98,8 @@ namespace NCL {
 			//FMOD
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			PaintballGameObject* speakerObj = nullptr;
+
+			NavigationMesh navMesh; 
 		};
 
 	}

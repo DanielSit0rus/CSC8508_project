@@ -57,6 +57,8 @@ void TutorialGame::InitialiseAssets() {
 
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
+	navMesh = NavigationMesh("SampleMapNavigation");
+
 
 	InitWorld();
 	InitCamera();
@@ -107,6 +109,11 @@ void TutorialGame::UpdateGame(float dt) {
 
 	RpWorld->update(dt);	//rp3d
 
+	navMesh.DrawNavMesh();
+
+
+
+
 
 	if (lockedObject) {
 		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
@@ -154,6 +161,8 @@ void TutorialGame::UpdateGame(float dt) {
 	AudioSystem::GetInstance().sourceAttributes->position = { pos2.x, pos2.y, pos2.z };
 	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
 
+
+	
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
 }
@@ -201,7 +210,7 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(20, 10, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(-12, 0, -4.5), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 	InitDefaultFloor();
 }
