@@ -26,6 +26,10 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 	Debug::Print("Loaded " + std::to_string(numVertices) + " vertices and " +
 		std::to_string(numIndices) + " indices.", Vector2(10, 20), Debug::GREEN);
 
+	// Transform reference point (-13.06667, 1.016667, 4.8) to (0, 1, 0)
+    Vector3 referencePoint(-13.06667f, 1.016667f, 4.8f);
+    Vector3 targetPoint(0.0f, 1.0f, 0.0f);
+    Vector3 translation = targetPoint - referencePoint;
 
 	allVerts.reserve(numVertices); // avoid reallocation
 	for (int i = 0; i < numVertices; ++i) {
@@ -33,7 +37,7 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 		file >> vert.x;
 		file >> vert.y;
 		file >> vert.z;
-
+		vert += translation;
 		allVerts.emplace_back(vert);
 	}
 
@@ -109,7 +113,7 @@ const NavigationMesh::NavTri* NavigationMesh::GetTriForPosition(const Vector3& p
 
 void NavigationMesh::DrawNavMesh() const {
 
-	Debug::Print("Drawing NavMesh with " + std::to_string(allTris.size()) + " triangles.", Vector2(10, 40), Debug::YELLOW);
+
 	// Define colors for clarity
 	Vector4 vertexColor = Vector4(1.0f, 0.0f, 0.0f, 1.0f); // Red for vertices
 	Vector4 edgeColor = Vector4(0.0f, 1.0f, 0.0f, 1.0f);   // Green for edges

@@ -57,7 +57,7 @@ void TutorialGame::InitialiseAssets() {
 
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
-	navMesh = NavigationMesh("SampleMapNavigation");
+	navMesh = NavigationMesh("Map1Navigation");
 
 
 	InitWorld();
@@ -210,7 +210,12 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(-12, 0, -4.5), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
+
+
+	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
+	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(0.2f, 1, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 	InitDefaultFloor();
 }
@@ -231,7 +236,11 @@ void TutorialGame::UpdateKeys() {
 			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
 			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
 		}
+
 	}
+
+
+
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
 		if (!selectionObject) return;
 
@@ -402,6 +411,7 @@ void TutorialGame::InitDefaultFloor() {
 Every frame, this code will let you perform a raycast, to see if there's an object
 underneath the cursor, and if so 'select it' into a pointer, so that it can be 
 manipulated later. Pressing Q will let you toggle between this behaviour and instead
+letting you move the camera around. 
 letting you move the camera around. 
 
 */
