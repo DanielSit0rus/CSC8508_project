@@ -57,6 +57,12 @@ namespace NCL {
 			PaintballGameObject* AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 			PaintballGameObject* AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
 
+			void CalculatePathToPlayer();
+
+			void DisplayPath();
+
+			void MoveEnemyAlongPath();
+
 			reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
 #ifdef USEVULKAN
@@ -87,6 +93,9 @@ namespace NCL {
 
 			PaintballGameObject* selectionObject = nullptr;
 			PaintballGameObject* lockedObject = nullptr;
+			PaintballGameObject* enemyObject = nullptr;
+
+			std::vector<Vector3> pathNodes;
 
 			//rp3d
 			rp3d::PhysicsCommon physicsCommon;
@@ -99,7 +108,7 @@ namespace NCL {
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			PaintballGameObject* speakerObj = nullptr;
 
-			NavigationMesh navMesh; 
+			NavigationMesh* navMesh; 
 		};
 
 	}

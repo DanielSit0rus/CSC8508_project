@@ -57,11 +57,12 @@ void TutorialGame::InitialiseAssets() {
 
 	basicTex	= renderer->LoadTexture("checkerboard.png");
 	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
-	navMesh = NavigationMesh("Map1Navigation");
+	navMesh = new NavigationMesh("Map1Navigation");
 
 
 	InitWorld();
 	InitCamera();
+	
 }
 
 TutorialGame::~TutorialGame()	{
@@ -78,6 +79,7 @@ TutorialGame::~TutorialGame()	{
 
 	delete renderer;
 	delete world;
+	delete navMesh;
 	physicsCommon.destroyPhysicsWorld(RpWorld);
 }
 
@@ -109,7 +111,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	RpWorld->update(dt);	//rp3d
 
-	navMesh.DrawNavMesh();
+	navMesh->DrawNavMesh();
 
 
 
@@ -162,7 +164,9 @@ void TutorialGame::UpdateGame(float dt) {
 	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
 
 
-	
+	CalculatePathToPlayer();
+	DisplayPath();
+	MoveEnemyAlongPath();
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
 }
@@ -187,7 +191,8 @@ void TutorialGame::InitWorld() {
 	world->ClearAndErase();
 
 
-	playerObject = AddPlayerToWorld(rp3d::Vector3(2, 2, 2));
+	playerObject = AddPlayerToWorld(rp3d::Vector3(21, 1, -19));
+	enemyObject = AddPlayerToWorld(rp3d::Vector3(1, 1, -1));
 
 	forceMagnitude = 60.0f;
 
@@ -217,7 +222,10 @@ void TutorialGame::InitWorld() {
 
 	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
+
+	
 	InitDefaultFloor();
+
 }
 
 void TutorialGame::UpdateKeys() {
@@ -492,4 +500,72 @@ PaintballGameObject* TutorialGame::AddRp3dConcaveToWorld(const rp3d::Vector3& po
 	return concave;
 }
 
+void TutorialGame::CalculatePathToPlayer() {
+	if (!playerObject || !enemyObject) {
+		Debug::Print("Player or Enemy object is not initialized!", Vector2(10, 20), Debug::RED);
+		return;
+	}
+
+	rp3d::Vector3 startPos = enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 endPos = playerObject->GetTransform().GetPosition();
+
+	NavigationPath outPath;
+	pathNodes.clear();
+
+	if (navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
+		Vector3 pos;
+		while (outPath.PopWaypoint(pos)) {
+			pathNodes.push_back(pos);
+		}
+	}
+
+}
+
+void TutorialGame::DisplayPath() {
+	for (size_t i = 1; i < pathNodes.size(); ++i) {
+		Vector3 a = pathNodes[i - 1];
+		Vector3 b = pathNodes[i];
+			Debug::DrawLine(a, b, Vector4(0, 1, 0, 1));
+	}
+}
+
+void TutorialGame::MoveEnemyAlongPath() {
+	if (pathNodes.empty()) {
+		enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+		return;
+	}
+
+	// Get current position and the next target position
+	rp3d::Vector3 currentPos = enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 targetPos = Util::NCLToRP3d(pathNodes.front());
+	targetPos.y = currentPos.y; // Keep enemy on the same Y level
+
+	// Compute direction and distance to the target node
+	rp3d::Vector3 direction = targetPos - currentPos;
+	float distanceToTarget = direction.length();
+
+	// Movement parameters
+	float moveSpeed = 4.0f;
+	float arrivalThreshold = 0.5f; // Distance at which a node is considered reached
+
+	if (distanceToTarget < arrivalThreshold) {
+		// Remove the reached node
+		pathNodes.erase(pathNodes.begin());
+		if (pathNodes.empty()) {
+			enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+			return;
+		}
+		// Update the target position to the new front of the path
+		targetPos = Util::NCLToRP3d(pathNodes.front());
+		targetPos.y = currentPos.y;
+		direction = targetPos - currentPos;
+	}
+
+	// Normalize direction and apply speed
+	direction.normalize();
+	rp3d::Vector3 velocity = direction * moveSpeed;
+
+	// Set linear velocity
+	enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
+}
 

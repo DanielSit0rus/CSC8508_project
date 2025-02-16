@@ -88,19 +88,24 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 		return false; // Start or goal is not on the navigation mesh
 	}
 
-	// Open list to hold the frontier for exploration
-	auto Compare = [](const pair<float, const NavTri*>& a, const pair<float, const NavTri*>& b) {
-		return a.first > b.first; // Min-heap based on f cost
+	// Lambda to calculate the heuristic (Euclidean distance)
+	auto heuristic = [](const Vector3& a, const Vector3& b) {
+		return Vector::Length((a - b));
 		};
-	priority_queue<pair<float, const NavTri*>, vector<pair<float, const NavTri*>>, decltype(Compare)> openList(Compare);
 
-	// Closed list to keep track of visited triangles
-	unordered_map<const NavTri*, float> costSoFar;
-	unordered_map<const NavTri*, const NavTri*> cameFrom;
+	// Open list to hold the frontier for exploration, using a min-heap based on f cost
+	auto Compare = [&](const pair<float, const NavTri*>& a, const pair<float, const NavTri*>& b) {
+		return a.first > b.first;
+		};
+	std::priority_queue<pair<float, const NavTri*>, vector<pair<float, const NavTri*>>, decltype(Compare)> openList(Compare);
+
+	// Maps to keep track of costs and path
+	std::unordered_map<const NavTri*, float> costSoFar;
+	std::unordered_map<const NavTri*, const NavTri*> cameFrom;
 
 	// Start by adding the starting triangle
-	openList.push(make_pair(0.0f, startTri));
 	costSoFar[startTri] = 0.0f;
+	openList.push(make_pair(heuristic(startTri->centroid, goalTri->centroid), startTri));
 	cameFrom[startTri] = nullptr;
 
 	while (!openList.empty()) {
@@ -109,7 +114,15 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 
 		// Check if we have reached the goal
 		if (current == goalTri) {
-			break;
+			// Reconstruct path
+			const NavTri* step = goalTri;
+			while (step != startTri) {
+				outPath.PushWaypoint(step->centroid);
+				step = cameFrom[step];
+			}
+			outPath.PushWaypoint(startTri->centroid);
+			std::reverse(outPath.waypoints.begin(), outPath.waypoints.end());
+			return true;
 		}
 
 		// Explore each neighbor
@@ -117,33 +130,31 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 			const NavTri* neighbor = current->neighbours[i];
 			if (!neighbor) continue; // Skip if no neighbor
 
-			float newCost = costSoFar[current] + Vector::Length((current->centroid - neighbor->centroid));
+			float newCost = costSoFar[current] + heuristic(current->centroid, neighbor->centroid);
 			if (costSoFar.find(neighbor) == costSoFar.end() || newCost < costSoFar[neighbor]) {
 				costSoFar[neighbor] = newCost;
-				float priority = newCost + Vector::Length ((neighbor->centroid - goalTri->centroid));
+				float priority = newCost + heuristic(neighbor->centroid, goalTri->centroid);
 				openList.push(make_pair(priority, neighbor));
 				cameFrom[neighbor] = current;
 			}
 		}
 	}
 
-	// Reconstruct path
-	if (!cameFrom.count(goalTri)) {
-		return false; // No path found
-	}
-
-	// Reconstruct the path by working backwards from the goal
-	const NavTri* step = goalTri;
-	while (step != startTri) {
-		outPath.PushWaypoint(step->centroid);
-		step = cameFrom[step];
-	}
-	outPath.PushWaypoint(startTri->centroid);
-
-	// Reverse the path to start from the original starting point
-	std::reverse(outPath.waypoints.begin(), outPath.waypoints.end());
-	return true;
+	return false; // No path found
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 If you have triangles on top of triangles in a full 3D environment, you'll need to change this slightly,
@@ -195,9 +206,9 @@ void NavigationMesh::DrawNavMesh() const {
 		const Vector3& v2 = allVerts[tri.indices[2]];
 
 		// Draw edges of the triangle
-		Debug::DrawLine(v0, v1, edgeColor);
+		/*Debug::DrawLine(v0, v1, edgeColor);
 		Debug::DrawLine(v1, v2, edgeColor);
-		Debug::DrawLine(v2, v0, edgeColor);
+		Debug::DrawLine(v2, v0, edgeColor);*/
 
 		// Draw centroid
 		Vector3 centroid = (v0 + v1 + v2) / 3.0f;

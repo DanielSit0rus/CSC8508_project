@@ -17,7 +17,9 @@ namespace NCL {
 
 			bool FindPath(const Vector3& from, const Vector3& to, NavigationPath& outPath) override;
 
+			
 			void DrawNavMesh() const;
+
 		
 		protected:
 			struct NavTri {
