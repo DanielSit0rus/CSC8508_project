@@ -187,6 +187,7 @@ void TutorialGame::InitCamera() {
 
 void TutorialGame::InitWorld() {
 	lockedObject = nullptr;
+	selectionObject = nullptr;
 
 	world->ClearAndErase();
 
@@ -537,7 +538,8 @@ void TutorialGame::MoveEnemyAlongPath() {
 
 	// Get current position and the next target position
 	rp3d::Vector3 currentPos = enemyObject->GetTransform().GetPosition();
-	rp3d::Vector3 targetPos = Util::NCLToRP3d(pathNodes.front());
+	rp3d::Vector3 targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
+		: Util::NCLToRP3d(pathNodes.back());
 	targetPos.y = currentPos.y; // Keep enemy on the same Y level
 
 	// Compute direction and distance to the target node
@@ -556,7 +558,8 @@ void TutorialGame::MoveEnemyAlongPath() {
 			return;
 		}
 		// Update the target position to the new front of the path
-		targetPos = Util::NCLToRP3d(pathNodes.front());
+		targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
+			: Util::NCLToRP3d(pathNodes.back());
 		targetPos.y = currentPos.y;
 		direction = targetPos - currentPos;
 	}
