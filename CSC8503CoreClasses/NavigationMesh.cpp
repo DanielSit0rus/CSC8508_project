@@ -1,4 +1,5 @@
 #include "NavigationMesh.h"
+#include "NavigationPath.h"
 #include "Assets.h"
 #include "Maths.h"
 #include <fstream>
@@ -80,10 +81,68 @@ NavigationMesh::~NavigationMesh()
 }
 
 bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, NavigationPath& outPath) {
-	const NavTri* start	= GetTriForPosition(from);
-	const NavTri* end	= GetTriForPosition(to);
+	const NavTri* startTri = GetTriForPosition(from);
+	const NavTri* goalTri = GetTriForPosition(to);
 
-	return false;
+	if (!startTri || !goalTri) {
+		return false; // Start or goal is not on the navigation mesh
+	}
+
+	// Open list to hold the frontier for exploration
+	auto Compare = [](const pair<float, const NavTri*>& a, const pair<float, const NavTri*>& b) {
+		return a.first > b.first; // Min-heap based on f cost
+		};
+	priority_queue<pair<float, const NavTri*>, vector<pair<float, const NavTri*>>, decltype(Compare)> openList(Compare);
+
+	// Closed list to keep track of visited triangles
+	unordered_map<const NavTri*, float> costSoFar;
+	unordered_map<const NavTri*, const NavTri*> cameFrom;
+
+	// Start by adding the starting triangle
+	openList.push(make_pair(0.0f, startTri));
+	costSoFar[startTri] = 0.0f;
+	cameFrom[startTri] = nullptr;
+
+	while (!openList.empty()) {
+		const NavTri* current = openList.top().second;
+		openList.pop();
+
+		// Check if we have reached the goal
+		if (current == goalTri) {
+			break;
+		}
+
+		// Explore each neighbor
+		for (int i = 0; i < 3; ++i) {
+			const NavTri* neighbor = current->neighbours[i];
+			if (!neighbor) continue; // Skip if no neighbor
+
+			float newCost = costSoFar[current] + Vector::Length((current->centroid - neighbor->centroid));
+			if (costSoFar.find(neighbor) == costSoFar.end() || newCost < costSoFar[neighbor]) {
+				costSoFar[neighbor] = newCost;
+				float priority = newCost + Vector::Length ((neighbor->centroid - goalTri->centroid));
+				openList.push(make_pair(priority, neighbor));
+				cameFrom[neighbor] = current;
+			}
+		}
+	}
+
+	// Reconstruct path
+	if (!cameFrom.count(goalTri)) {
+		return false; // No path found
+	}
+
+	// Reconstruct the path by working backwards from the goal
+	const NavTri* step = goalTri;
+	while (step != startTri) {
+		outPath.PushWaypoint(step->centroid);
+		step = cameFrom[step];
+	}
+	outPath.PushWaypoint(startTri->centroid);
+
+	// Reverse the path to start from the original starting point
+	std::reverse(outPath.waypoints.begin(), outPath.waypoints.end());
+	return true;
 }
 
 /*

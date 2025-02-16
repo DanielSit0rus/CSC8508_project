@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 #include "Debug.h" 
+#include <queue>
+#include <unordered_map>
+
 namespace NCL {
 	namespace CSC8503 {
 		class NavigationMesh : public NavigationMap	{

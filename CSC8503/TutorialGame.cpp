@@ -46,7 +46,7 @@ void TutorialGame::InitialiseAssets() {
 	sphereMesh	= renderer->LoadMesh("sphere.msh");
 	catMesh		= renderer->LoadMesh("ORIGAMI_Chat.msh");
 	kittenMesh	= renderer->LoadMesh("Kitten.msh");
-	mapMesh = renderer->LoadMesh("SampleMap.msh");
+	mapMesh = renderer->LoadMesh("Map4.msh");
 	gooseMesh = renderer->LoadMesh("goose.msh");
 
 	enemyMesh	= renderer->LoadMesh("Keeper.msh");
@@ -215,7 +215,7 @@ void TutorialGame::InitWorld() {
 
 	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(0.2f, 1, -10), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 	InitDefaultFloor();
 }

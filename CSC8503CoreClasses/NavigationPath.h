@@ -6,6 +6,7 @@ namespace NCL {
 	namespace CSC8503 {
 		class NavigationPath		{
 		public:
+			std::vector <Vector3> waypoints;
 			NavigationPath() {}
 			~NavigationPath() {}
 
@@ -23,10 +24,13 @@ namespace NCL {
 				waypoints.pop_back();
 				return true;
 			}
+			void ReversePath() {
+				std::reverse(waypoints.begin(), waypoints.end());
+			}
 
 		protected:
 
-			std::vector <Vector3> waypoints;
+			
 		};
 	}
 }
