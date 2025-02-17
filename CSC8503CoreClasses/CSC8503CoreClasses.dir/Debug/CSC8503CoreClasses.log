@@ -1,119 +1,13 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
-  cmake_pch.cxx
-  Debug.h
-  GameObject.h
-  GameWorld.h
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameWorld.h”)
-  
-  RenderObject.h
-  Transform.h
-  Debug.cpp
-  GameObject.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameObject.cpp”)
-  
-  GameWorld.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameWorld.cpp”)
-  
-  RenderObject.cpp
-  Transform.cpp
-  BehaviourAction.h
-  BehaviourNode.h
-  BehaviourNodeWithChildren.h
-  State.h
-  StateTransition.h
-  NavigationMap.h
-  NavigationPath.h
-  AABBVolume.h
-  CollisionVolume.h
-  OBBVolume.h
-  Ray.h
-  SphereVolume.h
-  Constraint.h
-  callbacks.c
-  enet.h
-  time.h
-  types.h
-  utility.h
-  compress.c
-  host.c
-  正在生成代码...
-  正在编译...
-  packet.c
-  peer.c
-  正在生成代码...
-  BehaviourSelector.h
-  BehaviourSelector.cpp
-  BehaviourSequence.h
-  BehaviourSequence.cpp
-  PushdownMachine.h
-  PushdownMachine.cpp
-  PushdownState.h
-  PushdownState.cpp
-  StateMachine.h
-  StateMachine.cpp
-  NavigationGrid.h
-  NavigationGrid.cpp
-  NavigationMesh.cpp
-  NavigationMesh.h
-  CapsuleVolume.h
-  CapsuleVolume.cpp
-  CollisionDetection.h
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“../CSC8503CoreClasses/CollisionDetection.h”)
-  
+﻿D:\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
   CollisionDetection.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\tang\Downloads\GitHub\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“CollisionDetection.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\tang\Downloads\GitHub\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“CollisionDetection.cpp”)
   
-  QuadTree.h
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“QuadTree.h”)
-  
-  QuadTree.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“QuadTree.cpp”)
-  
-  GameClient.h
-  GameClient.cpp
-  GameServer.h
-  GameServer.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameServer.cpp”)
-  
-  NetworkBase.h
-  NetworkBase.cpp
-  NetworkObject.h
-  NetworkObject.cpp
-  NetworkState.h
-  NetworkState.cpp
-  PositionConstraint.cpp
-  PositionConstraint.h
-  OrientationConstraint.cpp
-  OrientationConstraint.h
-  PhysicsObject.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PhysicsObject.cpp”)
-  
-  PhysicsObject.h
   PhysicsSystem.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\tang\Downloads\GitHub\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“PhysicsSystem.cpp”)
   
-  PhysicsSystem.h
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PhysicsSystem.h”)
-  
-  list.h
-  list.c
-  protocol.h
-  protocol.c
-  win32.h
-  win32.c
-  CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> D:\tang\Downloads\GitHub\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
