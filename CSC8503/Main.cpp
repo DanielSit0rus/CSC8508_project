@@ -1,6 +1,5 @@
-﻿#define IMGUI_IMPL
 #include "Window.h"
-#include "Win32Window.h"
+
 #include "Debug.h"
 
 #include "StateMachine.h"
@@ -32,15 +31,6 @@
 #include "SLSystem.h"
 
 AudioSystem& audioSystem = AudioSystem::GetInstance();
-
-#include <RmlUi/Core.h>
-    
-#include "../SDK/imgui/imgui.h"
-#include "../SDK/imgui/backends/imgui_impl_opengl3.h"
-#include "../SDK/imgui/backends/imgui_impl_win32.h"
-#include "../SDK/imgui/backends/imgui_impl_win32.h"
-
-
 
 using namespace NCL;
 using namespace CSC8503;
@@ -81,13 +71,13 @@ void DisplayPathfinding() {
 	int data = 0;
 	State* A = new State([&](float dt)->void
 		{
-		std::cout << "I抦 in state A ! \n";
+		std::cout << "I�m in state A ! \n";
 		data++;
 		}
 	);
 	State * B = new State([&](float dt)->void
 	{
-		std::cout <<"I抦 in state B !\n";
+		std::cout <<"I�m in state B !\n";
 		data--;
 		}
 	);
@@ -109,48 +99,6 @@ void DisplayPathfinding() {
 		testMachine -> Update(1.0f);
 	}
 } */
-
-//void RenderImGui() {
-//	// 开始新的 ImGui 帧
-//	ImGui_ImplOpenGL3_NewFrame();
-//	ImGui_ImplWin32_NewFrame();
-//	ImGui::NewFrame();
-//
-//	// 创建 ImGui 界面
-//	ImGui::Begin("ImGui Test Window");
-//
-//	ImGui::Text("Hello, ImGui!");
-//
-//	// 添加交互元素
-//	static bool enableFeature = false;
-//	ImGui::Checkbox("Enable Feature", &enableFeature);
-//
-//	// 模拟一个设置窗口
-//	static float sliderValue = 0.5f;
-//	ImGui::Text("Adjust Sensitivity:");
-//	ImGui::SliderFloat("Slider", &sliderValue, 0.0f, 1.0f);
-//
-//	// 计数按钮
-//	static int counter = 0;
-//	if (ImGui::Button("Click Me!")) {
-//		counter++;
-//	}
-//	ImGui::SameLine();
-//	ImGui::Text("Button clicked: %d times", counter);
-//
-//	// 分割线
-//	ImGui::Separator();
-//
-//	// 显示状态信息
-//	ImGui::Text("Feature is %s", enableFeature ? "Enabled" : "Disabled");
-//	ImGui::Text("Current Value: %.2f", sliderValue);
-//
-//	ImGui::End();
-//
-//	// 渲染 ImGui
-//	ImGui::Render();
-//	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-//}
 
 void TestBehaviourTree() {
 	float behaviourTimer;
@@ -547,18 +495,15 @@ protected:
 int main() {
 	SLSystem::GetInstance().Init();
 	audioSystem.Init();
-	
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
 	initInfo.height		= 720;
 	initInfo.windowTitle = "CSC8508!";
 
-
 	Window*w = Window::CreateGameWindow(initInfo);
 	//TestPushdownAutomata(w);
 	//TestBehaviourTree();
-	
 
 	if (!w->HasInitialised()) {
 		return -1;
@@ -620,14 +565,6 @@ int main() {
 	} 
 	EventManager::Trigger(EventType::Game_End);
 	audioSystem.Release();
-	//glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	//// 🎯 **渲染 ImGui 界面**
-	//RenderImGui();
-
-	//ImGui_ImplOpenGL3_Shutdown();
-	//ImGui::DestroyContext();
 
 	w->LockMouseToWindow(false);
 	w->ShowConsole(true);

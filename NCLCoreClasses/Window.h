@@ -9,9 +9,8 @@ https://research.ncl.ac.uk/game/
 #pragma once
 #include "Keyboard.h"
 #include "Mouse.h"
-#include <GL/gl.h> 
+
 #include "Vector.h"
-#include <windows.h>
 
 namespace NCL {
 	class GameTimer;
@@ -47,15 +46,11 @@ namespace NCL {
 	class Window {
 	public:
 		static Window* CreateGameWindow(const WindowInitialisation& init);
-		
+
 		static void DestroyGameWindow() {
 			delete window;
 			window = nullptr;
 		}
-		HWND GetHandle() const;     // **获取窗口句柄**
-		HDC GetDeviceContext() const; // **获取设备上下文**
-		void MakeCurrent();         // **绑定 OpenGL 上下文**
-
 
 		bool		IsMinimised() const { return minimised;	 }
 
@@ -90,14 +85,12 @@ namespace NCL {
 
 		static Window*	const GetWindow() { return window; }
 
-		
 		void SetWindowEventHandler(const WindowEventHandler& e) {
 			eventHandler = e;
 		}
 	protected:
 		Window();
 		virtual ~Window();
-		
 
 		virtual void UpdateTitle() {}
 
@@ -118,10 +111,5 @@ namespace NCL {
 		static Mouse*		mouse;
 
 		static GameTimer	timer;
-		HWND windowHandle;  // **Windows 窗口句柄**
-		HGLRC glContext;    // **OpenGL 渲染上下文**
-		HDC deviceContext;  // **设备上下文**
-
-		
 	};
 }
