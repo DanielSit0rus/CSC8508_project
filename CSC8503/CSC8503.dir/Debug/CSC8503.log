@@ -445,6 +445,68 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
               V=int
           ]
   
+  PaintballPlayer.cpp
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
+  
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
+          with
+          [
+              V=int
+          ]
+          C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
+          with
+          [
+              V=int
+          ]
+              C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
+          with
+          [
+              V=int
+          ]
+              C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
+          with
+          [
+              V=int
+          ]
+  
   PaintballRenderObject.cpp
   PaintballTransform.cpp
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
@@ -639,8 +701,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
 ReactPhysics3D.lib(Body.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Body.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(RigidBody.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(RigidBody.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(PhysicsWorld.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PhysicsWorld.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Quaternion.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Quaternion.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(CollisionDetectionSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionDetectionSystem.obj)' or at ''; linking object as if no debug info
+ReactPhysics3D.lib(Quaternion.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Quaternion.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(PhysicsCommon.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PhysicsCommon.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(TriangleVertexArray.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TriangleVertexArray.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(EntityManager.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(EntityManager.obj)' or at ''; linking object as if no debug info
@@ -670,7 +732,6 @@ ReactPhysics3D.lib(BallAndSocketJoint.obj) : warning LNK4099: PDB '' was not fou
 ReactPhysics3D.lib(SliderJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SliderJoint.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(HingeJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HingeJoint.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(FixedJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(FixedJoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Vector3.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Vector3.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(ContactPoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ContactPoint.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(ContactManifold.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ContactManifold.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj)' or at ''; linking object as if no debug info
@@ -683,6 +744,7 @@ ReactPhysics3D.lib(NarrowPhaseInput.obj) : warning LNK4099: PDB '' was not found
 ReactPhysics3D.lib(CollisionCallback.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionCallback.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(OverlapCallback.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(OverlapCallback.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(TriangleShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TriangleShape.obj)' or at ''; linking object as if no debug info
+ReactPhysics3D.lib(Vector3.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Vector3.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(PoolAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PoolAllocator.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(HeapAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HeapAllocator.obj)' or at ''; linking object as if no debug info
 ReactPhysics3D.lib(SingleFrameAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SingleFrameAllocator.obj)' or at ''; linking object as if no debug info
