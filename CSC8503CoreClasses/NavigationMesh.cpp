@@ -85,7 +85,7 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 	const NavTri* goalTri = GetTriForPosition(to);
 
 	if (!startTri || !goalTri) {
-		return false; // Start or goal is not on the navigation mesh
+		return false; 
 	}
 
 	// Lambda to calculate the heuristic (Euclidean distance)
@@ -204,11 +204,6 @@ void NavigationMesh::DrawNavMesh() const {
 		const Vector3& v0 = allVerts[tri.indices[0]];
 		const Vector3& v1 = allVerts[tri.indices[1]];
 		const Vector3& v2 = allVerts[tri.indices[2]];
-
-		// Draw edges of the triangle
-		/*Debug::DrawLine(v0, v1, edgeColor);
-		Debug::DrawLine(v1, v2, edgeColor);
-		Debug::DrawLine(v2, v0, edgeColor);*/
 
 		// Draw centroid
 		Vector3 centroid = (v0 + v1 + v2) / 3.0f;
