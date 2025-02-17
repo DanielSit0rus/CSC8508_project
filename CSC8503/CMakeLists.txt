@@ -201,7 +201,16 @@ target_link_libraries(${PROJECT_NAME} LINK_PUBLIC NCLCoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CSC8503CoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
 
-target_link_libraries(${PROJECT_NAME} LINK_PUBLIC nlohmann_json::nlohmann_json)
+target_sources(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/imgui.cpp
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/imgui_draw.cpp
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/imgui_tables.cpp
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/imgui_widgets.cpp
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/backends/imgui_impl_win32.cpp
+    ${CMAKE_SOURCE_DIR}/SDK/imgui/backends/imgui_impl_opengl3.cpp
+)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/SDK/imgui)
+
 
 if(USE_VULKAN)
     include_directories("../VulkanRendering/")

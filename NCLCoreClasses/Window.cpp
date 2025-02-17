@@ -19,6 +19,8 @@ Keyboard*	Window::keyboard	= nullptr;
 Mouse*		Window::mouse		= nullptr;
 GameTimer	Window::timer;
 
+
+
 Window::Window()	{
 	window		= this;
 }
