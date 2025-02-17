@@ -19,7 +19,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
     - name: Configure CMake
-      run: cmake -S . -B build
+      run: cmake -S . -B build -DINCLUDE_SIMPLE_FONT=OFF
 
     - name: Build Project
       run: cmake --build build --config Release

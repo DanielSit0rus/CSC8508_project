@@ -1,18 +1,25 @@
 set(PROJECT_NAME NCLCoreClasses)
 
+
+option(INCLUDE_SIMPLE_FONT "Include the SimpleFont class in the build." ON)
+
 ################################################################################
 # Source groups
 ################################################################################
 set(Asset_Handling
     "Assets.cpp"
     "Assets.h"
-    "SimpleFont.cpp"
-    "SimpleFont.h"
     "TextureLoader.cpp"
     "TextureLoader.h"
     "TextureWriter.cpp"
     "TextureWriter.h"
 )
+
+# Conditionally include SimpleFont files
+if(INCLUDE_SIMPLE_FONT)
+    list(APPEND Asset_Handling "SimpleFont.cpp" "SimpleFont.h")
+endif()
+
 source_group("Asset Handling" FILES ${Asset_Handling})
 
 set(Header_Files

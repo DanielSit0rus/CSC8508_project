@@ -25,6 +25,10 @@ set(CMAKE_CONFIGURATION_TYPES
     CACHE STRING "" FORCE
 )
 
+
+option(INCLUDE_SIMPLE_FONT "Include the SimpleFont class in the build." ON)
+
+
 ################################################################################
 # Global compiler options
 ################################################################################
