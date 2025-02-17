@@ -72,7 +72,7 @@ set(Networking
 source_group("Networking" FILES ${Networking})
 
 set(Physics
-    "constraint.h"    
+    "Constraint.h"    
     "PositionConstraint.cpp"
     "PositionConstraint.h"
     "OrientationConstraint.cpp"
