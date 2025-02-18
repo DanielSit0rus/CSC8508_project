@@ -22,5 +22,5 @@ jobs:
       run: cmake -S . -B build -DINCLUDE_SIMPLE_FONT=OFF
 
     - name: Build Project
-      run: cmake --build build --config Release || echo "Ignoring build errors"
+      run: cmake --build build --config Release
 
