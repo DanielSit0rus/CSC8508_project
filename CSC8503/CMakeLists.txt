@@ -193,9 +193,42 @@ if(MSVC)
     target_link_libraries(${PROJECT_NAME} LINK_PUBLIC  "Winmm.lib")
 endif()
 
+
 include_directories("../OpenGLRendering/")
 include_directories("../NCLCoreClasses/")
 include_directories("../CSC8503CoreClasses/")
+
+# Check if running in CI/CD
+if(DEFINED ENV{CI})
+    message(WARNING "CI build detected, skipping ReactPhysics3D and OpenGL linking")
+    set(SKIP_REACTPHYSICS3D ON)
+endif()
+
+# ReactPhysics3D Setup
+if(NOT SKIP_REACTPHYSICS3D)
+    set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
+    include_directories(${ReactPhysics3D_ROOT}/include)
+
+    link_directories(${ReactPhysics3D_ROOT}/lib)
+    set(ReactPhysics3D_Lib reactphysics3d)
+
+    target_link_libraries(${PROJECT_NAME} PUBLIC ${ReactPhysics3D_Lib})
+else()
+    message(WARNING "Skipping ReactPhysics3D linking in CI build")
+endif()
+
+# OpenGL Linking
+if(WIN32)
+    if(NOT SKIP_REACTPHYSICS3D)  # Still link OpenGL locally
+        target_link_libraries(${PROJECT_NAME} LINK_PUBLIC opengl32.lib)
+    else()
+        message(WARNING "Skipping OpenGL linking in CI build")
+    endif()
+else()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGL::GL)
+endif()
+
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC NCLCoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CSC8503CoreClasses)
@@ -203,11 +236,6 @@ target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
 
 #target_link_libraries(${PROJECT_NAME} PUBLIC ${reactphysics3d})
 
-if(TARGET ${ReactPhysics3D_Lib})
-    target_link_libraries(${PROJECT_NAME} PUBLIC ${ReactPhysics3D_Lib})
-else()
-    message(WARNING "Skipping ReactPhysics3D linking for ${PROJECT_NAME}")
-endif()
 
 
 
