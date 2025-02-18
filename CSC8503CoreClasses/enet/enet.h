@@ -5,6 +5,15 @@
 #ifndef __ENET_ENET_H__
 #define __ENET_ENET_H__
 
+// Ensure ENET_API is defined before including other headers
+#ifndef ENET_API
+    #ifdef _WIN32
+        #define ENET_API __declspec(dllexport)
+    #else
+        #define ENET_API extern
+    #endif
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {
