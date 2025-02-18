@@ -1,4 +1,6 @@
 #pragma once
+#include <cfloat>  // Include this at the top of the file
+
 
 namespace NCL {
 	namespace Maths {
