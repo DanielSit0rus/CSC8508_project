@@ -14,6 +14,8 @@
 #include "PaintballGameObject.h"
 #include "Util.h"
 #include "NavigationMesh.h"
+#include "ResourceManager.h"
+#include "GameManager.h"
 
 #include <fmod.h>
 #include "AudioSystem.h"
@@ -48,14 +50,6 @@ namespace NCL {
 			void InitDefaultFloor();			
 
 			PaintballGameObject* playerObject;
-			PaintballGameObject* AddPlayerToWorld(const rp3d::Vector3& position);
-
-			PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);
-
-			//rp3d
-			PaintballGameObject* AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-			PaintballGameObject* AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-			PaintballGameObject* AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
 
 			void CalculatePathToPlayer();
 
@@ -63,7 +57,7 @@ namespace NCL {
 
 			void MoveEnemyAlongPath();
 
-			reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
+			//reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
 #ifdef USEVULKAN
 			GameTechVulkanRenderer*	renderer;
@@ -71,36 +65,20 @@ namespace NCL {
 			GameTechRenderer* renderer;
 #endif
 			PaintballGameWorld*			world;
+			GameManager* G1;
 
 			KeyboardMouseController controller;
 
 			float		forceMagnitude;
 
-			Mesh*	capsuleMesh = nullptr;
-			Mesh*	cubeMesh	= nullptr;
-			Mesh*	sphereMesh	= nullptr;
-
-			Texture*	basicTex	= nullptr;
-			Shader*		basicShader = nullptr;
-
-			//Coursework Meshes
-			Mesh*	catMesh		= nullptr;
-			Mesh*	kittenMesh	= nullptr;
-			Mesh*   mapMesh     = nullptr;
-			Mesh*	enemyMesh	= nullptr;
-			Mesh*	bonusMesh	= nullptr;
-			Mesh*	gooseMesh = nullptr;
-
 			PaintballGameObject* selectionObject = nullptr;
 			PaintballGameObject* lockedObject = nullptr;
 			PaintballGameObject* enemyObject = nullptr;
-
+			NavigationMesh* navMesh;
 			std::vector<Vector3> pathNodes;
 
 			//rp3d
-			rp3d::PhysicsCommon physicsCommon;
-			rp3d::PhysicsWorld* RpWorld = nullptr;
-			rp3d::PhysicsWorld::WorldSettings RpSettings;
+			
 			vector<PaintballGameObject*> objList_pb;
 
 
@@ -108,7 +86,6 @@ namespace NCL {
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			PaintballGameObject* speakerObj = nullptr;
 
-			NavigationMesh* navMesh; 
 		};
 
 	}

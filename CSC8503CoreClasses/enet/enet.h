@@ -5,7 +5,6 @@
 #ifndef __ENET_ENET_H__
 #define __ENET_ENET_H__
 
-
 #ifdef __cplusplus
 extern "C"
 {

@@ -8,7 +8,6 @@ License: MIT (see LICENSE file at the top of the source tree)
 #pragma once
 #include "Mesh.h"
 #include "glad\gl.h"
-#include <memory>
 
 namespace NCL::Rendering {	
 	using UniqueOGLMesh		= std::unique_ptr<class OGLMesh>;
