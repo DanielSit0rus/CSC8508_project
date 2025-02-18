@@ -110,10 +110,23 @@ set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
 include_directories(${ReactPhysics3D_ROOT}/include)
 
 # set ReactPhysics3D lib path
-link_directories(${ReactPhysics3D_ROOT}/lib)
+#link_directories(${ReactPhysics3D_ROOT}/lib)
 
 # set ReactPhysics3D lib name
-set(ReactPhysics3D_Lib reactphysics3d)
+#set(ReactPhysics3D_Lib reactphysics3d)
+
+# Check if ReactPhysics3D lib exists before linking
+if(EXISTS "${ReactPhysics3D_ROOT}/lib/Debug/reactphysics3d.lib" OR EXISTS "${ReactPhysics3D_ROOT}/lib/Release/reactphysics3d.lib")
+    message(STATUS "ReactPhysics3D found, linking it.")
+    link_directories(${ReactPhysics3D_ROOT}/lib)
+    set(ReactPhysics3D_Lib reactphysics3d)
+    target_link_libraries(${PROJECT_NAME} PUBLIC ${ReactPhysics3D_Lib})
+else()
+    message(WARNING "ReactPhysics3D NOT found, skipping linking!")
+endif()
+
+
+
 
 # Visual Studio
 if(MSVC)
