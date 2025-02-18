@@ -4,11 +4,6 @@ set(CMAKE_SYSTEM_VERSION 10.0 CACHE STRING "" FORCE)
 
 project(CSC8503 CXX)
 
-
-find_package(Enet REQUIRED)
-target_link_libraries(${PROJECT_NAME} Enet)
-
-
 ################################################################################
 # Set target arch type if empty. Visual studio solution generator provides it.
 ################################################################################
