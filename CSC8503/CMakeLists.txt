@@ -226,8 +226,15 @@ if(WIN32)
     endif()
 else()
     find_package(OpenGL REQUIRED)
-    target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGL::GL)
+
+    if(OpenGL_FOUND)
+        message(STATUS "OpenGL found: ${OPENGL_LIBRARIES}")
+        target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGL::GL)
+    else()
+        message(WARNING "OpenGL not found, skipping OpenGL linking in CI build")
+    endif()
 endif()
+
 
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC NCLCoreClasses)
