@@ -8,6 +8,7 @@ https://research.ncl.ac.uk/game/
 */
 #pragma once
 #include <algorithm>
+#include <cmath>
 
 namespace NCL::Maths {
 
@@ -290,7 +291,7 @@ namespace NCL::Maths {
 
         template <typename T, uint32_t n>
         T Length(const VectorTemplate<T, n>& a) {
-            return sqrt(LengthSquared(a));
+            return std::sqrt(LengthSquared(a));
         }
 
         template <typename T, uint32_t n>
