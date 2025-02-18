@@ -301,7 +301,8 @@ void PhysicsSystem::ImpulseResolveCollision(GameObject& a, GameObject& b, Collis
 
 	// Clamp tangential impulse to friction cone
 	//Vector3 maxFrictionImpulse = tangent * frictionStatic * fabs(j);
-	Vector3 maxFrictionImpulse = tangent * frictionStatic * fabs(static_cast<float>(j));
+	float frictionFactor = static_cast<float>(frictionStatic * fabs(j));
+	Vector3 maxFrictionImpulse = tangent * frictionFactor;
 
 	if (fabs(jt) > Vector::Length(maxFrictionImpulse)) {
 		jt = Vector::Length(maxFrictionImpulse) * (jt < 0 ? -1.0f : 1.0f);
