@@ -41,7 +41,9 @@ void PaintballPhysicsObject::ClearForces() {
 Matrix3 PaintballPhysicsObject::GetInertiaTensor() const {
 	rp3d::Vector3 localInertia = rigidBody.getLocalInertiaTensor();
 
-	Matrix3 inverseInteriaTensor = Matrix3::MatrixTemplate();
+	//Matrix3 inverseInteriaTensor = Matrix3::MatrixTemplate();
+	Matrix3 inverseInteriaTensor = Matrix3();  // Calls default constructor
+
 	inverseInteriaTensor.array[0][0] = 1.0f / localInertia.x;
 	inverseInteriaTensor.array[1][1] = 1.0f / localInertia.y;
 	inverseInteriaTensor.array[2][2] = 1.0f / localInertia.z;
