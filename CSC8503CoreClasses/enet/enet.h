@@ -5,25 +5,6 @@
 #ifndef __ENET_ENET_H__
 #define __ENET_ENET_H__
 
-// NEW
-#ifndef ENET_API
-#ifdef _WIN32
-#ifdef ENET_BUILD_SHARED
-#define ENET_API __declspec(dllexport)  // Export when building DLL
-#elif defined(ENET_DLL)
-#define ENET_API __declspec(dllimport)  // Import when using DLL
-#else
-#define ENET_API
-#endif
-#elif defined(__GNUC__) && __GNUC__ >= 4
-#define ENET_API __attribute__((visibility("default")))
-#else
-#define ENET_API
-#endif
-#endif
-
-
-
 
 #ifdef __cplusplus
 extern "C"
@@ -34,8 +15,8 @@ extern "C"
 
 #ifdef _WIN32
 #include "enet/win32.h"
-//#else
-//#include "enet/unix.h"
+#else
+#include "enet/unix.h"
 #endif
 
 #include "enet/types.h"
