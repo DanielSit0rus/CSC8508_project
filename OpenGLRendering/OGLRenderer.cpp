@@ -5,6 +5,11 @@ Author:Rich Davison
 Contact:richgdavison@gmail.com
 License: MIT (see LICENSE file at the top of the source tree)
 */////////////////////////////////////////////////////////////////////////////
+
+#ifdef _WIN32
+#include <windows.h>  // MUST be included before OpenGL headers
+#endif
+
 #include "OGLRenderer.h"
 #include "OGLShader.h"
 #include "OGLMesh.h"

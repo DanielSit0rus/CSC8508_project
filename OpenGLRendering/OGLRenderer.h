@@ -12,6 +12,7 @@ License: MIT (see LICENSE file at the top of the source tree)
 #include "windows.h"
 #endif
 
+
 #ifdef _DEBUG
 #define OPENGL_DEBUGGING
 #endif
