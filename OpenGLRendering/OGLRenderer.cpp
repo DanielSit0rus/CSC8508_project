@@ -78,7 +78,13 @@ void OGLRenderer::EndFrame()		{
 }
 
 void OGLRenderer::SwapBuffers()   {
-	::SwapBuffers(deviceContext);
+	//::SwapBuffers(deviceContext);
+
+#ifdef _WIN32
+	if (deviceContext) {  // Make sure deviceContext is valid before calling SwapBuffers
+		::SwapBuffers(deviceContext);
+	}
+#endif
 }
 
 void OGLRenderer::BindBufferAsUBO(const OGLBuffer& b, GLuint slotID) {
