@@ -1,4 +1,5 @@
 #include "Keyboard.h"
+#include <cstring>
 
 using namespace NCL;
 
