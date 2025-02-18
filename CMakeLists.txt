@@ -144,3 +144,12 @@ if(USE_VULKAN)
     add_subdirectory(VulkanRendering)
 endif()
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT CSC8503)
+
+if(MSVC)
+    target_link_libraries(CSC8503 PRIVATE 
+        debug "${DEBUG_LIB_PATH}"
+        optimized "${RELEASE_LIB_PATH}"
+    )
+else()
+    target_link_libraries(CSC8503 PRIVATE reactphysics3d)
+endif()
