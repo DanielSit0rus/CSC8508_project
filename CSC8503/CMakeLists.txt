@@ -199,7 +199,22 @@ include_directories("../CSC8503CoreClasses/")
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC NCLCoreClasses)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CSC8503CoreClasses)
+#target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC ${reactphysics3d})
+
+
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
+
+
+# Cross-platform OpenGL linking
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} LINK_PUBLIC opengl32.lib)
+else()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGL::GL)
+endif()
+
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC nlohmann_json::nlohmann_json)
 
