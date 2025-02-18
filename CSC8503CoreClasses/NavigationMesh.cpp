@@ -81,7 +81,7 @@ NavigationMesh::~NavigationMesh()
 }
 
 bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, NavigationPath& outPath) {
-	const NavTri* startTri = Ge tTriForPosition(from);
+	const NavTri* startTri = GetTriForPosition(from);
 	const NavTri* goalTri = GetTriForPosition(to);
 
 	if (!startTri || !goalTri) {
