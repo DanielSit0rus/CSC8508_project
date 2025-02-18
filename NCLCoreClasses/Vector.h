@@ -17,11 +17,13 @@ namespace NCL::Maths {
         T array[n];
 
         inline T operator[](int i) const {
-            return ((T*)this)[i];
+            return array[i];
+            //return ((T*)this)[i];
         }
 
         inline T& operator[](int i) {
-            return ((T*)this)[i];
+            return array[i];
+           // return ((T*)this)[i];
         }
     };
 
@@ -51,22 +53,31 @@ namespace NCL::Maths {
                 T y;
             };
         };
+        //T x, y;  // Using direct members instead of a union for clarity.
 
-        VectorTemplate<T, 2>() : x(0),y(0) {
+
+        // ORIGINAL CODE CHANGED
+        /*VectorTemplate<T, 2>() : x(0),y(0) {
         }
 
         VectorTemplate<T, 2>(T inX, T inY) : x(inX), y(inY) {
         }
 
         VectorTemplate<T, 2>(VectorTemplate<T, 3> v) : x(v[0]), y(v[1]) {
-        }
+        }*/
+
+        VectorTemplate() : x(0), y(0) {}
+        VectorTemplate(T inX, T inY) : x(inX), y(inY) {}
+        VectorTemplate(const VectorTemplate<T, 3>& v) : x(v.x), y(v.y) {}  // Assuming VectorTemplate<T, 3> has x, y, z.
 
 
         T operator[](int i) const {
-            return ((T*)this)[i];
+            //return ((T*)this)[i];
+            return array[i];
         }
         T& operator[](int i) {
-            return ((T*)this)[i];
+           // return ((T*)this)[i];
+            return array[i];
         }
     };
 
@@ -81,7 +92,12 @@ namespace NCL::Maths {
             };
         };
 
-        VectorTemplate<T, 3>() : x(0), y(0), z(0) {
+        
+       // T x, y, z;  // Explicitly defining members for clarity
+
+
+        // ORIGINAL CODE CHANGED
+        /*VectorTemplate<T, 3>() : x(0), y(0), z(0) {
         }
 
         VectorTemplate<T, 3>(T inX, T inY, T inZ) : x(inX), y(inY), z(inZ) {
@@ -91,13 +107,27 @@ namespace NCL::Maths {
         }
 
         VectorTemplate<T, 3>(VectorTemplate<T, 4> v) : x(v[0]), y(v[1]), z(v[2]) {
-        }
+        }*/
+
+        // Default constructor initializing all members to zero
+        VectorTemplate() : x(0), y(0), z(0) {}
+
+        // Constructor with all dimensions specified
+        VectorTemplate(T inX, T inY, T inZ) : x(inX), y(inY), z(inZ) {}
+
+        // Constructor converting from VectorTemplate<T, 2>, adding a third dimension
+        VectorTemplate(const VectorTemplate<T, 2>& v, T inZ) : x(v.x), y(v.y), z(inZ) {}
+
+        // Copy constructor from VectorTemplate<T, 4>, ignoring the fourth dimension
+        VectorTemplate(const VectorTemplate<T, 4>& v) : x(v.x), y(v.y), z(v.z) {}
 
         T operator[](int i) const {
-            return ((T*)this)[i];
+            //return ((T*)this)[i];
+            return array[i];
         }
         T& operator[](int i) {
-            return ((T*)this)[i];
+            //return ((T*)this)[i];
+            return array[i];
         }
     };
 
@@ -113,7 +143,10 @@ namespace NCL::Maths {
             };
         };
 
-        VectorTemplate<T, 4>() : x(0), y(0), z(0), w(0) {
+        //T x, y, z, w;  // Explicitly defining members for clarity
+
+        // ORIGINAL CODE CHANGED
+        /*VectorTemplate<T, 4>() : x(0), y(0), z(0), w(0) {
         }
 
         VectorTemplate<T, 4>(T inX, T inY, T inZ, T inW) : x(inX), y(inY), z(inZ), w(inW) {
@@ -123,13 +156,27 @@ namespace NCL::Maths {
         }
 
         VectorTemplate<T, 4>(VectorTemplate<T, 3> v, T inW) : x(v.array[0]), y(v.array[1]), z(v.array[2]), w(inW) {
-        }
+        }*/
+
+        // Default constructor initializing all members to zero
+        VectorTemplate() : x(0), y(0), z(0), w(0) {}
+
+        // Constructor with all dimensions specified
+        VectorTemplate(T inX, T inY, T inZ, T inW) : x(inX), y(inY), z(inZ), w(inW) {}
+
+        // Constructor converting from VectorTemplate<T, 2>, adding third and fourth dimensions
+        VectorTemplate(const VectorTemplate<T, 2>& v, T inZ, T inW) : x(v.x), y(v.y), z(inZ), w(inW) {}
+
+        // Constructor converting from VectorTemplate<T, 3>, adding a fourth dimension
+        VectorTemplate(const VectorTemplate<T, 3>& v, T inW) : x(v.x), y(v.y), z(v.z), w(inW) {}
 
         T operator[](int i) const {
-            return ((T*)this)[i];
+           // return ((T*)this)[i];
+            return array[i];
         }
         T& operator[](int i) {
-            return ((T*)this)[i];
+           // return ((T*)this)[i];
+            return array[i];
         }
     };
 
