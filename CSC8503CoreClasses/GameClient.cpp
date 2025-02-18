@@ -1,7 +1,5 @@
-#include "GameClient.h"
 #include "./enet/enet.h"
-#include <enet/enet.h>
-
+#include "GameClient.h"
 
 
 using namespace NCL;
