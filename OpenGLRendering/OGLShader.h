@@ -7,7 +7,7 @@ License: MIT (see LICENSE file at the top of the source tree)
 */////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "Shader.h"
-#include "glad\gl.h"
+#include <glad/gl.h>
 #include <memory>
 
 namespace NCL::Rendering {

@@ -20,7 +20,7 @@ License: MIT (see LICENSE file at the top of the source tree)
 #include "Win32Window.h"
 
 #include "KHR\khrplatform.h"
-#include "glad\gl.h"
+#include <glad/gl.h>
 #include "KHR/WGLext.h"
 
 PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
