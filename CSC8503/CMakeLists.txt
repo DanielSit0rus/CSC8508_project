@@ -203,6 +203,12 @@ target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
 
 #target_link_libraries(${PROJECT_NAME} PUBLIC ${reactphysics3d})
 
+if(TARGET ${ReactPhysics3D_Lib})
+    target_link_libraries(${PROJECT_NAME} PUBLIC ${ReactPhysics3D_Lib})
+else()
+    message(WARNING "Skipping ReactPhysics3D linking for ${PROJECT_NAME}")
+endif()
+
 
 
 

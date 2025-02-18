@@ -110,23 +110,10 @@ set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
 include_directories(${ReactPhysics3D_ROOT}/include)
 
 # set ReactPhysics3D lib path
-#link_directories(${ReactPhysics3D_ROOT}/lib)
+link_directories(${ReactPhysics3D_ROOT}/lib)
 
 # set ReactPhysics3D lib name
-#set(ReactPhysics3D_Lib reactphysics3d)
-
-# Check if ReactPhysics3D lib exists before linking
-if(EXISTS "${ReactPhysics3D_ROOT}/lib/Debug/reactphysics3d.lib" OR EXISTS "${ReactPhysics3D_ROOT}/lib/Release/reactphysics3d.lib")
-    message(STATUS "ReactPhysics3D found, linking it.")
-    link_directories(${ReactPhysics3D_ROOT}/lib)
-    set(ReactPhysics3D_Lib reactphysics3d)
-    target_link_libraries(${PROJECT_NAME} PUBLIC ${ReactPhysics3D_Lib})
-else()
-    message(WARNING "ReactPhysics3D NOT found, skipping linking!")
-endif()
-
-
-
+set(ReactPhysics3D_Lib reactphysics3d)
 
 # Visual Studio
 if(MSVC)
@@ -157,12 +144,3 @@ if(USE_VULKAN)
     add_subdirectory(VulkanRendering)
 endif()
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT CSC8503)
-
-if(MSVC)
-    target_link_libraries(CSC8503 PRIVATE 
-        debug "${DEBUG_LIB_PATH}"
-        optimized "${RELEASE_LIB_PATH}"
-    )
-else()
-    target_link_libraries(CSC8503 PRIVATE reactphysics3d)
-endif()
