@@ -17,10 +17,14 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 #else 
 	renderer = new GameTechRenderer(*world);
 	
+	
+	
 	//renderer->AddLight(light1);
 #endif
 
-	RpWorld = physicsCommon.createPhysicsWorld(RpSettings);		//rp3d
+			//rp3d
+	
+	
 
 	world->GetMainCamera().SetController(controller);
 
@@ -30,8 +34,10 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 	controller.MapAxis(3, "XLook");
 	controller.MapAxis(4, "YLook");
-
+	ResourceManager::GetInstance().LoadAssets(renderer);
+	G1 = new GameManager(world);
 	InitialiseAssets();
+	
 }
 
 /*
@@ -42,23 +48,9 @@ for this module, even in the coursework, but you can add it if you like!
 
 */
 void TutorialGame::InitialiseAssets() {
-	cubeMesh	= renderer->LoadMesh("cube.msh");
-	sphereMesh	= renderer->LoadMesh("sphere.msh");
-	catMesh		= renderer->LoadMesh("ORIGAMI_Chat.msh");
-	kittenMesh	= renderer->LoadMesh("Kitten.msh");
-	mapMesh = renderer->LoadMesh("Map4.msh");
-	gooseMesh = renderer->LoadMesh("goose.msh");
 
-	enemyMesh	= renderer->LoadMesh("Keeper.msh");
-	bonusMesh	= renderer->LoadMesh("19463_Kitten_Head_v1.msh");
-	capsuleMesh = renderer->LoadMesh("capsule.msh");
-
-	//mapMesh = renderer->LoadMesh("SampleMap.msh");
-
-	basicTex	= renderer->LoadTexture("checkerboard.png");
-	basicShader = renderer->LoadShader("scene.vert", "scene.frag");
+	
 	navMesh = new NavigationMesh("Map1Navigation");
-
 
 	InitWorld();
 	InitCamera();
@@ -66,21 +58,9 @@ void TutorialGame::InitialiseAssets() {
 }
 
 TutorialGame::~TutorialGame()	{
-	delete cubeMesh;
-	delete sphereMesh;
-	delete catMesh;
-	delete kittenMesh;
-	delete enemyMesh;
-	delete bonusMesh;
-	delete mapMesh;
 
-	delete basicTex;
-	delete basicShader;
 
-	delete renderer;
-	delete world;
-	delete navMesh;
-	physicsCommon.destroyPhysicsWorld(RpWorld);
+	
 }
 
 bool TutorialGame::pauseGame(){
@@ -109,13 +89,9 @@ void TutorialGame::UpdateGame(float dt) {
 
 	world->UpdateWorld(dt);
 
-	RpWorld->update(dt);	//rp3d
+	G1->getRPworld()->update(dt);	//rp3d
 
 	navMesh->DrawNavMesh();
-
-
-
-
 
 	if (lockedObject) {
 		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
@@ -192,8 +168,8 @@ void TutorialGame::InitWorld() {
 	world->ClearAndErase();
 
 
-	playerObject = AddPlayerToWorld(rp3d::Vector3(21, 1, -19));
-	enemyObject = AddPlayerToWorld(rp3d::Vector3(1, 1, -1));
+	playerObject = G1->AddPlayer(rp3d::Vector3(21, 1, -19));
+	enemyObject = G1->AddPlayer(rp3d::Vector3(1, 1, -1));
 
 	forceMagnitude = 60.0f;
 
@@ -202,26 +178,26 @@ void TutorialGame::InitWorld() {
 	renderer->AddLight(light2);
 
 
-	speakerObj = AddRp3dObjToWorld(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+	speakerObj =G1->AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 
 	//rp3d
 	objList_pb.clear();
 	float angleInRadians = 10.0f * PI / 180.0f;
 	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddCube(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddCube(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddCube(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
 
 
 	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	objList_pb.push_back(AddRp3dConcaveToWorld(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1->AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
 	
@@ -240,7 +216,7 @@ void TutorialGame::UpdateKeys() {
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
 		rp3d::Ray ray(pos, pos + dir * 1000);
 		RaycastHitCallback  callback;
-		RpWorld->raycast(ray, &callback);
+		G1->getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
 			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
 			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
@@ -257,7 +233,7 @@ void TutorialGame::UpdateKeys() {
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
 		rp3d::Ray ray(pos, pos + dir * 1000);
 		RaycastHitCallback  callback;
-		RpWorld->raycast(ray, &callback);
+		G1->getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
 			if (selectionObject == (PaintballGameObject*)callback.rb->getUserData())
 				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
@@ -334,9 +310,6 @@ void TutorialGame::LockedObjectMovement() {
 A single function to add a large immoveable cube to the bottom of our world
 
 */
-PaintballGameObject* TutorialGame::AddFloorToWorld(const rp3d::Vector3& position) {	
-	return AddRp3dCubeToWorld(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f),0);
-}
 
 /*
 
@@ -346,73 +319,10 @@ physics worlds. You'll probably need another function for the creation of OBB cu
 
 */
 
-PaintballGameObject* TutorialGame::AddRp3dCubeToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
-	PaintballGameObject* cube = new PaintballGameObject();
 
-	cube->GetTransform()
-		.SetPosition(position)
-		.SetOrientation(orientation)
-		.SetScale(dimensions * 2.0f);
-
-	cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), cubeMesh, basicTex, basicShader));
-
-	cube->GetRenderObject()->SetColour(color);
-
-	// create a rigid body
-	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	// create Shape
-	rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
-	//rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
-	// bind Shape to rigid body
-	rp3d::Transform shapeTransform = rp3d::Transform::identity();
-	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
-	//add rigid body to gameobject
-	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
-	cube->GetPhysicsObject()->SetMass(mass);
-
-	world->AddGameObject(cube);
-
-	return cube;
-}
-PaintballGameObject* TutorialGame::AddRp3dObjToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
-	PaintballGameObject* cube = new PaintballGameObject();
-
-	cube->GetTransform()
-		.SetPosition(position)
-		.SetOrientation(orientation)
-		.SetScale(dimensions * 1.0f);
-
-	cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), sphereMesh, basicTex, basicShader));
-
-	cube->GetRenderObject()->SetColour(color);
-
-	// create a rigid body
-	rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
-	// create Shape
-	//rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
-	rp3d::SphereShape* shape = physicsCommon.createSphereShape(dimensions.x);
-	// bind Shape to rigid body
-	rp3d::Transform shapeTransform = rp3d::Transform::identity();
-	rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
-	cubeBody->setAngularDamping(0.1f);
-	//add rigid body to gameobject
-	cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
-	cube->GetPhysicsObject()->SetMass(mass);
-
-	world->AddGameObject(cube);
-
-	return cube;
-}
-
-PaintballGameObject* TutorialGame::AddPlayerToWorld(const rp3d::Vector3& position) {
-	PaintballGameObject* p =
-		AddRp3dCubeToWorld(position, rp3d::Vector3(0.3f, 1, 0.3f), rp3d::Quaternion(0, 0, 0, 1.0f));
-	p->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
-	return p;
-}
 
 void TutorialGame::InitDefaultFloor() {
-	AddFloorToWorld(rp3d::Vector3(0, -2, 0));
+	G1->AddFloorToWorld(rp3d::Vector3(0, -2, 0));
 	//test
 }
 
@@ -433,74 +343,6 @@ added linear motion into our physics system. After the second tutorial, objects 
 line - after the third, they'll be able to twist under torque aswell.
 */
 
-reactphysics3d::ConcaveMeshShape* TutorialGame::CreateConcaveMeshShape(Mesh* mesh) {
-	const void* vertStart = mesh->GetPositionData().data();
-	const void* indexStart = mesh->GetIndexData().data();
-
-	unsigned int vertCount = mesh->GetVertexCount();
-	unsigned int trianglesCount = mesh->GetIndexCount() / 3;
-
-	// Create the TriangleVertexArray
-	reactphysics3d::TriangleVertexArray* triangleArray = new reactphysics3d::TriangleVertexArray(
-		vertCount,                       // Number of vertices
-		vertStart,                       // Vertex position data
-		sizeof(Maths::Vector3),          // Stride between vertices
-		trianglesCount,                  // Number of triangles
-		indexStart,                      // Index data
-		3 * sizeof(int),                 // Stride between indices
-		reactphysics3d::TriangleVertexArray::VertexDataType::VERTEX_FLOAT_TYPE,
-		reactphysics3d::TriangleVertexArray::IndexDataType::INDEX_INTEGER_TYPE
-	);
-
-	// Vector to store messages from triangle mesh creation
-	std::vector<reactphysics3d::Message> messages;
-
-
-	// Create the TriangleMesh
-	reactphysics3d::TriangleMesh* triangleMesh = physicsCommon.createTriangleMesh(*triangleArray, messages);
-	const Vector3 scaling(1, 1, 1);
-
-	// Create the ConcaveMeshShape using the TriangleMesh
-	reactphysics3d::ConcaveMeshShape* concaveMeshShape = physicsCommon.createConcaveMeshShape(triangleMesh);
-
-	return concaveMeshShape;
-}
-
-
-PaintballGameObject* TutorialGame::AddRp3dConcaveToWorld(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float inverseMass, Vector4 color) {
-	PaintballGameObject* concave = new PaintballGameObject();
-
-	concave->GetTransform()
-		.SetPosition(position)
-		.SetOrientation(orientation)
-		.SetScale(dimensions);
-
-	concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(), mapMesh, basicTex, basicShader));
-
-	concave->GetRenderObject()->SetColour(color);
-
-	rp3d::Vector3 pos(position.x, position.y, position.z);
-	rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-
-
-	// create a rigid body
-	rp3d::Transform transform(pos, ori);
-	rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(transform);
-	concaveBody->setType(rp3d::BodyType::STATIC);
-	// create Shape
-	rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(mapMesh); // scale?
-	// bind Shape to rigid body
-	rp3d::Transform shapeTransform = rp3d::Transform::identity();
-	rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
-	//add rigid body to gameobject
-	concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
-
-	world->AddGameObject(concave);
-
-
-
-	return concave;
-}
 
 void TutorialGame::CalculatePathToPlayer() {
 	if (!playerObject || !enemyObject) {

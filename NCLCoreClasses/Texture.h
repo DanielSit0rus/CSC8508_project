@@ -8,7 +8,6 @@ https://research.ncl.ac.uk/game/
 */
 #pragma once
 #include "Vector.h"
-#include <memory>
 
 namespace NCL::Rendering {
 	using namespace Maths;

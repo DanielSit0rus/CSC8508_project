@@ -9,7 +9,6 @@ https://research.ncl.ac.uk/game/
 #pragma once
 #include "Vector.h"
 #include "Matrix.h"
-#include <memory>
 
 namespace NCL::Rendering {
 	using UniqueMeshAnim = std::unique_ptr<class MeshAnimation>;

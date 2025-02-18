@@ -8,7 +8,6 @@ License: MIT (see LICENSE file at the top of the source tree)
 #pragma once
 #include "Texture.h"
 #include "glad\gl.h"
-#include <memory>
 
 namespace NCL::Rendering {		
 	using UniqueOGLTexture = std::unique_ptr<class OGLTexture>;

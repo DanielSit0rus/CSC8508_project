@@ -1,5 +1,5 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -26,45 +26,15 @@
   Constraint.h
   callbacks.c
   enet.h
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/callbacks.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/enet.h')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   time.h
   types.h
   utility.h
   compress.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/compress.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   host.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/host.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   Generating Code...
   Compiling...
   packet.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/packet.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   peer.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file '../CSC8503CoreClasses/enet/peer.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   Generating Code...
   BehaviourSelector.h
   BehaviourSelector.cpp
@@ -88,32 +58,12 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   QuadTree.cpp
   GameClient.h
   GameClient.cpp
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'GameClient.cpp')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   GameServer.h
   GameServer.cpp
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'GameServer.cpp')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   NetworkBase.h
   NetworkBase.cpp
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'NetworkBase.cpp')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   NetworkObject.h
   NetworkObject.cpp
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'NetworkObject.cpp')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   NetworkState.h
   NetworkState.cpp
   PositionConstraint.cpp
@@ -126,23 +76,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   PhysicsSystem.h
   list.h
   list.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'enet/list.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   protocol.h
   protocol.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'enet/protocol.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
   win32.h
   win32.c
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\win32.h(45,9): warning C4005: 'ENET_API': macro redefinition
-  (compiling source file 'enet/win32.c')
-      C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\CSC8503CoreClasses\enet\enet.h(16,9):
-      see previous definition of 'ENET_API'
-  
-  CSC8503CoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> C:\TeamProject\NewRep\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
