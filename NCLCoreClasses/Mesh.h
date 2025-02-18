@@ -10,6 +10,7 @@ https://research.ncl.ac.uk/game/
 #include <cstdint>
 #include "Vector.h"
 #include "Matrix.h"
+#include <memory> 
 
 namespace NCL::Rendering {
 	class RendererBase;
