@@ -21,7 +21,13 @@
 #endif
 
 
+//typedef SOCKET ENetSocket;
+#ifdef _WIN32
 typedef SOCKET ENetSocket;
+#else
+typedef int ENetSocket; // Linux uses int for sockets
+#endif
+
 
 #define ENET_SOCKET_NULL INVALID_SOCKET
 
