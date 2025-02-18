@@ -3,9 +3,6 @@ set(PROJECT_NAME NCLCoreClasses)
 
 option(INCLUDE_SIMPLE_FONT "Include the SimpleFont class in the build." ON)
 
-include_directories(${CMAKE_SOURCE_DIR}/CSC8503CoreClasses/enet)
-
-
 ################################################################################
 # Source groups
 ################################################################################
