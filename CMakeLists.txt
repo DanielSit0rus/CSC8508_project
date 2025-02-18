@@ -122,6 +122,8 @@ if(MSVC)
     
     # Release mode path
     set(RELEASE_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Release/${ReactPhysics3D_Lib}.lib")
+else()
+    set(DEBUG_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Debug/${ReactPhysics3D_Lib}.lib")	
 endif()
 ################################################################################
 # Json Setup
