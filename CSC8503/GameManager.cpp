@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "PaintballBullet.h"
 using namespace NCL;
 using namespace CSC8503;
 
@@ -119,6 +120,38 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 
     world->AddGameObject(concave);
     return concave;
+}
+
+PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
+{
+    ResourceManager& resources = ResourceManager::GetInstance();
+    PaintballBullet* cube = new PaintballBullet();
+
+    cube->GetTransform()
+        .SetPosition(position)
+        .SetOrientation(orientation)
+        .SetScale(dimensions * 1.0f);
+
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetSphereMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+
+    cube->GetRenderObject()->SetColour(color);
+
+    // create a rigid body
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
+    // create Shape
+    //rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+    rp3d::SphereShape* shape = physicsCommon.createSphereShape(dimensions.x);
+    // bind Shape to rigid body
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+    cubeBody->setAngularDamping(0.1f);
+    //add rigid body to gameobject
+    cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+    cube->GetPhysicsObject()->SetMass(mass);
+
+    world->AddGameObject(cube);
+
+    return cube;
 }
 
 reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh) {
