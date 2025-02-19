@@ -1,4 +1,5 @@
 ﻿  1>Checking Build System
+<<<<<<< Updated upstream
   CMake is re-running because C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeFiles/generate.stamp is out-of-date.
     the file 'C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt'
     is newer than 'C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeFiles/generate.stamp.depend'
@@ -9,3 +10,5 @@
   -- Configuring done (0.1s)
   -- Generating done (0.2s)
   -- Build files have been written to: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project
+=======
+>>>>>>> Stashed changes
