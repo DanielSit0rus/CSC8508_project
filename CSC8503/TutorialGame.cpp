@@ -252,6 +252,11 @@ void TutorialGame::UpdateKeys() {
 		else lockedObject = nullptr;
 	}
 
+	//shoot test
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::P)) {
+		shoottest->Attack();
+	}
+
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
 		InitWorld(); //We can reset the simulation at any time with F1
 	}

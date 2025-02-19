@@ -19,6 +19,7 @@
 
 #include <fmod.h>
 #include "AudioSystem.h"
+#include "PaintballPlayer.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -86,7 +87,10 @@ namespace NCL {
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			PaintballGameObject* speakerObj = nullptr;
 
+			//shoot 
+			PaintballPlayer* shoottest = nullptr;
 		};
+
 
 	}
 }

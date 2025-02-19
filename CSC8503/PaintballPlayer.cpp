@@ -1,4 +1,5 @@
 #include "PaintballPlayer.h"
+#include "PaintballBullet.h"
 
 using namespace NCL::CSC8503;
 
@@ -68,5 +69,5 @@ void PaintballPlayer::Move(float forceMagnitude)
 
 void PaintballPlayer::Attack()
 {
-
+	//生成一个子弹，并发射
 }

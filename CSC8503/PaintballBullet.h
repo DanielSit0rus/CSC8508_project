@@ -9,14 +9,16 @@ namespace NCL::CSC8503 {
 	public:
 		PaintballBullet();
 		~PaintballBullet();
-		void GetColor();
-		void SetColor();
-		void InitBullet(rp3d::Quaternion direction,bool Isenemy);
-		void Distoty();
+
+		Vector4 GetColor() const;
+		void SetColor(const Vector4& newColor);
+
+		void InitBullet(const rp3d::Quaternion& direction, bool isEnemy);
+		void Destroy();
 	private:
 		Vector4 color;
-		bool isenemy;
-		float speed = 100;
-		float livetime = 2;
+		bool isEnemy;
+		float speed = 100.0f;
+		float lifeTime = 2.0f; // 以秒为单位
 	};
 }
