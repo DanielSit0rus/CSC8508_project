@@ -538,7 +538,7 @@ int main() {
 	} 
 	EventManager::Trigger(EventType::Game_End);
 
-	console.join();
+	console.detach();
 	audioSystem.Release();
 
 	w->LockMouseToWindow(false);

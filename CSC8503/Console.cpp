@@ -41,6 +41,7 @@ void Console::HandleCommand(const std::string& input) {
     }
     else {
         std::cout << "Unknown command: " << command << std::endl;
+        std::cout << "Type help to list all commands. " << command << std::endl;
     }
 }
 

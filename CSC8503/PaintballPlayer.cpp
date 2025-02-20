@@ -1,17 +1,25 @@
 #include "PaintballPlayer.h"
-#include "PaintballBullet.h"
+
 
 using namespace NCL::CSC8503;
 
-NCL::CSC8503::PaintballPlayer::PaintballPlayer(PerspectiveCamera* parentCamera)
+NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
 {
-	camera = parentCamera;
-	
+	name = objectName;
+	worldID = -1;
+	isActive = true;
+	networkObject = nullptr;
+	renderObject = nullptr;
+	physicsObject = nullptr;
+	camera = nullptr;
 }
 
 NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 {
-	delete camera;
+	delete networkObject;
+	delete renderObject;
+	delete physicsObject;
+	camera = nullptr;
 }
 
 void PaintballPlayer::GetColor()
@@ -70,4 +78,5 @@ void PaintballPlayer::Move(float forceMagnitude)
 void PaintballPlayer::Attack()
 {
 	//生成一个子弹，并发射
+	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition(), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
 }
