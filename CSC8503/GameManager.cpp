@@ -3,7 +3,7 @@
 using namespace NCL;
 using namespace CSC8503;
 
-GameManager::GameManager(PaintballGameWorld* world)
+void GameManager::Init(PaintballGameWorld* world)
 {
     this->world = world;
     RpWorld = physicsCommon.createPhysicsWorld(RpSettings);

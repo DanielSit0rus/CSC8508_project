@@ -66,7 +66,7 @@ namespace NCL {
 			GameTechRenderer* renderer;
 #endif
 			PaintballGameWorld*			world;
-			GameManager* G1;
+			GameManager& G1 = GameManager::GetInstance();
 
 			KeyboardMouseController controller;
 

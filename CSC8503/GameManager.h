@@ -12,11 +12,19 @@ namespace NCL {
 		class GameManager
 		{
             public:
-                GameManager(PaintballGameWorld* world);
-                ~GameManager() {
+                static GameManager& GetInstance() {
+                    static GameManager instance;
+                    return instance;
+                }
 
+                GameManager(const GameManager&) = delete;
+                GameManager& operator=(const GameManager&) = delete;
+
+                ~GameManager() {
                     physicsCommon.destroyPhysicsWorld(RpWorld);
                 };
+
+                void Init(PaintballGameWorld* world);
 
                 //void InitWorld();
                 rp3d::PhysicsWorld* getRPworld()
@@ -37,9 +45,11 @@ namespace NCL {
                 PaintballGameObject* AddBullet(bool isenemy,const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
                 reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
-                void InitDefaultFloor();
 
             private:
+                GameManager() = default;
+
+
                 PaintballGameWorld* world;
                 rp3d::PhysicsCommon physicsCommon;
                 rp3d::PhysicsWorld* RpWorld = nullptr;

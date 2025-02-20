@@ -20,10 +20,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	
 	
 	//renderer->AddLight(light1);
-#endif
-
-			//rp3d
-	
+#endif	
 	
 
 	world->GetMainCamera().SetController(controller);
@@ -35,7 +32,8 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	controller.MapAxis(3, "XLook");
 	controller.MapAxis(4, "YLook");
 	ResourceManager::GetInstance().LoadAssets(renderer);
-	G1 = new GameManager(world);
+	G1.Init(world);
+
 	InitialiseAssets();
 	
 }
@@ -89,7 +87,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	world->UpdateWorld(dt);
 
-	G1->getRPworld()->update(dt);	//rp3d
+	G1.getRPworld()->update(dt);	//rp3d
 
 	navMesh->DrawNavMesh();
 
@@ -168,8 +166,8 @@ void TutorialGame::InitWorld() {
 	world->ClearAndErase();
 
 
-	playerObject = G1->AddPlayer(rp3d::Vector3(21, 1, -19));
-	enemyObject = G1->AddPlayer(rp3d::Vector3(1, 1, -1));
+	playerObject = G1.AddPlayer(rp3d::Vector3(21, 1, -19));
+	enemyObject = G1.AddPlayer(rp3d::Vector3(1, 1, -1));
 
 	forceMagnitude = 60.0f;
 
@@ -178,26 +176,26 @@ void TutorialGame::InitWorld() {
 	renderer->AddLight(light2);
 
 
-	speakerObj =G1->AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+	speakerObj =G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 
 	//rp3d
 	objList_pb.clear();
 	float angleInRadians = 10.0f * PI / 180.0f;
 	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	objList_pb.push_back(G1->AddCube(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1->AddCube(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1->AddCube(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddCube(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddCube(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddCube(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
-	objList_pb.push_back(G1->AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1->AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
 
 
 	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	objList_pb.push_back(G1->AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
 	
@@ -216,7 +214,7 @@ void TutorialGame::UpdateKeys() {
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
 		rp3d::Ray ray(pos, pos + dir * 1000);
 		RaycastHitCallback  callback;
-		G1->getRPworld()->raycast(ray, &callback);
+		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
 			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
 			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
@@ -233,7 +231,7 @@ void TutorialGame::UpdateKeys() {
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
 		rp3d::Ray ray(pos, pos + dir * 1000);
 		RaycastHitCallback  callback;
-		G1->getRPworld()->raycast(ray, &callback);
+		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
 			if (selectionObject == (PaintballGameObject*)callback.rb->getUserData())
 				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
@@ -327,7 +325,7 @@ physics worlds. You'll probably need another function for the creation of OBB cu
 
 
 void TutorialGame::InitDefaultFloor() {
-	G1->AddFloorToWorld(rp3d::Vector3(0, -2, 0));
+	G1.AddFloorToWorld(rp3d::Vector3(0, -2, 0));
 	//test
 }
 
