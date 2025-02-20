@@ -1,27 +1,21 @@
 #pragma once
-#include "GameObject.h"
+#include "PaintballGameObject.h"
 
 namespace NCL {
     namespace CSC8503 {
         class StateMachine;
-        class StateGameObject : public GameObject  {
+        class StateGameObject : public PaintballGameObject {
         public:
-            StateGameObject(const std::string& objectName = "", GameObject* playerObj = nullptr);
-            //StateGameObject(const std::string& name = "");
+            StateGameObject();
             ~StateGameObject();
-            StateMachine* stateMachine;
             virtual void Update(float dt);
-            StateMachine* getstateMachine();
-            void setstateMachine(StateMachine* StateMachine);
-            
 
         protected:
             void MoveLeft(float dt);
             void MoveRight(float dt);
-            //std::string	name;
-            
+
+            StateMachine* stateMachine;
             float counter;
-          
         };
     }
 }

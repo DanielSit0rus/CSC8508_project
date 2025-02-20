@@ -4,7 +4,7 @@
   OGLShader.h
   OGLRenderer.h
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'OGLRenderer.h')
+  (compiling source file '../OpenGLRendering/OGLRenderer.h')
   
   OGLMesh.h
   OGLComputeShader.h
