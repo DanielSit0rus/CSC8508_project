@@ -113,6 +113,7 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     //add rigid body to gameobject
     cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
     cube->GetPhysicsObject()->SetMass(1);
+    cube->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
 
     cube->SetCamera(&world->GetMainCamera());
 
