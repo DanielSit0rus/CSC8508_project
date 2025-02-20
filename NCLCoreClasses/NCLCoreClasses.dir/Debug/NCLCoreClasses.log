@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+=======
+﻿  Building Custom Rule D:/CSC8503/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+>>>>>>> DesignPatternFactory
   cmake_pch.cxx
   Assets.cpp
   TextureLoader.cpp
@@ -52,4 +56,8 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   (compiling source file 'Win32Window.cpp')
   
   Generating Code...
+<<<<<<< HEAD
   NCLCoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+=======
+  NCLCoreClasses.vcxproj -> D:\CSC8503\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+>>>>>>> DesignPatternFactory

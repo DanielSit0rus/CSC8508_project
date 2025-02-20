@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+=======
+<<<<<<< Updated upstream
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+=======
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule D:/CSC8503/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+>>>>>>> Stashed changes
+>>>>>>> DesignPatternFactory
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -116,4 +126,8 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   protocol.c
   win32.h
   win32.c
+<<<<<<< HEAD
   CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+=======
+  CSC8503CoreClasses.vcxproj -> D:\CSC8503\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+>>>>>>> DesignPatternFactory
