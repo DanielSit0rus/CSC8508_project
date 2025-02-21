@@ -1,1001 +1,149 @@
-﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/CMakeLists.txt
-  cmake_pch.cxx
-  AudioSystem.cpp
-  EventManager.cpp
-  GameManager.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\GameManager.cpp(162,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\GameManager.cpp(163,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'GameManager.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'GameManager.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  GameTechRenderer.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'GameTechRenderer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  ISaveable.cpp
-  Light.cpp
-  Main.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'Main.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\Main.cpp(109,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\Main.cpp(209,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'Main.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'Main.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  NetworkPlayer.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'NetworkPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'NetworkPlayer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  NetworkedGame.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'NetworkedGame.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballBullet.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'PaintballBullet.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballBullet.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballGameObject.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballGameObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballGameWorld.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         with
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         [
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:             _Rep=std::chrono::system_clock::rep
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         ]
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballGameWorld.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballPhysicsObject.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballPhysicsObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballPlayer.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'PaintballPlayer.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballPlayer.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  PaintballRenderObject.cpp
-  PaintballTransform.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'PaintballTransform.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  ResourceManager.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'ResourceManager.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  SLSystem.cpp
+﻿F:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
   StateGameObject.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
+F:\Gameprojects\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“StateGameObject.cpp”)
   
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'StateGameObject.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
+      F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      模板实例化上下文(最早的实例化上下文)为
+          F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
+          F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
+              F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+  
+F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
+  (编译源文件“StateGameObject.cpp”)
+      F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      模板实例化上下文(最早的实例化上下文)为
+          F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
           with
           [
               V=int
           ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
+          F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
           with
           [
               V=int
           ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
+              F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
           with
           [
               V=int
           ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
-          with
-          [
-              V=int
-          ]
-  
-  TutorialGame.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
-  
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
-  (compiling source file 'TutorialGame.cpp')
-      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      the template instantiation context (the oldest one first) is
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
-          with
-          [
-              V=int
-          ]
-          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
-          with
-          [
-              V=int
-          ]
-              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
+              F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
           with
           [
               V=int
           ]
   
-  Generating Code...
-ReactPhysics3D.lib(Body.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Body.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(RigidBody.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(RigidBody.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(PhysicsWorld.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PhysicsWorld.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(PhysicsCommon.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PhysicsCommon.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(TriangleVertexArray.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TriangleVertexArray.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CollisionDetectionSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionDetectionSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Quaternion.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Quaternion.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(EntityManager.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(EntityManager.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Components.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Components.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Material.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Material.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ColliderComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ColliderComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Collider.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Collider.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(BroadPhaseSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(BroadPhaseSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(OverlappingPairs.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(OverlappingPairs.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Joint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Joint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(BodyComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(BodyComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(RigidBodyComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(RigidBodyComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(TransformComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TransformComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(JointComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(JointComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(BallAndSocketJointComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(BallAndSocketJointComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(FixedJointComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(FixedJointComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HingeJointComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HingeJointComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SliderJointComponents.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SliderJointComponents.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConstraintSolverSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConstraintSolverSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(DynamicAABBTree.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(DynamicAABBTree.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(NarrowPhaseInfoBatch.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(NarrowPhaseInfoBatch.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CollisionDispatch.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionDispatch.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ContactSolverSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ContactSolverSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(DynamicsSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(DynamicsSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(DebugRenderer.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(DebugRenderer.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(BallAndSocketJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(BallAndSocketJoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SliderJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SliderJoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HingeJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HingeJoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(FixedJoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(FixedJoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(PoolAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PoolAllocator.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HeapAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HeapAllocator.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SingleFrameAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SingleFrameAllocator.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(MemoryManager.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(MemoryManager.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HalfEdgeStructure.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HalfEdgeStructure.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SphereShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SphereShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(BoxShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(BoxShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CapsuleShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CapsuleShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HeightField.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HeightField.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(HeightFieldShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(HeightFieldShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConvexMesh.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConvexMesh.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConvexMeshShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConvexMeshShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConcaveMeshShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConcaveMeshShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(TriangleMesh.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TriangleMesh.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(DefaultLogger.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(DefaultLogger.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(PolygonVertexArray.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(PolygonVertexArray.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(QuickHull.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(QuickHull.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ContactPoint.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ContactPoint.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ContactManifold.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ContactManifold.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SphereVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SphereVsConvexPolyhedronAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SphereVsCapsuleAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SphereVsCapsuleAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CapsuleVsCapsuleAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CapsuleVsCapsuleAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CapsuleVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CapsuleVsConvexPolyhedronAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(NarrowPhaseInput.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(NarrowPhaseInput.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CollisionCallback.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionCallback.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(OverlapCallback.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(OverlapCallback.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(TriangleShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(TriangleShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Vector3.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Vector3.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Entity.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Entity.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(MemoryAllocator.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(MemoryAllocator.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(RaycastInfo.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(RaycastInfo.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SolveBallAndSocketJointSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SolveBallAndSocketJointSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SolveFixedJointSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SolveFixedJointSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SolveHingeJointSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SolveHingeJointSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SolveSliderJointSystem.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SolveSliderJointSystem.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConvexShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConvexShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(AABB.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(AABB.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(CollisionShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(CollisionShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConvexPolyhedronShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConvexPolyhedronShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(ConcaveShape.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(ConcaveShape.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(QHHalfEdgeStructure.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(QHHalfEdgeStructure.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(GJKAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(GJKAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(SATAlgorithm.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(SATAlgorithm.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Matrix3x3.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Matrix3x3.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(Matrix2x2.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(Matrix2x2.obj)' or at ''; linking object as if no debug info
-ReactPhysics3D.lib(VoronoiSimplex.obj) : warning LNK4099: PDB '' was not found with 'ReactPhysics3D.lib(VoronoiSimplex.obj)' or at ''; linking object as if no debug info
-  CSC8503.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503.exe
-  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
-  或批处理文件。
+ReactPhysics3D.lib(Body.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Body.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(RigidBody.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(RigidBody.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(PhysicsWorld.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(PhysicsWorld.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(PhysicsCommon.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(PhysicsCommon.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(TriangleVertexArray.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(TriangleVertexArray.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CollisionDetectionSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CollisionDetectionSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Quaternion.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Quaternion.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(EntityManager.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(EntityManager.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Components.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Components.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Material.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Material.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ColliderComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ColliderComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Collider.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Collider.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(BroadPhaseSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(BroadPhaseSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(OverlappingPairs.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(OverlappingPairs.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Joint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Joint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(BodyComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(BodyComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(RigidBodyComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(RigidBodyComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(TransformComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(TransformComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(JointComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(JointComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(BallAndSocketJointComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(BallAndSocketJointComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(FixedJointComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(FixedJointComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HingeJointComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HingeJointComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SliderJointComponents.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SliderJointComponents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConstraintSolverSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConstraintSolverSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(DynamicAABBTree.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(DynamicAABBTree.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(NarrowPhaseInfoBatch.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(NarrowPhaseInfoBatch.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CollisionDispatch.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CollisionDispatch.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ContactSolverSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ContactSolverSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(DynamicsSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(DynamicsSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(DebugRenderer.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(DebugRenderer.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(BallAndSocketJoint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(BallAndSocketJoint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SliderJoint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SliderJoint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HingeJoint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HingeJoint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(FixedJoint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(FixedJoint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(PoolAllocator.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(PoolAllocator.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HeapAllocator.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HeapAllocator.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SingleFrameAllocator.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SingleFrameAllocator.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(MemoryManager.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(MemoryManager.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HalfEdgeStructure.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HalfEdgeStructure.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SphereShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SphereShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(BoxShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(BoxShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CapsuleShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CapsuleShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HeightField.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HeightField.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(HeightFieldShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(HeightFieldShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConvexMesh.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConvexMesh.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConvexMeshShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConvexMeshShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConcaveMeshShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConcaveMeshShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(TriangleMesh.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(TriangleMesh.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(DefaultLogger.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(DefaultLogger.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(PolygonVertexArray.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(PolygonVertexArray.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(QuickHull.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(QuickHull.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ContactPoint.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ContactPoint.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ContactManifold.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ContactManifold.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SphereVsSphereAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SphereVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SphereVsConvexPolyhedronAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SphereVsCapsuleAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SphereVsCapsuleAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CapsuleVsCapsuleAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CapsuleVsCapsuleAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CapsuleVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CapsuleVsConvexPolyhedronAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(NarrowPhaseInput.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(NarrowPhaseInput.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CollisionCallback.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CollisionCallback.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(OverlapCallback.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(OverlapCallback.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(TriangleShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(TriangleShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Vector3.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Vector3.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Entity.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Entity.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(MemoryAllocator.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(MemoryAllocator.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(RaycastInfo.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(RaycastInfo.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SolveBallAndSocketJointSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SolveBallAndSocketJointSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SolveFixedJointSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SolveFixedJointSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SolveHingeJointSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SolveHingeJointSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SolveSliderJointSystem.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SolveSliderJointSystem.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConvexShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConvexShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(AABB.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(AABB.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(CollisionShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(CollisionShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConvexPolyhedronShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConvexPolyhedronShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(ConcaveShape.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(ConcaveShape.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(QHHalfEdgeStructure.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(QHHalfEdgeStructure.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(GJKAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(GJKAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(SATAlgorithm.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(SATAlgorithm.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Matrix3x3.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Matrix3x3.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(Matrix2x2.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(Matrix2x2.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+ReactPhysics3D.lib(VoronoiSimplex.obj) : warning LNK4099: 未找到 PDB“”(使用“ReactPhysics3D.lib(VoronoiSimplex.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+  CSC8503.vcxproj -> F:\Gameprojects\CSC8508_project\x64\Debug\CSC8503.exe
