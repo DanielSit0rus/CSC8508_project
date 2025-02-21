@@ -1,21 +1,31 @@
 #pragma once
+#include "GameObject.h"
 #include "PaintballGameObject.h"
 
 namespace NCL {
     namespace CSC8503 {
         class StateMachine;
-        class StateGameObject : public PaintballGameObject {
+        class StateGameObject : public GameObject {
         public:
             StateGameObject();
             ~StateGameObject();
+
             virtual void Update(float dt);
+            void SetPlayer(PaintballGameObject* playerObj = nullptr);
+            void SetEnemy(PaintballGameObject* enemyObject = nullptr);
+            bool CanSeePlayer();
+            void MoveEnemyAlongPath();
+            //float DistanceToPlayer();
 
         protected:
-            void MoveLeft(float dt);
-            void MoveRight(float dt);
+            void Patrol(float dt);
+            void AttackPlayer(float dt);
 
-            StateMachine* stateMachine;
             float counter;
+            StateMachine* stateMachine;
+            PaintballGameObject* playerObj;
+            PaintballGameObject* enemyObject;
+            rp3d::PhysicsWorld* RpWorld = nullptr;
         };
     }
 }
