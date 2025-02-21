@@ -30,14 +30,15 @@ void SLSystem::SaveAll() {
     for (const auto& item : saveableList) {
         item->SaveData(jsonData);
     }
+    std::cout << "[SLSystem] Save finished" << std::endl;
 }
 
 void SLSystem::LoadAll() {
-    std::cout << "\n\n========================="<< saveableList.size()<<"==============================\n\n";
-
+    std::cout << "[SLSystem] saveableList.size() = " << saveableList.size() <<std::endl;
     for (const auto& item : saveableList) {
         item->LoadData(jsonData);
     }
+    std::cout << "[SLSystem] Load finished" << std::endl;
 }
 
 void NCL::CSC8503::SLSystem::JsonSave() {

@@ -1,34 +1,4 @@
-#include "Window.h"
-
-#include "Debug.h"
-
-#include "StateMachine.h"
-#include "StateTransition.h"
-#include "State.h"
-
-#include "GameServer.h"
-#include "GameClient.h"
-
-#include "NavigationGrid.h"
-#include "NavigationMesh.h"
-
-#include "TutorialGame.h"
-#include "NetworkedGame.h"
-
-#include "PushdownMachine.h"
-
-#include "PushdownState.h"
-
-#include "BehaviourNode.h"
-#include "BehaviourSelector.h"
-#include "BehaviourSequence.h"
-#include "BehaviourAction.h"
-
-#include <string>
-
-#include "AudioSystem.h"
-#include "EventManager.h"
-#include "SLSystem.h"
+#include "Main.h"
 
 AudioSystem& audioSystem = AudioSystem::GetInstance();
 
@@ -495,6 +465,7 @@ protected:
 int main() {
 	SLSystem::GetInstance().Init();
 	audioSystem.Init();
+	Console::GetInstance().Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -521,6 +492,8 @@ int main() {
 	//TestPathfinding();
 	//TestNetworking();
 	
+	std::thread console([] {Console::GetInstance().ProcessInput(); });
+
 	EventManager::Trigger(EventType::Game_Start);
 
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
@@ -528,7 +501,7 @@ int main() {
 		//TestStateMachine();
 		//DisplayPathfinding();
 		if (dt > 0.1f) {
-			std::cout << "Skipping large time delta" << std::endl;
+			//std::cout << "Skipping large time delta" << std::endl;
 			continue; //must have hit a breakpoint or something to have a 1 second frame time!
 		}
 		if (Window::GetKeyboard()->KeyPressed(KeyCodes::PRIOR)) {
@@ -564,6 +537,8 @@ int main() {
 		audioSystem.Update();
 	} 
 	EventManager::Trigger(EventType::Game_End);
+
+	console.detach();
 	audioSystem.Release();
 
 	w->LockMouseToWindow(false);

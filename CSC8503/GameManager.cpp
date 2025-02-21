@@ -1,5 +1,4 @@
 #include "GameManager.h"
-#include "PaintballBullet.h"
 using namespace NCL;
 using namespace CSC8503;
 
@@ -20,6 +19,7 @@ PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::V
 
     cube->GetTransform()
         .SetPosition(position)
+        .SetOrientation(orientation)
         .SetScale(dimensions * 2.0f);
 
     cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
@@ -85,6 +85,42 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
     PaintballGameObject* p = AddCube(position, rp3d::Vector3(0.3f, 1, 0.3f), rp3d::Quaternion(0, 0, 0, 1.0f));
     p->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
     return p;
+}
+
+PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
+    
+    rp3d::Vector3 dimensions = rp3d::Vector3(0.3f, 1, 0.3f);
+
+    ResourceManager& resources = ResourceManager::GetInstance();
+
+    PaintballPlayer* cube = new PaintballPlayer();
+
+    cube->GetTransform()
+        .SetPosition(position)
+        .SetScale(dimensions * 2.0f);
+
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->GetRenderObject()->SetColour(Vector4(0, 0, 1, 1));
+
+    // create a rigid body
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
+    // create Shape
+    rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+    //rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
+    // bind Shape to rigid body
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+    //add rigid body to gameobject
+    cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+    cube->GetPhysicsObject()->SetMass(1);
+    cube->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
+
+    cube->SetCamera(&world->GetMainCamera());
+
+    world->AddGameObject(cube);
+
+    return cube;
+
 }
 
 PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)

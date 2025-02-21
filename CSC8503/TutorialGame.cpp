@@ -190,7 +190,7 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(G1.AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(G1.AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-
+	shoottest = G1.AddPlayerClass(rp3d::Vector3(10, 15, -30));
 
 
 	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
@@ -251,7 +251,7 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	//shoot test
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::P)) {
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::Q)) {
 		shoottest->Attack();
 	}
 

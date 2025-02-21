@@ -44,10 +44,10 @@ namespace NCL {
 			bool LoadBus(const std::string& busName);
 
 			void SaveData(nlohmann::json j) {
-				std::cout << "\n\n=========================AudioSystem : Save==============================\n\n";
+				std::cout << "[AudioSystem] Saved" << std::endl;
 			}
 			void LoadData(nlohmann::json j) {
-				std::cout << "\n\n=========================AudioSystem : Load==============================\n\n";
+				std::cout << "[AudioSystem] Loaded" << std::endl;
 			}
 
 			const std::string bankPath = "../Assets/Sounds/Banks/";
