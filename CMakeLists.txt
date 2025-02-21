@@ -97,6 +97,44 @@ link_directories(
 set(FMOD_CORE_LIB fmod)            	# FMOD CORE lib
 set(FMOD_FSBANK_LIB fsbank)  		# FMOD Studio lib
 set(FMOD_STUDIO_LIB fmodstudio)  	# FMOD Studio lib
+################################################################################
+
+# ָ   SDK Ŀ¼
+set(SDK_DIR "${CMAKE_SOURCE_DIR}/SDK/imgui")
+
+#     ImGui Դ ļ 
+add_library(imgui STATIC
+    ${SDK_DIR}/imgui.cpp
+    ${SDK_DIR}/imgui_draw.cpp
+    ${SDK_DIR}/imgui_tables.cpp
+    ${SDK_DIR}/imgui_widgets.cpp
+    ${SDK_DIR}/imgui_demo.cpp
+)
+
+#      ImGui ͷ ļ 
+target_include_directories(imgui PUBLIC ${SDK_DIR})
+
+################################################################################
+# RmlUi Setup
+################################################################################
+# Set root path of RmlUi
+set(RmlUi_ROOT "${CMAKE_SOURCE_DIR}/SDK/RmlUi")
+
+
+# Set include path of RmlUi
+include_directories(
+    ${RmlUi_ROOT}/include
+)
+
+# Set library path of RmlUi
+link_directories(
+    ${RmlUi_ROOT}/lib
+
+)
+
+# set library file of RmlUi
+set(RmlUi_LIB rmlUi)            	# FMOD CORE lib
+
 
 ################################################################################
 # ReactPhysics3D Setup
@@ -128,7 +166,27 @@ set(NLOHMANN_JSON_PATH "${CMAKE_SOURCE_DIR}/SDK/nlohmannjson-json")
 # 将 nlohmann_json 添加为一个子目录（它的 CMakeLists.txt 中会定义相关的目标）
 add_subdirectory(${NLOHMANN_JSON_PATH})
 
+
 ################################################################################
+# ImGui Setup
+################################################################################
+set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/SDK/imgui)
+
+#      ImGui Դ ļ 
+set(IMGUI_SRC
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_tables.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+)
+
+#   Ӻ  ʵ   ļ         Ҫѡ   Ӧ ĺ ˣ 
+set(IMGUI_BACKEND_SRC
+    ${IMGUI_DIR}/backends/imgui_impl_win32.cpp  #    ʹ   Win32
+    ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+)
+
+include_directories(${IMGUI_DIR})
 ################################################################################
 # Sub-projects
 ################################################################################

@@ -9,7 +9,7 @@ https://research.ncl.ac.uk/game/
 #pragma once
 #include "Keyboard.h"
 #include "Mouse.h"
-
+#include "windows.h"
 #include "Vector.h"
 
 namespace NCL {
@@ -85,6 +85,8 @@ namespace NCL {
 
 		static Window*	const GetWindow() { return window; }
 
+		HWND GetHandle() const { return windowHandle; }
+
 		void SetWindowEventHandler(const WindowEventHandler& e) {
 			eventHandler = e;
 		}
@@ -111,5 +113,6 @@ namespace NCL {
 		static Mouse*		mouse;
 
 		static GameTimer	timer;
+		HWND windowHandle;
 	};
 }

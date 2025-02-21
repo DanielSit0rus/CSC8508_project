@@ -1,1 +1,8 @@
-﻿  imgui.vcxproj -> D:\tang\Downloads\GitHub\CSC8508_project\Debug\imgui.lib
+﻿  Building Custom Rule D:/tang/Downloads/GitHub/CSC8508_project/CMakeLists.txt
+  imgui.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  imgui_demo.cpp
+  正在生成代码...
+  imgui.vcxproj -> D:\tang\Downloads\GitHub\CSC8508_project\Debug\imgui.lib

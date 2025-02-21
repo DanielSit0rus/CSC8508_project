@@ -51,4 +51,6 @@ bool	Window::UpdateWindow() {
 	}
 
 	return InternalUpdate();
+
+
 }

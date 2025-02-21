@@ -1,4 +1,8 @@
 #include "Window.h"
+#include"Win32Window.h"
+
+
+
 
 #include "Debug.h"
 
@@ -29,6 +33,15 @@
 #include "AudioSystem.h"
 #include "EventManager.h"
 #include "SLSystem.h"
+
+#include "../SDK/imgui/imgui.h"
+#include "../SDK/imgui/imgui_demo.cpp"
+#include "../SDK/imgui/backends/imgui_impl_glfw.h"
+#include "../SDK/imgui/backends/imgui_impl_opengl3.h"
+#include "../SDK/imgui/backends/imgui_impl_dx11.h"
+#include "../SDK/imgui/backends/imgui_impl_win32.h"
+
+
 
 AudioSystem& audioSystem = AudioSystem::GetInstance();
 
@@ -491,6 +504,33 @@ protected:
 	float pauseReminder = 1.0f;
 	Window* w;
 };
+void TestImGuiUI() {
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+
+	ImGui::Begin("Debug Menu");
+	ImGui::Text("Game Running");
+	ImGui::Text("Elapsed Time: %.2f seconds", elapsedTime);
+
+	// 按钮：重置计时器
+	if (ImGui::Button("Reset Timer")) {
+		elapsedTime = 120;
+		std::cout << "Timer Reset!\n";
+	}
+
+	// 滑动条：调整游戏速度
+	static float gameSpeed = 1.0f;
+	ImGui::SliderFloat("Game Speed", &gameSpeed, 0.1f, 3.0f);
+
+	// 显示当前游戏速度
+	ImGui::Text("Current Speed: %.1fx", gameSpeed);
+
+	ImGui::End();
+
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
 
 int main() {
 	SLSystem::GetInstance().Init();
@@ -520,7 +560,10 @@ int main() {
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
 	//TestNetworking();
-	
+	ImGui::CreateContext();
+	ImGui_ImplWin32_Init(w->GetHandle());  // 你的 Window 类需要提供 Win32 窗口句柄
+	ImGui_ImplOpenGL3_Init("#version 330");
+
 	EventManager::Trigger(EventType::Game_Start);
 
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
@@ -560,11 +603,18 @@ int main() {
 		}
 
 		g->UpdateGame(dt);
+		
 
 		audioSystem.Update();
+
+		TestImGuiUI();
 	} 
 	EventManager::Trigger(EventType::Game_End);
 	audioSystem.Release();
+	// === 退出时清理 ImGui ===
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplWin32_Shutdown();
+	ImGui::DestroyContext();
 
 	w->LockMouseToWindow(false);
 	w->ShowConsole(true);
