@@ -283,7 +283,9 @@ void TutorialGame::LockedObjectMovement() {
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
 	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-
+	if (lockedObject == shoottest) {
+		return;
+	}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
 	}

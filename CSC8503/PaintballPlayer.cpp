@@ -80,3 +80,20 @@ void PaintballPlayer::Attack()
 	//生成一个子弹，并发射
 	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition(), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
 }
+
+void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
+{
+	if (!camera) return; // 确保 camera 存在
+
+	float camYaw = camera->GetYaw();  // 获取摄像机的 Yaw 角度
+	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, camYaw, 0.0f); // 只修改 Y 轴旋转
+	this->GetTransform().SetOrientation(newRotation);
+}
+
+void NCL::CSC8503::PaintballPlayer::Update()
+{
+	transform.SetRpTransform(
+		physicsObject->GetRigidbody().getTransform());
+	UpdatePlayerRotation();
+	Move(10.0f); // 这里的 10.0f 只是示例
+}

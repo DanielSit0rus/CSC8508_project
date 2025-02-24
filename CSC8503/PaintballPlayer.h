@@ -19,6 +19,9 @@ namespace NCL::CSC8503 {
 
 		void Move(float forceMagnitude);
 		void Attack();
+		void UpdatePlayerRotation();
+		void Update() override;
+
 	private:
 		Vector4 color;
 		PerspectiveCamera* camera;

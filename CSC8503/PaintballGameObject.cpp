@@ -20,4 +20,5 @@ PaintballGameObject::~PaintballGameObject() {
 void PaintballGameObject::Update() {
     transform.SetRpTransform(
         physicsObject->GetRigidbody().getTransform());
+
 }
