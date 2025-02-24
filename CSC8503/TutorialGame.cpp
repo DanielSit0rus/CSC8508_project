@@ -284,6 +284,7 @@ void TutorialGame::LockedObjectMovement() {
 	float camYaw = world->GetMainCamera().GetYaw();
 	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
 	if (lockedObject == shoottest) {
+		shoottest->isControl = true;
 		return;
 	}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {

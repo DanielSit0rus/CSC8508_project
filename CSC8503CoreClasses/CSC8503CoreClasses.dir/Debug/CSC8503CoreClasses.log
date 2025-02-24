@@ -1,4 +1,5 @@
 ﻿D:\visual stdio\ide\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  Building Custom Rule D:/vs code/team/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h

@@ -94,6 +94,10 @@ void NCL::CSC8503::PaintballPlayer::Update()
 {
 	transform.SetRpTransform(
 		physicsObject->GetRigidbody().getTransform());
-	UpdatePlayerRotation();
-	Move(10.0f); // 这里的 10.0f 只是示例
+	if (isControl)
+	{
+		UpdatePlayerRotation();
+		Move(10.0f); // 这里的 10.0f 只是示例
+		
+	}
 }

@@ -1,4 +1,5 @@
 #include "GameManager.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -10,6 +11,11 @@ void GameManager::Init(PaintballGameWorld* world)
         std::cerr << "Error: Failed to create Physics World!" << std::endl;
         throw std::runtime_error("Physics World creation failed!");
     }
+    
+
+    RpWorld->setEventListener(&bulletlistener);
+    
+
 }
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
@@ -161,7 +167,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballBullet* cube = new PaintballBullet();
+    PaintballBullet* cube = new PaintballBullet("bullet");
 
     cube->GetTransform()
         .SetPosition(position)
@@ -188,6 +194,15 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
     world->AddGameObject(cube);
 
     return cube;
+}
+
+void NCL::CSC8503::GameManager::RemoveBullet(PaintballGameObject* bullet)
+{
+    if (!bullet) return;
+
+    world->RemoveGameObject(bullet);
+
+
 }
 
 reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh) {

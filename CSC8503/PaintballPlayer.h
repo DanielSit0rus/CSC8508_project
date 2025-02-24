@@ -22,8 +22,11 @@ namespace NCL::CSC8503 {
 		void UpdatePlayerRotation();
 		void Update() override;
 
+
+		bool isControl = false;
 	private:
 		Vector4 color;
 		PerspectiveCamera* camera;
+		
 	};
 }

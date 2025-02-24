@@ -7,6 +7,7 @@
 #include "NavigationMesh.h"
 #include "PaintballBullet.h"
 #include "PaintballPlayer.h"
+#include "BulletContactListener.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -45,7 +46,9 @@ namespace NCL {
             PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
+
             PaintballGameObject* AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+            void RemoveBullet(PaintballGameObject* bullet);
 
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
@@ -56,7 +59,7 @@ namespace NCL {
             rp3d::PhysicsCommon physicsCommon;
             rp3d::PhysicsWorld* RpWorld = nullptr;
             rp3d::PhysicsWorld::WorldSettings RpSettings;
-
+            BulletContactListener bulletlistener;
 
 
             //NavigationMesh* navMesh;
