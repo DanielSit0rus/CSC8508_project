@@ -40,7 +40,9 @@ void NetworkedGame::StartAsServer() {
 
 void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient = new GameClient();
-	thisClient->Connect(a, b, c, d, NetworkBase::GetDefaultPort());
+
+	bool isConnected = thisClient->Connect(a, b, c, d, NetworkBase::GetDefaultPort());
+	if (isConnected) std::cout << "[NetworkedGame.cpp]Connected" << std::endl;
 
 	thisClient->RegisterPacketHandler(Delta_State, this);
 	thisClient->RegisterPacketHandler(Full_State, this);
