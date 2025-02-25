@@ -2,8 +2,6 @@
 #include "GameManager.h"
 void NCL::CSC8503::BulletContactListener::onContact(const rp3d::CollisionCallback::CallbackData& callbackData)
 {
-	std::cout << "子弹击中目标！" << std::endl;
-
 	for (uint32_t i = 0; i < callbackData.getNbContactPairs(); i++) {
 		const rp3d::CollisionCallback::ContactPair& contactPair = callbackData.getContactPair(i);
 		rp3d::RigidBody* body1 = static_cast<rp3d::RigidBody*>(contactPair.getBody1());

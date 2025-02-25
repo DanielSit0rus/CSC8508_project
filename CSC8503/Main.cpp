@@ -421,7 +421,7 @@ int main() {
 	w->ShowOSPointer(false);
 	w->LockMouseToWindow(true);
 
-	TutorialGame* g = new TutorialGame();
+	NetworkedGame* g = new NetworkedGame();
 	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen(w));
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
@@ -463,7 +463,7 @@ int main() {
 		}
 		if (reset)
 		{
-			g = new TutorialGame();
+			g = new NetworkedGame();
 			reset = false;
 		}
 
