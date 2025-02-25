@@ -7,6 +7,7 @@ void Console::Init() {
     RegisterCommand("help", [this](const std::string&) { ShowHelp(); });
     RegisterCommand("save", [this](const std::string&) { EventManager::Trigger(EventType::Data_Save); });
     RegisterCommand("load", [this](const std::string&) { EventManager::Trigger(EventType::Data_Load); });
+    RegisterCommand("net", [this](const std::string& args) { NetWorkConnect(args); });
 }
 
 void Console::RegisterCommand(const std::string& command, CommandHandler handler) {
@@ -51,6 +52,16 @@ void Console::ShowHelp() const {
     std::cout << "Available commands:" << std::endl;
     for (const auto& cmd : commands) {
         std::cout << " - " << cmd.first << std::endl;
+    }
+}
+
+void Console::NetWorkConnect(std::string args) const {
+    if (args == "c" || args == "client") EventManager::Trigger(EventType::Network_StartAsClient);
+    else if (args == "s" || args == "server") EventManager::Trigger(EventType::Network_StartAsServer);
+    else if (args == "t" || args == "test") EventManager::Trigger(EventType::Network_Test);
+    else
+    {
+        std::cout << "Unknown argument : "<< args <<"\nAvailable : client(c) , server(s), test(t)" << std::endl;
     }
 }
 

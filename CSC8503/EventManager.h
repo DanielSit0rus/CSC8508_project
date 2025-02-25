@@ -14,6 +14,10 @@ namespace NCL {
 
             Data_Save,
             Data_Load,
+
+            Network_StartAsServer,
+            Network_StartAsClient,
+            Network_Test,
         };
 
         class EventManager {

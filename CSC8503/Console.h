@@ -32,6 +32,7 @@ namespace NCL {
 
 #pragma region CommandFunc
             void ShowHelp() const;
+            void NetWorkConnect(std::string args) const;
 #pragma endregion
 
 
