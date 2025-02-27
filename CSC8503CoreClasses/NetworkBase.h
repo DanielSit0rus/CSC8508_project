@@ -85,6 +85,7 @@ protected:
 		auto range = packetHandlers.equal_range(msgID);
 
 		if (range.first == packetHandlers.end()) {
+			std::cout << "[NetworkBase.cpp] no handlers for this message type!" << std::endl;
 			return false; //no handlers for this message type!
 		}
 		first	= range.first;
