@@ -66,7 +66,7 @@ void PaintballPlayer::Move(float forceMagnitude)
 void PaintballPlayer::Attack()
 {
 	//生成一个子弹，并发射
-	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition(), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
+	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,5,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()

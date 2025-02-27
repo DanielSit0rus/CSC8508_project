@@ -36,16 +36,11 @@ namespace NCL {
             };
 
             void Init(PaintballGameWorld* world);
+            void Update();
 
             //void InitWorld();
-            rp3d::PhysicsWorld* getRPworld()
-            {
-                return RpWorld;
-            }
-            rp3d::PhysicsCommon& getPhys()
-            {
-                return physicsCommon;
-            }
+            rp3d::PhysicsWorld* getRPworld() { return RpWorld; }
+            rp3d::PhysicsCommon& getPhys() { return physicsCommon; }
 
             PaintballGameObject* AddPlayer(const rp3d::Vector3& position);
             PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);
@@ -56,9 +51,11 @@ namespace NCL {
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
 
             PaintballGameObject* AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-            void RemoveBullet(PaintballGameObject* bullet);
 
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
+
+            void DeleteObject(PaintballGameObject* obj) { objectsToDelete.push_back(obj); }
+
             // GameState management
             void SetGameState(GameState newState) {
                 currentState = newState;
@@ -95,6 +92,7 @@ namespace NCL {
             rp3d::PhysicsWorld::WorldSettings RpSettings;
             BulletContactListener bulletlistener;
 
+            std::vector<PaintballGameObject*> objectsToDelete;
 
             //NavigationMesh* navMesh;
 

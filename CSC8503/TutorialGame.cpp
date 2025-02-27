@@ -79,6 +79,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	const Camera& camera = world->GetMainCamera();
 
+	GameManager::GetInstance().Update();
 	UpdateKeys();
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
@@ -227,6 +228,10 @@ void TutorialGame::UpdateKeys() {
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
 		if (!selectionObject) return;
+
+		GameManager::GetInstance().DeleteObject(selectionObject);
+		selectionObject = nullptr;
+		return;
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());

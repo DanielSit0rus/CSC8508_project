@@ -14,8 +14,13 @@ void GameManager::Init(PaintballGameWorld* world)
     
 
     RpWorld->setEventListener(&bulletlistener);
-    
+}
 
+void GameManager::Update() {
+    for (auto object : objectsToDelete) {
+        world->RemoveGameObject(object, true);
+    }
+    objectsToDelete.clear();
 }
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
@@ -194,15 +199,6 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
     world->AddGameObject(cube);
 
     return cube;
-}
-
-void NCL::CSC8503::GameManager::RemoveBullet(PaintballGameObject* bullet)
-{
-    if (!bullet) return;
-
-    world->RemoveGameObject(bullet);
-
-
 }
 
 reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh) {

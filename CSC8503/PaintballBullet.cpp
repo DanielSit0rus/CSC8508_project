@@ -12,6 +12,9 @@ NCL::CSC8503::PaintballBullet::PaintballBullet(const std::string& objectName)
 
 NCL::CSC8503::PaintballBullet::~PaintballBullet()
 {
+	delete networkObject;
+	delete renderObject;
+	delete physicsObject;
 }
 
 Vector4 NCL::CSC8503::PaintballBullet::GetColor() const
