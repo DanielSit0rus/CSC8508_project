@@ -13,6 +13,8 @@ void Console::Init(Window* win) {
         
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
+
+    std::cout << "\n> ";
 }
 
 void Console::ShowConsole(bool t) {
@@ -36,7 +38,6 @@ void Console::RegisterCommand(const std::string& command, CommandHandler handler
 void Console::ProcessInput() {
     while (true)
     {
-        std::cout << ">";
         std::getline(std::cin, input);
         HandleCommand(input);
         input.clear();
@@ -61,8 +62,10 @@ void Console::HandleCommand(const std::string& input) {
     }
     else {
         std::cout << "Unknown command: " << command << std::endl;
-        std::cout << "Type help to list all commands.\n" << std::endl;
+        std::cout << "Type help to list all commands." << std::endl;
     }
+    if(command =="clear") std::cout << "> ";
+    else std::cout << "\n> ";
 }
 
 
