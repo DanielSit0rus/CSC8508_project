@@ -46,6 +46,7 @@ namespace NCL {
 
 			bool isDebug = true;
 			void SendPacketTest();
+			void SendPacketTest(std::string s);
 		};
 	}
 }

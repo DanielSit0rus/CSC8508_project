@@ -219,7 +219,7 @@ void TestPushdownAutomata(Window* w) {
 	}
 }
 
-
+/*
 class TestPacketReceiver : public PacketReceiver{
 	public:
 			TestPacketReceiver(std::string name) {
@@ -236,8 +236,6 @@ class TestPacketReceiver : public PacketReceiver{
 	protected:
 				std::string name;
 };
-
-
 void TestNetworking() {
 	NetworkBase::Initialise();
 	TestPacketReceiver serverReceiver("Server");
@@ -263,7 +261,7 @@ void TestNetworking() {
 	}
 	NetworkBase::Destroy();
 }
-
+*/
 
 /*
 
