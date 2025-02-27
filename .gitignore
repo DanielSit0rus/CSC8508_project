@@ -38,3 +38,4 @@ Makefile
 *.vcxproj.filters
 *.vcxproj.user
 CMakeSettings.json
+/CSC8503/NetworkPlayer.h
