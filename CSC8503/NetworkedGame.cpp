@@ -27,7 +27,7 @@ NetworkedGame::NetworkedGame()	{
 	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
 	EventManager::Subscribe(EventType::Network_StartAsClient, [this]() {StartAsClient(127, 0, 0, 1); });
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
-	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {std::cout << s << std::endl; });
+	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
 }
 
 NetworkedGame::~NetworkedGame()	{
@@ -154,7 +154,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 
 	switch (type) {
 	case Delta_State: {
-		if(isDebug) std::cout << "Received delta packet from source: " << source << std::endl;
+		if (isDebug) std::cout << "Received delta packet from source: " << source << std::endl;
 		DeltaPacket* deltaPacket = (DeltaPacket*)payload;
 
 		break;
@@ -173,7 +173,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 	case String_Message: {
 		StringPacket* realPacket = (StringPacket*)payload;
 		std::string msg = realPacket->GetStringFromData();
-		if (isDebug) std::cout << " received message: " << msg << std::endl;
+		std::cout << "Received message: \"" << msg << "\" from " << source << std::endl;
 		break;
 	}
 	case Received_State: {
@@ -206,20 +206,54 @@ void NetworkedGame::OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b) {
 }
 
 void NetworkedGame::SendPacketTest() {
-	if (thisClient)
+	if (thisClient) {
 		std::cout << "Client : SendPacketTest()" << std::endl;
+		ClientPacket newPacket;
+		newPacket.type = Received_State;
+
+		newPacket.buttonstates[0] = 1;
+		newPacket.lastID = 0; //You'll need to work this out somehow...
+
+		thisClient->SendPacket(newPacket);
+		this->thisClient->UpdateClient();
+	}
 	else
 	{
 		std::cout << "Client : SendPacketTest()\n# thisClient = nullptr" << std::endl;
-		return;
 	}
 
-	ClientPacket newPacket;
-	newPacket.type = Received_State;
+	if (thisServer) {
+		std::cout << "Server : SendPacketTest()" << std::endl;
+		StringPacket newPacket("A StringPacket");
+		thisServer->SendGlobalPacket(newPacket);
+		this->thisServer->UpdateServer();
+	}
+	else
+	{
+		std::cout << "Server : SendPacketTest()\n# thisServer = nullptr" << std::endl;
+	}
+}
 
-	newPacket.buttonstates[0] = 1;
-	newPacket.lastID = 0; //You'll need to work this out somehow...
+void NetworkedGame::SendPacketTest(std::string s) {
+	if (thisClient) {
+		std::cout << "Client : SendPacketTest() - " << s << std::endl;
+		StringPacket newPacket(s);
+		thisClient->SendPacket(newPacket);
+		this->thisClient->UpdateClient();
+	}
+	else
+	{
+		std::cout << "Client : SendPacketTest() - " << s << "\n# thisClient = nullptr" << std::endl;
+	}
 
-	thisClient->SendPacket(newPacket);
-	this->thisClient->UpdateClient();
+	if (thisServer) {
+		std::cout << "Server : SendPacketTest()" << std::endl;
+		StringPacket newPacket(s);
+		thisServer->SendGlobalPacket(newPacket);
+		this->thisServer->UpdateServer();
+	}
+	else
+	{
+		std::cout << "Server : SendPacketTest()\n# thisServer = nullptr" << std::endl;
+	}
 }
