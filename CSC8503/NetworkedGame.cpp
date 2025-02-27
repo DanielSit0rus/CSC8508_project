@@ -39,6 +39,7 @@ void NetworkedGame::StartAsServer() {
 	thisServer = new GameServer(NetworkBase::GetDefaultPort(), 4);
 
 	thisServer->RegisterPacketHandler(Received_State, this);
+	thisServer->RegisterPacketHandler(String_Message, this);
 
 	std::cout << "[NetworkedGame.cpp]Start As Server" << std::endl;
 
@@ -56,6 +57,8 @@ void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient->RegisterPacketHandler(Full_State, this);
 	thisClient->RegisterPacketHandler(Player_Connected, this);
 	thisClient->RegisterPacketHandler(Player_Disconnected, this);
+	thisClient->RegisterPacketHandler(String_Message, this);
+
 
 	StartLevel();
 }
@@ -207,7 +210,7 @@ void NetworkedGame::OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b) {
 
 void NetworkedGame::SendPacketTest() {
 	if (thisClient) {
-		std::cout << "Client : SendPacketTest()" << std::endl;
+		std::cout << "Client : SendPacketTest()  # successful" << std::endl;
 		ClientPacket newPacket;
 		newPacket.type = Received_State;
 
@@ -219,18 +222,18 @@ void NetworkedGame::SendPacketTest() {
 	}
 	else
 	{
-		std::cout << "Client : SendPacketTest()\n# thisClient = nullptr" << std::endl;
+		std::cout << "Client : SendPacketTest()  # thisClient = nullptr" << std::endl;
 	}
 
 	if (thisServer) {
-		std::cout << "Server : SendPacketTest()" << std::endl;
+		std::cout << "Server : SendPacketTest()  # successful" << std::endl;
 		StringPacket newPacket("A StringPacket");
 		thisServer->SendGlobalPacket(newPacket);
 		this->thisServer->UpdateServer();
 	}
 	else
 	{
-		std::cout << "Server : SendPacketTest()\n# thisServer = nullptr" << std::endl;
+		std::cout << "Server : SendPacketTest()  # thisServer = nullptr" << std::endl;
 	}
 }
 
@@ -243,7 +246,7 @@ void NetworkedGame::SendPacketTest(std::string s) {
 	}
 	else
 	{
-		std::cout << "Client : SendPacketTest() - " << s << "\n# thisClient = nullptr" << std::endl;
+		std::cout << "Client : SendPacketTest() - " << s << "  # thisClient = nullptr" << std::endl;
 	}
 
 	if (thisServer) {
@@ -254,6 +257,6 @@ void NetworkedGame::SendPacketTest(std::string s) {
 	}
 	else
 	{
-		std::cout << "Server : SendPacketTest()\n# thisServer = nullptr" << std::endl;
+		std::cout << "Server : SendPacketTest() - " << s << "  # thisServer = nullptr" << std::endl;
 	}
 }
