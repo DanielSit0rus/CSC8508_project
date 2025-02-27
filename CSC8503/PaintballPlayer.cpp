@@ -19,8 +19,8 @@ NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 	delete networkObject;
 	delete renderObject;
 	delete physicsObject;
-	delete controller;
-	controller = nullptr;
+	/*delete controller;
+	controller = nullptr;*/
 	camera = nullptr;
 }
 
@@ -34,28 +34,28 @@ void PaintballPlayer::SetColor()
 void PaintballPlayer::Move(float forceMagnitude)
 {
 
-	if (!controller) {
-		controller = new CharacterController(physicsObject, camera); // Ensure controller is properly managed
-	}
+	//if (!controller) {
+	//	controller = new CharacterController(physicsObject, camera); // Ensure controller is properly managed
+	//}
 
-	if (InputManager::IsKeyPressed(KeyCodes::W)) {
-		controller->MoveForward(forceMagnitude);
-	}
-	if (InputManager::IsKeyPressed(KeyCodes::S)) {
-		controller->MoveBackward(forceMagnitude);
-	}
-	if (InputManager::IsKeyPressed(KeyCodes::A)) {
-		controller->MoveLeft(forceMagnitude);
-	}
-	if (InputManager::IsKeyPressed(KeyCodes::D)) {
-		controller->MoveRight(forceMagnitude);
-	}
-	if (InputManager::IsKeyPressed(KeyCodes::SPACE)) {
-		controller->Jump(forceMagnitude);
-	}
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
-		controller->GoDown(forceMagnitude);
-		}
+	//if (InputManager::IsKeyPressed(KeyCodes::W)) {
+	//	controller->MoveForward(forceMagnitude);
+	//}
+	//if (InputManager::IsKeyPressed(KeyCodes::S)) {
+	//	controller->MoveBackward(forceMagnitude);
+	//}
+	//if (InputManager::IsKeyPressed(KeyCodes::A)) {
+	//	controller->MoveLeft(forceMagnitude);
+	//}
+	//if (InputManager::IsKeyPressed(KeyCodes::D)) {
+	//	controller->MoveRight(forceMagnitude);
+	//}
+	//if (InputManager::IsKeyPressed(KeyCodes::SPACE)) {
+	//	controller->Jump(forceMagnitude);
+	//}
+	//if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
+	//	controller->GoDown(forceMagnitude);
+	//	}
 
 	//const Matrix4& view = camera->BuildViewMatrix();
 	//const Matrix4& camWorld = Matrix::Inverse(view);
