@@ -163,8 +163,8 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		FullPacket* fullPacket = (FullPacket*)payload;
 
 		int objectID = fullPacket->objectID;
-		Vector3 position = fullPacket->fullState.position;
-		Quaternion orientation = fullPacket->fullState.orientation;
+		rp3d::Vector3 position = fullPacket->fullState.position;
+		rp3d::Quaternion orientation = fullPacket->fullState.orientation;
 		int stateID = fullPacket->fullState.stateID;
 
 		break;

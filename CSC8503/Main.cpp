@@ -400,7 +400,6 @@ protected:
 int main() {
 	SLSystem::GetInstance().Init();
 	audioSystem.Init();
-	Console::GetInstance().Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -416,10 +415,6 @@ int main() {
 	}	
 
 	w->SetWindowPosition(5, 30);
-	w->ShowConsole(false);
-
-	w->ShowOSPointer(false);
-	w->LockMouseToWindow(true);
 
 	NetworkedGame* g = new NetworkedGame();
 	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen(w));
@@ -427,6 +422,7 @@ int main() {
 	//TestPathfinding();
 	//TestNetworking();
 	
+	Console::GetInstance().Init(w);
 	std::thread console([] {Console::GetInstance().ProcessInput(); });
 
 	EventManager::Trigger(EventType::Game_Start);
@@ -439,15 +435,9 @@ int main() {
 			//std::cout << "Skipping large time delta" << std::endl;
 			continue; //must have hit a breakpoint or something to have a 1 second frame time!
 		}
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::PRIOR)) {
-			w->ShowConsole(true);
-		}
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::NEXT)) {
-			w->ShowConsole(false);
-		}
 
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::T)) {
-			w->SetWindowPosition(0, 0);
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::TAB)) {
+			Console::GetInstance().ShowConsole();
 		}
 
 		w->SetTitle("Gametech frame time:" + std::to_string(1000.0f * dt));
@@ -475,9 +465,6 @@ int main() {
 
 	console.detach();
 	audioSystem.Release();
-
-	w->LockMouseToWindow(false);
-	w->ShowConsole(true);
 
 	Window::DestroyGameWindow();
 }

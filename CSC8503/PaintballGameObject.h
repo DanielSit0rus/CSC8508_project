@@ -10,7 +10,7 @@
 using std::vector;
 
 namespace NCL::CSC8503 {
-    //class NetworkObject;
+    class NetworkObject;
     class PaintballRenderobject;
     class PaintballPhysicsObject;
 

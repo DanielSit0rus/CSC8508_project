@@ -3,11 +3,29 @@
 using namespace NCL;
 using namespace CSC8503;
 
-void Console::Init() {
+void Console::Init(Window* win) {
+    w = win;
     RegisterCommand("help", [this](const std::string&) { ShowHelp(); });
     RegisterCommand("save", [this](const std::string&) { EventManager::Trigger(EventType::Data_Save); });
     RegisterCommand("load", [this](const std::string&) { EventManager::Trigger(EventType::Data_Load); });
     RegisterCommand("net", [this](const std::string& args) { NetWorkConnect(args); });
+
+    EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
+    EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
+}
+
+void Console::ShowConsole(bool t) {
+    w->ShowConsole(t);
+    w->ShowOSPointer(t);
+    w->LockMouseToWindow(!t);
+    isShow = t;
+}
+
+void Console::ShowConsole() {
+    isShow =!isShow;
+    w->ShowConsole(isShow);
+    w->ShowOSPointer(isShow);
+    w->LockMouseToWindow(!isShow);
 }
 
 void Console::RegisterCommand(const std::string& command, CommandHandler handler) {
@@ -46,8 +64,10 @@ void Console::HandleCommand(const std::string& input) {
     }
 }
 
-#pragma region CommandFunc
 
+
+
+#pragma region CommandFunc
 void Console::ShowHelp() const {
     std::cout << "Available commands:" << std::endl;
     for (const auto& cmd : commands) {
@@ -64,5 +84,4 @@ void Console::NetWorkConnect(std::string args) const {
         std::cout << "Unknown argument : "<< args <<"\nAvailable : client(c) , server(s), test(t)" << std::endl;
     }
 }
-
 #pragma endregion

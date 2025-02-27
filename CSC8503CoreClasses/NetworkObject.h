@@ -1,10 +1,10 @@
 #pragma once
-#include "GameObject.h"
+#include "../CSC8503/PaintballGameObject.h"
 #include "NetworkBase.h"
 #include "NetworkState.h"
 
 namespace NCL::CSC8503 {
-	class GameObject;
+	class PaintballGameObject;
 
 	struct FullPacket : public GamePacket {
 		int		objectID = -1;
@@ -39,7 +39,7 @@ namespace NCL::CSC8503 {
 
 	class NetworkObject		{
 	public:
-		NetworkObject(GameObject& o, int id);
+		NetworkObject(PaintballGameObject& o, int id);
 		virtual ~NetworkObject();
 
 		//Called by clients
@@ -61,7 +61,7 @@ namespace NCL::CSC8503 {
 		virtual bool WriteDeltaPacket(GamePacket**p, int stateID);
 		virtual bool WriteFullPacket(GamePacket**p);
 
-		GameObject& object;
+		PaintballGameObject& object;
 
 		NetworkState lastFullState;
 

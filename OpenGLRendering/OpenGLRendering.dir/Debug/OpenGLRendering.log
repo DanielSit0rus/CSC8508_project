@@ -15,7 +15,7 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   OGLShader.cpp
   OGLRenderer.cpp
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file '../OpenGLRendering/OGLRenderer.cpp')
+  (compiling source file 'OGLRenderer.cpp')
   
   OGLMesh.cpp
   OGLComputeShader.cpp

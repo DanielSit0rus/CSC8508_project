@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <functional>
+#include <Window.h>
+
 namespace NCL {
     namespace CSC8503 {
         class Console {
@@ -18,9 +20,11 @@ namespace NCL {
             Console(const Console&) = delete;
             Console& operator=(const Console&) = delete;
 
-            void Init();
+            void Init(Window* win);
             void ProcessInput();
             void RegisterCommand(const std::string& command, CommandHandler handler);
+            void ShowConsole(bool t);
+            void ShowConsole();
 
         private:
 
@@ -35,7 +39,8 @@ namespace NCL {
             void NetWorkConnect(std::string args) const;
 #pragma endregion
 
-
+            Window* w = nullptr;
+            bool isShow = false;
 
             std::string input;
             std::unordered_map<std::string, CommandHandler> commands;
