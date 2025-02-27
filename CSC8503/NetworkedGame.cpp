@@ -27,6 +27,7 @@ NetworkedGame::NetworkedGame()	{
 	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
 	EventManager::Subscribe(EventType::Network_StartAsClient, [this]() {StartAsClient(127, 0, 0, 1); });
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
+	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {std::cout << s << std::endl; });
 }
 
 NetworkedGame::~NetworkedGame()	{
@@ -209,7 +210,7 @@ void NetworkedGame::SendPacketTest() {
 		std::cout << "Client : SendPacketTest()" << std::endl;
 	else
 	{
-		std::cout << "Client : SendPacketTest() # thisClient = nullptr" << std::endl;
+		std::cout << "Client : SendPacketTest()\n# thisClient = nullptr" << std::endl;
 		return;
 	}
 

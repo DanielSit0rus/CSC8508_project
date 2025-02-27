@@ -35,8 +35,8 @@ namespace NCL {
 
 
 #pragma region CommandFunc
-            void ShowHelp() const;
-            void NetWorkConnect(std::string args) const;
+            void ShowHelpCommnad() const;
+            void NetworkCommand(std::string args) const;
 #pragma endregion
 
             Window* w = nullptr;

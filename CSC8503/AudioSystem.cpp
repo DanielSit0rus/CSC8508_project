@@ -10,7 +10,7 @@ AudioSystem::~AudioSystem() {
 bool AudioSystem::Init()
 {
     FMOD_RESULT result;
-    result = FMOD::Studio::System::create(&studioSystem);
+    result = Studio::System::create(&studioSystem);
     if (result != FMOD_OK) {
         std::cerr << "FMOD Studio System creation failed: " << result << std::endl;
         return false;
@@ -40,14 +40,15 @@ bool AudioSystem::Init()
 
     /*
     EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
-    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM1"); });
-    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(EventType::Game_End, [this]() {StopEvent("event:/BGM/BGM1"); });
     */
+    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent(eventInstance); });
+    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent(eventInstance); });
+    
 
     //EventManager::Subscribe(EventType::Game_Start, [this](int& a) {a = 2; });
 
-    FMOD::Studio::EventDescription* eventDescription = nullptr;
+    EventDescription* eventDescription = nullptr;
     result = studioSystem->getEvent("event:/BGM/BGM1_3D", &eventDescription);
     if (result != FMOD_OK) {
         std::cerr << "Failed to get event description: " << result << std::endl;
@@ -110,7 +111,7 @@ void AudioSystem::Release()
 
 bool AudioSystem::LoadBank(const std::string& bankFile)
 {
-    FMOD::Studio::Bank* bank = nullptr;
+    Bank* bank = nullptr;
     if (studioSystem->loadBankFile((bankPath + bankFile).c_str(), FMOD_STUDIO_LOAD_BANK_NORMAL, &bank) != FMOD_OK) {
         std::cerr << "加载Bank失败：" << bankFile << std::endl;
         return false;
@@ -120,7 +121,7 @@ bool AudioSystem::LoadBank(const std::string& bankFile)
 }
 
 bool AudioSystem::LoadBus(const std::string& busName) {
-    FMOD::Studio::Bus* bus = nullptr;
+    Bus* bus = nullptr;
 
     FMOD_RESULT result = studioSystem->getBus(("bus:/" + busName).c_str(), &bus);
 
@@ -141,13 +142,13 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
         return true;
     }
 
-    FMOD::Studio::EventDescription* eventDesc = nullptr;
+    EventDescription* eventDesc = nullptr;
     if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
         std::cerr << "获取事件失败：" << eventName << std::endl;
         return false;
     }
 
-    FMOD::Studio::EventInstance* eventInstance = nullptr;
+    EventInstance* eventInstance = nullptr;
     if (eventDesc->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
         std::cerr << "创建事件实例失败：" << eventName << std::endl;
         return false;
@@ -167,7 +168,7 @@ void AudioSystem::StopEvent(const std::string& eventName) {
 
 void AudioSystem::PauseEvent(const std::string& eventName) {
     if (events.count(eventName)) {
-        FMOD::Studio::EventInstance* eventInstance = events[eventName];
+        EventInstance* eventInstance = events[eventName];
 
         bool state;
         eventInstance->getPaused(&state);
@@ -179,12 +180,28 @@ void AudioSystem::PauseEvent(const std::string& eventName) {
 
 void AudioSystem::ResumeEvent(const std::string& eventName) {
     if (events.count(eventName)) {
-        FMOD::Studio::EventInstance* eventInstance = events[eventName];
+        EventInstance* eventInstance = events[eventName];
 
         bool state;
         eventInstance->getPaused(&state);
         if (state == true) {
             eventInstance->setPaused(false);
         }
+    }
+}
+
+void AudioSystem::PauseEvent(EventInstance* event) {
+    bool state;
+    eventInstance->getPaused(&state);
+    if (state == false) {
+        eventInstance->setPaused(true);
+    }
+}
+
+void AudioSystem::ResumeEvent(EventInstance* event) {
+    bool state;
+    eventInstance->getPaused(&state);
+    if (state == true) {
+        eventInstance->setPaused(false);
     }
 }

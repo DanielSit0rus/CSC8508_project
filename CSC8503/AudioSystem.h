@@ -6,8 +6,10 @@
 #include "EventManager.h"
 #include "ISaveable.h"
 
-
 #pragma comment(lib, "fmodstudio_vc.lib")
+
+using namespace FMOD;
+using namespace FMOD::Studio;
 
 namespace NCL {
 	namespace CSC8503 {
@@ -29,10 +31,13 @@ namespace NCL {
 			void PauseEvent(const std::string& eventName);
 			void ResumeEvent(const std::string& eventName);
 
+			void PauseEvent(EventInstance* event);
+			void ResumeEvent(EventInstance* event);
+
 			//3d test
-			FMOD::Studio::System* studioSystem = nullptr;
+			Studio::System* studioSystem = nullptr;
 			FMOD::System* coreSystem = nullptr;
-			FMOD::Studio::EventInstance* eventInstance = nullptr;
+			EventInstance* eventInstance = nullptr;
 			FMOD_3D_ATTRIBUTES* sourceAttributes = nullptr;
 
 		private:
@@ -51,9 +56,9 @@ namespace NCL {
 			}
 
 			const std::string bankPath = "../Assets/Sounds/Banks/";
-			std::unordered_map<std::string, FMOD::Studio::Bank*> banks;
-			std::unordered_map<std::string, FMOD::Studio::Bus*> buses;
-			std::unordered_map<std::string, FMOD::Studio::EventInstance*> events;
+			std::unordered_map<std::string, Bank*> banks;
+			std::unordered_map<std::string, Bus*> buses;
+			std::unordered_map<std::string, EventInstance*> events;
 			//std::unordered_map<std::string, std::string> eventPaths;  // 存储事件名称到路径的映射
 		};
 	}

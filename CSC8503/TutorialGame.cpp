@@ -62,10 +62,11 @@ TutorialGame::~TutorialGame()	{
 }
 
 bool TutorialGame::pauseGame(){
+	EventManager::Trigger(EventType::Game_Pause);
 	return pause = true;
-
 }
 bool TutorialGame::UnpauseGame() {
+	EventManager::Trigger(EventType::Game_Resume);
 	return pause = false;
 }
 
