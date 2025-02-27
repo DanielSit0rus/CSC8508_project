@@ -10,6 +10,14 @@
 #include "BulletContactListener.h"
 
 namespace NCL {
+    enum class GameState {
+        MainMenu,
+        InGame,
+        Settings,
+        Paused,
+        GameOver
+        // add others if necessary
+    };
 	namespace CSC8503 {
         class PaintballPlayer; // Ç°ÏòÉùÃ÷ forward declaration
         class GameManager
@@ -51,9 +59,35 @@ namespace NCL {
             void RemoveBullet(PaintballGameObject* bullet);
 
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
+            // GameState management
+            void SetGameState(GameState newState) {
+                currentState = newState;
+                HandleStateChange(newState);
+            }
+
+            GameState GetGameState() const {
+                return currentState;
+            }
 
         private:
             GameManager() = default;
+            GameState currentState = GameState::MainMenu;
+
+            void HandleStateChange(GameState state) {
+                // Implement logic that should happen on state change
+                switch (state) {
+                case GameState::MainMenu:
+                    // Pause game, show main menu
+                    break;
+                case GameState::InGame:
+                    // Resume or start game
+                    break;
+                case GameState::Paused:
+                    // Pause or toggle game pause
+                    break;
+                    // Handle other states
+                }
+            }
 
             PaintballGameWorld* world = nullptr;
             rp3d::PhysicsCommon physicsCommon;
