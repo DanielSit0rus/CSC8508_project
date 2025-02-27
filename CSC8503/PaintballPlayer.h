@@ -3,6 +3,9 @@
 #include "PaintballGameWorld.h"
 #include "PaintballBullet.h"
 #include "GameManager.h"
+#include "CharacterController.h"
+#include "InputManager.h"
+
 
 namespace NCL::CSC8503 {
 	class PaintballPlayer :public PaintballGameObject
@@ -27,6 +30,7 @@ namespace NCL::CSC8503 {
 	private:
 		Vector4 color;
 		PerspectiveCamera* camera;
+		CharacterController* controller;
 		
 	};
 }
