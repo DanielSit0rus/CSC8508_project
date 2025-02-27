@@ -16,8 +16,43 @@ namespace NCL::CSC8503 {
 		void GetColor();
 		void SetColor();
 
+		void InitializeController() {
+			if (!physicsObject || !camera) {
+				throw std::runtime_error("PhysicsObject and Camera must be set before initializing the controller.");
+			}
+			controller = new CharacterController(physicsObject, camera);
+		}
+
+		void MoveForward(float forceMagnitude) {
+			controller->MoveForward(forceMagnitude);
+		}
+
+		void MoveBackward(float forceMagnitude) {
+			controller->MoveBackward(forceMagnitude);
+		}
+
+		void MoveLeft(float forceMagnitude) {
+			controller->MoveLeft(forceMagnitude);
+		}
+
+		void MoveRight(float forceMagnitude) {
+			controller->MoveRight(forceMagnitude);
+		}
+
+		void Jump(float forceMagnitude) {
+			controller->Jump(forceMagnitude);
+		}
+
+		void GoDown(float forceMagnitude) {
+			controller->GoDown(forceMagnitude);
+		}
+
 		void SetCamera(PerspectiveCamera* cam) {
 			camera = cam;
+		}
+
+		CharacterController* GetController() const {
+			return controller;
 		}
 
 		void Move(float forceMagnitude);

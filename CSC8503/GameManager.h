@@ -66,6 +66,8 @@ namespace NCL {
                 return currentState;
             }
 
+            
+
         private:
             GameManager() = default;
             GameState currentState = GameState::MainMenu;
@@ -85,6 +87,12 @@ namespace NCL {
                     // Handle other states
                 }
             }
+
+
+            std::vector<PaintballGameObject*> gameObjects;
+            PaintballPlayer* player;
+            std::vector<PaintballGameObject*> enemies;
+
 
             PaintballGameWorld* world = nullptr;
             rp3d::PhysicsCommon physicsCommon;

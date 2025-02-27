@@ -56,12 +56,11 @@ void PaintballPlayer::Move(float forceMagnitude)
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
 		controller->GoDown(forceMagnitude);
 		}
-
-	
-
-
 	
 }
+
+
+
 
 void PaintballPlayer::Attack()
 {
