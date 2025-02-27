@@ -250,7 +250,7 @@ void NetworkedGame::SendPacketTest(std::string s) {
 	}
 
 	if (thisServer) {
-		std::cout << "Server : SendPacketTest()" << std::endl;
+		std::cout << "Server : SendPacketTest() - " << s << std::endl;
 		StringPacket newPacket(s);
 		thisServer->SendGlobalPacket(newPacket);
 		this->thisServer->UpdateServer();

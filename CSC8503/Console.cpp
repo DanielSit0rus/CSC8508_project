@@ -9,7 +9,8 @@ void Console::Init(Window* win) {
     RegisterCommand("save", [this](const std::string&) { EventManager::Trigger(EventType::Data_Save); });
     RegisterCommand("load", [this](const std::string&) { EventManager::Trigger(EventType::Data_Load); });
     RegisterCommand("net", [this](const std::string& args) { NetworkCommand(args); });
-
+    RegisterCommand("clear", [this](const std::string&) { ClearCommnad(); });
+        
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
 }
@@ -60,7 +61,7 @@ void Console::HandleCommand(const std::string& input) {
     }
     else {
         std::cout << "Unknown command: " << command << std::endl;
-        std::cout << "Type help to list all commands." << std::endl;
+        std::cout << "Type help to list all commands.\n" << std::endl;
     }
 }
 
