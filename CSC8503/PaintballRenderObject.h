@@ -2,6 +2,8 @@
 #include "Texture.h"
 #include "Shader.h"
 #include "Mesh.h"
+#include"MeshAnimation.h"
+#include"MeshMaterial.h"
 
 namespace NCL {
 	using namespace NCL::Rendering;
@@ -13,7 +15,8 @@ namespace NCL {
 		class PaintballRenderObject
 		{
 		public:
-			PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader);
+			PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
+				MeshAnimation* animation = nullptr, MeshMaterial* material = nullptr);
 			~PaintballRenderObject();
 
 			void SetDefaultTexture(Texture* t) {
@@ -44,12 +47,28 @@ namespace NCL {
 				return colour;
 			}
 
+			void UpdateAnimation(float dt);
+
+			MeshAnimation* GetAnimation() const {
+				return animation;
+			}
+
+			int GetCurrentFrame() const {
+				return currentFrame;
+			}
+
+
 		protected:
 			Mesh* mesh;
 			Texture* texture;
 			Shader* shader;
 			PaintballTransform* transform;
 			Vector4		colour;
+
+			MeshAnimation* animation;
+			MeshMaterial* material;
+			int currentFrame;
+			float frameTime;
 		};
 	}
 }

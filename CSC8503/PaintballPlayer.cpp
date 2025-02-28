@@ -56,6 +56,10 @@ void PaintballPlayer::Move(float forceMagnitude)
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
 		controller->GoDown(forceMagnitude);
 		}
+
+	
+
+
 	
 }
 
@@ -64,16 +68,16 @@ void PaintballPlayer::Move(float forceMagnitude)
 
 void PaintballPlayer::Attack()
 {
-	//Éú³ÉÒ»¸ö×Óµ¯£¬²¢·¢Éä
+	//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,5,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
 {
-	if (!camera) return; // È·±£ camera ´æÔÚ
+	if (!camera) return; // È·ï¿½ï¿½ camera ï¿½ï¿½ï¿½ï¿½
 
-	float camYaw = camera->GetYaw();  // »ñÈ¡ÉãÏñ»úµÄ Yaw ½Ç¶È
-	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, camYaw, 0.0f); // Ö»ÐÞ¸Ä Y ÖáÐý×ª
+	float camYaw = camera->GetYaw();  // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Yaw ï¿½Ç¶ï¿½
+	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, camYaw, 0.0f); // Ö»ï¿½Þ¸ï¿½ Y ï¿½ï¿½ï¿½ï¿½×ª
 	this->GetTransform().SetOrientation(newRotation);
 }
 
@@ -84,7 +88,7 @@ void NCL::CSC8503::PaintballPlayer::Update()
 	if (isControl)
 	{
 		UpdatePlayerRotation();
-		Move(10.0f); // ÕâÀïµÄ 10.0f Ö»ÊÇÊ¾Àý
+		Move(10.0f); // ï¿½ï¿½ï¿½ï¿½ï¿½ 10.0f Ö»ï¿½ï¿½Ê¾ï¿½ï¿½
 		
 	}
 }

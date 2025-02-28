@@ -23,7 +23,7 @@ namespace NCL {
         // add others if necessary
     };
 	namespace CSC8503 {
-        class PaintballPlayer; // Ç°ÏòÉùÃ÷ forward declaration
+        class PaintballPlayer; // Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ forward declaration
         class GameManager
         {
         public:
@@ -51,6 +51,7 @@ namespace NCL {
             PaintballGameObject* AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddSphere(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
+            PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
 

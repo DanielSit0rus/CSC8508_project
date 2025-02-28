@@ -1,6 +1,7 @@
 #pragma once
 #include"GameTechRenderer.h"
-
+#include"MeshAnimation.h"
+#include"MeshMaterial.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -25,6 +26,10 @@ namespace NCL {
             Mesh* GetBonusMesh() const { return bonusMesh; }
             Mesh* GetCapsuleMesh() const { return capsuleMesh; }
 
+            Mesh* GetRoleMesh() const { return RoleMesh; }
+            MeshAnimation* GetRoleanim() const { return Roleanim; }
+            MeshMaterial* GetRolemat() const { return Rolemat; }
+
             Texture* GetBasicTex() const { return basicTex; }
             Shader* GetBasicShader() const { return basicShader; }
 
@@ -46,6 +51,10 @@ namespace NCL {
                 Mesh* enemyMesh = nullptr;
                 Mesh* bonusMesh = nullptr;
                 Mesh* capsuleMesh = nullptr;
+
+                Mesh* RoleMesh = nullptr;
+                MeshAnimation* Roleanim;
+                MeshMaterial* Rolemat;
 
                 Texture* basicTex = nullptr;
                 Shader* basicShader = nullptr;

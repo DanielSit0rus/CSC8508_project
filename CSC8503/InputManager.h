@@ -36,6 +36,7 @@ namespace NCL::CSC8503 {
             if (IsKeyPressed(KeyCodes::SPACE)) { player->GetController()->Jump(10.0f); }
             if (IsKeyPressed(KeyCodes::SHIFT)) { player->GetController()->GoDown(10.0f); }
         }*/
+        static bool IsKeyPressed(KeyCodes::Type key);
     };
 }
 

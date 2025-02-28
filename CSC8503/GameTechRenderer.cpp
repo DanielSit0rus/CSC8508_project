@@ -264,6 +264,7 @@ void GameTechRenderer::RenderCamera() {
 			BindTextureToShader(*(OGLTexture*)(*i).GetDefaultTexture(), "mainTex", 0);
 		}
 
+
 		if (activeShader != shader) {
 			projLocation	= glGetUniformLocation(shader->GetProgramID(), "projMatrix");
 			viewLocation	= glGetUniformLocation(shader->GetProgramID(), "viewMatrix");
@@ -285,33 +286,54 @@ void GameTechRenderer::RenderCamera() {
 			glUniformMatrix4fv(projLocation, 1, false, (float*)&projMatrix);
 			glUniformMatrix4fv(viewLocation, 1, false, (float*)&viewMatrix);
 
-			int numLights = (int)lights.size();
-			glUniform1i(glGetUniformLocation(shader->GetProgramID(), "numLights"), numLights);
-
-			for (int i = 0; i < numLights; ++i) {
-				std::string index = std::to_string(i);
-
-				Vector3 pos = lights[i].GetPosition();
-				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].position").c_str()), 1, (float*)&pos);
-
-				Vector4 col = lights[i].GetColor();
-				glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].color").c_str()), 1, (float*)&col);
-
-				float rad = lights[i].GetRadius();
-				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].radius").c_str()), rad);
-
-				Vector3 dir = lights[i].GetDirection(); // New: Spotlight direction
-				glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].direction").c_str()), 1, (float*)&dir);
-
-				float cutoff = cos(lights[i].GetCutoff() * (3.14159265359f / 180.0f)); // Convert to radians
-				glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].cutoff").c_str()), cutoff);
-			}
-
-			int shadowTexLocation = glGetUniformLocation(shader->GetProgramID(), "shadowTex");
-			glUniform1i(shadowTexLocation, 1);
+			
 
 			activeShader = shader;
 		}
+		int hasAnimLocation = glGetUniformLocation(shader->GetProgramID(), "hasAnimation");
+		//std::cout << "Has Animation? " << (i->GetAnimation() ? "Yes" : "No") << std::endl;
+		glUniform1i(hasAnimLocation, i->GetAnimation() ? 1 : 0);
+
+		if (i->GetAnimation()) {
+			std::cout << "Animation detected" << std::endl;
+			vector<Matrix4> frameMatrices;
+			const Matrix4* invBindPose = i->GetMesh()->GetInverseBindPose().data();
+			const Matrix4* frameData = i->GetAnimation()->GetJointData(i->GetCurrentFrame());
+			if (!frameData) {
+				std::cout << "Error: Frame data is NULL!" << std::endl;
+				continue;
+			}
+			for (unsigned int j = 0; j < i->GetMesh()->GetJointCount(); ++j) {
+				frameMatrices.emplace_back(frameData[j] * invBindPose[j]);
+			}
+			int jointLocation = glGetUniformLocation(shader->GetProgramID(), "joints");
+			glUniformMatrix4fv(jointLocation, static_cast<GLsizei>(frameMatrices.size()), false, (float*)frameMatrices.data());
+			std::cout << "Final World Position: " << i->GetTransform()->GetPosition().x << ", " << i->GetTransform()->GetPosition().y << ", " << i->GetTransform()->GetPosition().z << std::endl;
+		}
+
+		int numLights = (int)lights.size();
+		glUniform1i(glGetUniformLocation(shader->GetProgramID(), "numLights"), numLights);
+		for (int i = 0; i < numLights; ++i) {
+			std::string index = std::to_string(i);
+
+			Vector3 pos = lights[i].GetPosition();
+			glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].position").c_str()), 1, (float*)&pos);
+
+			Vector4 col = lights[i].GetColor();
+			glUniform4fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].color").c_str()), 1, (float*)&col);
+
+			float rad = lights[i].GetRadius();
+			glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].radius").c_str()), rad);
+
+			Vector3 dir = lights[i].GetDirection(); // New: Spotlight direction
+			glUniform3fv(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].direction").c_str()), 1, (float*)&dir);
+
+			float cutoff = cos(lights[i].GetCutoff() * (3.14159265359f / 180.0f)); // Convert to radians
+			glUniform1f(glGetUniformLocation(shader->GetProgramID(), ("lights[" + index + "].cutoff").c_str()), cutoff);
+		}
+		int shadowTexLocation = glGetUniformLocation(shader->GetProgramID(), "shadowTex");
+		glUniform1i(shadowTexLocation, 1);
+
 		
 		Matrix4 modelMatrix = (*i).GetTransform()->GetMatrix();
 		glUniformMatrix4fv(modelLocation, 1, false, (float*)&modelMatrix);			

@@ -137,6 +137,53 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
 }
 
+PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
+    
+
+    ResourceManager& resources = ResourceManager::GetInstance();
+
+    PaintballGameObject* cube = new PaintballGameObject();
+
+    cube->GetTransform()
+        .SetPosition(position)
+        .SetOrientation(orientation)
+        .SetScale(dimensions * 1.0f);
+
+    // Create render object
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &cube->GetTransform(),
+        resources.GetRoleMesh(),
+        resources.GetBasicTex(),
+        resources.GetBasicShader(), resources.GetRoleanim(), resources.GetRolemat()
+    );
+    renderObj->SetColour(color);
+
+    // Attach animation (assuming GetCubeAnimation exists in ResourceManager)
+
+    cube->SetRenderObject(renderObj);
+
+    // Create a rigid body
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
+
+    // Create Shape
+    rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+
+    // Bind Shape to rigid body
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+
+    // Add rigid body to game object
+    cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+    cube->GetPhysicsObject()->SetMass(mass);
+
+    // Add to the game world
+    world->AddGameObject(cube);
+
+    return cube;
+
+}
+
+
 PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
 

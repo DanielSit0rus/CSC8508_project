@@ -41,6 +41,7 @@ void main(void)
 
     if (IN.shadowProj.w > 0.0) {
         shadow = textureProj(shadowTex,  vec4(IN.shadowProj.xy, IN.shadowProj.z - shadowBias, IN.shadowProj.w));
+	shadow = mix(0.2, 1.0, shadow);
     }
 
     vec4 albedo = pow(IN.colour, vec4(2.2));

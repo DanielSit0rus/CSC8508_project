@@ -75,6 +75,7 @@ namespace NCL {
 			PaintballGameObject* selectionObject = nullptr;
 			PaintballGameObject* lockedObject = nullptr;
 			PaintballGameObject* enemyObject = nullptr;
+			PaintballGameObject* CharacterObject = nullptr;
 			NavigationMesh* navMesh;
 			std::vector<Vector3> pathNodes;
 
