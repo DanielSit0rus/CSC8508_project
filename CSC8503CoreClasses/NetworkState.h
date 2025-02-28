@@ -1,4 +1,5 @@
 #pragma once
+#include <reactphysics3d/reactphysics3d.h>
 
 namespace NCL {
 	using namespace Maths;
@@ -9,9 +10,9 @@ namespace NCL {
 			NetworkState();
 			virtual ~NetworkState();
 
-			Vector3		position;
-			Quaternion	orientation;
-			int			stateID;
+			rp3d::Vector3		position;
+			rp3d::Quaternion	orientation;
+			int					stateID;
 		};
 	}
 }

@@ -19,6 +19,8 @@ NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 	delete networkObject;
 	delete renderObject;
 	delete physicsObject;
+	delete controller;
+	controller = nullptr;
 	camera = nullptr;
 }
 
@@ -32,51 +34,57 @@ void PaintballPlayer::SetColor()
 void PaintballPlayer::Move(float forceMagnitude)
 {
 
-	const Matrix4& view = camera->BuildViewMatrix();
-	const Matrix4& camWorld = Matrix::Inverse(view);
-
-	const Vector3& rightAxis = Vector3(camWorld.GetColumn(0)); //view is inverse of model!
-
-	//forward is more tricky -  camera forward is 'into' the screen...
-	//so we can take a guess, and use the cross of straight up, and
-	//the right axis, to hopefully get a vector that's good enough!
-
-	Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
-	fwdAxis.y = 0.0f;
-	fwdAxis = Vector::Normalise(fwdAxis);
-
-	PaintballGameObject* target = this;
-
-	const float& mass = target->GetPhysicsObject()->GetMass();
-	float camYaw = camera->GetYaw();
-	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
+	if (!controller) {
+		controller = new CharacterController(physicsObject, camera); // Ensure controller is properly managed
 	}
 
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-fwdAxis * forceMagnitude));
+	if (InputManager::IsKeyPressed(KeyCodes::W)) {
+		controller->MoveForward(forceMagnitude);
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-rightAxis * forceMagnitude));
+	if (InputManager::IsKeyPressed(KeyCodes::S)) {
+		controller->MoveBackward(forceMagnitude);
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(rightAxis * forceMagnitude));
+	if (InputManager::IsKeyPressed(KeyCodes::A)) {
+		controller->MoveLeft(forceMagnitude);
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) && target->GetPhysicsObject()->isStand()) {
-		target->GetPhysicsObject()->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.025f, 0));
+	if (InputManager::IsKeyPressed(KeyCodes::D)) {
+		controller->MoveRight(forceMagnitude);
+	}
+	if (InputManager::IsKeyPressed(KeyCodes::SPACE)) {
+		controller->Jump(forceMagnitude);
 	}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
-		target->GetPhysicsObject()->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
-	}
+		controller->GoDown(forceMagnitude);
+		}
+	
 }
+
+
+
 
 void PaintballPlayer::Attack()
 {
 	//生成一个子弹，并发射
-	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition(), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
+	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,5,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
+}
+
+void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
+{
+	if (!camera) return; // 确保 camera 存在
+
+	float camYaw = camera->GetYaw();  // 获取摄像机的 Yaw 角度
+	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, camYaw, 0.0f); // 只修改 Y 轴旋转
+	this->GetTransform().SetOrientation(newRotation);
+}
+
+void NCL::CSC8503::PaintballPlayer::Update()
+{
+	transform.SetRpTransform(
+		physicsObject->GetRigidbody().getTransform());
+	if (isControl)
+	{
+		UpdatePlayerRotation();
+		Move(10.0f); // 这里的 10.0f 只是示例
+		
+	}
 }

@@ -10,7 +10,7 @@
 using std::vector;
 
 namespace NCL::CSC8503 {
-    //class NetworkObject;
+    class NetworkObject;
     class PaintballRenderobject;
     class PaintballPhysicsObject;
 
@@ -20,7 +20,7 @@ namespace NCL::CSC8503 {
         PaintballGameObject(const std::string& name = "");
         ~PaintballGameObject();
 
-        void Update();
+        virtual void Update();
 
         bool IsActive() const {
             return isActive;

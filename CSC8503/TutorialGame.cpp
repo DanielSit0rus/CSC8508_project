@@ -62,10 +62,11 @@ TutorialGame::~TutorialGame()	{
 }
 
 bool TutorialGame::pauseGame(){
+	EventManager::Trigger(EventType::Game_Pause);
 	return pause = true;
-
 }
 bool TutorialGame::UnpauseGame() {
+	EventManager::Trigger(EventType::Game_Resume);
 	return pause = false;
 }
 
@@ -78,6 +79,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	const Camera& camera = world->GetMainCamera();
 
+	GameManager::GetInstance().Update();
 	UpdateKeys();
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
@@ -165,9 +167,8 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
-
-	playerObject = G1.AddPlayer(rp3d::Vector3(21, 1, -19));
-	enemyObject = G1.AddPlayer(rp3d::Vector3(1, 1, -1));
+	playerObject = G1.AddPlayerClass(rp3d::Vector3(6, 4, -15));
+	enemyObject = G1.AddPlayerClass(rp3d::Vector3(1, 1, -1));
 
 	forceMagnitude = 60.0f;
 
@@ -190,10 +191,6 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(G1.AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 	objList_pb.push_back(G1.AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-	shoottest = G1.AddPlayerClass(rp3d::Vector3(10, 15, -30));
-
-
-	//objList_pb.push_back(AddRp3dCubeToWorld(rp3d::Vector3(0, 0, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
@@ -283,7 +280,10 @@ void TutorialGame::LockedObjectMovement() {
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
 	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-
+	if (lockedObject == shoottest) {
+		shoottest->isControl = true;
+		return;
+	}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
 	}

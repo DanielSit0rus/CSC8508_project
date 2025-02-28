@@ -134,6 +134,12 @@ set(NLOHMANN_JSON_PATH "${CMAKE_SOURCE_DIR}/SDK/nlohmannjson-json")
 # 将 nlohmann_json 添加为一个子目录（它的 CMakeLists.txt 中会定义相关的目标）
 add_subdirectory(${NLOHMANN_JSON_PATH})
 
+
+#imgui
+set(imgui_ROOT "${CMAKE_SOURCE_DIR}/SDK/imgui")
+include_directories(${imgui_ROOT})
+include_directories(${imgui_ROOT}/backends)
+
 ################################################################################
 ################################################################################
 # Sub-projects

@@ -1,4 +1,5 @@
 #include "GameManager.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -10,6 +11,16 @@ void GameManager::Init(PaintballGameWorld* world)
         std::cerr << "Error: Failed to create Physics World!" << std::endl;
         throw std::runtime_error("Physics World creation failed!");
     }
+    
+
+    RpWorld->setEventListener(&bulletlistener);
+}
+
+void GameManager::Update() {
+    for (auto object : objectsToDelete) {
+        world->RemoveGameObject(object, true);
+    }
+    objectsToDelete.clear();
 }
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
@@ -93,17 +104,18 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
     ResourceManager& resources = ResourceManager::GetInstance();
 
-    PaintballPlayer* cube = new PaintballPlayer();
+    //PaintballPlayer* cube = new PaintballPlayer();
+    player = new PaintballPlayer();
 
-    cube->GetTransform()
+    player->GetTransform()
         .SetPosition(position)
         .SetScale(dimensions * 2.0f);
 
-    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
-    cube->GetRenderObject()->SetColour(Vector4(0, 0, 1, 1));
+    player->SetRenderObject(new PaintballRenderObject(&player->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    player->GetRenderObject()->SetColour(Vector4(0, 0, 1, 1));
 
     // create a rigid body
-    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(player->GetTransform().GetRpTransform());
     // create Shape
     rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
     //rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
@@ -111,15 +123,15 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::Transform shapeTransform = rp3d::Transform::identity();
     rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
     //add rigid body to gameobject
-    cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
-    cube->GetPhysicsObject()->SetMass(1);
-    cube->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
+    player->SetPhysicsObject(new PaintballPhysicsObject(&player->GetTransform(), *cubeBody, *RpWorld));
+    player->GetPhysicsObject()->SetMass(1);
+    player->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
 
-    cube->SetCamera(&world->GetMainCamera());
+    player->SetCamera(&world->GetMainCamera());
 
-    world->AddGameObject(cube);
+    world->AddGameObject(player);
 
-    return cube;
+    return player;
 
 }
 
@@ -161,7 +173,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballBullet* cube = new PaintballBullet();
+    PaintballBullet* cube = new PaintballBullet("bullet");
 
     cube->GetTransform()
         .SetPosition(position)

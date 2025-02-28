@@ -43,6 +43,10 @@ namespace NCL {
 
 			std::map<int, PaintballGameObject*> serverPlayers;
 			PaintballGameObject* localPlayer;
+
+			bool isDebug = true;
+			void SendPacketTest();
+			void SendPacketTest(std::string s);
 		};
 	}
 }

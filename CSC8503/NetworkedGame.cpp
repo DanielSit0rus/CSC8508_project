@@ -23,6 +23,11 @@ NetworkedGame::NetworkedGame()	{
 	NetworkBase::Initialise();
 	timeToNextPacket  = 0.0f;
 	packetsToSnapshot = 0;
+
+	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
+	EventManager::Subscribe(EventType::Network_StartAsClient, [this]() {StartAsClient(127, 0, 0, 1); });
+	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
+	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
 }
 
 NetworkedGame::~NetworkedGame()	{
@@ -34,18 +39,26 @@ void NetworkedGame::StartAsServer() {
 	thisServer = new GameServer(NetworkBase::GetDefaultPort(), 4);
 
 	thisServer->RegisterPacketHandler(Received_State, this);
+	thisServer->RegisterPacketHandler(String_Message, this);
+
+	std::cout << "[NetworkedGame.cpp]Start As Server" << std::endl;
 
 	StartLevel();
 }
 
 void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient = new GameClient();
-	thisClient->Connect(a, b, c, d, NetworkBase::GetDefaultPort());
+
+	bool isConnected = thisClient->Connect(a, b, c, d, NetworkBase::GetDefaultPort());
+	if (isConnected) std::cout << "[NetworkedGame.cpp]Connected" << std::endl;
+	else std::cout << "[NetworkedGame.cpp]Error in connection" << std::endl;
 
 	thisClient->RegisterPacketHandler(Delta_State, this);
 	thisClient->RegisterPacketHandler(Full_State, this);
 	thisClient->RegisterPacketHandler(Player_Connected, this);
 	thisClient->RegisterPacketHandler(Player_Disconnected, this);
+	thisClient->RegisterPacketHandler(String_Message, this);
+
 
 	StartLevel();
 }
@@ -62,13 +75,6 @@ void NetworkedGame::UpdateGame(float dt) {
 		timeToNextPacket += 1.0f / 20.0f; //20hz server/client update
 	}
 
-	if (!thisServer && Window::GetKeyboard()->KeyPressed(KeyCodes::F9)) {
-		StartAsServer();
-	}
-	if (!thisClient && Window::GetKeyboard()->KeyPressed(KeyCodes::F10)) {
-		StartAsClient(127,0,0,1);
-	}
-
 	TutorialGame::UpdateGame(dt);
 }
 
@@ -81,17 +87,11 @@ void NetworkedGame::UpdateAsServer(float dt) {
 	else {
 		BroadcastSnapshot(true);
 	}
+	this->thisServer->UpdateServer();
 }
 
 void NetworkedGame::UpdateAsClient(float dt) {
-	ClientPacket newPacket;
-
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::SPACE)) {
-		//fire button pressed!
-		newPacket.buttonstates[0] = 1;
-		newPacket.lastID = 0; //You'll need to work this out somehow...
-	}
-	thisClient->SendPacket(newPacket);
+	this->thisClient->UpdateClient();
 }
 
 void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
@@ -152,7 +152,47 @@ void NetworkedGame::StartLevel() {
 }
 
 void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
-	
+	//std::cout << "Received type[" << type << "] packet from source: " << source << std::endl;
+	//return;
+
+	switch (type) {
+	case Delta_State: {
+		if (isDebug) std::cout << "Received delta packet from source: " << source << std::endl;
+		DeltaPacket* deltaPacket = (DeltaPacket*)payload;
+
+		break;
+	}
+	case Full_State: {
+		if (isDebug) std::cout << "Received full packet from source: " << source << std::endl;
+		FullPacket* fullPacket = (FullPacket*)payload;
+
+		int objectID = fullPacket->objectID;
+		rp3d::Vector3 position = fullPacket->fullState.position;
+		rp3d::Quaternion orientation = fullPacket->fullState.orientation;
+		int stateID = fullPacket->fullState.stateID;
+
+		break;
+	}
+	case String_Message: {
+		StringPacket* realPacket = (StringPacket*)payload;
+		std::string msg = realPacket->GetStringFromData();
+		std::cout << "Received message: \"" << msg << "\" from " << source << std::endl;
+		break;
+	}
+	case Received_State: {
+		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
+		ClientPacket* clientPacket = (ClientPacket*)payload;
+		break;
+	}
+	case None: {
+		if (isDebug) std::cout << "Received None packet from source: " << source << std::endl;
+		break;
+	}
+	default: {
+		if (isDebug) std::cout << "Received unknown packet type: " << type << " from source: " << source << std::endl;
+		break;
+	}
+	}
 }
 
 void NetworkedGame::OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b) {
@@ -165,5 +205,58 @@ void NetworkedGame::OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b) {
 
 		newPacket.playerID = b->GetPlayerNum();
 		thisClient->SendPacket(newPacket);
+	}
+}
+
+void NetworkedGame::SendPacketTest() {
+	if (thisClient) {
+		std::cout << "Client : SendPacketTest()  # successful" << std::endl;
+		ClientPacket newPacket;
+		newPacket.type = Received_State;
+
+		newPacket.buttonstates[0] = 1;
+		newPacket.lastID = 0; //You'll need to work this out somehow...
+
+		thisClient->SendPacket(newPacket);
+		this->thisClient->UpdateClient();
+	}
+	else
+	{
+		std::cout << "Client : SendPacketTest()  # thisClient = nullptr" << std::endl;
+	}
+
+	if (thisServer) {
+		std::cout << "Server : SendPacketTest()  # successful" << std::endl;
+		StringPacket newPacket("A StringPacket");
+		thisServer->SendGlobalPacket(newPacket);
+		this->thisServer->UpdateServer();
+	}
+	else
+	{
+		std::cout << "Server : SendPacketTest()  # thisServer = nullptr" << std::endl;
+	}
+}
+
+void NetworkedGame::SendPacketTest(std::string s) {
+	if (thisClient) {
+		std::cout << "Client : SendPacketTest() - " << s << std::endl;
+		StringPacket newPacket(s);
+		thisClient->SendPacket(newPacket);
+		this->thisClient->UpdateClient();
+	}
+	else
+	{
+		std::cout << "Client : SendPacketTest() - " << s << "  # thisClient = nullptr" << std::endl;
+	}
+
+	if (thisServer) {
+		std::cout << "Server : SendPacketTest() - " << s << std::endl;
+		StringPacket newPacket(s);
+		thisServer->SendGlobalPacket(newPacket);
+		this->thisServer->UpdateServer();
+	}
+	else
+	{
+		std::cout << "Server : SendPacketTest() - " << s << "  # thisServer = nullptr" << std::endl;
 	}
 }

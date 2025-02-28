@@ -1,17 +1,15 @@
 #pragma once
-#include "GameObject.h"
+#include "PaintballGameObject.h"
 #include "GameClient.h"
 
 namespace NCL {
 	namespace CSC8503 {
 		class NetworkedGame;
 
-		class NetworkPlayer : public GameObject {
+		class NetworkPlayer : public PaintballGameObject {
 		public:
 			NetworkPlayer(NetworkedGame* game, int num);
 			~NetworkPlayer();
-
-			void OnCollisionBegin(GameObject* otherObject) override;
 
 			int GetPlayerNum() const {
 				return playerNum;
@@ -23,4 +21,3 @@ namespace NCL {
 		};
 	}
 }
-

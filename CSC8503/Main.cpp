@@ -5,71 +5,6 @@ AudioSystem& audioSystem = AudioSystem::GetInstance();
 using namespace NCL;
 using namespace CSC8503;
 
-#include <chrono>
-#include <thread>
-#include <sstream>
-
-vector <Vector3> testNodes;
-
-void TestPathfinding() {
-
-	NavigationGrid grid("TestGrid4.txt");
-	std::cout << "\n txt file loaded \n";
-	NavigationPath outPath;
-	Vector3 startPos(10, 0, 10);
-	Vector3 endPos(23, 0, 5);
-	bool found = grid.FindPath(startPos, endPos, outPath);
-	Vector3 pos;
-	while (outPath.PopWaypoint(pos)) {
-		testNodes.push_back(pos);
-		std::cout << "\n Pushed waypoint \n";
-	}
-}
-
-void DisplayPathfinding() {
-	//std::cout << "\n Displaying path \n";
-	for (int i = 1; i < testNodes.size(); ++i) {
-		
-		Vector3 a = testNodes[i - 1];
-		Vector3 b = testNodes[i];
-		Debug::DrawLine(a, b, Vector4(0, 1, 0, 1));
-	}
-}
-
-/*void TestStateMachine() {
-	StateMachine * testMachine = new StateMachine();
-	int data = 0;
-	State* A = new State([&](float dt)->void
-		{
-		std::cout << "I’m in state A ! \n";
-		data++;
-		}
-	);
-	State * B = new State([&](float dt)->void
-	{
-		std::cout <<"I’m in state B !\n";
-		data--;
-		}
-	);
-	StateTransition* stateAB = new StateTransition(A, B, [&](void) -> bool
-		{
-		 return data > 10;
-		}
-	);
-	StateTransition * stateBA = new StateTransition(B, A, [&](void) -> bool
-		{
-		 return data < 0;
-		}
-	);
-	testMachine -> AddState(A);
-	testMachine -> AddState(B);
-	testMachine -> AddTransition(stateAB);
-	testMachine -> AddTransition(stateBA);
-	for (int i = 0; i < 100; ++i) {
-		testMachine -> Update(1.0f);
-	}
-} */
-
 void TestBehaviourTree() {
 	float behaviourTimer;
 	float distanceToTarget;
@@ -284,52 +219,6 @@ void TestPushdownAutomata(Window* w) {
 	}
 }
 
-
-class TestPacketReceiver : public PacketReceiver{
-	public:
-			TestPacketReceiver(std::string name) {
-				this -> name = name;
-			}
-			void ReceivePacket(int type , GamePacket * payload , int source) {
-				if (type == String_Message) {
-					StringPacket* realPacket = (StringPacket*)payload;
-					std::string msg = realPacket -> GetStringFromData();
-					std::cout << name << " received message : " << msg << std::endl;
-				}
-
-			}
-	protected:
-				std::string name;
-};
-
-
-void TestNetworking() {
-	NetworkBase::Initialise();
-	TestPacketReceiver serverReceiver("Server");
-	TestPacketReceiver clientReceiver("Client");
-	
-	int port = NetworkBase::GetDefaultPort();
-	
-	GameServer * server = new GameServer(port, 1);
-	GameClient * client = new GameClient();
-	
-	server -> RegisterPacketHandler(String_Message, &serverReceiver);
-	client -> RegisterPacketHandler(String_Message, &clientReceiver);
-	
-	bool canConnect = client -> Connect(127, 0, 0, 1, port);
-	
-	for (int i = 0; i < 100; ++i) {
-		StringPacket s = StringPacket("\nClient says hello! " + std::to_string(i));
-		server -> SendGlobalPacket(s);
-		client ->SendPacket(s);
-		server -> UpdateServer();
-		client -> UpdateClient();
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-	}
-	NetworkBase::Destroy();
-}
-
-
 /*
 
 The main function should look pretty familar to you!
@@ -465,7 +354,6 @@ protected:
 int main() {
 	SLSystem::GetInstance().Init();
 	audioSystem.Init();
-	Console::GetInstance().Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -481,17 +369,14 @@ int main() {
 	}	
 
 	w->SetWindowPosition(5, 30);
-	w->ShowConsole(false);
 
-	w->ShowOSPointer(false);
-	w->LockMouseToWindow(true);
-
-	TutorialGame* g = new TutorialGame();
+	NetworkedGame* g = new NetworkedGame();
 	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen(w));
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
 	//TestNetworking();
 	
+	Console::GetInstance().Init(w);
 	std::thread console([] {Console::GetInstance().ProcessInput(); });
 
 	EventManager::Trigger(EventType::Game_Start);
@@ -504,15 +389,9 @@ int main() {
 			//std::cout << "Skipping large time delta" << std::endl;
 			continue; //must have hit a breakpoint or something to have a 1 second frame time!
 		}
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::PRIOR)) {
-			w->ShowConsole(true);
-		}
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::NEXT)) {
-			w->ShowConsole(false);
-		}
 
-		if (Window::GetKeyboard()->KeyPressed(KeyCodes::T)) {
-			w->SetWindowPosition(0, 0);
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::TAB)) {
+			Console::GetInstance().ShowConsole();
 		}
 
 		w->SetTitle("Gametech frame time:" + std::to_string(1000.0f * dt));
@@ -528,7 +407,7 @@ int main() {
 		}
 		if (reset)
 		{
-			g = new TutorialGame();
+			g = new NetworkedGame();
 			reset = false;
 		}
 
@@ -540,9 +419,6 @@ int main() {
 
 	console.detach();
 	audioSystem.Release();
-
-	w->LockMouseToWindow(false);
-	w->ShowConsole(true);
 
 	Window::DestroyGameWindow();
 }

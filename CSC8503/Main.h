@@ -31,3 +31,7 @@
 #include "EventManager.h"
 #include "SLSystem.h"
 #include "Console.h"
+
+#include <chrono>
+#include <thread>
+#include <sstream>

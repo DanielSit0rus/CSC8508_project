@@ -12,9 +12,13 @@ namespace NCL {
 
             virtual void Update(float dt);
             void SetPlayer(PaintballGameObject* playerObj = nullptr);
+            PaintballGameObject* GetPlayer() const {
+                return playerObj;
+            }
             void SetEnemy(PaintballGameObject* enemyObject = nullptr);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
+            
             //float DistanceToPlayer();
 
         protected:
