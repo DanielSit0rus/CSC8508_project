@@ -194,7 +194,7 @@ void TutorialGame::InitWorld() {
 
 	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
-
+	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 	
 	InitDefaultFloor();
 

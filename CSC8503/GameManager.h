@@ -10,6 +10,10 @@
 #include "BulletContactListener.h"
 
 namespace NCL {
+    const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001
+    const UINT16 ENEMY = 0x0002;    // 0000 0000 0000 0010
+    const UINT16 BULLET = 0x0004;   // 0000 0000 0000 0100
+
     enum class GameState {
         MainMenu,
         InGame,

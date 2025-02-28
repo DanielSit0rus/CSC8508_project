@@ -1,15 +1,24 @@
-﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeLists.txt
+﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/CMakeLists.txt
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
   OGLRenderer.h
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'OGLRenderer.h')
+  
   OGLMesh.h
   OGLComputeShader.h
   OGLTexture.cpp
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'OGLTexture.cpp')
+  
   OGLShader.cpp
   OGLRenderer.cpp
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file '../OpenGLRendering/OGLRenderer.cpp')
+  
   OGLMesh.cpp
   OGLComputeShader.cpp
   gl.h
   gl.c
-  OpenGLRendering.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+  OpenGLRendering.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib

@@ -127,6 +127,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     player->GetPhysicsObject()->SetMass(1);
     player->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
 
+    collider->setCollisionCategoryBits(PLAYER);
+
     player->SetCamera(&world->GetMainCamera());
 
     world->AddGameObject(player);
@@ -196,6 +198,9 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
     //add rigid body to gameobject
     cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
     cube->GetPhysicsObject()->SetMass(mass);
+
+    // 设置子弹（只与玩家碰撞，不与敌人碰撞）
+    collider->setCollisionCategoryBits(BULLET);
 
     world->AddGameObject(cube);
 
