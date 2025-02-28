@@ -33,6 +33,10 @@ namespace NCL {
 
             ~GameManager() {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
+                if (player != nullptr) {
+                    delete player;
+                    player = nullptr;
+                }
             };
 
             void Init(PaintballGameWorld* world);
@@ -65,7 +69,9 @@ namespace NCL {
             GameState GetGameState() const {
                 return currentState;
             }
-
+            PaintballPlayer* GetPlayer() const {
+                return player;
+            }
             
 
         private:
@@ -88,15 +94,15 @@ namespace NCL {
                 }
             }
 
-
+            //NEW
             std::vector<PaintballGameObject*> gameObjects;
-            PaintballPlayer* player;
+            PaintballPlayer* player = nullptr;
             std::vector<PaintballGameObject*> enemies;
 
 
             PaintballGameWorld* world = nullptr;
             rp3d::PhysicsCommon physicsCommon;
-            rp3d::PhysicsWorld* RpWorld = nullptr;
+            rp3d::PhysicsWorld* RpWorld = nullptr; // not used anymore
             rp3d::PhysicsWorld::WorldSettings RpSettings;
             BulletContactListener bulletlistener;
 
