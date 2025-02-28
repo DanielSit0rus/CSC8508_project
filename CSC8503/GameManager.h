@@ -33,10 +33,6 @@ namespace NCL {
 
             ~GameManager() {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
-                if (player != nullptr) {
-                    delete player;
-                    player = nullptr;
-                }
             };
 
             void Init(PaintballGameWorld* world);
