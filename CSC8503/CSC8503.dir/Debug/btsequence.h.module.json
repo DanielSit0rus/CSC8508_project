@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CSC8503.dir\\Debug\\BTSequence.h.obj",
+            "outputs": [
+                "F:\\Gameprojects\\CSC8508_project\\CSC8503\\CSC8503.dir\\Debug\\vc143.pdb",
+                "CSC8503.dir\\Debug\\",
+                "F:\\Gameprojects\\CSC8508_project\\CSC8503\\CSC8503.dir\\Debug\\BTSequence.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "BTSequence.h",
+                    "source-path": "f:\\gameprojects\\csc8508_project\\csc8503\\btsequence.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
