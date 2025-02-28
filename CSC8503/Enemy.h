@@ -1,23 +1,21 @@
 #pragma once
 
-#include "PhysicsObject.h"
 #include "StateMachine.h"
-#include "TutorialGame.h"
 #include "NavigationMesh.h"
 #include "StateGameObject.h"
 //#include "BTNode.h"
 
 namespace NCL {
     namespace CSC8503 {
-        class EnemyAI : public StateGameObject {
+        class Enemy : public StateGameObject {
         public:
             //EnemyAI(NavigationMesh* navMesh);
-            EnemyAI();
-            ~EnemyAI();
+            Enemy();
+            ~Enemy();
 
             //void Update(float dt) override;
             void Patrol(float dt);
-            void SetPlayer(GameObject* playerObj);
+            void SetPlayer(PaintballGameObject* playerObj);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
             void DisplayPath();
@@ -28,7 +26,7 @@ namespace NCL {
             //void InitBehaviorTree();
 
             //BTNode* behaviorTree;
-            GameObject* player;
+            PaintballGameObject* player;
             NavigationMesh* navMesh;
             std::vector<Vector3> pathNodes;
         };

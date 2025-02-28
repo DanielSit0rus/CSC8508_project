@@ -1,7 +1,6 @@
 #include "AudioSystem.h"
 
-using namespace NCL;
-using namespace CSC8503;
+using namespace NCL::CSC8503;
 
 AudioSystem::~AudioSystem() {
     Release();

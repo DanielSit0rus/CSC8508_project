@@ -1,4 +1,5 @@
 #include "ResourceManager.h"
+using namespace NCL::CSC8503;
 
 void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
     if (cubeMesh == nullptr) { // Only load once

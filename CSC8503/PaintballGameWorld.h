@@ -1,7 +1,7 @@
 #pragma once
 #include <random>
-
-#include "QuadTree.h"
+#include "Camera.h"
+#include "Debug.h"
 #include "../CSC8503/PaintballGameObject.h"
 
 namespace NCL {

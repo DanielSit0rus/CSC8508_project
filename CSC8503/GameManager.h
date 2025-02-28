@@ -8,6 +8,7 @@
 #include "PaintballBullet.h"
 #include "PaintballPlayer.h"
 #include "BulletContactListener.h"
+#include "Camera.h"
 
 namespace NCL {
     const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001

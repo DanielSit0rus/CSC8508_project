@@ -20,9 +20,11 @@
 #include <fmod.h>
 #include "AudioSystem.h"
 #include "PaintballPlayer.h"
+#include "Enemy.h"
 
 namespace NCL {
 	namespace CSC8503 {
+		class Enemy;
 		class TutorialGame		{
 		public:
 			TutorialGame();
@@ -90,6 +92,8 @@ namespace NCL {
 
 			//shoot 
 			PaintballPlayer* shoottest = nullptr;
+			Enemy* enemy = nullptr;
+
 		};
 
 
