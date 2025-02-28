@@ -1,17 +1,15 @@
 #pragma once
-#include "GameObject.h"
 #include "PaintballGameObject.h"
 
 namespace NCL {
     namespace CSC8503 {
         class StateMachine;
-        class StateGameObject : public GameObject {
+        class StateGameObject : public PaintballGameObject {
         public:
             StateGameObject();
             ~StateGameObject();
 
             virtual void Update(float dt);
-            void SetPlayer(PaintballGameObject* playerObj = nullptr);
             void SetEnemy(PaintballGameObject* enemyObject = nullptr);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();

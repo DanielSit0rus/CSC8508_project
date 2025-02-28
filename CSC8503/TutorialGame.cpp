@@ -2,7 +2,7 @@
 #include "GameWorld.h"
 #include "TextureLoader.h"
 #include "Vector.h"
-
+#include "Enemy.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -162,7 +162,7 @@ void TutorialGame::InitCamera() {
 void TutorialGame::InitWorld() {
 	lockedObject = nullptr;
 	selectionObject = nullptr;
-
+	EnemyAI* enemy = new EnemyAI;
 	world->ClearAndErase();
 
 
