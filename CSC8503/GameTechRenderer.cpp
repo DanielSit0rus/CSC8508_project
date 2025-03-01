@@ -298,7 +298,7 @@ void GameTechRenderer::RenderCamera() {
 		//glUniform1i(hasAnimLocation, i->GetAnimation() ? 1 : 0);
 
 		if (i->GetAnimation()) {
-			std::cout << "Animation detected" << std::endl;
+			//std::cout << "Animation detected" << std::endl;
 			vector<Matrix4> frameMatrices;
 			const Matrix4* invBindPose = i->GetMesh()->GetInverseBindPose().data();
 			const Matrix4* frameData = i->GetAnimation()->GetJointData(i->GetCurrentFrame());
@@ -311,7 +311,7 @@ void GameTechRenderer::RenderCamera() {
 			}
 			int jointLocation = glGetUniformLocation(shader->GetProgramID(), "joints");
 			glUniformMatrix4fv(jointLocation, static_cast<GLsizei>(frameMatrices.size()), false, (float*)frameMatrices.data());
-			std::cout << "Final World Position: " << i->GetTransform()->GetPosition().x << ", " << i->GetTransform()->GetPosition().y << ", " << i->GetTransform()->GetPosition().z << std::endl;
+			//std::cout << "Final World Position: " << i->GetTransform()->GetPosition().x << ", " << i->GetTransform()->GetPosition().y << ", " << i->GetTransform()->GetPosition().z << std::endl;
 		}
 
 		int numLights = (int)lights.size();

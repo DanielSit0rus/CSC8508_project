@@ -204,13 +204,14 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 
 
     // create a rigid body
-    rp3d::Transform transform(pos, ori);
-    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(transform);
+    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
     concaveBody->setType(rp3d::BodyType::STATIC);
     // create Shape
-    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMapMesh()); // scale?
+    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMapMesh());
+    shape->setScale(dimensions);
     // bind Shape to rigid body
     rp3d::Transform shapeTransform = rp3d::Transform::identity();
+
     rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
     //add rigid body to gameobject
     concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
@@ -238,12 +239,12 @@ PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& posi
     rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
 
     // Create a rigid body
-    rp3d::Transform transform(pos, ori);
-    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(transform);
+    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
     concaveBody->setType(rp3d::BodyType::STATIC);
 
     // Create a ConcaveMeshShape using the alternate map mesh
     rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetSecondMapMesh());
+    shape->setScale(dimensions);
 
     // Bind the shape to the rigid body
     rp3d::Transform shapeTransform = rp3d::Transform::identity();

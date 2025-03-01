@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
-^D:\CSC8503\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
+^D:\D_PROJECT\CPP\DANIELSIT0RUS\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/CSC8503/CSC8508_project -BD:/CSC8503/CSC8508_project --check-stamp-file D:/CSC8503/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
-=======
-^D:\TEAM PROJECT CSC\MAIN REPO\CSC8508_PROJECT\CSC8503\CMAKELISTS.TXT
-setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Team Project CSC/Main repo/CSC8508_project" "-BD:/Team Project CSC/Main repo/CSC8508_project" --check-stamp-file "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/CMakeFiles/generate.stamp"
->>>>>>> Stashed changes
+D:\CMake\bin\cmake.exe -SD:/D_Project/cpp/DanielSit0rus/CSC8508_project -BD:/D_Project/cpp/DanielSit0rus/CSC8508_project --check-stamp-file D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

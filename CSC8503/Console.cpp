@@ -1,4 +1,5 @@
 #include "Console.h"
+#include "GameManager.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -10,7 +11,8 @@ void Console::Init(Window* win) {
     RegisterCommand("load", [this](const std::string&) { EventManager::Trigger(EventType::Data_Load); });
     RegisterCommand("net", [this](const std::string& args) { NetworkCommand(args); });
     RegisterCommand("clear", [this](const std::string&) { ClearCommnad(); });
-        
+    RegisterCommand("cube", [this](const std::string& args) { AddObjCommand(args); });
+    
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
 
@@ -118,4 +120,10 @@ void Console::NetworkCommand(std::string s) const {
         std::cout << "Unknown argument: " << s << "\nAvailable: client(c), server(s), test(t)" << std::endl;
     }
 }
+
+void Console::AddObjCommand(std::string s) const {
+    GameManager::GetInstance().AddCube(
+        Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()), rp3d::Vector3(0.3f, 0.3f, 0.3f), rp3d::Quaternion().identity());
+}
+
 #pragma endregion

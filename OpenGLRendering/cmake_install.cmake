@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-# Install script for directory: D:/CSC8503/CSC8508_project/OpenGLRendering
-=======
-# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering
->>>>>>> Stashed changes
+# Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

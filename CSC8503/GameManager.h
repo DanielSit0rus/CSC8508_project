@@ -76,6 +76,9 @@ namespace NCL {
                 return player;
             }
             
+            PerspectiveCamera& GetMainCamera() {
+                return world->GetMainCamera();
+            }
 
         private:
             GameManager() = default;

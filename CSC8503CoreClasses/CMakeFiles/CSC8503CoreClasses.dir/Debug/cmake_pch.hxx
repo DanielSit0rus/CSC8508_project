@@ -12,17 +12,9 @@
 #include <functional>
 #include <iostream>
 #include <set>
-<<<<<<< Updated upstream
-#include "D:/CSC8503/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "D:/CSC8503/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "D:/CSC8503/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "D:/CSC8503/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "D:/CSC8503/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
-=======
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
->>>>>>> Stashed changes
+#include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
+#include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
+#include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
+#include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
+#include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus

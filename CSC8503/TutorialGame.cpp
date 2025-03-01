@@ -198,7 +198,7 @@ void TutorialGame::InitWorld() {
 
 	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 	
-	InitDefaultFloor();
+	//InitDefaultFloor();
 
 }
 
@@ -220,7 +220,6 @@ void TutorialGame::UpdateKeys() {
 		}
 
 	}
-
 
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
