@@ -7,7 +7,8 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         sphereMesh = renderer->LoadMesh("sphere.msh");
         catMesh = renderer->LoadMesh("ORIGAMI_Chat.msh");
         kittenMesh = renderer->LoadMesh("Kitten.msh");
-        mapMesh = renderer->LoadMesh("Map4.msh");
+        mapMesh = renderer->LoadMesh("MAIN map.msh");
+        secondMapMesh = renderer->LoadMesh("Second Map 1.msh");
         gooseMesh = renderer->LoadMesh("goose.msh");
         enemyMesh = renderer->LoadMesh("Keeper.msh");
         bonusMesh = renderer->LoadMesh("19463_Kitten_Head_v1.msh");

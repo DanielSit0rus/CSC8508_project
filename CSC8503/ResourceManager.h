@@ -21,6 +21,7 @@ namespace NCL {
             Mesh* GetCatMesh() const { return catMesh; }
             Mesh* GetKittenMesh() const { return kittenMesh; }
             Mesh* GetMapMesh() const { return mapMesh; }
+            Mesh* GetSecondMapMesh() const { return secondMapMesh; }
             Mesh* GetGooseMesh() const { return gooseMesh; }
             Mesh* GetEnemyMesh() const { return enemyMesh; }
             Mesh* GetBonusMesh() const { return bonusMesh; }
@@ -47,6 +48,7 @@ namespace NCL {
                 Mesh* catMesh = nullptr;
                 Mesh* kittenMesh = nullptr;
                 Mesh* mapMesh = nullptr;
+                Mesh* secondMapMesh = nullptr;
                 Mesh* gooseMesh = nullptr;
                 Mesh* enemyMesh = nullptr;
                 Mesh* bonusMesh = nullptr;
