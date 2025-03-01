@@ -14,9 +14,9 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         bonusMesh = renderer->LoadMesh("19463_Kitten_Head_v1.msh");
         capsuleMesh = renderer->LoadMesh("capsule.msh");
 
-        RoleMesh = renderer->LoadMesh("shinji1.msh");
-        Roleanim = new MeshAnimation("shinji1.anm");
-        Rolemat = new MeshMaterial("shinji1.mat");
+        RoleMesh = renderer->LoadMesh("Role_T.msh");
+        Roleanim = new MeshAnimation("Role_T.anm");
+        Rolemat = new MeshMaterial("Role_T.mat");
 
         basicTex = renderer->LoadTexture("checkerboard.png");
         basicShader = renderer->LoadShader("scene.vert", "scene.frag");

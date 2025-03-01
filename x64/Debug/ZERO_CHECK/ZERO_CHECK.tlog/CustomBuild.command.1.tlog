@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 ^D:\CSC8503\CSC8508_PROJECT\CMAKEFILES\56676E6B19EB7EC5F946D3E043B45B01\GENERATE.STAMP.RULE
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SD:/CSC8503/CSC8508_project -BD:/CSC8503/CSC8508_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/CSC8503/CSC8508_project/CSC8503.sln
+=======
+^D:\TEAM PROJECT CSC\MAIN REPO\CSC8508_PROJECT\CMAKEFILES\4CEB083008939AD532FD7ACFCA6C38DA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Team Project CSC/Main repo/CSC8508_project" "-BD:/Team Project CSC/Main repo/CSC8508_project" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503.sln"
+>>>>>>> Stashed changes
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

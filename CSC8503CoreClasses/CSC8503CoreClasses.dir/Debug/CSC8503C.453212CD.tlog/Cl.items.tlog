@@ -30,17 +30,6 @@ D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMesh.
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMesh.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationMesh.h.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationMap.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationMap.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NavigationPath.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationPath.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\AABBVolume.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\AABBVolume.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CapsuleVolume.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CapsuleVolume.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionDetection.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionDetection.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionDetection.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CollisionVolume.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionVolume.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OBBVolume.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OBBVolume.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\QuadTree.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\QuadTree.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\QuadTree.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\QuadTree.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Ray.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\Ray.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\SphereVolume.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\SphereVolume.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameClient.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameClient.h.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameClient.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameClient.cpp.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\GameServer.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameServer.h.obj
@@ -52,8 +41,6 @@ D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkObject.c
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkState.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NetworkState.h.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\NetworkState.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NetworkState.cpp.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\Constraint.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\Constraint.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PositionConstraint.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PositionConstraint.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PositionConstraint.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PositionConstraint.h.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OrientationConstraint.cpp.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.h;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OrientationConstraint.h.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\PhysicsObject.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PhysicsObject.cpp.obj

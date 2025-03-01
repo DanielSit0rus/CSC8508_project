@@ -17,6 +17,8 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
+	animShader = new OGLShader("anim.vert", "scene.frag");
+
 	Light light1(Vector3(10, 40, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
 	AddLight(light1);
 	glGenTextures(1, &shadowTex);
@@ -257,7 +259,8 @@ void GameTechRenderer::RenderCamera() {
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
 
 	for (const auto&i : activeObjects) {
-		OGLShader* shader = (OGLShader*)(*i).GetShader();
+		//OGLShader* shader = (OGLShader*)(*i).GetShader();
+		OGLShader* shader = i->GetAnimation() ? animShader : (OGLShader*)(*i).GetShader();
 		UseShader(*shader);
 
 		if ((*i).GetDefaultTexture()) {
@@ -292,7 +295,7 @@ void GameTechRenderer::RenderCamera() {
 		}
 		int hasAnimLocation = glGetUniformLocation(shader->GetProgramID(), "hasAnimation");
 		//std::cout << "Has Animation? " << (i->GetAnimation() ? "Yes" : "No") << std::endl;
-		glUniform1i(hasAnimLocation, i->GetAnimation() ? 1 : 0);
+		//glUniform1i(hasAnimLocation, i->GetAnimation() ? 1 : 0);
 
 		if (i->GetAnimation()) {
 			std::cout << "Animation detected" << std::endl;
