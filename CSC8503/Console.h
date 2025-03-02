@@ -22,7 +22,7 @@ namespace NCL {
 
             void Init(Window* win);
             void ProcessInput();
-            void RegisterCommand(const std::string& command, CommandHandler handler);
+            void RegisterCommand(const std::string& command, CommandHandler handler, const std::string& text = "");
             void ShowConsole(bool t);
             void ShowConsole();
 
@@ -45,7 +45,12 @@ namespace NCL {
             bool isShow = false;
 
             std::string input;
-            std::unordered_map<std::string, CommandHandler> commands;
+
+            struct CommandInfo {
+                CommandHandler handler;
+                std::string description;
+            };
+            std::unordered_map<std::string, CommandInfo> commands;
         };
     }
 }
