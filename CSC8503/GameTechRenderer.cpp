@@ -17,7 +17,7 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
-	animShader = new OGLShader("anim.vert", "scene.frag");
+	animShader = new OGLShader("anim.vert", "anim.frag");
 
 	Light light1(Vector3(10, 40, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
 	AddLight(light1);
