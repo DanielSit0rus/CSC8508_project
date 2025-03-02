@@ -173,7 +173,7 @@ void TutorialGame::InitWorld() {
 	forceMagnitude = 60.0f;
 
 
-	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
+	Light light2(Vector3(3, 12, -14), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
 	renderer->AddLight(light2);
 
 
