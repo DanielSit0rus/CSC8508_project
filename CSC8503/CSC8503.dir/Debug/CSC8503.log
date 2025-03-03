@@ -1,282 +1,282 @@
-﻿  Building Custom Rule D:/vs code/team/CSC8508_project/CSC8503/CMakeLists.txt
+﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/CMakeLists.txt
   cmake_pch.cxx
   AudioSystem.cpp
   BulletContactListener.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“BulletContactListener.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'BulletContactListener.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“BulletContactListener.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'BulletContactListener.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   CharacterController.cpp
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“CharacterController.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'CharacterController.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'CharacterController.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“CharacterController.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'CharacterController.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   Console.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Console.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Console.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Console.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Console.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Console.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Console.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   Enemy.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Enemy.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Enemy.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Enemy.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Enemy.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
@@ -284,141 +284,141 @@ D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\contai
   
   EventManager.cpp
   GameManager.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“GameManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GameManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\GameManager.cpp(301,28): warning C4267: “初始化”: 从“size_t”转换到“unsigned int”，可能丢失数据
-D:\vs code\team\CSC8508_project\CSC8503\GameManager.cpp(302,33): warning C4267: “初始化”: 从“size_t”转换到“unsigned int”，可能丢失数据
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\GameManager.cpp(301,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\GameManager.cpp(302,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'GameManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“GameManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'GameManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   GameTechRenderer.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“GameTechRenderer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'GameTechRenderer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
@@ -426,74 +426,74 @@ D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\contai
   
   ISaveable.cpp
   InputManager.cpp
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“InputManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'InputManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'InputManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“InputManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'InputManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
@@ -501,298 +501,298 @@ D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\contai
   
   Light.cpp
   Main.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“Main.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Main.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\Main.cpp(12,28): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\vs code\team\CSC8508_project\CSC8503\Main.cpp(112,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Main.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\Main.cpp(12,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\Main.cpp(112,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Main.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“Main.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'Main.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   NetworkPlayer.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“NetworkPlayer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'NetworkPlayer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   NetworkedGame.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“NetworkedGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'NetworkedGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“NetworkedGame.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'NetworkedGame.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   PaintballBullet.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballBullet.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballBullet.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballBullet.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballBullet.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
@@ -800,399 +800,399 @@ D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\contai
   
   PaintballEnemy.cpp
   PaintballGameObject.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballGameObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballGameObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   PaintballGameWorld.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244: “初始化”: 从“_Rep”转换到“unsigned int”，可能丢失数据
-D:\vs code\team\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         with
-D:\vs code\team\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         [
-D:\vs code\team\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:             _Rep=std::chrono::system_clock::rep
-D:\vs code\team\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         ]
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         with
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         [
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:             _Rep=std::chrono::system_clock::rep
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballGameWorld.cpp(60,16): warning C4244:         ]
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballGameWorld.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballGameWorld.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   PaintballPhysicsObject.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballPhysicsObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPhysicsObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   PaintballPlayer.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“PaintballPlayer.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PaintballPlayer.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballPlayer.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballPlayer.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
-  正在生成代码...
-  正在编译...
+  Generating Code...
+  Compiling...
   PaintballRenderObject.cpp
-D:\vs code\team\CSC8508_project\CSC8503\PaintballRenderObject.cpp(26,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\PaintballRenderObject.cpp(26,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   PaintballTransform.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“PaintballTransform.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballTransform.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   ResourceManager.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“ResourceManager.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
@@ -1200,140 +1200,142 @@ D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\contai
   
   SLSystem.cpp
   StateGameObject.cpp
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“StateGameObject.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'StateGameObject.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
   TutorialGame.cpp
-D:\vs code\team\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: “初始化”: 从“float”转换到“size_t”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: “初始化”: 从“float”转换到“const size_t”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: “return”: 从“reactphysics3d::uint64”转换到“reactphysics3d::uint32”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CharacterController.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  (编译源文件“TutorialGame.cpp”)
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\InputManager.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'TutorialGame.cpp')
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Array<reactphysics3d::uint>”的引用
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)”时
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
-              请参阅 "reactphysics3d::Islands::reserveMemory" 中对 "reactphysics3d::Array<reactphysics3d::uint>::reserve" 的第一个引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
   
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: “=”: 从“float”转换到“reactphysics3d::uint64”，可能丢失数据
-  (编译源文件“TutorialGame.cpp”)
-      D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
-          查看对正在编译的 类 模板 实例化“reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>”的引用
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'TutorialGame.cpp')
+      D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+          see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
-          D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
-          在编译 类 模板 成员函数“void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)”时
+          D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+          while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
-              请参阅 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
-              D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
-              请参阅 "reactphysics3d::CollisionDetectionSystem::addCollider" 中对 "reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add" 的第一个引用
+              D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+              see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
-  正在生成代码...
-  CSC8503.vcxproj -> D:\vs code\team\CSC8508_project\x64\Debug\CSC8503.exe
+  Generating Code...
+  CSC8503.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。

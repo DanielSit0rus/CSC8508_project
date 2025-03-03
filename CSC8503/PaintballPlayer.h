@@ -54,7 +54,7 @@ namespace NCL::CSC8503 {
 		void Move(float forceMagnitude);
 		void Attack();
 		void UpdatePlayerRotation();
-		void Update() override;
+		void Update(float dt) override;
 
 
 		bool isControl = false;

@@ -17,8 +17,23 @@ PaintballGameObject::~PaintballGameObject() {
     delete physicsObject;
 }
 
-void PaintballGameObject::Update() {
-    transform.SetRpTransform(
-        physicsObject->GetRigidbody().getTransform());
+void PaintballGameObject::Update(float dt) {
+	// Sync physics transform to render transform
+	if (physicsObject) {
+		rp3d::RigidBody& body = physicsObject->GetRigidbody();
+		rp3d::Transform physicsTransform = body.getTransform();
+
+		// Convert physics transform to game transform
+		if (!renderObject || !renderObject->GetAnimation())
+		{
+			transform.SetRpTransform(physicsTransform);
+		}
+
+	}
+
+	// Update animation if applicable
+	if (renderObject && renderObject->GetAnimation()) {
+		renderObject->UpdateAnimation(dt);
+	}
 
 }

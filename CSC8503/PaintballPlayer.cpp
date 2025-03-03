@@ -138,12 +138,10 @@ void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
 	this->GetTransform().SetOrientation(newRotation);
 }
 
-void NCL::CSC8503::PaintballPlayer::Update()
+void NCL::CSC8503::PaintballPlayer::Update(float dt)
 {
-	std::cout << "green " << std::endl;
+	PaintballGameObject::Update(dt);
 
-	transform.SetRpTransform(
-		physicsObject->GetRigidbody().getTransform());
 	if (isControl)
 	{
 		UpdatePlayerRotation();

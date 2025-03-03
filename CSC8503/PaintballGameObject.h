@@ -20,7 +20,7 @@ namespace NCL::CSC8503 {
         PaintballGameObject(const std::string& name = "");
         ~PaintballGameObject();
 
-        virtual void Update();
+        virtual void Update(float dt);
 
         bool IsActive() const {
             return isActive;
