@@ -30,17 +30,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NavigationMesh
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NavigationMesh.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationMesh.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NavigationMap.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationMap.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NavigationPath.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NavigationPath.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\AABBVolume.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\AABBVolume.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CapsuleVolume.h.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CapsuleVolume.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CapsuleVolume.cpp.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CollisionDetection.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionDetection.h.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CollisionDetection.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionDetection.cpp.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CollisionVolume.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\CollisionVolume.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\OBBVolume.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OBBVolume.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\QuadTree.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\QuadTree.h.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\QuadTree.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\QuadTree.cpp.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\Ray.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\Ray.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\SphereVolume.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\SphereVolume.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\GameClient.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameClient.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\GameClient.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameClient.cpp.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\GameServer.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\GameServer.h.obj
@@ -52,8 +41,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NetworkObject.
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NetworkState.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NetworkState.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\NetworkState.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\NetworkState.cpp.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\Constraint.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\Constraint.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\PositionConstraint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PositionConstraint.cpp.obj
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\PositionConstraint.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PositionConstraint.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OrientationConstraint.cpp.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\OrientationConstraint.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\OrientationConstraint.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\PhysicsObject.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503CoreClasses\CSC8503CoreClasses.dir\Debug\PhysicsObject.cpp.obj

@@ -2,8 +2,6 @@
 #include "GameWorld.h"
 #include "TextureLoader.h"
 #include "Vector.h"
-#include "Enemy.h"
-
 using namespace NCL;
 using namespace CSC8503;
 
@@ -34,7 +32,16 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	ResourceManager::GetInstance().LoadAssets(renderer);
 	G1.Init(world);
 
+
 	InitialiseAssets();
+	playerObject->InitializeController();
+	GameManager::GetInstance().SetPlayer(playerObject);
+	G1.SetGameState(GameState::InGame);
+	
+
+
+	
+	
 	
 }
 
@@ -78,7 +85,7 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	const Camera& camera = world->GetMainCamera();
-
+	inputManager.Update();
 	GameManager::GetInstance().Update();
 	UpdateKeys();
 
@@ -86,6 +93,8 @@ void TutorialGame::UpdateGame(float dt) {
 
 	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+
+	
 
 	world->UpdateWorld(dt);
 
@@ -164,11 +173,14 @@ void TutorialGame::InitCamera() {
 void TutorialGame::InitWorld() {
 	lockedObject = nullptr;
 	selectionObject = nullptr;
-	EnemyAI* enemy = new EnemyAI;
+
 	world->ClearAndErase();
 
-	playerObject = G1.AddPlayerClass(rp3d::Vector3(6, 4, -15));
+	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 22, -21));
+	
 	enemyObject = G1.AddPlayerClass(rp3d::Vector3(1, 1, -1));
+
+	CharacterObject = G1.Addcharacter(rp3d::Vector3(0, 8, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 2, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 	forceMagnitude = 60.0f;
 
@@ -192,11 +204,13 @@ void TutorialGame::InitWorld() {
 	objList_pb.push_back(G1.AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
 
 
-	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(13, 1, -4.8f), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+	objList_pb.push_back(G1.AddSecondConcaveMesh(rp3d::Vector3(200, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 1.0f, 1.0f, 1.0f)));
 
 
+	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 	
-	InitDefaultFloor();
+	//InitDefaultFloor();
 
 }
 
@@ -218,7 +232,6 @@ void TutorialGame::UpdateKeys() {
 		}
 
 	}
-
 
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {

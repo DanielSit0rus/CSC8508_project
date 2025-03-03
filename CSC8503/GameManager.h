@@ -8,8 +8,13 @@
 #include "PaintballBullet.h"
 #include "PaintballPlayer.h"
 #include "BulletContactListener.h"
+#include "Camera.h"
 
 namespace NCL {
+    const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001
+    const UINT16 ENEMY = 0x0002;    // 0000 0000 0000 0010
+    const UINT16 BULLET = 0x0004;   // 0000 0000 0000 0100
+
     enum class GameState {
         MainMenu,
         InGame,
@@ -19,7 +24,7 @@ namespace NCL {
         // add others if necessary
     };
 	namespace CSC8503 {
-        class PaintballPlayer; // Ç°ÏòÉùÃ÷ forward declaration
+        class PaintballPlayer; // Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ forward declaration
         class GameManager
         {
         public:
@@ -33,10 +38,6 @@ namespace NCL {
 
             ~GameManager() {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
-                if (player != nullptr) {
-                    delete player;
-                    player = nullptr;
-                }
             };
 
             void Init(PaintballGameWorld* world);
@@ -51,6 +52,8 @@ namespace NCL {
             PaintballGameObject* AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddSphere(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
+            PaintballGameObject* AddSecondConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
+            PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
 
@@ -72,11 +75,19 @@ namespace NCL {
             PaintballPlayer* GetPlayer() const {
                 return player;
             }
+
+            void SetPlayer(PaintballPlayer* p) {
+                player = p;
+            }
+          
             
+            PerspectiveCamera& GetMainCamera() {
+                return world->GetMainCamera();
+            }
 
         private:
             GameManager() = default;
-            GameState currentState = GameState::MainMenu;
+            GameState currentState = GameState::InGame;
 
             void HandleStateChange(GameState state) {
                 // Implement logic that should happen on state change
@@ -96,7 +107,7 @@ namespace NCL {
 
             //NEW
             std::vector<PaintballGameObject*> gameObjects;
-            PaintballPlayer* player = nullptr;
+            PaintballPlayer* player;
             std::vector<PaintballGameObject*> enemies;
 
 

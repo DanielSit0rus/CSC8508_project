@@ -20,9 +20,12 @@
 #include <fmod.h>
 #include "AudioSystem.h"
 #include "PaintballPlayer.h"
+#include "Enemy.h"
+#include "InputManager.h"
 
 namespace NCL {
 	namespace CSC8503 {
+		class Enemy;
 		class TutorialGame		{
 		public:
 			TutorialGame();
@@ -50,7 +53,7 @@ namespace NCL {
 			
 			void InitDefaultFloor();			
 
-			PaintballGameObject* playerObject;
+			PaintballPlayer* playerObject;
 
 			void CalculatePathToPlayer();
 
@@ -75,6 +78,7 @@ namespace NCL {
 			PaintballGameObject* selectionObject = nullptr;
 			PaintballGameObject* lockedObject = nullptr;
 			PaintballGameObject* enemyObject = nullptr;
+			PaintballGameObject* CharacterObject = nullptr;
 			NavigationMesh* navMesh;
 			std::vector<Vector3> pathNodes;
 
@@ -89,6 +93,10 @@ namespace NCL {
 
 			//shoot 
 			PaintballPlayer* shoottest = nullptr;
+			Enemy* enemy = nullptr;
+
+			InputManager inputManager;
+
 		};
 
 

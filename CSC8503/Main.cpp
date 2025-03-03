@@ -1,7 +1,5 @@
 #include "Main.h"
 
-AudioSystem& audioSystem = AudioSystem::GetInstance();
-
 using namespace NCL;
 using namespace CSC8503;
 
@@ -353,7 +351,7 @@ protected:
 
 int main() {
 	SLSystem::GetInstance().Init();
-	audioSystem.Init();
+	AudioSystem::GetInstance().Init();
 
 	WindowInitialisation initInfo;
 	initInfo.width		= 1280;
@@ -413,12 +411,12 @@ int main() {
 
 		g->UpdateGame(dt);
 
-		audioSystem.Update();
+		AudioSystem::GetInstance().Update();
 	} 
 	EventManager::Trigger(EventType::Game_End);
 
 	console.detach();
-	audioSystem.Release();
+	AudioSystem::GetInstance().Release();
 
 	Window::DestroyGameWindow();
 }

@@ -13,6 +13,7 @@ namespace NCL::CSC8503 {
 	public:
 		PaintballPlayer(const std::string& name = "");
 		~PaintballPlayer();
+		void InitController(PaintballPhysicsObject* physObj, PerspectiveCamera* cam);
 		void GetColor();
 		void SetColor();
 
@@ -22,34 +23,21 @@ namespace NCL::CSC8503 {
 			}
 			controller = new CharacterController(physicsObject, camera);
 		}
+		// Called by InputManager
+		void MoveForward(float force);
+		void MoveBackward(float force);
+		void MoveLeft(float force);
+		void MoveRight(float force);
+		void Jump(float force);
+		void GoDown(float force);
 
-		void MoveForward(float forceMagnitude) {
-			controller->MoveForward(forceMagnitude);
-		}
-
-		void MoveBackward(float forceMagnitude) {
-			controller->MoveBackward(forceMagnitude);
-		}
-
-		void MoveLeft(float forceMagnitude) {
-			controller->MoveLeft(forceMagnitude);
-		}
-
-		void MoveRight(float forceMagnitude) {
-			controller->MoveRight(forceMagnitude);
-		}
-
-		void Jump(float forceMagnitude) {
-			controller->Jump(forceMagnitude);
-		}
-
-		void GoDown(float forceMagnitude) {
-			controller->GoDown(forceMagnitude);
-		}
 
 		void SetCamera(PerspectiveCamera* cam) {
 			camera = cam;
 		}
+
+		PerspectiveCamera* GetCamera() const { return camera; }
+
 
 		CharacterController* GetController() const {
 			return controller;

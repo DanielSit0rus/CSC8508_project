@@ -48,6 +48,7 @@ namespace NCL {
 
 			OGLShader*  debugShader;
 			OGLShader*  skyboxShader;
+			OGLShader* animShader;
 			OGLMesh*	skyboxMesh;
 			OGLMesh*	debugTexMesh;
 			GLuint		skyboxTex;

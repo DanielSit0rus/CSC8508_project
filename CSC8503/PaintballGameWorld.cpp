@@ -61,7 +61,25 @@ void PaintballGameWorld::UpdateWorld(float dt) {
 	std::default_random_engine e(seed);
 
 	for (auto& obj : gameObjects) {
-		obj->Update();
+		// Sync physics transform to render transform
+		PaintballPhysicsObject* physicsObj = obj->GetPhysicsObject();
+		if (physicsObj) {
+			rp3d::RigidBody& body = obj->GetPhysicsObject()->GetRigidbody();
+			rp3d::Transform physicsTransform = body.getTransform();
+
+			// Convert physics transform to game transform
+			if (!obj->GetRenderObject() || !obj->GetRenderObject()->GetAnimation())
+			{
+				obj->GetTransform().SetRpTransform(physicsTransform);
+			}
+			
+		}
+
+		// Update animation if applicable
+		PaintballRenderObject* renderObj = obj->GetRenderObject();
+		if (renderObj && renderObj->GetAnimation()) {
+			renderObj->UpdateAnimation(dt);
+		}
 	}
 
 	if (shuffleObjects) {

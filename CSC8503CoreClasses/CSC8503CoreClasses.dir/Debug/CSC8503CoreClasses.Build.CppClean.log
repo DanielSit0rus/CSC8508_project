@@ -11,6 +11,11 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.cpp.obj
+c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_draw.obj
+c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_demo.obj
+c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imconfig.obj
+c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\peer.obj
+c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\packet.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\host.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\compress.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\utility.obj
@@ -19,11 +24,6 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\callbacks.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\constraint.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\spherevolume.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\ray.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\obbvolume.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisionvolume.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\aabbvolume.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationpath.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmap.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statetransition.obj
@@ -38,11 +38,6 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_tables.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_internal.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_impl_opengl3_loader.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_draw.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_demo.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imconfig.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\peer.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\packet.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.h.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behavioursequence.h.obj
@@ -57,12 +52,6 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.h.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\capsulevolume.h.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\capsulevolume.cpp.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.h.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\collisiondetection.cpp.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.h.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\quadtree.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.h.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.h.obj
@@ -73,8 +62,6 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkobject.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.h.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.cpp.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\positionconstraint.cpp.obj
-c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\positionconstraint.h.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.cpp.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.h.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicsobject.cpp.obj

@@ -4,17 +4,33 @@
 using namespace NCL::CSC8503;
 using namespace NCL;
 
-PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader) {
-	if (!tex) {
-		bool a = true;
-	}
-	this->transform = parentTransform;
-	this->mesh = mesh;
-	this->texture = tex;
-	this->shader = shader;
-	this->colour = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
+    MeshAnimation* animation, MeshMaterial* material)
+    : transform(parentTransform), mesh(mesh), texture(tex), shader(shader), animation(animation), material(material) {
+    colour = Vector4(1, 1, 1, 1);
+    currentFrame = 0;
+    frameTime = 0.0f;
 }
 
 PaintballRenderObject::~PaintballRenderObject() {
 
+    delete animation;
+    delete material;
+}
+
+void PaintballRenderObject::UpdateAnimation(float dt) {
+    if (!animation)
+    {
+        return;
+    }
+    int frameCount = animation->GetFrameCount();
+    if (frameCount <= 1) {
+        std::cout << "Animation has too few frames!" << std::endl;
+        return;
+    }
+    frameTime -= dt;
+    while (frameTime < 0.0f) {
+        currentFrame = (currentFrame + 1) % animation->GetFrameCount();
+        frameTime += 1.0f / animation->GetFrameRate();
+    }
 }
