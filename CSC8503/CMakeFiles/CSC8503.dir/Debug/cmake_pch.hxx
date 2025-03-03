@@ -14,9 +14,9 @@
 #include <iostream>
 #include <chrono>
 #include <sstream>
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus

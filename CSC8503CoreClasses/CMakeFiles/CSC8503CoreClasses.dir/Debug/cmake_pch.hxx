@@ -12,9 +12,9 @@
 #include <functional>
 #include <iostream>
 #include <set>
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "C:/TeamProject/NewRep/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
+#include "D:/vs code/team/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus

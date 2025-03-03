@@ -36,17 +36,17 @@ void InputManager::HandleGameInput() {
     PaintballPlayer* player = GameManager::GetInstance().GetPlayer();
 
     if (!player) {
-        std::cout << "[HandleGameInput] Warning: No player to control!" << std::endl;
+       // std::cout << "[HandleGameInput] Warning: No player to control!" << std::endl;
         return;
     }
 
     CharacterController* controller = player->GetController();
     if (!controller) {
-        std::cout << "[HandleGameInput] Player found, but controller is NULL!" << std::endl;
+       // std::cout << "[HandleGameInput] Player found, but controller is NULL!" << std::endl;
         return;
     }
     else {
-        std::cout << "[HandleGameInput] Player found, controller is valid. Processing input..." << std::endl;
+       // std::cout << "[HandleGameInput] Player found, controller is valid. Processing input..." << std::endl;
     }
 
     float moveForce = 10.0f; // Example default force

@@ -35,6 +35,26 @@ void PaintballPlayer::SetColor()
 {
 }
 
+void NCL::CSC8503::PaintballPlayer::SwitchWeapon(WeaponType newWeapon)
+{
+	currentWeapon = newWeapon;
+	std::cout << "Switched to weapon: " << static_cast<int>(newWeapon) << std::endl;
+}
+
+void NCL::CSC8503::PaintballPlayer::UpdateWeaponSelection()
+{
+
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::B)) {
+		SwitchWeapon(WeaponType::RedGun);
+	}
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::N)) {
+		SwitchWeapon(WeaponType::BlueGun);
+	}
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::M)) {
+		SwitchWeapon(WeaponType::GreenGun);
+	}
+}
+
 //void PaintballPlayer::Move(float forceMagnitude)
 //{
 //
@@ -87,8 +107,26 @@ void PaintballPlayer::GoDown(float force) {
 
 void PaintballPlayer::Attack()
 {
-	//����һ���ӵ���������
-	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,5,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation());
+	Vector4 bulletColor;
+
+	switch (currentWeapon) {
+	case WeaponType::RedGun:
+		bulletColor = Vector4(1, 0, 0,1); // 红色
+		std::cout << "red "<<std::endl;
+		break;
+	case WeaponType::BlueGun:
+		bulletColor = Vector4(0, 0, 1,1); // 蓝色
+		std::cout << "blue " << std::endl;
+
+		break;
+	case WeaponType::GreenGun:
+		bulletColor = Vector4(0, 1, 0,1); // 绿色
+		std::cout << "green " << std::endl;
+
+		break;
+	}
+
+	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,5,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation(),bulletColor);
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
@@ -102,12 +140,15 @@ void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
 
 void NCL::CSC8503::PaintballPlayer::Update()
 {
+	std::cout << "green " << std::endl;
+
 	transform.SetRpTransform(
 		physicsObject->GetRigidbody().getTransform());
 	if (isControl)
 	{
 		UpdatePlayerRotation();
 		//Move(10.0f); // ����� 10.0f ֻ��ʾ��
-		
 	}
+	UpdateWeaponSelection(); // 添加武器切换
+
 }

@@ -8,6 +8,11 @@
 
 
 namespace NCL::CSC8503 {
+	enum class WeaponType {
+		RedGun,
+		BlueGun,
+		GreenGun
+	};
 	class PaintballPlayer :public PaintballGameObject
 	{
 	public:
@@ -16,6 +21,9 @@ namespace NCL::CSC8503 {
 		void InitController(PaintballPhysicsObject* physObj, PerspectiveCamera* cam);
 		void GetColor();
 		void SetColor();
+
+		void SwitchWeapon(WeaponType newWeapon);
+		void UpdateWeaponSelection();
 
 		void InitializeController() {
 			if (!physicsObject || !camera) {
@@ -54,6 +62,7 @@ namespace NCL::CSC8503 {
 		Vector4 color;
 		PerspectiveCamera* camera;
 		CharacterController* controller;
+		WeaponType currentWeapon = WeaponType::RedGun; // Ä¬ÈÏÎäÆ÷
 		
 	};
 }
