@@ -23,8 +23,8 @@ namespace NCL {
         GameOver
         // add others if necessary
     };
-	namespace CSC8503 {
-        class PaintballPlayer; // ǰ������ forward declaration
+    namespace CSC8503 {
+        class PaintballPlayer; // ǰ       forward declaration
         class GameManager
         {
         public:
@@ -57,7 +57,7 @@ namespace NCL {
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
 
-            PaintballGameObject* AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+            PaintballGameObject* AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass = 10.0f);
 
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
@@ -79,8 +79,8 @@ namespace NCL {
             void SetPlayer(PaintballPlayer* p) {
                 player = p;
             }
-          
-            
+
+
             PerspectiveCamera& GetMainCamera() {
                 return world->GetMainCamera();
             }
@@ -122,5 +122,5 @@ namespace NCL {
             //NavigationMesh* navMesh;
 
         };
-	}
+    }
 }

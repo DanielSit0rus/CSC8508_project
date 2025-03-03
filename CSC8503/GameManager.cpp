@@ -11,7 +11,7 @@ void GameManager::Init(PaintballGameWorld* world)
         std::cerr << "Error: Failed to create Physics World!" << std::endl;
         throw std::runtime_error("Physics World creation failed!");
     }
-    
+
 
     RpWorld->setEventListener(&bulletlistener);
 }
@@ -88,18 +88,18 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
 }
 
 PaintballGameObject* GameManager::AddFloorToWorld(const rp3d::Vector3& position) {
-    return AddCube(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f),0, Vector4(1,1,1,1));
+    return AddCube(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1, 1, 1, 1));
 }
 
 PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
-    
+
     PaintballGameObject* p = AddCube(position, rp3d::Vector3(0.3f, 1, 0.3f), rp3d::Quaternion(0, 0, 0, 1.0f));
     p->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
     return p;
 }
 
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
-    
+
     rp3d::Vector3 dimensions = rp3d::Vector3(0.3f, 1, 0.3f);
 
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -138,7 +138,7 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 }
 
 PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
-    
+
 
     ResourceManager& resources = ResourceManager::GetInstance();
 
@@ -195,7 +195,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
         .SetOrientation(orientation)
         .SetScale(dimensions);
 
-    concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),resources.GetMapMesh(), resources.GetBasicTex(),resources.GetBasicShader()));
+    concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(), resources.GetMapMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
 
     concave->GetRenderObject()->SetColour(color);
 
@@ -258,7 +258,7 @@ PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& posi
 }
 
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
+PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
     PaintballBullet* cube = new PaintballBullet("bullet");
@@ -285,7 +285,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
     cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
     cube->GetPhysicsObject()->SetMass(mass);
 
-    // 设置子弹（只与玩家碰撞，不与敌人碰撞）
+    //      ?   ?       ?           ?  
     collider->setCollisionCategoryBits(BULLET);
 
     world->AddGameObject(cube);
