@@ -21,6 +21,7 @@
 #include "AudioSystem.h"
 #include "PaintballPlayer.h"
 #include "Enemy.h"
+#include "InputManager.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -52,7 +53,7 @@ namespace NCL {
 			
 			void InitDefaultFloor();			
 
-			PaintballGameObject* playerObject;
+			PaintballPlayer* playerObject;
 
 			void CalculatePathToPlayer();
 
@@ -93,6 +94,8 @@ namespace NCL {
 			//shoot 
 			PaintballPlayer* shoottest = nullptr;
 			Enemy* enemy = nullptr;
+
+			InputManager inputManager;
 
 		};
 

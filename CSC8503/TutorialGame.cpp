@@ -32,7 +32,16 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	ResourceManager::GetInstance().LoadAssets(renderer);
 	G1.Init(world);
 
+
 	InitialiseAssets();
+	playerObject->InitializeController();
+	GameManager::GetInstance().SetPlayer(playerObject);
+	G1.SetGameState(GameState::InGame);
+	
+
+
+	
+	
 	
 }
 
@@ -76,7 +85,7 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	const Camera& camera = world->GetMainCamera();
-
+	inputManager.Update();
 	GameManager::GetInstance().Update();
 	UpdateKeys();
 
@@ -84,6 +93,8 @@ void TutorialGame::UpdateGame(float dt) {
 
 	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+
+	
 
 	world->UpdateWorld(dt);
 
@@ -165,7 +176,8 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
-	playerObject = G1.AddPlayerClass(rp3d::Vector3(6, 4, -15));
+	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 22, -21));
+	
 	enemyObject = G1.AddPlayerClass(rp3d::Vector3(1, 1, -1));
 
 	CharacterObject = G1.Addcharacter(rp3d::Vector3(0, 8, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 2, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -173,7 +185,7 @@ void TutorialGame::InitWorld() {
 	forceMagnitude = 60.0f;
 
 
-	Light light2(Vector3(3, 12, -14), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
+	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
 	renderer->AddLight(light2);
 
 

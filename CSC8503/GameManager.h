@@ -75,6 +75,11 @@ namespace NCL {
             PaintballPlayer* GetPlayer() const {
                 return player;
             }
+
+            void SetPlayer(PaintballPlayer* p) {
+                player = p;
+            }
+          
             
             PerspectiveCamera& GetMainCamera() {
                 return world->GetMainCamera();
@@ -82,7 +87,7 @@ namespace NCL {
 
         private:
             GameManager() = default;
-            GameState currentState = GameState::MainMenu;
+            GameState currentState = GameState::InGame;
 
             void HandleStateChange(GameState state) {
                 // Implement logic that should happen on state change
@@ -102,7 +107,7 @@ namespace NCL {
 
             //NEW
             std::vector<PaintballGameObject*> gameObjects;
-            PaintballPlayer* player = nullptr;
+            PaintballPlayer* player;
             std::vector<PaintballGameObject*> enemies;
 
 
