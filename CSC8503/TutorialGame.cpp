@@ -176,11 +176,13 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
+	ResourceManager::GetInstance().ReloadAnimations();
+
 	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 22, -21));
 	
 	enemyObject = G1.AddPlayerClass(rp3d::Vector3(1, 1, -1));
 
-	CharacterObject = G1.Addcharacter(rp3d::Vector3(0, 8, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 2, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+	CharacterObject = G1.Addcharacter(rp3d::Vector3(0, 8, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 2, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 
 	forceMagnitude = 60.0f;
 

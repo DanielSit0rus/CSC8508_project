@@ -14,6 +14,7 @@ namespace NCL {
             }
 
             void LoadAssets(GameTechRenderer* renderer);
+            void ReloadAnimations();
 
             // Getters for assets
             Mesh* GetCubeMesh() const { return cubeMesh; }

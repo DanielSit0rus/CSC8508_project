@@ -23,3 +23,19 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
     }
 }
 
+void ResourceManager::ReloadAnimations() {
+
+    if (Roleanim) {
+        //delete Roleanim;
+        Roleanim = nullptr;
+        Rolemat = nullptr;
+    }
+
+    Roleanim = new MeshAnimation("Role_T.anm");
+    Rolemat = new MeshMaterial("Role_T.mat");
+
+    if (!Roleanim) {
+        std::cerr << "Error: Failed to reload role animation!" << std::endl;
+    }
+}
+
