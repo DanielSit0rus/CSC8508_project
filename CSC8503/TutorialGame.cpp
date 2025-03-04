@@ -53,7 +53,7 @@ for this module, even in the coursework, but you can add it if you like!
 void TutorialGame::InitialiseAssets() {
 
 	
-	navMesh = new NavigationMesh("Map1Navigation");
+	navMesh = new NavigationMesh("Map1Navmesh","SecondMapMesh");
 
 	InitWorld();
 	InitCamera();

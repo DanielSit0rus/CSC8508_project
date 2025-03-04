@@ -7,11 +7,8 @@ using namespace NCL;
 using namespace CSC8503;
 using namespace std;
 
-NavigationMesh::NavigationMesh()
-{
-}
 
-NavigationMesh::NavigationMesh(const std::string&filename)
+void NavigationMesh::LoadNavMesh(const std::string&filename, Vector3 offset, float scaleFactor)
 {
 	ifstream file(Assets::DATADIR + filename);
 	if (!file.is_open()) {
@@ -27,22 +24,23 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 	Debug::Print("Loaded " + std::to_string(numVertices) + " vertices and " +
 		std::to_string(numIndices) + " indices.", Vector2(10, 20), Debug::GREEN);
 
-	// Transform reference point (-13.06667, 1.016667, 4.8) to (0, 1, 0)
-    Vector3 referencePoint(-13.06667f, 1.016667f, 4.8f);
-    Vector3 targetPoint(0.0f, 1.0f, 0.0f);
-    Vector3 translation = targetPoint - referencePoint;
+	int startIndex = allVerts.size();
 
-	allVerts.reserve(numVertices); // avoid reallocation
+	allVerts.reserve(allVerts.size() + numVertices); // avoid reallocation
 	for (int i = 0; i < numVertices; ++i) {
 		Vector3 vert;
 		file >> vert.x;
 		file >> vert.y;
 		file >> vert.z;
-		vert += translation;
+
+		vert += offset;
+		vert *= scaleFactor;
+
 		allVerts.emplace_back(vert);
 	}
 
-	allTris.resize(numIndices / 3);
+	size_t currentTris = allTris.size();
+	allTris.resize(currentTris + (numIndices / 3));
 
 	for (int i = 0; i < allTris.size(); ++i) {
 		NavTri* tri = &allTris[i];
@@ -50,11 +48,16 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 		file >> tri->indices[1];
 		file >> tri->indices[2];
 
+		tri->indices[0] += startIndex;
+		tri->indices[1] += startIndex;
+		tri->indices[2] += startIndex;
+
+
 		tri->centroid = allVerts[tri->indices[0]] +
 			allVerts[tri->indices[1]] +
 			allVerts[tri->indices[2]];
 
-		tri->centroid = allTris[i].centroid / 3.0f;
+		tri->centroid /= 3.0f;
 
 		tri->triPlane = Plane::PlaneFromTri(allVerts[tri->indices[0]],
 			allVerts[tri->indices[1]],
@@ -68,12 +71,24 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 			int index = 0;
 			file >> index;
 			if (index != -1) {
-				tri->neighbours[j] = &allTris[index];
+				if (index >= 0 && index < allTris.size()) {
+					tri->neighbours[j] = &allTris[index];
+				}
+
+				else {
+					tri->neighbours[j] = nullptr;
+				}
 			}
 		}
 	}
 
+
 	Debug::Print("Navigation mesh loaded successfully.", Vector2(10, 30), Debug::GREEN);
+}
+
+NavigationMesh::NavigationMesh(const std::string& filename1, const std::string& filename2) {
+	NavigationMesh::LoadNavMesh(filename1, Vector3(1000, 0, 1500), 0.5f);
+	NavigationMesh::LoadNavMesh(filename2, Vector3(-20, 0, 0), 5.0f);
 }
 
 NavigationMesh::~NavigationMesh()

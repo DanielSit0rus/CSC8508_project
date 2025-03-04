@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeLists.txt
+﻿  Building Custom Rule D:/CSC8503/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -20,7 +20,7 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   Generating Code...
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+D:\CSC8503\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
   Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -96,4 +96,4 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   Generating Code...
-  ReactPhysics3D.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\Debug\ReactPhysics3D.lib
+  ReactPhysics3D.vcxproj -> D:\CSC8503\CSC8508_project\Debug\ReactPhysics3D.lib
