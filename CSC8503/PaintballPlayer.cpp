@@ -40,13 +40,13 @@ void NCL::CSC8503::PaintballPlayer::SwitchWeapon(WeaponType newWeapon)
 void NCL::CSC8503::PaintballPlayer::UpdateWeaponSelection()
 {
 
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::B)) {
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM1)) {
 		SwitchWeapon(WeaponType::RedGun);
 	}
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::N)) {
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM2)) {
 		SwitchWeapon(WeaponType::BlueGun);
 	}
-	if (Window::GetKeyboard()->KeyPressed(KeyCodes::M)) {
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM3)) {
 		SwitchWeapon(WeaponType::GreenGun);
 	}
 }
@@ -122,7 +122,7 @@ void PaintballPlayer::Attack()
 		break;
 	}
 
-	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition() + rp3d::Vector3(0, 5, 0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation(), bulletColor);
+	GameManager::GetInstance().AddBullet(false, GetTransform().GetPosition()+rp3d::Vector3(0,4,0), rp3d::Vector3(1, 1, 1), GetTransform().GetOrientation(), bulletColor);
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()

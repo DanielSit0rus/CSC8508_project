@@ -18,6 +18,7 @@ void GameManager::Init(PaintballGameWorld* world)
 
 void GameManager::Update() {
     for (auto object : objectsToDelete) {
+        std::cout << "name = [" << object->GetName()<<"]" << std::endl;
         world->RemoveGameObject(object, true);
     }
     objectsToDelete.clear();
@@ -287,6 +288,10 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
 
     //      ?   ?       ?           ?  
     collider->setCollisionCategoryBits(BULLET);
+    float speed = 30.0f; // 设置初速度
+    rp3d::Vector3 forward = orientation * rp3d::Vector3(0, 0, -1); // 计算前向方向
+    rp3d::Vector3 velocity = forward * speed; // 计算速度向量
+    cubeBody->setLinearVelocity(velocity); // 设置初速度
 
     world->AddGameObject(cube);
 

@@ -19,7 +19,6 @@ void NCL::CSC8503::BulletContactListener::onContact(const rp3d::CollisionCallbac
 		}
 		if ((name2 == "bullet")) {
 			std::cout << "子弹击中目标！" << std::endl;
-			PaintballGameObject* a = (PaintballBullet*)body2->getUserData();
 			GameManager::GetInstance().DeleteObject((PaintballBullet*)body2->getUserData());
 		}
 	}
