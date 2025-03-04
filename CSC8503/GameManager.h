@@ -9,6 +9,7 @@
 #include "PaintballPlayer.h"
 #include "BulletContactListener.h"
 #include "Camera.h"
+#include <unordered_set>
 
 namespace NCL {
     const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001
@@ -61,7 +62,9 @@ namespace NCL {
 
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
-            void DeleteObject(PaintballGameObject* obj) { objectsToDelete.push_back(obj); }
+            void DeleteObject(PaintballGameObject* obj) {
+                    objectsToDelete.insert(obj);
+            }
 
             // GameState management
             void SetGameState(GameState newState) {
@@ -117,7 +120,9 @@ namespace NCL {
             rp3d::PhysicsWorld::WorldSettings RpSettings;
             BulletContactListener bulletlistener;
 
-            std::vector<PaintballGameObject*> objectsToDelete;
+            std::unordered_set<PaintballGameObject*> objectsToDelete;
+
+            
 
             //NavigationMesh* navMesh;
 

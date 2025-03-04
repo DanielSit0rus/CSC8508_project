@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeLists.txt
+﻿  Building Custom Rule D:/vs code/team/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -19,9 +19,9 @@
   CollisionDispatch.cpp
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
-  Generating Code...
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
-  Compiling...
+  正在生成代码...
+D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: “reactphysics3d::TriangleVertexArray::getVertex”: 不是所有的控件路径都返回值
+  正在编译...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
   NarrowPhaseInput.cpp
@@ -42,8 +42,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   SphereShape.cpp
   TriangleShape.cpp
   BallAndSocketJointComponents.cpp
-  Generating Code...
-  Compiling...
+  正在生成代码...
+  正在编译...
   BodyComponents.cpp
   ColliderComponents.cpp
   Components.cpp
@@ -64,8 +64,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   Island.cpp
   Material.cpp
   OverlappingPairs.cpp
-  Generating Code...
-  Compiling...
+  正在生成代码...
+  正在编译...
   PhysicsCommon.cpp
   PhysicsWorld.cpp
   Matrix2x2.cpp
@@ -86,8 +86,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   DynamicsSystem.cpp
   SolveBallAndSocketJointSystem.cpp
   SolveFixedJointSystem.cpp
-  Generating Code...
-  Compiling...
+  正在生成代码...
+  正在编译...
   SolveHingeJointSystem.cpp
   SolveSliderJointSystem.cpp
   DebugRenderer.cpp
@@ -95,5 +95,5 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\
   Profiler.cpp
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
-  Generating Code...
-  ReactPhysics3D.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\Debug\ReactPhysics3D.lib
+  正在生成代码...
+  ReactPhysics3D.vcxproj -> D:\vs code\team\CSC8508_project\Debug\ReactPhysics3D.lib
