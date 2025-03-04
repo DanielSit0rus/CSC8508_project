@@ -115,11 +115,11 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     // Create render object with animation support
     PaintballRenderObject* renderObj = new PaintballRenderObject(
         &player->GetTransform(),
-        resources.GetRoleMesh(),
-        resources.GetBasicTex(),
-        resources.GetBasicShader(),
-        resources.GetRoleanim(),
-        resources.GetRolemat()
+        resources.GetRoleMesh(),    
+        resources.GetBasicTex(),     
+        resources.GetBasicShader(),  
+        resources.GetRoleanim(),     
+        resources.GetRolemat()      
     );
 
     renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
@@ -158,44 +158,6 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     return player;
 }
 
-//PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
-//
-//    rp3d::Vector3 dimensions = rp3d::Vector3(0.3f, 1, 0.3f);
-//
-//    ResourceManager& resources = ResourceManager::GetInstance();
-//
-//    //PaintballPlayer* cube = new PaintballPlayer();
-//    player = new PaintballPlayer();
-//
-//    player->GetTransform()
-//        .SetPosition(position)
-//        .SetScale(dimensions * 2.0f);
-//
-//    player->SetRenderObject(new PaintballRenderObject(&player->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
-//    player->GetRenderObject()->SetColour(Vector4(0, 0, 1, 1));
-//
-//    // create a rigid body
-//    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(player->GetTransform().GetRpTransform());
-//    // create Shape
-//    rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
-//    //rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
-//    // bind Shape to rigid body
-//    rp3d::Transform shapeTransform = rp3d::Transform::identity();
-//    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
-//    //add rigid body to gameobject
-//    player->SetPhysicsObject(new PaintballPhysicsObject(&player->GetTransform(), *cubeBody, *RpWorld));
-//    player->GetPhysicsObject()->SetMass(1);
-//    player->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
-//
-//    collider->setCollisionCategoryBits(PLAYER);
-//
-//    player->SetCamera(&world->GetMainCamera());
-//
-//    world->AddGameObject(player);
-//
-//    return player;
-//
-//}
 
 PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
 
