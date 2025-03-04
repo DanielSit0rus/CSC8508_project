@@ -210,7 +210,7 @@ void TutorialGame::InitWorld() {
 
 	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 
-	GameManager::GetInstance().SetPlayer(playerObject);
+	GameManager::GetInstance().SetPlayer(shoottest);
 	G1.SetGameState(GameState::InGame);
 	
 	//InitDefaultFloor();
@@ -296,10 +296,10 @@ void TutorialGame::LockedObjectMovement() {
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
 	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-	if (lockedObject == shoottest) {
-		shoottest->isControl = true;
-		return;
-	}
+	//if (lockedObject == shoottest) {
+	//	shoottest->isControl = true;
+	//	return;
+	//}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
 	}
