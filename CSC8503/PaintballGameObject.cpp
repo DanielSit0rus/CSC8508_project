@@ -22,12 +22,7 @@ void PaintballGameObject::Update(float dt) {
 	if (physicsObject) {
 		rp3d::RigidBody& body = physicsObject->GetRigidbody();
 		rp3d::Transform physicsTransform = body.getTransform();
-
-		// Convert physics transform to game transform
-		if (!renderObject || !renderObject->GetAnimation())
-		{
-			transform.SetRpTransform(physicsTransform);
-		}
+		transform.SetRpTransform(physicsTransform);
 
 	}
 
