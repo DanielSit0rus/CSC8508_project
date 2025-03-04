@@ -34,9 +34,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 
 	InitialiseAssets();
-	playerObject->InitializeController();
-	GameManager::GetInstance().SetPlayer(playerObject);
-	G1.SetGameState(GameState::InGame);
+	
 	
 
 
@@ -211,6 +209,9 @@ void TutorialGame::InitWorld() {
 
 
 	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+
+	GameManager::GetInstance().SetPlayer(playerObject);
+	G1.SetGameState(GameState::InGame);
 	
 	//InitDefaultFloor();
 

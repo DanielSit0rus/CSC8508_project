@@ -19,14 +19,10 @@ NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 	delete networkObject;
 	delete renderObject;
 	delete physicsObject;
-	delete controller;
-	controller = nullptr;
 	camera = nullptr;
 }
 
-void PaintballPlayer::InitController(PaintballPhysicsObject* physObj, PerspectiveCamera* cam) {
-	controller = new CharacterController(physObj, cam);
-}
+
 
 void PaintballPlayer::GetColor()
 {
@@ -84,24 +80,24 @@ void NCL::CSC8503::PaintballPlayer::UpdateWeaponSelection()
 //}
 
 
-void PaintballPlayer::MoveForward(float force) {
-	if (controller) controller->MoveForward(force);
-}
-void PaintballPlayer::MoveBackward(float force) {
-	if (controller) controller->MoveBackward(force);
-}
-void PaintballPlayer::MoveLeft(float force) {
-	if (controller) controller->MoveLeft(force);
-}
-void PaintballPlayer::MoveRight(float force) {
-	if (controller) controller->MoveRight(force);
-}
-void PaintballPlayer::Jump(float force) {
-	if (controller) controller->Jump(force);
-}
-void PaintballPlayer::GoDown(float force) {
-	if (controller) controller->GoDown(force);
-}
+//void PaintballPlayer::MoveForward(float force) {
+//	if (controller) controller->MoveForward(force);
+//}
+//void PaintballPlayer::MoveBackward(float force) {
+//	if (controller) controller->MoveBackward(force);
+//}
+//void PaintballPlayer::MoveLeft(float force) {
+//	if (controller) controller->MoveLeft(force);
+//}
+//void PaintballPlayer::MoveRight(float force) {
+//	if (controller) controller->MoveRight(force);
+//}
+//void PaintballPlayer::Jump(float force) {
+//	if (controller) controller->Jump(force);
+//}
+//void PaintballPlayer::GoDown(float force) {
+//	if (controller) controller->GoDown(force);
+//}
 
 
 

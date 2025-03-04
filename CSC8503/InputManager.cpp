@@ -1,10 +1,11 @@
 #include "InputManager.h"
 #include "GameManager.h"
+#include "Window.h"
+#include <iostream>
 
 using namespace NCL::CSC8503;
 
 void InputManager::Update() {
-    // Check the current game state from GameManager.
     GameState currentState = GameManager::GetInstance().GetGameState();
     switch (currentState) {
     case GameState::MainMenu:
@@ -13,73 +14,106 @@ void InputManager::Update() {
     case GameState::InGame:
         HandleGameInput();
         break;
-        // Add other states if need
     default:
         break;
     }
 }
 
 void InputManager::HandleMainMenuInput() {
-
-    // This is purely conceptual:
-    if (IsKeyPressed(KeyCodes::W)) {
-       
-    }
-    if (IsKeyPressed(KeyCodes::S)) {
-      
-    }
-    // Possibly an ENTER for selection...
-    // if (IsKeyPressed(KeyCodes::ENTER)) { ... }
+    // Placeholder for menu input handling
 }
 
 void InputManager::HandleGameInput() {
     PaintballPlayer* player = GameManager::GetInstance().GetPlayer();
-
     if (!player) {
-        std::cout << "[HandleGameInput] Warning: No player to control!" << std::endl;
+        std::cout << "[HandleGameInput] No player to control!" << std::endl;
         return;
     }
 
-    CharacterController* controller = player->GetController();
-    if (!controller) {
-        std::cout << "[HandleGameInput] Player found, but controller is NULL!" << std::endl;
+    PaintballPhysicsObject* physicsObject = player->GetPhysicsObject();
+    if (!physicsObject) {
+        std::cout << "[HandleGameInput] Player has no physics object!" << std::endl;
         return;
     }
-    else {
-        std::cout << "[HandleGameInput] Player found, controller is valid. Processing input..." << std::endl;
+
+    PerspectiveCamera* camera = player->GetCamera();
+    if (!camera) {
+        std::cout << "[HandleGameInput] Player has no camera!" << std::endl;
+        return;
     }
 
     float moveForce = 10.0f; // Example default force
 
     if (IsKeyPressed(KeyCodes::UP)) {
-        std::cout << "Key is pressed! (Code: UP)" << std::endl;
-        player->MoveForward(moveForce);
+        MoveForward(physicsObject, camera, moveForce);
     }
     if (IsKeyPressed(KeyCodes::DOWN)) {
-        std::cout << "Key is pressed! (Code: DOWN)" << std::endl;
-        player->MoveBackward(moveForce);
+        MoveBackward(physicsObject, camera, moveForce);
     }
     if (IsKeyPressed(KeyCodes::LEFT)) {
-        std::cout << "Key is pressed! (Code: LEFT)" << std::endl;
-        player->MoveLeft(moveForce);
+        MoveLeft(physicsObject, camera, moveForce);
     }
     if (IsKeyPressed(KeyCodes::RIGHT)) {
-        std::cout << "Key is pressed! (Code: RIGHT)" << std::endl;
-        player->MoveRight(moveForce);
+        MoveRight(physicsObject, camera, moveForce);
     }
     if (IsKeyPressed(KeyCodes::SPACE)) {
-        std::cout << "Key is pressed! (Code: SPACE)" << std::endl;
-        player->Jump(moveForce);
+        Jump(physicsObject, moveForce);
     }
     if (IsKeyPressed(KeyCodes::SHIFT)) {
-        std::cout << "Key is pressed! (Code: SHIFT)" << std::endl;
-        player->GoDown(moveForce);
+        GoDown(physicsObject, moveForce);
     }
 }
 
-
-
 bool InputManager::IsKeyPressed(KeyCodes::Type key) {
-    // Check if key is currently held down
     return Window::GetKeyboard()->KeyDown(key);
+}
+
+// Movement functions (previously in CharacterController) now inside InputManager
+
+void InputManager::MoveForward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
+    Vector3 fwd = CalculateForward(camera);
+    physicsObject->AddForce(Util::NCLToRP3d(fwd * forceMagnitude));
+}
+
+void InputManager::MoveBackward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
+    Vector3 fwd = CalculateForward(camera);
+    physicsObject->AddForce(Util::NCLToRP3d(-fwd * forceMagnitude));
+}
+
+void InputManager::MoveRight(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
+    Vector3 right = CalculateRight(camera);
+    physicsObject->AddForce(Util::NCLToRP3d(right * forceMagnitude));
+}
+
+void InputManager::MoveLeft(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
+    Vector3 right = CalculateRight(camera);
+    physicsObject->AddForce(Util::NCLToRP3d(-right * forceMagnitude));
+}
+
+void InputManager::Jump(PaintballPhysicsObject* physicsObject, float forceMagnitude) {
+    if (physicsObject->isStand()) {
+        physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.025f, 0));
+    }
+}
+
+void InputManager::GoDown(PaintballPhysicsObject* physicsObject, float forceMagnitude) {
+    physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
+}
+
+// Calculate movement direction based on camera
+
+Vector3 InputManager::CalculateForward(PerspectiveCamera* camera) {
+    const Matrix4& view = camera->BuildViewMatrix();
+    const Matrix4& camWorld = Matrix::Inverse(view);
+    Vector3 right = Vector3(camWorld.GetColumn(0));
+    Vector3 forward = Vector::Cross(Vector3(0, 1, 0), right);
+    forward.y = 0; // Ensure the forward vector is horizontal
+    forward = Vector::Normalise(forward);
+    return forward;
+}
+
+Vector3 InputManager::CalculateRight(PerspectiveCamera* camera) {
+    const Matrix4& view = camera->BuildViewMatrix();
+    const Matrix4& camWorld = Matrix::Inverse(view);
+    return Vector3(camWorld.GetColumn(0)); // Right axis from camera world matrix
 }
