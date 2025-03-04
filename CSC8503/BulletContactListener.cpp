@@ -14,11 +14,11 @@ void NCL::CSC8503::BulletContactListener::onContact(const rp3d::CollisionCallbac
 
 		// 识别子弹和物体
 		if ((name1 == "bullet")) {
-			std::cout << "子弹击中目标！" << std::endl;
+			//std::cout << "子弹击中目标！" << std::endl;
 			GameManager::GetInstance().DeleteObject((PaintballBullet*)body1->getUserData());
 		}
 		if ((name2 == "bullet")) {
-			std::cout << "子弹击中目标！" << std::endl;
+			//std::cout << "子弹击中目标！" << std::endl;
 			GameManager::GetInstance().DeleteObject((PaintballBullet*)body2->getUserData());
 		}
 	}

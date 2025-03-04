@@ -100,8 +100,8 @@ void TutorialGame::UpdateGame(float dt) {
 		LockedObjectMovement();
 
 		world->GetMainCamera().UpdateCameraView3(
-			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()),
-			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 5.0f);
+			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
+			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 10.0f);
 	}
 	else
 	{
@@ -205,7 +205,7 @@ void TutorialGame::InitWorld() {
 
 	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 
-	GameManager::GetInstance().SetPlayer(playerObject);
+	GameManager::GetInstance().SetPlayer(shoottest);
 	G1.SetGameState(GameState::InGame);
 	
 	//InitDefaultFloor();
@@ -290,11 +290,9 @@ void TutorialGame::LockedObjectMovement() {
 
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
-	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-	if (lockedObject == shoottest) {
-		shoottest->isControl = true;
-		return;
-	}
+	
+	shoottest->isControl = lockedObject == shoottest;
+
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
 	}

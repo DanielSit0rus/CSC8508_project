@@ -18,7 +18,7 @@ void GameManager::Init(PaintballGameWorld* world)
 
 void GameManager::Update() {
     for (auto object : objectsToDelete) {
-        std::cout << "name = [" << object->GetName()<<"]" << std::endl;
+        //std::cout << "name = [" << object->GetName()<<"]" << std::endl;
         world->RemoveGameObject(object, true);
     }
     objectsToDelete.clear();
@@ -280,7 +280,7 @@ PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& posi
 }
 
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
+PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
     PaintballBullet* cube = new PaintballBullet("bullet");
@@ -309,9 +309,8 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(bool isenemy, const rp
 
     //      ?   ?       ?           ?  
     collider->setCollisionCategoryBits(BULLET);
-    float speed = 30.0f; // 设置初速度
-    rp3d::Vector3 forward = orientation * rp3d::Vector3(0, 0, -1); // 计算前向方向
-    rp3d::Vector3 velocity = forward * speed; // 计算速度向量
+    float speed = 300.0f; // 设置初速度
+    rp3d::Vector3 velocity = ori3 * speed; // 计算速度向量
     cubeBody->setLinearVelocity(velocity); // 设置初速度
 
     world->AddGameObject(cube);
