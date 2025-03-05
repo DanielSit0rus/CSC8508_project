@@ -1,4 +1,4 @@
-#include "InputManager.h"
+﻿#include "InputManager.h"
 #include "GameManager.h"
 #include "Window.h"
 #include <iostream>
@@ -20,42 +20,50 @@ void InputManager::Update() {
 }
 
 void InputManager::HandleMainMenuInput() {
-    // Placeholder for menu input handling
+    //  for menu input handling
 }
 
 void InputManager::HandleGameInput() {
     PaintballPlayer* player = GameManager::GetInstance().GetPlayer();
     if (!player) {
-        std::cout << "[HandleGameInput] No player to control!" << std::endl;
+        std::cout << " No player to control!" << std::endl;
         return;
     }
 
     PaintballPhysicsObject* physicsObject = player->GetPhysicsObject();
     if (!physicsObject) {
-        std::cout << "[HandleGameInput] Player has no physics object!" << std::endl;
+        std::cout << " Player has no physics object!" << std::endl;
         return;
     }
 
     PerspectiveCamera* camera = player->GetCamera();
     if (!camera) {
-        std::cout << "[HandleGameInput] Player has no camera!" << std::endl;
+        std::cout << "Player has no camera!" << std::endl;
         return;
     }
 
-    float moveForce = 10.0f; // Example default force
+    float moveForce = 10.0f; 
+
+    Vector3 moveDirection(0, 0, 0);
 
     if (IsKeyPressed(KeyCodes::UP)) {
-        MoveForward(physicsObject, camera, moveForce);
+        moveDirection += CalculateForward(camera);
     }
     if (IsKeyPressed(KeyCodes::DOWN)) {
-        MoveBackward(physicsObject, camera, moveForce);
+        moveDirection -= CalculateForward(camera);
     }
     if (IsKeyPressed(KeyCodes::LEFT)) {
-        MoveLeft(physicsObject, camera, moveForce);
+        moveDirection -= CalculateRight(camera);
     }
     if (IsKeyPressed(KeyCodes::RIGHT)) {
-        MoveRight(physicsObject, camera, moveForce);
+        moveDirection += CalculateRight(camera);
     }
+
+    if (Vector::LengthSquared(moveDirection) > 0) {
+        moveDirection = Vector::Normalise(moveDirection);
+        Move(physicsObject, moveDirection, moveForce);
+    }
+
     if (IsKeyPressed(KeyCodes::SPACE)) {
         Jump(physicsObject, moveForce);
     }
@@ -68,26 +76,8 @@ bool InputManager::IsKeyPressed(KeyCodes::Type key) {
     return Window::GetKeyboard()->KeyDown(key);
 }
 
-// Movement functions (previously in CharacterController) now inside InputManager
-
-void InputManager::MoveForward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
-    Vector3 fwd = CalculateForward(camera);
-    physicsObject->AddForce(Util::NCLToRP3d(fwd * forceMagnitude));
-}
-
-void InputManager::MoveBackward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
-    Vector3 fwd = CalculateForward(camera);
-    physicsObject->AddForce(Util::NCLToRP3d(-fwd * forceMagnitude));
-}
-
-void InputManager::MoveRight(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
-    Vector3 right = CalculateRight(camera);
-    physicsObject->AddForce(Util::NCLToRP3d(right * forceMagnitude));
-}
-
-void InputManager::MoveLeft(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude) {
-    Vector3 right = CalculateRight(camera);
-    physicsObject->AddForce(Util::NCLToRP3d(-right * forceMagnitude));
+void InputManager::Move(PaintballPhysicsObject* physicsObject, Vector3 direction, float forceMagnitude) {
+    physicsObject->AddForce(Util::NCLToRP3d(direction * forceMagnitude));
 }
 
 void InputManager::Jump(PaintballPhysicsObject* physicsObject, float forceMagnitude) {
@@ -100,20 +90,17 @@ void InputManager::GoDown(PaintballPhysicsObject* physicsObject, float forceMagn
     physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
 }
 
-// Calculate movement direction based on camera
-
 Vector3 InputManager::CalculateForward(PerspectiveCamera* camera) {
     const Matrix4& view = camera->BuildViewMatrix();
     const Matrix4& camWorld = Matrix::Inverse(view);
     Vector3 right = Vector3(camWorld.GetColumn(0));
     Vector3 forward = Vector::Cross(Vector3(0, 1, 0), right);
-    forward.y = 0; // Ensure the forward vector is horizontal
-    forward = Vector::Normalise(forward);
-    return forward;
+    forward.y = 0; 
+    return Vector::Normalise(forward);
 }
 
 Vector3 InputManager::CalculateRight(PerspectiveCamera* camera) {
     const Matrix4& view = camera->BuildViewMatrix();
     const Matrix4& camWorld = Matrix::Inverse(view);
-    return Vector3(camWorld.GetColumn(0)); // Right axis from camera world matrix
+    return Vector3(camWorld.GetColumn(0));
 }

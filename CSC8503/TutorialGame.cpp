@@ -159,13 +159,14 @@ void TutorialGame::InitWorld() {
 
 	ResourceManager::GetInstance().ReloadAnimations();
 
-	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 22, -21));
+	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
 	
 	enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
 
 	CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
 	forceMagnitude = 60.0f;
+
 
 
 	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);

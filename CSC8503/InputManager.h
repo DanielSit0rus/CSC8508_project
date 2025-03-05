@@ -4,6 +4,8 @@
 #include "PaintballPhysicsObject.h"
 #include "Camera.h"
 
+
+
 namespace NCL {
     namespace CSC8503 {
         class InputManager {
@@ -15,11 +17,7 @@ namespace NCL {
             void HandleGameInput();
             bool IsKeyPressed(KeyCodes::Type key);
 
-            // Movement logic from CharacterController (now inside InputManager)
-            void MoveForward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude);
-            void MoveBackward(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude);
-            void MoveRight(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude);
-            void MoveLeft(PaintballPhysicsObject* physicsObject, PerspectiveCamera* camera, float forceMagnitude);
+            void Move(PaintballPhysicsObject* physicsObject, Vector3 direction, float forceMagnitude);
             void Jump(PaintballPhysicsObject* physicsObject, float forceMagnitude);
             void GoDown(PaintballPhysicsObject* physicsObject, float forceMagnitude);
 
@@ -28,3 +26,4 @@ namespace NCL {
         };
     }
 }
+
