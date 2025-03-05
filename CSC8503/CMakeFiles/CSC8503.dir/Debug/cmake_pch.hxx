@@ -14,9 +14,17 @@
 #include <iostream>
 #include <chrono>
 #include <sstream>
+<<<<<<< HEAD
 #include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
 #include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
 #include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
 #include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
 #include "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
+=======
+#include "D:/CSC8503/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
+#include "D:/CSC8503/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
+#include "D:/CSC8503/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
+#include "D:/CSC8503/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
+#include "D:/CSC8503/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
+>>>>>>> Navmesh
 #endif // __cplusplus

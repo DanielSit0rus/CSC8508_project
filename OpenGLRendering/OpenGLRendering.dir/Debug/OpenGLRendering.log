@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/CMakeLists.txt
+=======
+﻿  Building Custom Rule D:/CSC8503/CSC8508_project/OpenGLRendering/CMakeLists.txt
+>>>>>>> Navmesh
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
@@ -21,4 +25,8 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   OGLComputeShader.cpp
   gl.h
   gl.c
+<<<<<<< HEAD
   OpenGLRendering.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+=======
+  OpenGLRendering.vcxproj -> D:\CSC8503\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+>>>>>>> Navmesh

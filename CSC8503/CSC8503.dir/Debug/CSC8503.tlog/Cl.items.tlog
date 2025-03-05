@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\AudioSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\AudioSystem.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\BulletContactListener.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\BulletContactListener.obj
@@ -26,3 +27,32 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\ResourceManager.cpp;D:\D_
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\SLSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\SLSystem.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\StateGameObject.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\StateGameObject.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\TutorialGame.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
+=======
+D:\CSC8503\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
+D:\CSC8503\CSC8508_project\CSC8503\AudioSystem.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\AudioSystem.obj
+D:\CSC8503\CSC8508_project\CSC8503\BulletContactListener.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\BulletContactListener.obj
+D:\CSC8503\CSC8508_project\CSC8503\CharacterController.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\CharacterController.obj
+D:\CSC8503\CSC8508_project\CSC8503\Console.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\Console.obj
+D:\CSC8503\CSC8508_project\CSC8503\Enemy.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\Enemy.obj
+D:\CSC8503\CSC8508_project\CSC8503\EventManager.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\EventManager.obj
+D:\CSC8503\CSC8508_project\CSC8503\GameManager.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameManager.obj
+D:\CSC8503\CSC8508_project\CSC8503\GameTechRenderer.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameTechRenderer.obj
+D:\CSC8503\CSC8508_project\CSC8503\ISaveable.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\ISaveable.obj
+D:\CSC8503\CSC8508_project\CSC8503\InputManager.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\InputManager.obj
+D:\CSC8503\CSC8508_project\CSC8503\Light.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\Light.obj
+D:\CSC8503\CSC8508_project\CSC8503\Main.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\Main.obj
+D:\CSC8503\CSC8508_project\CSC8503\NetworkPlayer.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkPlayer.obj
+D:\CSC8503\CSC8508_project\CSC8503\NetworkedGame.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkedGame.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballBullet.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballBullet.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballEnemy.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballEnemy.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballGameObject.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballGameObject.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballGameWorld.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballGameWorld.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballPhysicsObject.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballPhysicsObject.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballPlayer.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballPlayer.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballRenderObject.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballRenderObject.obj
+D:\CSC8503\CSC8508_project\CSC8503\PaintballTransform.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballTransform.obj
+D:\CSC8503\CSC8508_project\CSC8503\ResourceManager.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\ResourceManager.obj
+D:\CSC8503\CSC8508_project\CSC8503\SLSystem.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\SLSystem.obj
+D:\CSC8503\CSC8508_project\CSC8503\StateGameObject.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\StateGameObject.obj
+D:\CSC8503\CSC8508_project\CSC8503\TutorialGame.cpp;D:\CSC8503\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
+>>>>>>> Navmesh

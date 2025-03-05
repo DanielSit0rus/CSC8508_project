@@ -101,8 +101,12 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
 }
 
 
+<<<<<<< HEAD
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 1, 1.0f);
+=======
+    rp3d::Vector3 dimensions = rp3d::Vector3(0.5f, 5, 0.5f);
+>>>>>>> Navmesh
 
     ResourceManager& resources = ResourceManager::GetInstance();
 

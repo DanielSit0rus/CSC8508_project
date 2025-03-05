@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\CMakeFiles\OpenGLRendering.dir\cmake_pch.cxx;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\cmake_pch.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLTexture.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLShader.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.h.obj
@@ -11,3 +12,18 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLMesh.cpp;D:\D_
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLComputeShader.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.cpp.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\glad\gl.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\glad\gl.c;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.c.obj
+=======
+D:\CSC8503\CSC8508_project\OpenGLRendering\CMakeFiles\OpenGLRendering.dir\cmake_pch.cxx;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\cmake_pch.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLTexture.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLShader.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLRenderer.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLMesh.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLComputeShader.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLTexture.cpp;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.cpp.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLShader.cpp;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.cpp.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLRenderer.cpp;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.cpp.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLMesh.cpp;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.cpp.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\OGLComputeShader.cpp;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.cpp.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\glad\gl.h;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.h.obj
+D:\CSC8503\CSC8508_project\OpenGLRendering\glad\gl.c;D:\CSC8503\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.c.obj
+>>>>>>> Navmesh
