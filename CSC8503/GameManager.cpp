@@ -100,7 +100,7 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
 
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
-    rp3d::Vector3 dimensions = rp3d::Vector3(0.3f, 1, 0.3f);
+    rp3d::Vector3 dimensions = rp3d::Vector3(0.5f, 5, 0.5f);
 
     ResourceManager& resources = ResourceManager::GetInstance();
 

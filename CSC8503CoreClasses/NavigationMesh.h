@@ -19,6 +19,9 @@ namespace NCL {
 			
 			void DrawNavMesh() const;
 
+			void LoadNavMesh(const std::string& filename, Vector3 offset, float scaleFactor);
+
+			void MoveNavMesh(int meshIndex, Vector3 newOffset);
 		
 		protected:
 			struct NavTri {
@@ -46,9 +49,14 @@ namespace NCL {
 			std::vector<NavTri>		allTris;
 			std::vector<Vector3>	allVerts;
 
-			NavigationMesh();
+			struct NavMeshTransform {
+				Vector3 offset;
+				float scaleFactor;
+				NavMeshTransform(Vector3 off, float scale) : offset(off), scaleFactor(scale) {}
+			};
 
-			void LoadNavMesh(const std::string& filename, Vector3 offfset, float scaleFactor);
+			std::vector<NavMeshTransform> navMeshTransforms;
+
 		};
 	}
 }
