@@ -18,23 +18,7 @@ namespace NCL::CSC8503 {
 			return transform;
 		}
 
-		void Play(bool isPlay) {
-			if (isPlay) {
-				// 如果音频已经停止，开始播放
-				FMOD_STUDIO_PLAYBACK_STATE state;
-				event->getPlaybackState(&state);
-
-				if (state == FMOD_STUDIO_PLAYBACK_STOPPED) {
-					event->start();  // 开始播放
-				}
-				else {
-					event->setPaused(false);  // 继续播放
-				}
-			}
-			else {
-				event->setPaused(true);  // 暂停播放
-			}
-		}
+		void Play(bool isPlay);
 
 	private:
 		PaintballTransform* transform;

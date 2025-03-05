@@ -150,6 +150,8 @@ void TutorialGame::InitCamera() {
 }
 
 void TutorialGame::InitWorld() {
+	EventManager::Trigger(EventType::Game_End);
+
 	lockedObject = nullptr;
 	selectionObject = nullptr;
 
@@ -199,6 +201,7 @@ void TutorialGame::InitWorld() {
 	
 	//InitDefaultFloor();
 
+	EventManager::Trigger(EventType::Game_Start);
 }
 
 void TutorialGame::UpdateKeys() {
