@@ -9,12 +9,14 @@ PaintballGameObject::PaintballGameObject(const std::string& objectName) {
     networkObject = nullptr;
     renderObject = nullptr;
     physicsObject = nullptr;
+	audioObject = nullptr;
 }
 
 PaintballGameObject::~PaintballGameObject() {
     delete networkObject;
     delete renderObject;
     delete physicsObject;
+	delete audioObject;
 }
 
 void PaintballGameObject::Update(float dt) {
@@ -23,7 +25,6 @@ void PaintballGameObject::Update(float dt) {
 		rp3d::RigidBody& body = physicsObject->GetRigidbody();
 		rp3d::Transform physicsTransform = body.getTransform();
 		transform.SetRpTransform(physicsTransform);
-
 	}
 
 	// Update animation if applicable
@@ -31,4 +32,5 @@ void PaintballGameObject::Update(float dt) {
 		renderObject->UpdateAnimation(dt);
 	}
 
+	if (audioObject) audioObject->Update();
 }

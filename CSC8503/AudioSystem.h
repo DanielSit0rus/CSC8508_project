@@ -3,9 +3,9 @@
 #include <iostream>
 #include <unordered_map>
 
+#include "GameManager.h"
 #include "EventManager.h"
 #include "ISaveable.h"
-
 #pragma comment(lib, "fmodstudio_vc.lib")
 
 using namespace FMOD;
@@ -26,6 +26,8 @@ namespace NCL {
 			void Update();
 			void Release();
 
+			bool TriggerEvent(const std::string& eventName,rp3d::Vector3 pos);
+
 			bool PlayEvent(const std::string& eventName);
 			void StopEvent(const std::string& eventName);
 			void PauseEvent(const std::string& eventName);
@@ -34,11 +36,7 @@ namespace NCL {
 			void PauseEvent(EventInstance* event);
 			void ResumeEvent(EventInstance* event);
 
-			//3d test
-			Studio::System* studioSystem = nullptr;
-			FMOD::System* coreSystem = nullptr;
-			EventInstance* eventInstance = nullptr;
-			FMOD_3D_ATTRIBUTES* sourceAttributes = nullptr;
+			EventInstance* GetEvent(std::string eventName);
 
 		private:
 
@@ -55,11 +53,18 @@ namespace NCL {
 				std::cout << "[AudioSystem] Loaded" << std::endl;
 			}
 
+			Studio::System* studioSystem = nullptr;
+			FMOD::System* coreSystem = nullptr;
+
 			const std::string bankPath = "../Assets/Sounds/Banks/";
 			std::unordered_map<std::string, Bank*> banks;
 			std::unordered_map<std::string, Bus*> buses;
-			std::unordered_map<std::string, EventInstance*> events;
-			//std::unordered_map<std::string, std::string> eventPaths;  // 存储事件名称到路径的映射
+			std::unordered_map<std::string, EventDescription*> eventDescriptions;
+			std::unordered_map<std::string, EventInstance*> events;	//global events (e.g. BGM)
+			//std::unordered_map<std::string, std::string> eventPaths;  // map from name to path
+
+			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
+			FMOD_3D_ATTRIBUTES* triggerAttributes = nullptr;
 		};
 	}
 }

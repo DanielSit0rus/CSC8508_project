@@ -88,7 +88,6 @@ namespace NCL {
 
 
 			//FMOD
-			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			PaintballGameObject* speakerObj = nullptr;
 
 			//shoot 

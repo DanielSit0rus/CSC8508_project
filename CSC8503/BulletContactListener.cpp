@@ -1,5 +1,6 @@
 #include "BulletContactListener.h"
 #include "GameManager.h"
+
 void NCL::CSC8503::BulletContactListener::onContact(const rp3d::CollisionCallback::CallbackData& callbackData)
 {
 	for (uint32_t i = 0; i < callbackData.getNbContactPairs(); i++) {

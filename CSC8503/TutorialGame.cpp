@@ -128,20 +128,6 @@ void TutorialGame::UpdateGame(float dt) {
 		Debug::Print("+", Vector2(49, 51));
 	}
 
-	//Fmod
-	Matrix4 view = camera.BuildViewMatrix();;
-	Vector3 forward = Vector::Normalise(Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
-	Vector3 up = Vector::Normalise(Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
-	listenerAttributes = new FMOD_3D_ATTRIBUTES();
-	listenerAttributes->position = { pos.x, pos.y, pos.z };
-	listenerAttributes->forward = { forward.x,forward.y,forward.z };
-	listenerAttributes->up = { up.x,up.y,up.z };
-	AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
-	rp3d::Vector3 pos2 = speakerObj->GetTransform().GetPosition();
-	AudioSystem::GetInstance().sourceAttributes->position = { pos2.x, pos2.y, pos2.z };
-	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
-
-
 	CalculatePathToPlayer();
 	DisplayPath();
 	MoveEnemyAlongPath();
@@ -183,8 +169,11 @@ void TutorialGame::InitWorld() {
 	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
 	renderer->AddLight(light2);
 
-
-	speakerObj =G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+	//FMOD
+	speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+	speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
+		AudioSystem::GetInstance().GetEvent("event:/BGM/BGM1_3D")));
+	speakerObj->GetAudioObject()->Play(true);
 
 	//rp3d
 	objList_pb.clear();

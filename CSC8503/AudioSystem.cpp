@@ -30,60 +30,40 @@ bool AudioSystem::Init()
     LoadBank("Master.bank");
     LoadBank("Master.strings.bank");
     LoadBank("BGM.bank");
-    LoadBank("Lin.bank");
+    LoadBank("Effect.bank");
+    LoadBank("Felicia.bank");
     LoadBus("BGM");
 
     buses["BGM"]->setVolume(1.0f);
 
     RegisterSL();
 
+    listenerAttributes = new FMOD_3D_ATTRIBUTES();
+    triggerAttributes = new FMOD_3D_ATTRIBUTES();
+
     /*
     EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
     EventManager::Subscribe(EventType::Game_End, [this]() {StopEvent("event:/BGM/BGM1"); });
+    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM1"); });
+    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM1"); });
     */
-    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent(eventInstance); });
-    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent(eventInstance); });
-    
 
     //EventManager::Subscribe(EventType::Game_Start, [this](int& a) {a = 2; });
-
-    EventDescription* eventDescription = nullptr;
-    result = studioSystem->getEvent("event:/BGM/BGM1_3D", &eventDescription);
-    if (result != FMOD_OK) {
-        std::cerr << "Failed to get event description: " << result << std::endl;
-        return false;
-    }
-
-    result = eventDescription->createInstance(&eventInstance);
-    if (result != FMOD_OK) {
-        std::cerr << "Failed to create event instance: " << result << std::endl;
-        return false;
-    }
-
-    // 设置3D属性
-    sourceAttributes = new FMOD_3D_ATTRIBUTES();
-    sourceAttributes->position = { 0.0f, 0.0f, 0.0f }; // 设置音源位置
-    sourceAttributes->velocity = { 0.0f, 0.0f, 0.0f }; // 设置音源速度
-    sourceAttributes->forward = { 0.0f, 0.0f, 1.0f };  // 设置音源前方方向
-    sourceAttributes->up = { 0.0f, 1.0f, 0.0f };       // 设置音源上方方向
-
-    result = eventInstance->set3DAttributes(sourceAttributes);
-    if (result != FMOD_OK) {
-        std::cerr << "Failed to set 3D attributes: " << result << std::endl;
-        return false;
-    }
-
-    result = eventInstance->start();
-    if (result != FMOD_OK) {
-        std::cerr << "Failed to start event: " << result << std::endl;
-        return false;
-    }
 
     return true;
 }
 
 void AudioSystem::Update()
 {
+    Matrix4 view = GameManager::GetInstance().GetMainCamera().BuildViewMatrix();;
+    Vector3 forward = Vector::Normalise(Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
+    Vector3 up = Vector::Normalise(Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
+    Vector3 pos = GameManager::GetInstance().GetMainCamera().GetPosition();
+    listenerAttributes->position = { pos.x, pos.y, pos.z };
+    listenerAttributes->forward = { forward.x,forward.y,forward.z };
+    listenerAttributes->up = { up.x,up.y,up.z };
+    AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
+
     studioSystem->update();
 }
 
@@ -105,6 +85,8 @@ void AudioSystem::Release()
         studioSystem->release();
         studioSystem = nullptr;
     }
+
+    delete listenerAttributes;
 }
 
 
@@ -134,6 +116,41 @@ bool AudioSystem::LoadBus(const std::string& busName) {
 }
 
 
+bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) {
+    auto it = events.find(eventName);
+    if (it != events.end()) {
+        triggerAttributes->position = { pos.x, pos.y, pos.z };
+        it->second->set3DAttributes(triggerAttributes);
+        it->second->start();
+        it->second->get3DAttributes(triggerAttributes);
+        return true;
+    }
+
+    auto descIt = eventDescriptions.find(eventName);
+    if (descIt == eventDescriptions.end()) {
+        EventDescription* eventDesc = nullptr;
+        if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
+            std::cerr << "获取事件失败：" << eventName << std::endl;
+            return false;
+        }
+        eventDescriptions[eventName] = eventDesc;
+    }
+
+    EventInstance* eventInstance = nullptr;
+    if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
+        std::cerr << "创建事件实例失败：" << eventName << std::endl;
+        return false;
+    }
+
+    triggerAttributes->position = { pos.x, pos.y, pos.z };
+    eventInstance->set3DAttributes(triggerAttributes);
+    eventInstance->start();
+    eventInstance->get3DAttributes(triggerAttributes);
+
+    events[eventName] = eventInstance;
+    return true;
+}
+
 bool AudioSystem::PlayEvent(const std::string& eventName) {
     auto it = events.find(eventName);
     if (it != events.end()) {
@@ -141,14 +158,18 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
         return true;
     }
 
-    EventDescription* eventDesc = nullptr;
-    if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-        std::cerr << "获取事件失败：" << eventName << std::endl;
-        return false;
+    auto descIt = eventDescriptions.find(eventName);
+    if (descIt == eventDescriptions.end()) {
+        EventDescription* eventDesc = nullptr;
+        if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
+            std::cerr << "获取事件失败：" << eventName << std::endl;
+            return false;
+        }
+        eventDescriptions[eventName] = eventDesc;
     }
 
     EventInstance* eventInstance = nullptr;
-    if (eventDesc->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
+    if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
         std::cerr << "创建事件实例失败：" << eventName << std::endl;
         return false;
     }
@@ -191,16 +212,37 @@ void AudioSystem::ResumeEvent(const std::string& eventName) {
 
 void AudioSystem::PauseEvent(EventInstance* event) {
     bool state;
-    eventInstance->getPaused(&state);
+    event->getPaused(&state);
     if (state == false) {
-        eventInstance->setPaused(true);
+        event->setPaused(true);
     }
 }
 
 void AudioSystem::ResumeEvent(EventInstance* event) {
     bool state;
-    eventInstance->getPaused(&state);
+    event->getPaused(&state);
     if (state == true) {
-        eventInstance->setPaused(false);
+        event->setPaused(false);
     }
+}
+
+EventInstance* AudioSystem::GetEvent(std::string eventName)
+{
+
+    auto descIt = eventDescriptions.find(eventName);
+    if (descIt == eventDescriptions.end()) {
+        EventDescription* eventDesc = nullptr;
+        if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
+            std::cerr << "获取事件失败：" << eventName << std::endl;
+            return nullptr;
+        }
+        eventDescriptions[eventName] = eventDesc;
+    }
+
+    EventInstance* eventInstance = nullptr;
+    if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
+        std::cerr << "创建事件实例失败：" << eventName << std::endl;
+        return nullptr;
+    }
+    return eventInstance;
 }

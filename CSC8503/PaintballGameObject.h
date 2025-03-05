@@ -4,6 +4,7 @@
 #include "PaintballPhysicsObject.h"
 #include "PaintballRenderObject.h"
 #include "PaintballTransform.h"
+#include "PaintballAudioObject.h"
 #include <NetworkObject.h>
 
 
@@ -13,6 +14,7 @@ namespace NCL::CSC8503 {
     class NetworkObject;
     class PaintballRenderobject;
     class PaintballPhysicsObject;
+    class PaintballAudioObject;
 
     class PaintballGameObject
     {
@@ -38,6 +40,11 @@ namespace NCL::CSC8503 {
             return physicsObject;
         }
 
+        PaintballAudioObject* GetAudioObject() const {
+            return audioObject;
+        }
+
+
         NetworkObject* GetNetworkObject() const {
             return networkObject;
         }
@@ -49,6 +56,10 @@ namespace NCL::CSC8503 {
         void SetPhysicsObject(PaintballPhysicsObject* newObject) {
             physicsObject = newObject;
             physicsObject->GetRigidbody().setUserData(this);
+        }
+
+        void SetAudioObject(PaintballAudioObject* newObject) {
+            audioObject = newObject;
         }
 
         const std::string& GetName() const {
@@ -67,8 +78,9 @@ namespace NCL::CSC8503 {
     protected:
         PaintballTransform transform;
 
-        PaintballRenderObject* renderObject;
-        PaintballPhysicsObject* physicsObject;
+        PaintballRenderObject*      renderObject;
+        PaintballPhysicsObject*     physicsObject;
+        PaintballAudioObject*       audioObject;
 
         NetworkObject* networkObject;
 

@@ -416,7 +416,6 @@ int main() {
 	EventManager::Trigger(EventType::Game_End);
 
 	console.detach();
-	AudioSystem::GetInstance().Release();
 
 	Window::DestroyGameWindow();
 }

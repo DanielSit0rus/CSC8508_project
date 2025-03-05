@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "AudioSystem.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -282,6 +283,9 @@ PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& posi
 
 PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {
+    AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
+
+
     ResourceManager& resources = ResourceManager::GetInstance();
     PaintballBullet* cube = new PaintballBullet("bullet");
 

@@ -1,6 +1,5 @@
 #include "PaintballPlayer.h"
 
-
 using namespace NCL::CSC8503;
 
 NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
@@ -129,16 +128,15 @@ void PaintballPlayer::Attack()
 	front = -Vector::Normalise(front);
 
 	GameManager::GetInstance().AddBullet(Util::NCLToRP3d(front), false,
-		GetTransform().GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
+		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
 		Util::NCLToRP3d(Quaternion(camera->BuildViewMatrix())), bulletColor);
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
 {
 	if (!camera) return; // ȷ   camera     
-
-	float camYaw = camera->GetYaw();  //   ȡ        Yaw  Ƕ 
-	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, camYaw, 0.0f); // ֻ ޸  Y     ת
+	float yaw = DegreesToRadians(camera->GetYaw()+180.f); 
+	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, yaw, 0.0f); // ֻ ޸  Y     ת
 	this->GetTransform().SetOrientation(newRotation);
 }
 
