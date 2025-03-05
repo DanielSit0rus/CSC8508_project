@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering
-=======
-# Install script for directory: D:/CSC8503/CSC8508_project/OpenGLRendering
->>>>>>> Navmesh
+# Install script for directory: C:/Project/Group/CSC8508_project/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

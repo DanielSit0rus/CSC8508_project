@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeLists.txt
-=======
-﻿  Building Custom Rule D:/CSC8503/CSC8508_project/CMakeLists.txt
->>>>>>> Navmesh
+﻿  Building Custom Rule C:/Project/Group/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -24,11 +20,7 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   Generating Code...
-<<<<<<< HEAD
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
-=======
-D:\CSC8503\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
->>>>>>> Navmesh
+C:\Project\Group\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
   Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -104,8 +96,4 @@ D:\CSC8503\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   Generating Code...
-<<<<<<< HEAD
-  ReactPhysics3D.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\Debug\ReactPhysics3D.lib
-=======
-  ReactPhysics3D.vcxproj -> D:\CSC8503\CSC8508_project\Debug\ReactPhysics3D.lib
->>>>>>> Navmesh
+  ReactPhysics3D.vcxproj -> C:\Project\Group\CSC8508_project\Debug\ReactPhysics3D.lib
