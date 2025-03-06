@@ -11,6 +11,13 @@ namespace NCL::CSC8503 {
 		BlueGun,
 		GreenGun
 	};
+	enum class PlayerState {
+		IdleState,
+		RunState,
+		JumpState,
+		AttackState
+	};
+
 	class PaintballPlayer :public PaintballGameObject
 	{
 	public:
@@ -22,7 +29,7 @@ namespace NCL::CSC8503 {
 		void SwitchWeapon(WeaponType newWeapon);
 		void UpdateWeaponSelection();
 
-	
+		void SwitchState(PlayerState newState);
 		// Called by InputManager
 		/*void MoveForward(float force);
 		void MoveBackward(float force);
@@ -52,6 +59,6 @@ namespace NCL::CSC8503 {
 		Vector4 color;
 		PerspectiveCamera* camera;
 		WeaponType currentWeapon = WeaponType::RedGun; // ?      
-
+		PlayerState  currentState;
 	};
 }
