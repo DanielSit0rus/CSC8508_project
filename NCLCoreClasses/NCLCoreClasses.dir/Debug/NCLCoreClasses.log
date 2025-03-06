@@ -1,4 +1,4 @@
-﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/NCLCoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Assets.cpp
   TextureLoader.cpp
@@ -13,43 +13,19 @@
   MshLoader.cpp
   MeshMaterial.cpp
   RendererBase.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'RendererBase.cpp')
-  
   Shader.cpp
   Texture.cpp
   Camera.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Camera.cpp')
-  
   GameTimer.cpp
   Keyboard.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Keyboard.cpp')
-  
   Mouse.cpp
   Window.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Window.cpp')
-  
   Generating Code...
   Compiling...
   Controller.cpp
   KeyboardMouseController.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'KeyboardMouseController.cpp')
-  
   Win32Keyboard.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Win32Keyboard.cpp')
-  
   Win32Mouse.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Win32Mouse.cpp')
-  
   Win32Window.cpp
-D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  (compiling source file 'Win32Window.cpp')
-  
   Generating Code...
-  NCLCoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+  NCLCoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib

@@ -117,7 +117,6 @@ void NavigationMesh::MoveNavMesh(int meshIndex, Vector3 newOffset) {
 }
 
 NavigationMesh::NavigationMesh(const std::string& filename1, const std::string& filename2) {
-	NavigationMesh::LoadNavMesh(filename1, Vector3(30, 0, -100), 5.0f);
 	NavigationMesh::LoadNavMesh(filename2, Vector3(-20, 0, 0), 5.0f);
 }
 
