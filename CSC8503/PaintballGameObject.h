@@ -46,6 +46,11 @@ namespace NCL::CSC8503 {
             return isActive;
         }
 
+        void SetActive(bool active) {
+            isActive = active;
+            physicsObject->GetRigidbody().setIsActive(isActive);
+        }
+
         PaintballTransform& GetTransform() {
             return transform;
         }
