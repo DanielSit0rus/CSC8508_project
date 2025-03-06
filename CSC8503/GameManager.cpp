@@ -317,8 +317,10 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
     cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
     cube->GetPhysicsObject()->SetMass(mass);
 
-    //      ?   ?       ?           ?  
+ 
     collider->setCollisionCategoryBits(BULLET);
+
+    collider->setIsTrigger(true);
     float speed = 300.0f; // 设置初速度
     rp3d::Vector3 velocity = ori3 * speed; // 计算速度向量
     cubeBody->setLinearVelocity(velocity); // 设置初速度
