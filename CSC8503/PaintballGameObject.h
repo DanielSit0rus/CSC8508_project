@@ -16,10 +16,28 @@ namespace NCL::CSC8503 {
     class PaintballPhysicsObject;
     class PaintballAudioObject;
 
+    enum GameObjectType //To record which AddObj() method is used and to be used
+    {
+        _NULL,
+
+        cube,
+        sphere,
+        player,
+        enemy,
+        bullet,
+
+        concave1,
+        concave2,
+
+        test_character,
+        test_stateObj,
+        test_networkPlayer,
+    };
+
     class PaintballGameObject
     {
     public:
-        PaintballGameObject(const std::string& name = "");
+        PaintballGameObject(const GameObjectType& type, const std::string& name = "");
         ~PaintballGameObject();
 
         virtual void Update(float dt);
@@ -66,10 +84,13 @@ namespace NCL::CSC8503 {
             return name;
         }
 
-        
-		void SetWorldID(int newID) {
-			worldID = newID;
-		}
+        const GameObjectType& GetType() const {
+            return type;
+        }
+
+        void SetWorldID(int newID) {
+            worldID = newID;
+        }
 
 		int GetWorldID() const {
 			return worldID;
@@ -87,6 +108,8 @@ namespace NCL::CSC8503 {
         bool		isActive;
         int			worldID;
         std::string	name;
+        GameObjectType type;  //To record which AddObj() method is used and to be used
+
     };
 
 }

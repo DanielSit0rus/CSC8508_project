@@ -2,13 +2,14 @@
 
 using namespace NCL::CSC8503;
 
-PaintballGameObject::PaintballGameObject(const std::string& objectName) {
-    name = objectName;
-    worldID = -1;
-    isActive = true;
-    networkObject = nullptr;
-    renderObject = nullptr;
-    physicsObject = nullptr;
+PaintballGameObject::PaintballGameObject(const GameObjectType& objectType, const std::string& objectName) {
+	name = objectName;
+	type = objectType;
+	worldID = -1;
+	isActive = true;
+	networkObject = nullptr;
+	renderObject = nullptr;
+	physicsObject = nullptr;
 	audioObject = nullptr;
 }
 

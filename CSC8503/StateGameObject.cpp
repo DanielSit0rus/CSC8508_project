@@ -6,7 +6,9 @@
 using namespace NCL;
 using namespace CSC8503;
 
-StateGameObject::StateGameObject() {
+StateGameObject::StateGameObject()
+	:PaintballGameObject(type = GameObjectType::test_stateObj, name)
+{
 	counter = 0.0f;
 	stateMachine = new StateMachine();
 
