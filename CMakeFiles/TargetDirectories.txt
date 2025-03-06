@@ -1,8 +1,8 @@
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeFiles/ReactPhysics3D.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeFiles/ALL_BUILD.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/SDK/nlohmannjson-json/CMakeFiles/ALL_BUILD.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
-C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeFiles/ReactPhysics3D.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeFiles/ALL_BUILD.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/SDK/nlohmannjson-json/CMakeFiles/ALL_BUILD.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
+D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir

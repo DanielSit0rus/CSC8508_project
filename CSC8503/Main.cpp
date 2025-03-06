@@ -233,6 +233,8 @@ hide or show the
 bool paused = false;
 bool reset = false;
 float elapsedTime = 120;
+//FMOD
+bool canStart_FMOD = true;
 
 class pauseScreen : public PushdownState {
 public:
@@ -276,6 +278,7 @@ class WinScreen : public PushdownState {
 
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::R)) {
 			elapsedTime = 120;
+			canStart_FMOD = true;
 			//pause = false;
 			reset = true;
 			return PushdownResult::Pop;
@@ -299,6 +302,7 @@ class gameOverScreen : public PushdownState {
 
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::R)) {
 			elapsedTime = 120;
+			canStart_FMOD = true;
 			//pause = false;
 			reset = true;
 			return PushdownResult::Pop;
@@ -330,6 +334,13 @@ public:
 			pauseReminder += 1.0f;
 		}
 		Debug::Print("Starting Game, timer: " + std::to_string(elapsedTime), Vector2(5, 15));
+
+		//FMOD
+		if (canStart_FMOD && elapsedTime < 118.5f && elapsedTime > 115) {
+			AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");
+			canStart_FMOD = false;
+		}
+
 		// Pause state transition
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::P)) {
 			*newState = new pauseScreen(w);

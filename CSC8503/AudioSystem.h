@@ -26,7 +26,10 @@ namespace NCL {
 			void Update();
 			void Release();
 
+			void SetBusVolume(const std::string& busName, float v);
+
 			bool TriggerEvent(const std::string& eventName,rp3d::Vector3 pos);
+			bool TriggerEvent(const std::string& eventName);
 
 			bool PlayEvent(const std::string& eventName);
 			void StopEvent(const std::string& eventName);

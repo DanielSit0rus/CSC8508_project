@@ -29,6 +29,7 @@ void PaintballAudioObject::Update()
 }
 
 void PaintballAudioObject::Play(bool isPlay) {
+	//std::cout << "PaintballAudioObject::Play = " << isPlay << std::endl;
 	if (isPlay) {
 		FMOD_STUDIO_PLAYBACK_STATE state;
 		event->getPlaybackState(&state);

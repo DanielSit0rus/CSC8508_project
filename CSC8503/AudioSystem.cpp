@@ -32,21 +32,22 @@ bool AudioSystem::Init()
     LoadBank("BGM.bank");
     LoadBank("Effect.bank");
     LoadBank("Felicia.bank");
+    LoadBank("Lin.bank");
     LoadBus("BGM");
-
-    buses["BGM"]->setVolume(1.0f);
+    LoadBus("Voice");
+    LoadBus("Effect");
 
     RegisterSL();
 
     listenerAttributes = new FMOD_3D_ATTRIBUTES();
     triggerAttributes = new FMOD_3D_ATTRIBUTES();
 
-    /*
-    EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
-    EventManager::Subscribe(EventType::Game_End, [this]() {StopEvent("event:/BGM/BGM1"); });
-    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM1"); });
-    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM1"); });
-    */
+    
+    EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM2"); });
+    EventManager::Subscribe(EventType::Game_End, [this]() {StopEvent("event:/BGM/BGM2"); });
+    EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM2"); });
+    EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM2"); });
+    
 
     //EventManager::Subscribe(EventType::Game_Start, [this](int& a) {a = 2; });
 
@@ -115,6 +116,23 @@ bool AudioSystem::LoadBus(const std::string& busName) {
     return true;
 }
 
+void AudioSystem::SetBusVolume(const std::string& busName,float v) {
+    if (v < 0 || v > 1)
+    {
+        std::cerr << "[Audio] Invalid volume value：" << busName << std::endl;
+        return;
+    }
+
+    auto it = buses.find(busName);
+    if (it != buses.end()) {
+        buses[busName]->setVolume(v);
+        std::cout << "[Audio] Set bus(" << busName<<") volume to [" << v <<"] successfully." << std::endl;
+    }
+    else
+    {
+        std::cerr << "[Audio] Cannot find the bus ：" << busName << std::endl;
+    }
+}
 
 bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) {
     auto it = events.find(eventName);
@@ -130,7 +148,7 @@ bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) 
     if (descIt == eventDescriptions.end()) {
         EventDescription* eventDesc = nullptr;
         if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-            std::cerr << "获取事件失败：" << eventName << std::endl;
+            std::cerr << "[Audio] Cannot find the event ：" << eventName << std::endl;
             return false;
         }
         eventDescriptions[eventName] = eventDesc;
@@ -138,7 +156,7 @@ bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) 
 
     EventInstance* eventInstance = nullptr;
     if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
-        std::cerr << "创建事件实例失败：" << eventName << std::endl;
+        std::cerr << "[Audio] Cannot create the event instance ：" << eventName << std::endl;
         return false;
     }
 
@@ -146,6 +164,35 @@ bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) 
     eventInstance->set3DAttributes(triggerAttributes);
     eventInstance->start();
     eventInstance->get3DAttributes(triggerAttributes);
+
+    events[eventName] = eventInstance;
+    return true;
+}
+
+bool AudioSystem::TriggerEvent(const std::string& eventName) {
+    auto it = events.find(eventName);
+    if (it != events.end()) {
+        it->second->start();
+        return true;
+    }
+
+    auto descIt = eventDescriptions.find(eventName);
+    if (descIt == eventDescriptions.end()) {
+        EventDescription* eventDesc = nullptr;
+        if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
+            std::cerr << "[Audio] Cannot find the event ：" << eventName << std::endl;
+            return false;
+        }
+        eventDescriptions[eventName] = eventDesc;
+    }
+
+    EventInstance* eventInstance = nullptr;
+    if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
+        std::cerr << "[Audio] Cannot create the event instance ：" << eventName << std::endl;
+        return false;
+    }
+
+    eventInstance->start();
 
     events[eventName] = eventInstance;
     return true;
@@ -162,7 +209,7 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
     if (descIt == eventDescriptions.end()) {
         EventDescription* eventDesc = nullptr;
         if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-            std::cerr << "获取事件失败：" << eventName << std::endl;
+            std::cerr << "[Audio] Cannot find the event ：" << eventName << std::endl;
             return false;
         }
         eventDescriptions[eventName] = eventDesc;
@@ -170,7 +217,7 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
 
     EventInstance* eventInstance = nullptr;
     if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
-        std::cerr << "创建事件实例失败：" << eventName << std::endl;
+        std::cerr << "[Audio] Cannot create the event instance ：" << eventName << std::endl;
         return false;
     }
 
@@ -233,7 +280,7 @@ EventInstance* AudioSystem::GetEvent(std::string eventName)
     if (descIt == eventDescriptions.end()) {
         EventDescription* eventDesc = nullptr;
         if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-            std::cerr << "获取事件失败：" << eventName << std::endl;
+            std::cerr << "[Audio] Cannot find the event ：" << eventName << std::endl;
             return nullptr;
         }
         eventDescriptions[eventName] = eventDesc;
@@ -241,7 +288,7 @@ EventInstance* AudioSystem::GetEvent(std::string eventName)
 
     EventInstance* eventInstance = nullptr;
     if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
-        std::cerr << "创建事件实例失败：" << eventName << std::endl;
+        std::cerr << "[Audio] Cannot create the event instance ：" << eventName << std::endl;
         return nullptr;
     }
     return eventInstance;

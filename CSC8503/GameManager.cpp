@@ -33,7 +33,8 @@ PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::V
     cube->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions * 2.0f);
+        .SetScale(dimensions * 2.0f)
+        .SetRatioR(dimensions * 2.0f);
 
     cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
     cube->GetRenderObject()->SetColour(color);
@@ -64,7 +65,8 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
     cube->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions * 1.0f);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
 
     cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetSphereMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
 
@@ -103,7 +105,7 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
 
 
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
-    rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 1, 1.0f);
+    rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
     ResourceManager& resources = ResourceManager::GetInstance();
 
     // Create the player object
@@ -111,16 +113,17 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
     player->GetTransform()
         .SetPosition(position)
-        .SetScale(dimensions * 1.0f);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(rp3d::Vector3(2, 2, 2));
 
     // Create render object with animation support
     PaintballRenderObject* renderObj = new PaintballRenderObject(
         &player->GetTransform(),
-        resources.GetRoleMesh(),    
-        resources.GetBasicTex(),     
-        resources.GetBasicShader(),  
-        resources.GetRoleanim(),     
-        resources.GetRolemat()      
+        resources.GetRoleMesh(),
+        resources.GetBasicTex(),
+        resources.GetBasicShader(),
+        resources.GetRoleanim(),
+        resources.GetRolemat()
     );
 
     renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
@@ -133,11 +136,10 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(player->GetTransform().GetRpTransform());
 
     // Create collision shape
-    rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+    rp3d::CapsuleShape* shape = physicsCommon.createCapsuleShape(dimensions.x, dimensions.y);
 
     // Offset the collider UP by half its height
-    rp3d::Vector3 colliderOffset(0.0f, dimensions.y * 1.0f, 0.0f);
-    rp3d::Transform shapeTransform(colliderOffset, rp3d::Quaternion::identity());
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
 
     // Bind the shape to the rigid body with an offset
     rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
@@ -170,7 +172,8 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
     cube->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions * 1.0f);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
 
     // Create render object
     PaintballRenderObject* renderObj = new PaintballRenderObject(
@@ -216,7 +219,8 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     concave->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
 
     concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(), resources.GetMapMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
 
@@ -250,7 +254,8 @@ PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& posi
     concave->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
 
     // Use the new alternate map mesh
     concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),
@@ -292,7 +297,8 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
     cube->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
-        .SetScale(dimensions * 1.0f);
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
 
     cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetSphereMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
 
@@ -352,6 +358,7 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
 
     // Create the ConcaveMeshShape using the TriangleMesh
     reactphysics3d::ConcaveMeshShape* concaveMeshShape = physicsCommon.createConcaveMeshShape(triangleMesh);
+
 
     return concaveMeshShape;
 }

@@ -1,6 +1,6 @@
 #include "Console.h"
 #include "GameManager.h"
-
+#include "AudioSystem.h"
 using namespace NCL;
 using namespace CSC8503;
 
@@ -12,6 +12,7 @@ void Console::Init(Window* win) {
     RegisterCommand("net", [this](const std::string& args) { NetworkCommand(args); }, "Network command");
     RegisterCommand("clear", [this](const std::string&) { ClearCommnad(); }, "Clear console");
     RegisterCommand("add", [this](const std::string& args) { AddObjCommand(args); }, "Add an object");
+    RegisterCommand("audio", [this](const std::string& args) { AudioCommand(args); }, "Audio command");
 
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
@@ -143,5 +144,24 @@ void Console::AddObjCommand(std::string s) const {
         std::cout << "Unknown argument: " << s << "\nAvailable: cube(c), sphere(s)" << std::endl;
     }
 }
+
+void Console::AudioCommand(std::string s) const {
+    std::istringstream stream(s);
+    std::string target;
+
+    stream >> target;
+
+    if (target == "bus") {
+        std::string name;
+        float value;
+        stream >> name;
+        stream >> value;
+        AudioSystem::GetInstance().SetBusVolume(name, value);
+    }
+    else {
+        std::cout << "Unknown argument: " << s << std::endl;
+    }
+}
+
 
 #pragma endregion

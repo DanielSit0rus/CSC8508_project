@@ -62,11 +62,11 @@ TutorialGame::~TutorialGame()	{
 }
 
 bool TutorialGame::pauseGame(){
-	EventManager::Trigger(EventType::Game_Pause);
+	if (!pause) EventManager::Trigger(EventType::Game_Pause);
 	return pause = true;
 }
 bool TutorialGame::UnpauseGame() {
-	EventManager::Trigger(EventType::Game_Resume);
+	if (pause) EventManager::Trigger(EventType::Game_Resume);
 	return pause = false;
 }
 
@@ -175,7 +175,7 @@ void TutorialGame::InitWorld() {
 	//FMOD
 	speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 	speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
-		AudioSystem::GetInstance().GetEvent("event:/BGM/BGM1_3D")));
+		AudioSystem::GetInstance().GetEvent("event:/Lin/BGM1_3D")));
 	speakerObj->GetAudioObject()->Play(true);
 
 	//rp3d
