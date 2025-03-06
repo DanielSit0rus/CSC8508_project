@@ -157,7 +157,7 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
-	ResourceManager::GetInstance().ReloadAnimations();
+	//ResourceManager::GetInstance().ReloadAnimations();
 
 	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
 	

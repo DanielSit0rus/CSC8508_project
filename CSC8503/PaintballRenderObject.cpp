@@ -5,7 +5,7 @@ using namespace NCL::CSC8503;
 using namespace NCL;
 
 PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
-    MeshAnimation* animation, MeshMaterial* material)
+    std::shared_ptr<MeshAnimation> animation, std::shared_ptr<MeshMaterial> material)
     : transform(parentTransform), mesh(mesh), texture(tex), shader(shader), animation(animation), material(material) {
     colour = Vector4(1, 1, 1, 1);
     currentFrame = 0;
@@ -14,8 +14,7 @@ PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform
 
 PaintballRenderObject::~PaintballRenderObject() {
 
-    delete animation;
-    delete material;
+ 
 }
 
 void PaintballRenderObject::UpdateAnimation(float dt) {

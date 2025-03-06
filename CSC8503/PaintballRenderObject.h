@@ -16,7 +16,7 @@ namespace NCL {
 		{
 		public:
 			PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
-				MeshAnimation* animation = nullptr, MeshMaterial* material = nullptr);
+				std::shared_ptr<MeshAnimation> animation = nullptr, std::shared_ptr<MeshMaterial> material = nullptr);
 			~PaintballRenderObject();
 
 			void SetDefaultTexture(Texture* t) {
@@ -49,7 +49,7 @@ namespace NCL {
 
 			void UpdateAnimation(float dt);
 
-			MeshAnimation* GetAnimation() const {
+			std::shared_ptr<MeshAnimation> GetAnimation() const {
 				return animation;
 			}
 
@@ -65,8 +65,8 @@ namespace NCL {
 			PaintballTransform* transform;
 			Vector4		colour;
 
-			MeshAnimation* animation;
-			MeshMaterial* material;
+			std::shared_ptr<MeshAnimation> animation;
+			std::shared_ptr<MeshMaterial> material;
 			int currentFrame;
 			float frameTime;
 		};

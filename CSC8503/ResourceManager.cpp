@@ -15,27 +15,29 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         capsuleMesh = renderer->LoadMesh("capsule.msh");
 
         RoleMesh = renderer->LoadMesh("Role_T.msh");
-        Roleanim = new MeshAnimation("Role_T.anm");
-        Rolemat = new MeshMaterial("Role_T.mat");
+        Roleanim = std::make_shared<MeshAnimation>("Role_T.anm");
+        Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
         basicTex = renderer->LoadTexture("checkerboard.png");
         basicShader = renderer->LoadShader("scene.vert", "scene.frag");
     }
 }
 
-void ResourceManager::ReloadAnimations() {
-
-    if (Roleanim) {
-        //delete Roleanim;
-        Roleanim = nullptr;
-        Rolemat = nullptr;
-    }
-
-    Roleanim = new MeshAnimation("Role_T.anm");
-    Rolemat = new MeshMaterial("Role_T.mat");
-
-    if (!Roleanim) {
-        std::cerr << "Error: Failed to reload role animation!" << std::endl;
-    }
-}
+//void ResourceManager::ReloadAnimations() {
+//
+//    if (Roleanim) {
+//        delete Roleanim;
+//        Roleanim = nullptr;
+//    }
+//    if (Rolemat) {
+//        delete Rolemat;
+//        Rolemat = nullptr;
+//    }
+//    Roleanim = new MeshAnimation("Role_T.anm");
+//    Rolemat = new MeshMaterial("Role_T.mat");
+//
+//    if (!Roleanim) {
+//        std::cerr << "Error: Failed to reload role animation!" << std::endl;
+//    }
+//}
 

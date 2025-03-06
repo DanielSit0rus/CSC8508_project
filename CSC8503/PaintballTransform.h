@@ -38,6 +38,7 @@ namespace NCL {
 			rp3d::Transform		transform;
 			rp3d::Vector3		scale;
 			rp3d::Vector3		ratioR;
+
 		};
 	}
 }

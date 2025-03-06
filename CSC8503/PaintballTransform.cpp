@@ -18,7 +18,9 @@ Matrix4 PaintballTransform::GetMatrix() {
 
 void PaintballTransform::UpdateMatrix() {
 	matrix =
-		Matrix::Translation(Util::RP3dToNCL(GetPosition())) *
+		Matrix::Translation(Util::RP3dToNCL(GetPosition()
+		
+		)) *
 		Quaternion::RotationMatrix<Matrix4>(Util::RP3dToNCL(GetOrientation())) *
 		Matrix::Scale(Util::RP3dToNCL(ratioR));
 }
