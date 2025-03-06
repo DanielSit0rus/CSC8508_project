@@ -28,7 +28,7 @@ void GameManager::Update() {
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
     ResourceManager& resources = ResourceManager::GetInstance();
 
-    PaintballGameObject* cube = new PaintballGameObject();
+    PaintballGameObject* cube = new PaintballGameObject(GameObjectType::cube);
 
     cube->GetTransform()
         .SetPosition(position)
@@ -60,7 +60,7 @@ PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::V
 PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* cube = new PaintballGameObject();
+    PaintballGameObject* cube = new PaintballGameObject(GameObjectType::sphere);
 
     cube->GetTransform()
         .SetPosition(position)
@@ -163,11 +163,9 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
 
 PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
-
-
     ResourceManager& resources = ResourceManager::GetInstance();
 
-    PaintballGameObject* cube = new PaintballGameObject();
+    PaintballGameObject* cube = new PaintballGameObject(GameObjectType::test_character);
 
     cube->GetTransform()
         .SetPosition(position)
@@ -214,7 +212,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject();
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
 
     concave->GetTransform()
         .SetPosition(position)
@@ -249,7 +247,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject();
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave2);
 
     concave->GetTransform()
         .SetPosition(position)
@@ -292,7 +290,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
 
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballBullet* cube = new PaintballBullet("bullet");
+    PaintballBullet* cube = new PaintballBullet();
 
     cube->GetTransform()
         .SetPosition(position)

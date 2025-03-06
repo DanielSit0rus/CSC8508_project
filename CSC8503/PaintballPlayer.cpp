@@ -3,6 +3,7 @@
 using namespace NCL::CSC8503;
 
 NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
+	:PaintballGameObject(type = GameObjectType::player, name)
 {
 	name = objectName;
 	worldID = -1;
@@ -107,17 +108,15 @@ void PaintballPlayer::Attack()
 	switch (currentWeapon) {
 	case WeaponType::RedGun:
 		bulletColor = Vector4(1, 0, 0, 1); // 红色
-		std::cout << "red " << std::endl;
+		//std::cout << "red " << std::endl;
 		break;
 	case WeaponType::BlueGun:
 		bulletColor = Vector4(0, 0, 1, 1); // 蓝色
-		std::cout << "blue " << std::endl;
-
+		//std::cout << "blue " << std::endl;
 		break;
 	case WeaponType::GreenGun:
 		bulletColor = Vector4(0, 1, 0, 1); // 绿色
-		std::cout << "green " << std::endl;
-
+		//std::cout << "green " << std::endl;
 		break;
 	}
 
