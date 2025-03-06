@@ -51,6 +51,14 @@ void NCL::CSC8503::PaintballPlayer::UpdateWeaponSelection()
 	}
 }
 
+void NCL::CSC8503::PaintballPlayer::SwitchState(PlayerState newState)
+{
+	currentState = newState;
+	std::cout << "Switched to State: " << static_cast<int>(newState) << std::endl;
+}
+
+
+
 //void PaintballPlayer::Move(float forceMagnitude)
 //{
 //
@@ -149,5 +157,4 @@ void NCL::CSC8503::PaintballPlayer::Update(float dt)
 		//Move(10.0f); //       10.0f ֻ  ʾ  
 	}
 	UpdateWeaponSelection(); // 添加武器切换
-
 }
