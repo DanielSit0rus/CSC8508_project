@@ -10,8 +10,8 @@ namespace NCL {
             virtual void RegisterSL();    // Remember to register
             virtual void UnRegisterSL();
 
-            virtual void SaveData(nlohmann::json j) = 0;
-            virtual void LoadData(nlohmann::json j) = 0;
+            virtual void SaveData(nlohmann::json& j) = 0;
+            virtual void LoadData(nlohmann::json& j) = 0;
         };
     }
 }

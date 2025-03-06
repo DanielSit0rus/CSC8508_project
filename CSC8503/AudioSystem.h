@@ -49,10 +49,10 @@ namespace NCL {
 			bool LoadBank(const std::string& bankFile);
 			bool LoadBus(const std::string& busName);
 
-			void SaveData(nlohmann::json j) {
+			void SaveData(nlohmann::json& j) {
 				std::cout << "[AudioSystem] Saved" << std::endl;
 			}
-			void LoadData(nlohmann::json j) {
+			void LoadData(nlohmann::json& j) {
 				std::cout << "[AudioSystem] Loaded" << std::endl;
 			}
 

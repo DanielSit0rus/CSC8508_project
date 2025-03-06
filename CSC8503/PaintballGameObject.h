@@ -6,6 +6,7 @@
 #include "PaintballTransform.h"
 #include "PaintballAudioObject.h"
 #include <NetworkObject.h>
+#include "ISaveable.h"
 
 
 using std::vector;
@@ -34,7 +35,7 @@ namespace NCL::CSC8503 {
         test_networkPlayer,
     };
 
-    class PaintballGameObject
+    class PaintballGameObject : public ISaveable
     {
     public:
         PaintballGameObject(const GameObjectType& type, const std::string& name = "");
@@ -102,6 +103,12 @@ namespace NCL::CSC8503 {
 		}
 
     protected:
+        void SaveData(nlohmann::json& j);
+        void LoadData(nlohmann::json& j) {
+            //std::cout << "[obj] Loaded" << std::endl;
+        }
+
+
         PaintballTransform transform;
 
         PaintballRenderObject*      renderObject;

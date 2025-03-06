@@ -11,9 +11,11 @@ PaintballGameObject::PaintballGameObject(const GameObjectType& objectType, const
 	renderObject = nullptr;
 	physicsObject = nullptr;
 	audioObject = nullptr;
+	RegisterSL();
 }
 
 PaintballGameObject::~PaintballGameObject() {
+	UnRegisterSL();
     delete networkObject;
     delete renderObject;
     delete physicsObject;
@@ -34,4 +36,33 @@ void PaintballGameObject::Update(float dt) {
 	}
 
 	if (audioObject) audioObject->Update();
+}
+
+void PaintballGameObject::SaveData(nlohmann::json& j) {
+	//std::cout << "[obj] Saved" << std::endl;
+	nlohmann::json objData;
+
+	objData["type"] = type;
+
+	objData["pos"].push_back(transform.GetPosition().x);
+	objData["pos"].push_back(transform.GetPosition().y);
+	objData["pos"].push_back(transform.GetPosition().z);
+
+	objData["ori"].push_back(transform.GetOrientation().x);
+	objData["ori"].push_back(transform.GetOrientation().y);
+	objData["ori"].push_back(transform.GetOrientation().z);
+	objData["ori"].push_back(transform.GetOrientation().w);
+
+	objData["scale"].push_back(transform.GetScale().x);
+	objData["scale"].push_back(transform.GetScale().y);
+	objData["scale"].push_back(transform.GetScale().z);
+
+	objData["mass"] = physicsObject->GetMass();
+
+	objData["color"].push_back(renderObject->GetColour().x);
+	objData["color"].push_back(renderObject->GetColour().y);
+	objData["color"].push_back(renderObject->GetColour().z);
+	objData["color"].push_back(renderObject->GetColour().w);
+
+	j["objs"].push_back(objData);
 }

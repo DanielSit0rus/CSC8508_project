@@ -35,8 +35,10 @@ namespace NCL {
 			SLSystem() = default;
 			~SLSystem();
 
-			std::list<ISaveable*> saveableList;
+			std::string getCurrentTime();
 
+			std::string savePath = "../Assets/Json/";
+			std::list<ISaveable*> saveableList;
 			nlohmann::json jsonData;
 		};
 	}
