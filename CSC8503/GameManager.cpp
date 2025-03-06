@@ -106,6 +106,7 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
 
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
+    rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
     ResourceManager& resources = ResourceManager::GetInstance();
 
     // Create the player object
@@ -114,7 +115,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     player->GetTransform()
         .SetPosition(position)
         .SetScale(dimensions * 1.0f)
-        .SetRatioR(rp3d::Vector3(2, 2, 2));
+        .SetRatioR(ratioRender)
+        .SetOffsetR(rp3d::Vector3(0, -dimensions.y * 0.5f * ratioRender.y, 0));
 
     // Create render object with animation support
     PaintballRenderObject* renderObj = new PaintballRenderObject(
@@ -172,14 +174,16 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
         .SetOrientation(orientation)
         .SetScale(dimensions * 1.0f)
         .SetRatioR(dimensions * 1.0f);
-
     // Create render object
     PaintballRenderObject* renderObj = new PaintballRenderObject(
         &cube->GetTransform(),
         resources.GetRoleMesh(),
         resources.GetBasicTex(),
-        resources.GetBasicShader(), resources.GetRoleanim(), resources.GetRolemat()
+        resources.GetBasicShader(),
+        resources.GetRoleanim(),
+        resources.GetRolemat()
     );
+
     renderObj->SetColour(color);
 
     // Attach animation (assuming GetCubeAnimation exists in ResourceManager)
@@ -317,6 +321,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
 
     //      ?   ?       ?           ?  
     collider->setCollisionCategoryBits(BULLET);
+    collider->setIsTrigger(true);
     float speed = 300.0f; // 设置初速度
     rp3d::Vector3 velocity = ori3 * speed; // 计算速度向量
     cubeBody->setLinearVelocity(velocity); // 设置初速度
