@@ -12,30 +12,30 @@ StateGameObject::StateGameObject()
 	counter = 0.0f;
 	stateMachine = new StateMachine();
 
-	State* stateA = new State([&](float dt) -> void
-		{
-			this->MoveLeft(dt);
-		}
-	);
-	State* stateB = new State([&](float dt) -> void
-		{
-			this->MoveRight(dt);
-		}
-	);
+	//State* stateA = new State([&](float dt) -> void
+	//	{
+	//		this->MoveLeft(dt);
+	//	}
+	//);
+	//State* stateB = new State([&](float dt) -> void
+	//	{
+	//		this->MoveRight(dt);
+	//	}
+	//);
 
-	stateMachine->AddState(stateA);
-	stateMachine->AddState(stateB);
+	//stateMachine->AddState(stateA);
+	//stateMachine->AddState(stateB);
 
-	stateMachine->AddTransition(new StateTransition(stateA, stateB, [&]() -> bool
-		{
-			return this->counter > 3.0f;
-		}
-	));
-	stateMachine->AddTransition(new StateTransition(stateB, stateA, [&]() -> bool
-		{
-			return this->counter < 0.0f;
-		}
-	));
+	//stateMachine->AddTransition(new StateTransition(stateA, stateB, [&]() -> bool
+	//	{
+	//		return this->counter > 3.0f;
+	//	}
+	//));
+	//stateMachine->AddTransition(new StateTransition(stateB, stateA, [&]() -> bool
+	//	{
+	//		return this->counter < 0.0f;
+	//	}
+	//));
 }
 
 StateGameObject::~StateGameObject() {
@@ -43,7 +43,8 @@ StateGameObject::~StateGameObject() {
 }
 
 void StateGameObject::Update(float dt) {
-
+	//std::cout << "StateGameObject::Update" << std::endl;
+	PaintballGameObject::Update(dt);
 	stateMachine->Update(dt);
 }
 

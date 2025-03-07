@@ -20,8 +20,8 @@
 #include <fmod.h>
 #include "AudioSystem.h"
 #include "PaintballPlayer.h"
-#include "Enemy.h"
 #include "InputManager.h"
+#include "PaintballEnemy.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -92,7 +92,7 @@ namespace NCL {
 
 			//shoot 
 			PaintballPlayer* shoottest = nullptr;
-			Enemy* enemy = nullptr;
+			PaintballEnemy* enemy = nullptr;
 
 			InputManager inputManager;
 

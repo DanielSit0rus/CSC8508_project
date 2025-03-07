@@ -14,6 +14,8 @@ void Console::Init(Window* win) {
     RegisterCommand("add", [this](const std::string& args) { AddObjCommand(args); }, "Add an object");
     RegisterCommand("audio", [this](const std::string& args) { AudioCommand(args); }, "Audio command");
 
+    RegisterCommand("Test", [this](const std::string& args) { EventManager::Trigger(EventType::Test); });
+
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
 
