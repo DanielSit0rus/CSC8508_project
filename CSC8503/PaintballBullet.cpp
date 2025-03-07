@@ -45,5 +45,5 @@ void PaintballBullet::InitBullet(const rp3d::Quaternion& direction, bool isEnemy
 
 void PaintballBullet::Destroy()
 {
-	GameManager::GetInstance().DeleteObject(this);
+	GameManager::GetInstance().RecycleBullet(this);
 }

@@ -1,5 +1,5 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
+﻿D:\visual stdio\ide\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(CSC8503CoreClasses.dir\Debug\)包含从另一个项目(CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  Building Custom Rule D:/vs code/team/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -31,8 +31,8 @@
   imconfig.h
   imgui_demo.cpp
   imgui_draw.cpp
-  Generating Code...
-  Compiling...
+  正在生成代码...
+  正在编译...
   imgui_impl_opengl3_loader.h
   imgui_internal.h
   imgui_tables.cpp
@@ -40,7 +40,7 @@
   imstb_rectpack.h
   imstb_textedit.h
   imstb_truetype.h
-  Generating Code...
+  正在生成代码...
   BehaviourSelector.h
   BehaviourSelector.cpp
   BehaviourSequence.h
@@ -83,4 +83,4 @@
   imgui_impl_opengl3.cpp
   imgui_impl_win32.h
   imgui_impl_win32.cpp
-  CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> D:\vs code\team\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib

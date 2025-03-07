@@ -10,6 +10,7 @@
 #include "BulletContactListener.h"
 #include "Camera.h"
 #include <unordered_set>
+#include "BulletPool.h"
 
 namespace NCL {
     const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001
@@ -26,6 +27,8 @@ namespace NCL {
     };
     namespace CSC8503 {
         class PaintballPlayer; // ǰ       forward declaration
+        class BulletPool;
+        class PaintballBullet;
         class GameManager
         {
         public:
@@ -88,7 +91,7 @@ namespace NCL {
             }
 
             float GetLeftTime() const { return leftTime; }
-
+            void RecycleBullet(PaintballBullet* bullet);
         private:
             GameManager() = default;
             GameState currentState = GameState::InGame;
@@ -132,6 +135,7 @@ namespace NCL {
             
             //FMOD
             bool canStart_FMOD = true;
+            BulletPool* bulletPool;
         };
     }
 }

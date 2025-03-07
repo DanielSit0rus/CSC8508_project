@@ -17,7 +17,7 @@ void GameManager::Init(PaintballGameWorld* world,float gameTime)
 
     totalTime = gameTime;
     leftTime = totalTime;
-
+    bulletPool = new BulletPool(100,RpWorld);
     EventManager::Subscribe(EventType::Game_Start, [this]() {leftTime = totalTime; canStart_FMOD = true; });
 
     RpWorld->setEventListener(&bulletlistener);
@@ -320,8 +320,8 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
     AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballBullet* cube = new PaintballBullet();
-
+    PaintballBullet* cube = bulletPool->GetBullet();
+    cube->SetActive(true); // 重新启用
     cube->GetTransform()
         .SetPosition(position)
         .SetOrientation(orientation)
@@ -390,4 +390,10 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
 
 
     return concaveMeshShape;
+}
+
+void NCL::CSC8503::GameManager::RecycleBullet(PaintballBullet* bullet)
+{
+    world->RemoveGameObject(bullet);  // 从游戏世界中移除
+    bulletPool->ReturnBullet(bullet); // 放回对象池
 }
