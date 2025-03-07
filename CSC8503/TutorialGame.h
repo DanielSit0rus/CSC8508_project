@@ -82,11 +82,6 @@ namespace NCL {
 			NavigationMesh* navMesh;
 			std::vector<Vector3> pathNodes;
 
-			//rp3d
-			
-			vector<PaintballGameObject*> objList_pb;
-
-
 			//FMOD
 			PaintballGameObject* speakerObj = nullptr;
 

@@ -157,51 +157,56 @@ void TutorialGame::InitWorld() {
 
 	world->ClearAndErase();
 
-	//ResourceManager::GetInstance().ReloadAnimations();
+	if (false) {
+		G1.InitWorld(1);
+	}
+	else{
+		//ResourceManager::GetInstance().ReloadAnimations();
 
-	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
-	
-	enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
+		playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
-	CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
+		enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
 
-	forceMagnitude = 60.0f;
+		CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
-
-
-	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
-	renderer->AddLight(light2);
-
-	//FMOD
-	speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-	speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
-		AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
-	speakerObj->GetAudioObject()->Play(true);
-
-	//rp3d
-	objList_pb.clear();
-	float angleInRadians = 10.0f * PI / 180.0f;
-	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+		forceMagnitude = 60.0f;
 
 
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(-10, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+
+		Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
+		renderer->AddLight(light2);
+
+		//FMOD
+		speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+		speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
+			AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
+		speakerObj->GetAudioObject()->Play(true);
+
+		//rp3d
+		float angleInRadians = 10.0f * PI / 180.0f;
+		rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+		G1.AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
-	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddSecondConcaveMesh(rp3d::Vector3(-50, 1, 500), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 1.0f, 1.0f, 1.0f)));
+		G1.AddCube(rp3d::Vector3(-10, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
-	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+		G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddSecondConcaveMesh(rp3d::Vector3(-50, 1, 500), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
-	GameManager::GetInstance().SetPlayer(shoottest);
-	G1.SetGameState(GameState::InGame);
-	
-	//InitDefaultFloor();
 
+		shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+
+		GameManager::GetInstance().SetPlayer(shoottest);
+		G1.SetGameState(GameState::InGame);
+
+		//InitDefaultFloor();
+
+
+	}
 	EventManager::Trigger(EventType::Game_Start);
 }
 
@@ -381,6 +386,8 @@ void TutorialGame::DisplayPath() {
 }
 
 void TutorialGame::MoveEnemyAlongPath() {
+	if (!enemyObject) return;
+
 	if (pathNodes.empty()) {
 		enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
 		return;

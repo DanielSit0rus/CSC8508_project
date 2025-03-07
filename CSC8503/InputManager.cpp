@@ -24,21 +24,23 @@ void InputManager::HandleMainMenuInput() {
 }
 
 void InputManager::HandleGameInput() {
+    bool isDebug = false;
+
     PaintballPlayer* player = GameManager::GetInstance().GetPlayer();
     if (!player) {
-        std::cout << " No player to control!" << std::endl;
+        if(isDebug) std::cout << " No player to control!" << std::endl;
         return;
     }
 
     PaintballPhysicsObject* physicsObject = player->GetPhysicsObject();
     if (!physicsObject) {
-        std::cout << " Player has no physics object!" << std::endl;
+        if (isDebug) std::cout << " Player has no physics object!" << std::endl;
         return;
     }
 
     PerspectiveCamera* camera = player->GetCamera();
     if (!camera) {
-        std::cout << "Player has no camera!" << std::endl;
+        if (isDebug) std::cout << "Player has no camera!" << std::endl;
         return;
     }
 

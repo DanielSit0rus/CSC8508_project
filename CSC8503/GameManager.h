@@ -48,6 +48,8 @@ namespace NCL {
             rp3d::PhysicsWorld* getRPworld() { return RpWorld; }
             rp3d::PhysicsCommon& getPhys() { return physicsCommon; }
 
+            void InitWorld(int arg);
+
             PaintballGameObject* AddPlayer(const rp3d::Vector3& position);
             PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);
             PaintballGameObject* AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));

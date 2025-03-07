@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "AudioSystem.h"
+#include "SLSystem.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -93,6 +94,43 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
 
 PaintballGameObject* GameManager::AddFloorToWorld(const rp3d::Vector3& position) {
     return AddCube(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1, 1, 1, 1));
+}
+
+void GameManager::InitWorld(int arg)
+{
+    json j = SLSystem::GetInstance().LoadData("save");
+
+    if (j.contains("objs") && j["objs"].is_array()) {
+        for (const auto& obj : j["objs"]) {
+
+            if (obj.contains("type")) {
+                int type = obj["type"];
+                switch (type)
+                {
+                case GameObjectType::cube:
+                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
+                    AddCube(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                        rp3d::Vector3(obj["scale"][0] * 0.5f, obj["scale"][1] * 0.5f, obj["scale"][2] * 0.5f),
+                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                        obj["mass"]);
+                    break;
+
+                case GameObjectType::concave1:
+                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
+                    AddConcaveMesh(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
+                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                        obj["mass"],
+                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
+                    break;
+
+                default:
+                    std::cout << "[GameManager::InitWorld] Unknown type." << std::endl;
+                    break;
+                }
+            }
+        }
+    }
 }
 
 PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {

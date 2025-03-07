@@ -21,8 +21,10 @@ namespace NCL {
 
 			void Init();
 
-			void JsonSave();
-			void JsonLoad();
+			json LoadData(std::string file = "save") const;
+
+			void JsonSaveTest();
+			void JsonLoadTest() const;
 
 			void RegisterISaveable(ISaveable* saveable);
 			void UnRegisterISaveable(ISaveable* saveable);
