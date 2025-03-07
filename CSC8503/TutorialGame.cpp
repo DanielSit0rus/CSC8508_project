@@ -112,7 +112,7 @@ void TutorialGame::UpdateGame(float dt) {
 	std::string posString = std::to_string((int)pos.x) + ", "
 		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
 	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
-	if (false) {
+	if (true) {
 		Vector3 camPos = camera.GetPosition();
 		float yaw = DegreesToRadians(camera.GetYaw());
 		float pitch = DegreesToRadians(-camera.GetPitch());
@@ -218,6 +218,8 @@ void TutorialGame::UpdateKeys() {
 		RaycastHitCallback  callback;
 		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
+			//G1.GetInstance().DeleteObject((PaintballGameObject*)callback.rb->getUserData());
+
 			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
 			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
 		}

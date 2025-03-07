@@ -16,9 +16,9 @@ NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
 
 NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 {
-	delete networkObject;
-	delete renderObject;
-	delete physicsObject;
+	//delete networkObject;
+	//delete renderObject;
+	//delete physicsObject;
 	camera = nullptr;
 }
 
