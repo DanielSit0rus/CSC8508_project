@@ -41,8 +41,8 @@ namespace NCL {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
             };
 
-            void Init(PaintballGameWorld* world);
-            void Update();
+            void Init(PaintballGameWorld* world, float gameTime = 120);
+            void Update(float dt);
 
             //void InitWorld();
             rp3d::PhysicsWorld* getRPworld() { return RpWorld; }
@@ -54,8 +54,7 @@ namespace NCL {
             PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);
             PaintballGameObject* AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddSphere(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-            PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
-            PaintballGameObject* AddSecondConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color);
+            PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Mesh* mesh, Vector4 color);
             PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
@@ -84,10 +83,11 @@ namespace NCL {
                 player = p;
             }
 
-
             PerspectiveCamera& GetMainCamera() {
                 return world->GetMainCamera();
             }
+
+            float GetLeftTime() const { return leftTime; }
 
         private:
             GameManager() = default;
@@ -109,6 +109,9 @@ namespace NCL {
                 }
             }
 
+            float totalTime;
+            float leftTime;
+
             //NEW
             std::vector<PaintballGameObject*> gameObjects;
             PaintballPlayer* player;
@@ -126,7 +129,9 @@ namespace NCL {
             
 
             //NavigationMesh* navMesh;
-
+            
+            //FMOD
+            bool canStart_FMOD = true;
         };
     }
 }

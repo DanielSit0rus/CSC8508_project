@@ -29,6 +29,7 @@
 
 #include "AudioSystem.h"
 #include "EventManager.h"
+#include "GameManager.h"
 #include "SLSystem.h"
 #include "Console.h"
 

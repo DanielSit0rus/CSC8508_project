@@ -34,13 +34,19 @@ namespace NCL {
 			bool UnpauseGame();
 
 			~TutorialGame();
-			bool pause = false;
 			virtual void UpdateGame(float dt);
+
+			void ShowMainPage();
+			void ShowPausedPage();
+			void ShowMenuPage();
+
+			//place here for Dev
+			void InitWorld();
+			void InitCamera();
 
 		protected:
 			void InitialiseAssets();
 
-			void InitCamera();
 			void UpdateKeys();
 			void LockedObjectMovement();
 
@@ -49,7 +55,6 @@ namespace NCL {
 			in the module. Feel free to mess around with them to see different objects being created in different
 			test scenarios (constraints, collision types, and so on). 
 			*/
-			void InitWorld();
 			
 			void InitDefaultFloor();			
 

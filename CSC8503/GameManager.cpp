@@ -1,11 +1,12 @@
 #include "GameManager.h"
 #include "AudioSystem.h"
 #include "SLSystem.h"
+#include "EventManager.h"
 
 using namespace NCL;
 using namespace CSC8503;
 
-void GameManager::Init(PaintballGameWorld* world)
+void GameManager::Init(PaintballGameWorld* world,float gameTime)
 {
     this->world = world;
     RpWorld = physicsCommon.createPhysicsWorld(RpSettings);
@@ -14,16 +15,79 @@ void GameManager::Init(PaintballGameWorld* world)
         throw std::runtime_error("Physics World creation failed!");
     }
 
+    totalTime = gameTime;
+    leftTime = totalTime;
+
+    EventManager::Subscribe(EventType::Game_Start, [this]() {leftTime = totalTime; canStart_FMOD = true; });
 
     RpWorld->setEventListener(&bulletlistener);
 }
 
-void GameManager::Update() {
+void GameManager::Update(float dt) {
+    leftTime -= dt;
+
+    Debug::Print("Left time: "
+        + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
+
     for (auto object : objectsToDelete) {
         //std::cout << "name = [" << object->GetName()<<"]" << std::endl;
         world->RemoveGameObject(object, true);
     }
     objectsToDelete.clear();
+
+
+    //FMOD
+    if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
+        AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");
+        canStart_FMOD = false;
+    }
+}
+
+void GameManager::InitWorld(int arg)
+{
+    json j = SLSystem::GetInstance().LoadData("save");
+
+    if (j.contains("objs") && j["objs"].is_array()) {
+        for (const auto& obj : j["objs"]) {
+
+            if (obj.contains("type")) {
+                int type = obj["type"];
+                switch (type)
+                {
+                case GameObjectType::cube:
+                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
+                    AddCube(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                        rp3d::Vector3(obj["scale"][0] * 0.5f, obj["scale"][1] * 0.5f, obj["scale"][2] * 0.5f),
+                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                        obj["mass"],
+                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
+                    break;
+
+                case GameObjectType::sphere:
+                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
+                    AddSphere(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
+                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                        obj["mass"],
+                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
+                    break;
+
+                case GameObjectType::concave1:
+                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
+                    AddConcaveMesh(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
+                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                        ResourceManager::GetInstance().GetMapMesh(),
+                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
+                    break;
+
+                default:
+                    std::cout << "[GameManager::InitWorld] Unknown type." << std::endl;
+                    break;
+                }
+            }
+        }
+    }
 }
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
@@ -94,43 +158,6 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
 
 PaintballGameObject* GameManager::AddFloorToWorld(const rp3d::Vector3& position) {
     return AddCube(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1, 1, 1, 1));
-}
-
-void GameManager::InitWorld(int arg)
-{
-    json j = SLSystem::GetInstance().LoadData("save");
-
-    if (j.contains("objs") && j["objs"].is_array()) {
-        for (const auto& obj : j["objs"]) {
-
-            if (obj.contains("type")) {
-                int type = obj["type"];
-                switch (type)
-                {
-                case GameObjectType::cube:
-                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
-                    AddCube(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0] * 0.5f, obj["scale"][1] * 0.5f, obj["scale"][2] * 0.5f),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        obj["mass"]);
-                    break;
-
-                case GameObjectType::concave1:
-                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
-                    AddConcaveMesh(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        obj["mass"],
-                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
-                    break;
-
-                default:
-                    std::cout << "[GameManager::InitWorld] Unknown type." << std::endl;
-                    break;
-                }
-            }
-        }
-    }
 }
 
 PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
@@ -250,7 +277,7 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
 }
 
 
-PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
+PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Mesh* mesh, Vector4 color)
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -262,7 +289,8 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
         .SetScale(dimensions * 1.0f)
         .SetRatioR(dimensions * 1.0f);
 
-    concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(), resources.GetMapMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),
+        mesh, resources.GetBasicTex(), resources.GetBasicShader()));
 
     concave->GetRenderObject()->SetColour(color);
 
@@ -274,7 +302,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
     concaveBody->setType(rp3d::BodyType::STATIC);
     // create Shape
-    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMapMesh());
+    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(mesh);
     shape->setScale(dimensions);
     // bind Shape to rigid body
     rp3d::Transform shapeTransform = rp3d::Transform::identity();
@@ -286,45 +314,6 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     world->AddGameObject(concave);
     return concave;
 }
-PaintballGameObject* GameManager::AddSecondConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
-{
-    ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave2);
-
-    concave->GetTransform()
-        .SetPosition(position)
-        .SetOrientation(orientation)
-        .SetScale(dimensions * 1.0f)
-        .SetRatioR(dimensions * 1.0f);
-
-    // Use the new alternate map mesh
-    concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),
-        resources.GetSecondMapMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
-
-    concave->GetRenderObject()->SetColour(color);
-
-    rp3d::Vector3 pos(position.x, position.y, position.z);
-    rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-
-    // Create a rigid body
-    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
-    concaveBody->setType(rp3d::BodyType::STATIC);
-
-    // Create a ConcaveMeshShape using the alternate map mesh
-    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetSecondMapMesh());
-    shape->setScale(dimensions);
-
-    // Bind the shape to the rigid body
-    rp3d::Transform shapeTransform = rp3d::Transform::identity();
-    rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
-
-    // Add the rigid body to the game object
-    concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
-
-    world->AddGameObject(concave);
-    return concave;
-}
-
 
 PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {

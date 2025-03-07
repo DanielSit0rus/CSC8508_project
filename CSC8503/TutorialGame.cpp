@@ -34,10 +34,6 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 
 	InitialiseAssets();
-	
-
-	
-	
 }
 
 /*
@@ -61,31 +57,18 @@ TutorialGame::~TutorialGame()	{
 
 }
 
-bool TutorialGame::pauseGame(){
-	if (!pause) EventManager::Trigger(EventType::Game_Pause);
-	return pause = true;
-}
-bool TutorialGame::UnpauseGame() {
-	if (pause) EventManager::Trigger(EventType::Game_Resume);
-	return pause = false;
-}
 
 void TutorialGame::UpdateGame(float dt) {
-	if (pause) {
-		// Only update the PushMachine and render the current frame.
-		renderer->Render();
-		return; // Skip the rest of the game updates.
-	}
-
 	const Camera& camera = world->GetMainCamera();
 	inputManager.Update();
-	GameManager::GetInstance().Update();
+	GameManager::GetInstance().Update(dt);
 	UpdateKeys();
 
 	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 
 	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+	Debug::Print("Press P to pause or M to open menu", Vector2(5, 85));
 
 	
 
@@ -111,7 +94,7 @@ void TutorialGame::UpdateGame(float dt) {
 	const Vector3& pos = camera.GetPosition();
 	std::string posString = std::to_string((int)pos.x) + ", "
 		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
-	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
+	Debug::Print("Pos = " + posString, Vector2(60, 95));
 	if (true) {
 		Vector3 camPos = camera.GetPosition();
 		float yaw = DegreesToRadians(camera.GetYaw());
@@ -150,8 +133,6 @@ void TutorialGame::InitCamera() {
 }
 
 void TutorialGame::InitWorld() {
-	EventManager::Trigger(EventType::Game_End);
-
 	lockedObject = nullptr;
 	selectionObject = nullptr;
 
@@ -160,7 +141,7 @@ void TutorialGame::InitWorld() {
 	if (false) {
 		G1.InitWorld(1);
 	}
-	else{
+	else {
 		//ResourceManager::GetInstance().ReloadAnimations();
 
 		playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
@@ -194,8 +175,10 @@ void TutorialGame::InitWorld() {
 		G1.AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
-		G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddSecondConcaveMesh(rp3d::Vector3(-50, 1, 500), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetMapMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-50, 1, 500), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetSecondMapMesh(), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
 
 		shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
@@ -207,7 +190,6 @@ void TutorialGame::InitWorld() {
 
 
 	}
-	EventManager::Trigger(EventType::Game_Start);
 }
 
 void TutorialGame::UpdateKeys() {
@@ -429,3 +411,24 @@ void TutorialGame::MoveEnemyAlongPath() {
 	enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
 }
 
+void TutorialGame::ShowMainPage() {
+	Debug::UpdateRenderables(0.1f);
+	Debug::DrawTex(*ResourceManager::GetInstance().GetBasicTex(), Vector2(0, 0), Vector2(100, 100), Debug::WHITE);
+	Debug::Print("Main Page : Press SPACE to start, ESCAPE to quit", Vector2(5, 65), Debug::RED);
+	renderer->Render();
+}
+
+void TutorialGame::ShowPausedPage() {
+	Debug::Print("Paused : Press U to unpause game", Vector2(20, 50), Debug::WHITE);
+	renderer->Render();
+}
+void TutorialGame::ShowMenuPage() {
+	Vector4 titleColour = Debug::GREEN;
+
+	Debug::Print("Press ESCAPE to quit game", Vector2(20, 45), Debug::BLACK);
+	Debug::Print("Press N for a main game", Vector2(20, 50), Debug::BLACK);
+
+	Debug::Print("MENU", Vector2(20, 35), Debug::BLACK);
+	Debug::Print("Press U to close menu", Vector2(20, 55), Debug::BLACK);
+
+}
