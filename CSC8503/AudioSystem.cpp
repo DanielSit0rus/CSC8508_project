@@ -57,8 +57,8 @@ bool AudioSystem::Init()
 void AudioSystem::Update()
 {
     Matrix4 view = GameManager::GetInstance().GetMainCamera().BuildViewMatrix();;
-    Vector3 forward = Vector::Normalise(Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
-    Vector3 up = Vector::Normalise(Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
+    Vector3 forward = Vector::Normalise(-Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
+    Vector3 up = Vector::Normalise(-Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
     Vector3 pos = GameManager::GetInstance().GetMainCamera().GetPosition();
     listenerAttributes->position = { pos.x, pos.y, pos.z };
     listenerAttributes->forward = { forward.x,forward.y,forward.z };
