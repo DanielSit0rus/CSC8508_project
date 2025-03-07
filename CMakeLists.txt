@@ -119,9 +119,7 @@ add_library(ReactPhysics3D STATIC ${RP3D_SRC})
 # 设置 nlohmann_json 库的路径
 set(NLOHMANN_JSON_PATH "${CMAKE_SOURCE_DIR}/SDK/nlohmannjson-json")
 
-# 将 nlohmann_json 添加为一个子目录（它的 CMakeLists.txt 中会定义相关的目标）
-add_subdirectory(${NLOHMANN_JSON_PATH})
-
+include_directories(${NLOHMANN_JSON_PATH}/single_include)
 
 ################################################################################
 # imgui Setup

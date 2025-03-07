@@ -49,7 +49,7 @@ void SLSystem::LoadAll() {
 
 void SLSystem::JsonSave() {
     // 创建 JSON 对象
-    nlohmann::json j;
+    json j;
 
     // 填充数据
     j["person"] = {
@@ -86,7 +86,7 @@ void SLSystem::JsonLoad()
     }
 
     // 解析 JSON 数据
-    nlohmann::json j;
+    json j;
     in_file >> j;
 
     // 访问和输出数据

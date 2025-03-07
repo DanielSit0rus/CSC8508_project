@@ -32,7 +32,7 @@ bool AudioSystem::Init()
     LoadBank("BGM.bank");
     LoadBank("Effect.bank");
     LoadBank("Felicia.bank");
-    LoadBank("Lin.bank");
+    LoadBank("Congzheng.bank");
     LoadBus("BGM");
     LoadBus("Voice");
     LoadBus("Effect");

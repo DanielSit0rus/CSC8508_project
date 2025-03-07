@@ -39,7 +39,7 @@ namespace NCL {
 
 			std::string savePath = "../Assets/Json/";
 			std::list<ISaveable*> saveableList;
-			nlohmann::json jsonData;
+			json jsonData;
 		};
 	}
 }
