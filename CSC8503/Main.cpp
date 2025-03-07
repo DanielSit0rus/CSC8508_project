@@ -181,6 +181,8 @@ public:
 	void OnAwake() override {
 		w->ShowOSPointer(true);
 		w->LockMouseToWindow(false);
+		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
 		EventManager::Trigger(EventType::Game_Pause);
 		//w->ShowConsole(true);
 		//Vector3 pos = g->GetCameraPosition();
@@ -217,8 +219,8 @@ public:
 		return PushdownResult::NoChange;
 	};
 	void OnAwake() override {
-		w->ShowOSPointer(true);
-		w->LockMouseToWindow(false);
+		w->ShowOSPointer(false);
+		w->LockMouseToWindow(true);
 	}
 private:
 	NetworkedGame* g;
@@ -252,6 +254,8 @@ public:
 		EventManager::Trigger(EventType::Game_End);
 		w->ShowOSPointer(true);
 		w->LockMouseToWindow(false);
+		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
 		g->InitWorld();
 		g->InitCamera();
 	}
