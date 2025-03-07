@@ -292,7 +292,6 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
 {
     AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
 
-
     ResourceManager& resources = ResourceManager::GetInstance();
     PaintballBullet* cube = new PaintballBullet();
 

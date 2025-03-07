@@ -10,6 +10,8 @@ namespace NCL::CSC8503 {
 		PaintballBullet(const std::string& name = "");
 		~PaintballBullet();
 
+		void Update(float dt) override;
+
 		Vector4 GetColor() const;
 		void SetColor(const Vector4& newColor);
 
@@ -19,6 +21,7 @@ namespace NCL::CSC8503 {
 		Vector4 color;
 		bool isEnemy;
 		float speed = 100.0f;
-		float lifeTime = 2.0f; // 以秒为单位
+		float lifeTime; // 以秒为单位
+		std::chrono::high_resolution_clock::time_point startTime;
 	};
 }

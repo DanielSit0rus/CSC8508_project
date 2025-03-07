@@ -125,19 +125,30 @@ void Console::AddObjCommand(std::string s) const {
     }
 
     if (shape == "cube" || shape == "c") {
-        GameManager::GetInstance().AddCube(
-            Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
-            rp3d::Vector3(scaleValue, scaleValue, scaleValue),
-            rp3d::Quaternion().identity()
-        );
+        int num = 1;
+        stream >> num;
+        if (num <= 0) num = 1;
+        for (int i = 0; i < num; i++)
+            GameManager::GetInstance().AddCube(
+                Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
+                rp3d::Vector3(scaleValue, scaleValue, scaleValue),
+                rp3d::Quaternion().identity()
+            );
         std::cout << "A cube is added!" << std::endl;
     }
     else if (shape == "sphere" || shape == "s") {
-        GameManager::GetInstance().AddSphere(
-            Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
-            rp3d::Vector3(scaleValue, scaleValue, scaleValue),
-            rp3d::Quaternion().identity()
-        );
+        int num = 1;
+        stream >> num;
+        if (num <= 0) num = 1;
+        for (int i = 0; i < num; i++)
+            //GameManager::GetInstance().AddBullet(rp3d::Vector3(0,-1,0), false,
+            //    Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()) + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
+            //    rp3d::Quaternion().identity(), Vector4(1,1,1,1));
+            GameManager::GetInstance().AddSphere(
+                Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
+                rp3d::Vector3(scaleValue, scaleValue, scaleValue),
+                rp3d::Quaternion().identity()
+            );
         std::cout << "A sphere is added!" << std::endl;
     }
     else {
