@@ -216,6 +216,10 @@ public:
 		g->UpdateGame(dt);
 		return PushdownResult::NoChange;
 	};
+	void OnAwake() override {
+		w->ShowOSPointer(true);
+		w->LockMouseToWindow(false);
+	}
 private:
 	NetworkedGame* g;
 	Window* w;
