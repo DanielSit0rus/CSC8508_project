@@ -317,7 +317,8 @@ int main() {
 		AudioSystem::GetInstance().Update();
 	} 
 	EventManager::Trigger(EventType::Game_End);
-
+	
+	Console::GetInstance().Release();
 	console.detach();
 
 	Window::DestroyGameWindow();

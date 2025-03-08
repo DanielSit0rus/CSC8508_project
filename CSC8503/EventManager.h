@@ -18,8 +18,6 @@ namespace NCL {
             Network_StartAsServer,
             Network_StartAsClient,
             Network_Test,
-
-            Test
         };
 
         class EventManager {

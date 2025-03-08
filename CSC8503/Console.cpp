@@ -1,25 +1,37 @@
 #include "Console.h"
 #include "GameManager.h"
 #include "AudioSystem.h"
+#include "GameObjectFreeList.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
 void Console::Init(Window* win) {
     w = win;
     RegisterCommand("help", [this](const std::string&) { ShowHelpCommnad(); }, "List all commands");
+    RegisterCommand("clear", [this](const std::string&) { ClearCommnad(); }, "Clear console");
+
     RegisterCommand("save", [this](const std::string&) { EventManager::Trigger(EventType::Data_Save); }, "Save data");
     RegisterCommand("load", [this](const std::string&) { EventManager::Trigger(EventType::Data_Load); }, "Load data");
-    RegisterCommand("net", [this](const std::string& args) { NetworkCommand(args); }, "Network command");
-    RegisterCommand("clear", [this](const std::string&) { ClearCommnad(); }, "Clear console");
     RegisterCommand("add", [this](const std::string& args) { AddObjCommand(args); }, "Add an object");
+
+    RegisterCommand("net", [this](const std::string& args) { NetworkCommand(args); }, "Network command");
     RegisterCommand("audio", [this](const std::string& args) { AudioCommand(args); }, "Audio command");
 
-    RegisterCommand("Test", [this](const std::string& args) { EventManager::Trigger(EventType::Test); });
+    RegisterCommand("test", [this](const std::string& args) { TestCommand(args); }, "Test command");
 
     EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
 
     std::cout << "\nInput commnad (Type help to list all commands) :\n> ";
+}
+
+void Console::Release()
+{
+    running = false;
+    testing = false;
+    if(testThread) testThread->join();
+    delete testThread;
 }
 
 void Console::ShowConsole(bool t) {
@@ -36,12 +48,14 @@ void Console::ShowConsole() {
     w->LockMouseToWindow(!isShow);
 }
 
+
 void Console::RegisterCommand(const std::string& command, CommandHandler handler, const std::string& text) {
     commands[command] = { handler, text };
 }
 
 void Console::ProcessInput() {
-    while (true)
+    std::string input;
+    while (running)
     {
         std::getline(std::cin, input);
         HandleCommand(input);
@@ -111,7 +125,7 @@ void Console::NetworkCommand(std::string s) const {
     }
 }
 
-void Console::AddObjCommand(std::string s) const {
+void Console::AddObjCommand(std::string s) const { //add obj size num
     std::istringstream stream(s);
     std::string shape;
     float scaleValue = 1.0f;
@@ -170,6 +184,44 @@ void Console::AudioCommand(std::string s) const {
         stream >> name;
         stream >> value;
         AudioSystem::GetInstance().SetBusVolume(name, value);
+    }
+    else {
+        std::cout << "Unknown argument: " << s << std::endl;
+    }
+}
+
+void Console::TestCommand(std::string s) {
+    if (testing) {
+        testing = false;
+        testThread->join();
+        delete testThread;
+    }
+
+    std::istringstream stream(s);
+    std::string target;
+
+    stream >> target;
+
+    if (target == "freeList" || "f") {
+        testing = true;
+
+        testThread = new std::thread([&]
+            {
+                while (testing) {
+                    PerspectiveCamera camera = GameManager::GetInstance().GetMainCamera();
+                    Vector3 camPos = camera.GetPosition();
+                    float yaw = DegreesToRadians(camera.GetYaw());
+                    float pitch = DegreesToRadians(-camera.GetPitch());
+                    Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
+                    front = -Vector::Normalise(front);
+
+                    GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(front), false,
+                        Util::NCLToRP3d(camPos+ front*3.f), rp3d::Vector3(1, 1, 1),
+                        rp3d::Quaternion().identity(), Vector4(1, 1, 1, 1));
+                    std::this_thread::sleep_for(std::chrono::milliseconds(300));  // 限制输出频率，避免过快输出
+                }
+            }
+        );
     }
     else {
         std::cout << "Unknown argument: " << s << std::endl;

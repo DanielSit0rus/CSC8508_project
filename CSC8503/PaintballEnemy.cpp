@@ -13,9 +13,6 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 	navMesh = nullptr;
 	player = nullptr;
 
-	//EventManager::Subscribe(EventType::Test, [this]() {canSeeTest=!canSeeTest; });
-
-
 	State* patrolling = new State([&](float dt) -> void {
 		Patrol(dt);
 		});
