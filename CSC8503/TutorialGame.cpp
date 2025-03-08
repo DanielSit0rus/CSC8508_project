@@ -46,7 +46,7 @@ for this module, even in the coursework, but you can add it if you like!
 void TutorialGame::InitialiseAssets() {
 
 	
-	navMesh = new NavigationMesh("Map1Navmesh","SecondMapMesh");
+	G1.navMesh = new NavigationMesh("Map1Navmesh","SecondMapMesh");
 
 	InitWorld();
 	InitCamera();
@@ -74,16 +74,14 @@ void TutorialGame::UpdateGame(float dt) {
 
 	world->UpdateWorld(dt);
 
-	G1.getRPworld()->update(dt);	//rp3d
+	G1.navMesh->DrawNavMesh();
 
-	navMesh->DrawNavMesh();
-
-	if (lockedObject) {
-		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
+	if (G1.lockedObject) {
+		Vector3 lockedScale = Util::RP3dToNCL(G1.lockedObject->GetTransform().GetScale());
 		LockedObjectMovement();
 
 		world->GetMainCamera().UpdateCameraView3(
-			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
+			Util::RP3dToNCL(G1.lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
 			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 10.0f);
 	}
 	else
@@ -127,14 +125,16 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 
-	lockedObject = nullptr;
-	selectionObject = nullptr;
+	G1.lockedObject = nullptr;
+	G1.selectionObject = nullptr;
 	forceMagnitude = 60.0f;
 }
 
 void TutorialGame::InitWorld() {
-	lockedObject = nullptr;
-	selectionObject = nullptr;
+	//return;
+
+	G1.lockedObject = nullptr;
+	G1.selectionObject = nullptr;
 
 	world->ClearAndErase();
 
@@ -144,11 +144,11 @@ void TutorialGame::InitWorld() {
 	else {
 		//ResourceManager::GetInstance().ReloadAnimations();
 
-		playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
+		G1.playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
-		enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
+		G1.enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
 
-		CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
+		G1.CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
 		forceMagnitude = 60.0f;
 
@@ -158,10 +158,10 @@ void TutorialGame::InitWorld() {
 		renderer->AddLight(light2);
 
 		//FMOD
-		speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-		speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
+		G1.speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+		G1.speakerObj->SetAudioObject(new PaintballAudioObject(&G1.speakerObj->GetTransform(),
 			AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
-		speakerObj->GetAudioObject()->Play(true);
+		//G1.speakerObj->GetAudioObject()->Play(true);
 
 		//rp3d
 		float angleInRadians = 10.0f * PI / 180.0f;
@@ -181,9 +181,9 @@ void TutorialGame::InitWorld() {
 			ResourceManager::GetInstance().GetSecondMapMesh(), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
 
-		shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 
-		GameManager::GetInstance().SetPlayer(shoottest);
+		GameManager::GetInstance().SetPlayer(G1.shoottest);
 		G1.SetGameState(GameState::InGame);
 
 		//InitDefaultFloor();
@@ -194,9 +194,9 @@ void TutorialGame::InitWorld() {
 
 void TutorialGame::UpdateKeys() {
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
-		if (selectionObject) {	//set colour to deselected;
-			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-			selectionObject = nullptr;
+		if (G1.selectionObject) {	//set colour to deselected;
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
+			G1.selectionObject = nullptr;
 		}
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
@@ -207,15 +207,15 @@ void TutorialGame::UpdateKeys() {
 		if (callback.rb && callback.rb->getUserData()) {
 			//G1.GetInstance().DeleteObject((PaintballGameObject*)callback.rb->getUserData());
 
-			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
-			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
+			G1.selectionObject = (PaintballGameObject*)callback.rb->getUserData();
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
 		}
 
 	}
 
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
-		if (!selectionObject) return;
+		if (!G1.selectionObject) return;
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
@@ -223,26 +223,26 @@ void TutorialGame::UpdateKeys() {
 		RaycastHitCallback  callback;
 		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
-			if (selectionObject == (PaintballGameObject*)callback.rb->getUserData())
+			if (G1.selectionObject == (PaintballGameObject*)callback.rb->getUserData())
 				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
 		}
 	}
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
-		if (selectionObject) {
-			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-			if (lockedObject == selectionObject) {
-				lockedObject = nullptr;
+		if (G1.selectionObject) {
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
+			if (G1.lockedObject == G1.selectionObject) {
+				G1.lockedObject = nullptr;
 			}
 			else {
-				lockedObject = selectionObject;
+				G1.lockedObject = G1.selectionObject;
 			}
 		}
-		else lockedObject = nullptr;
+		else G1.lockedObject = nullptr;
 	}
 
 	//shoot test
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::Q)) {
-		shoottest->Attack();
+		if(G1.shoottest) G1.shoottest->Attack();
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
@@ -268,12 +268,12 @@ void TutorialGame::LockedObjectMovement() {
 	fwdAxis.y = 0.0f;
 	fwdAxis = Vector::Normalise(fwdAxis);
 
-	PaintballGameObject* target = lockedObject;
+	PaintballGameObject* target = G1.lockedObject;
 
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
 	
-	shoottest->isControl = lockedObject == shoottest;
+	G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
@@ -339,46 +339,46 @@ line - after the third, they'll be able to twist under torque aswell.
 
 
 void TutorialGame::CalculatePathToPlayer() {
-	if (!playerObject || !enemyObject) {
+	if (!G1.playerObject || !G1.enemyObject) {
 		Debug::Print("Player or Enemy object is not initialized!", Vector2(10, 20), Debug::RED);
 		return;
 	}
 
-	rp3d::Vector3 startPos = enemyObject->GetTransform().GetPosition();
-	rp3d::Vector3 endPos = playerObject->GetTransform().GetPosition();
+	rp3d::Vector3 startPos = G1.enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 endPos = G1.playerObject->GetTransform().GetPosition();
 
 	NavigationPath outPath;
-	pathNodes.clear();
+	G1.pathNodes.clear();
 
-	if (navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
+	if (G1.navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
 		Vector3 pos;
 		while (outPath.PopWaypoint(pos)) {
-			pathNodes.push_back(pos);
+			G1.pathNodes.push_back(pos);
 		}
 	}
 
 }
 
 void TutorialGame::DisplayPath() {
-	for (size_t i = 1; i < pathNodes.size(); ++i) {
-		Vector3 a = pathNodes[i - 1];
-		Vector3 b = pathNodes[i];
+	for (size_t i = 1; i < G1.pathNodes.size(); ++i) {
+		Vector3 a = G1.pathNodes[i - 1];
+		Vector3 b = G1.pathNodes[i];
 			Debug::DrawLine(a, b, Vector4(0, 1, 0, 1));
 	}
 }
 
 void TutorialGame::MoveEnemyAlongPath() {
-	if (!enemyObject) return;
+	if (!G1.enemyObject) return;
 
-	if (pathNodes.empty()) {
-		enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+	if (G1.pathNodes.empty()) {
+		G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
 		return;
 	}
 
 	// Get current position and the next target position
-	rp3d::Vector3 currentPos = enemyObject->GetTransform().GetPosition();
-	rp3d::Vector3 targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
-		: Util::NCLToRP3d(pathNodes.back());
+	rp3d::Vector3 currentPos = G1.enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 targetPos = G1.pathNodes.size() > 1 ? Util::NCLToRP3d(G1.pathNodes[G1.pathNodes.size() - 2])
+		: Util::NCLToRP3d(G1.pathNodes.back());
 	targetPos.y = currentPos.y; // Keep enemy on the same Y level
 
 	// Compute direction and distance to the target node
@@ -391,14 +391,14 @@ void TutorialGame::MoveEnemyAlongPath() {
 
 	if (distanceToTarget < arrivalThreshold) {
 		// Remove the reached node
-		pathNodes.erase(pathNodes.begin());
-		if (pathNodes.empty()) {
-			enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+		G1.pathNodes.erase(G1.pathNodes.begin());
+		if (G1.pathNodes.empty()) {
+			G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
 			return;
 		}
 		// Update the target position to the new front of the path
-		targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
-			: Util::NCLToRP3d(pathNodes.back());
+		targetPos = G1.pathNodes.size() > 1 ? Util::NCLToRP3d(G1.pathNodes[G1.pathNodes.size() - 2])
+			: Util::NCLToRP3d(G1.pathNodes.back());
 		targetPos.y = currentPos.y;
 		direction = targetPos - currentPos;
 	}
@@ -408,7 +408,7 @@ void TutorialGame::MoveEnemyAlongPath() {
 	rp3d::Vector3 velocity = direction * moveSpeed;
 
 	// Set linear velocity
-	enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
+	G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
 }
 
 void TutorialGame::ShowMainPage() {

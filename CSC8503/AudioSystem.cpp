@@ -33,9 +33,13 @@ bool AudioSystem::Init()
     LoadBank("Effect.bank");
     LoadBank("Felicia.bank");
     LoadBank("Congzheng.bank");
+
     LoadBus("BGM");
     LoadBus("Voice");
     LoadBus("Effect");
+
+    SetBusVolume("BGM", 0);
+    SetBusVolume("Voice", 0);
 
     RegisterSL();
 

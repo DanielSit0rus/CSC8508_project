@@ -25,7 +25,8 @@ namespace NCL {
         // add others if necessary
     };
     namespace CSC8503 {
-        class PaintballPlayer; // ǰ       forward declaration
+        class PaintballPlayer;
+        class PaintballEnemy; //forward declaration
         class GameManager
         {
         public:
@@ -46,7 +47,9 @@ namespace NCL {
 
             //void InitWorld();
             rp3d::PhysicsWorld* getRPworld() { return RpWorld; }
-            rp3d::PhysicsCommon& getPhys() { return physicsCommon; }
+            rp3d::PhysicsCommon& getPhysCommon() { return physicsCommon; }
+            bool isPhysEnabled() const { return hasPhys; }
+            void EnablePhys(bool arg) { hasPhys = arg; }
 
             void InitWorld(int arg);
 
@@ -87,7 +90,23 @@ namespace NCL {
                 return world->GetMainCamera();
             }
 
+            PaintballGameWorld* GetWorld() { return world; }
+
             float GetLeftTime() const { return leftTime; }
+
+            //Pointers - to be private later
+            PaintballPlayer* playerObject;
+            PaintballGameObject* selectionObject = nullptr;
+            PaintballGameObject* lockedObject = nullptr;
+            PaintballGameObject* enemyObject = nullptr;
+            PaintballGameObject* CharacterObject = nullptr;
+            NavigationMesh* navMesh;
+            std::vector<Vector3> pathNodes;
+            //FMOD
+            PaintballGameObject* speakerObj = nullptr;
+            //shoot 
+            PaintballPlayer* shoottest = nullptr;
+            PaintballEnemy* enemy = nullptr;
 
         private:
             GameManager() = default;
@@ -118,6 +137,7 @@ namespace NCL {
             std::vector<PaintballGameObject*> enemies;
 
 
+            bool hasPhys = true;
             PaintballGameWorld* world = nullptr;
             rp3d::PhysicsCommon physicsCommon;
             rp3d::PhysicsWorld* RpWorld = nullptr; // not used anymore

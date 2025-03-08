@@ -1,4 +1,5 @@
 #include "PaintballGameObject.h"
+#include "GameManager.h"
 
 using namespace NCL::CSC8503;
 
@@ -24,7 +25,7 @@ PaintballGameObject::~PaintballGameObject() {
 
 void PaintballGameObject::Update(float dt) {
 	// Sync physics transform to render transform
-	if (physicsObject) {
+	if (GameManager::GetInstance().isPhysEnabled() && physicsObject) {
 		rp3d::RigidBody& body = physicsObject->GetRigidbody();
 		rp3d::Transform physicsTransform = body.getTransform();
 		transform.SetRpTransform(physicsTransform);

@@ -85,6 +85,10 @@ namespace NCL::CSC8503 {
         void SetAudioObject(PaintballAudioObject* newObject) {
             audioObject = newObject;
         }
+        
+        void SetNetworkObject(NetworkObject* newObject) {
+            networkObject = newObject;
+        }
 
         const std::string& GetName() const {
             return name;

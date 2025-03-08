@@ -35,6 +35,7 @@ void GameManager::Update(float dt) {
     }
     objectsToDelete.clear();
 
+    if (hasPhys) RpWorld->update(dt);
 
     //FMOD
     if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
@@ -45,6 +46,27 @@ void GameManager::Update(float dt) {
 
 void GameManager::InitWorld(int arg)
 {
+    GameManager::GetInstance().GetWorld()->ClearAndErase();
+
+    //Pointers - to be private later
+    playerObject = nullptr;
+    selectionObject = nullptr;
+    lockedObject = nullptr;
+    enemyObject = nullptr;
+    CharacterObject = nullptr;
+    pathNodes.clear();
+    //FMOD
+    speakerObj = nullptr;
+    //shoot 
+    shoottest = nullptr;
+    enemy = nullptr;
+    //private
+    gameObjects.clear();
+    player = nullptr;
+    enemies.clear();
+    objectsToDelete.clear();
+
+
     json j = SLSystem::GetInstance().LoadData("save");
 
     if (j.contains("objs") && j["objs"].is_array()) {

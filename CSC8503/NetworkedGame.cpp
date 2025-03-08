@@ -61,6 +61,7 @@ void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient->RegisterPacketHandler(Player_Disconnected, this);
 	thisClient->RegisterPacketHandler(String_Message, this);
 
+	GameManager::GetInstance().EnablePhys(false);
 
 	StartLevel();
 }
@@ -150,7 +151,20 @@ void NetworkedGame::SpawnPlayer() {
 }
 
 void NetworkedGame::StartLevel() {
+	GameManager::GetInstance().InitWorld(1);
 
+	std::vector<PaintballGameObject*>::const_iterator first;
+	std::vector<PaintballGameObject*>::const_iterator last;
+	world->GetObjectIterators(first, last);
+
+	for (auto i = first; i != last; ++i) {
+		if ((*i)->GetType() != GameObjectType::bullet)
+		{
+			NetworkObject* obj = new NetworkObject(**i, networkObjects.size());
+			(*i)->SetNetworkObject(obj);
+			networkObjects[networkObjects.size()] = obj;
+		}
+	}
 }
 
 void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
@@ -169,9 +183,13 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		FullPacket* fullPacket = (FullPacket*)payload;
 
 		int objectID = fullPacket->objectID;
+		/*
 		rp3d::Vector3 position = fullPacket->fullState.position;
 		rp3d::Quaternion orientation = fullPacket->fullState.orientation;
 		int stateID = fullPacket->fullState.stateID;
+		*/
+
+		networkObjects[objectID]->ReadPacket(*fullPacket);
 
 		break;
 	}

@@ -21,7 +21,6 @@
 #include "AudioSystem.h"
 #include "PaintballPlayer.h"
 #include "InputManager.h"
-#include "PaintballEnemy.h"
 
 namespace NCL {
 	namespace CSC8503 {
@@ -58,8 +57,6 @@ namespace NCL {
 			
 			void InitDefaultFloor();			
 
-			PaintballPlayer* playerObject;
-
 			void CalculatePathToPlayer();
 
 			void DisplayPath();
@@ -79,20 +76,6 @@ namespace NCL {
 			KeyboardMouseController controller;
 
 			float		forceMagnitude;
-
-			PaintballGameObject* selectionObject = nullptr;
-			PaintballGameObject* lockedObject = nullptr;
-			PaintballGameObject* enemyObject = nullptr;
-			PaintballGameObject* CharacterObject = nullptr;
-			NavigationMesh* navMesh;
-			std::vector<Vector3> pathNodes;
-
-			//FMOD
-			PaintballGameObject* speakerObj = nullptr;
-
-			//shoot 
-			PaintballPlayer* shoottest = nullptr;
-			PaintballEnemy* enemy = nullptr;
 
 			InputManager inputManager;
 

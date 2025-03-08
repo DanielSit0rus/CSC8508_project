@@ -39,12 +39,12 @@ namespace NCL {
 			float timeToNextPacket;
 			int packetsToSnapshot;
 
-			std::vector<NetworkObject*> networkObjects;
+			std::map<int, NetworkObject*> networkObjects;
 
 			std::map<int, PaintballGameObject*> serverPlayers;
 			PaintballGameObject* localPlayer;
 
-			bool isDebug = true;
+			bool isDebug = false;
 			void SendPacketTest();
 			void SendPacketTest(std::string s);
 		};
