@@ -49,7 +49,7 @@ namespace NCL::CSC8503 {
 
         void SetActive(bool active) {
             isActive = active;
-            physicsObject->GetRigidbody().setIsActive(isActive);
+            physicsObject->GetRigidbody().setIsActive(active);
         }
 
         PaintballTransform& GetTransform() {

@@ -1,4 +1,5 @@
 #include "PaintballPlayer.h"
+#include "GameObjectFreeList.h"
 
 using namespace NCL::CSC8503;
 
@@ -164,9 +165,10 @@ void PaintballPlayer::Attack()
 	Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
 	front = -Vector::Normalise(front);
 
-	GameManager::GetInstance().AddBullet(Util::NCLToRP3d(front), false,
+
+	GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(front), false,
 		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
-		Util::NCLToRP3d(Quaternion(camera->BuildViewMatrix())), bulletColor);
+		rp3d::Quaternion().identity(), bulletColor);
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
