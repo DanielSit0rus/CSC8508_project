@@ -21,6 +21,8 @@ namespace NCL::CSC8503 {
 
 		void PushObject(PaintballGameObject* obj);
 
+		void Clear();
+
 
 	private:
 		GameObjectFreeList() = default;

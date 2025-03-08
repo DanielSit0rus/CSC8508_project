@@ -1,94 +1,94 @@
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\cmake_pch.pch
-d:\team project csc\main repo\csc8508_project\x64\debug\csc8503coreclasses.pdb
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\cmake_pch.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\debug.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\debug.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_draw.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_demo.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imconfig.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\peer.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\packet.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\host.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\compress.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\utility.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\types.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\time.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\callbacks.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\constraint.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationpath.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmap.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statetransition.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\state.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviournodewithchildren.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviournode.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviouraction.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_truetype.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_textedit.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_rectpack.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_widgets.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_tables.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_internal.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_impl_opengl3_loader.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behavioursequence.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behavioursequence.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownmachine.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownmachine.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownstate.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownstate.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statemachine.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statemachine.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkbase.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkbase.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkobject.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkobject.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicsobject.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicsobject.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicssystem.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicssystem.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\list.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\list.c.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\protocol.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\protocol.c.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.c.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\imgui.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\imgui.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_opengl3.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_opengl3.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_win32.h.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_win32.cpp.obj
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\cmakefiles\generate.stamp
-d:\team project csc\main repo\csc8508_project\x64\debug\csc8503coreclasses.lib
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\cl.command.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\cl.items.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\cl.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\cl.write.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\custombuild.command.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\custombuild.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\custombuild.write.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\lib-link.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\lib-link.write.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.453212cd.tlog\lib.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\cmake_pch.pch
+d:\d_project\cpp\danielsit0rus\csc8508_project\x64\debug\csc8503coreclasses.pdb
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\cmake_pch.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\debug.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\debug.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameobject.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameworld.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\renderobject.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\transform.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_draw.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_demo.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imconfig.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\peer.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\packet.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\host.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\compress.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\utility.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\types.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\time.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\callbacks.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\constraint.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationpath.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmap.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statetransition.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\state.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviournodewithchildren.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviournode.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviouraction.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_truetype.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_textedit.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imstb_rectpack.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_widgets.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_tables.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_internal.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\imgui_impl_opengl3_loader.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behaviourselector.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behavioursequence.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\behavioursequence.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownmachine.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownmachine.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownstate.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\pushdownstate.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statemachine.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\statemachine.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationgrid.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\navigationmesh.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameserver.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkbase.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkbase.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkstate.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\orientationconstraint.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicsobject.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicsobject.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicssystem.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\physicssystem.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\list.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\list.c.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\protocol.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\protocol.c.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\enet\win32.c.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\imgui.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\imgui.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_opengl3.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_opengl3.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_win32.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\__\sdk\imgui\backends\imgui_impl_win32.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\gameclient.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkobject.h.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\networkobject.cpp.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\cmakefiles\generate.stamp
+d:\d_project\cpp\danielsit0rus\csc8508_project\x64\debug\csc8503coreclasses.lib
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\cl.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\cl.items.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\cl.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\cl.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\custombuild.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\custombuild.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\custombuild.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\lib-link.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\lib-link.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503coreclasses\csc8503coreclasses.dir\debug\csc8503c.b20e3097.tlog\lib.command.1.tlog

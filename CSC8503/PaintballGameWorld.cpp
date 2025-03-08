@@ -1,5 +1,6 @@
 #include "PaintballGameWorld.h"
 #include "Camera.h"
+#include "GameObjectFreeList.h"
 
 using namespace NCL;
 using namespace NCL::CSC8503;
@@ -15,6 +16,7 @@ PaintballGameWorld::~PaintballGameWorld() {
 
 void PaintballGameWorld::Clear() {
 	gameObjects.clear();
+	GameObjectFreeList::GetInstance().Clear();
 	worldIDCounter = 0;
 	worldStateCounter = 0;
 }
