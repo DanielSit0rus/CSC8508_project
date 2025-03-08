@@ -26,6 +26,20 @@ namespace NCL {
             static Quaternion RP3dToNCL(const rp3d::Quaternion& v) {
                 return Quaternion(v.x, v.y, v.z, v.w);
             }
+
+            template <typename T>
+            static int getValueInMap(const std::map<int, T*>& objectMap) {
+                auto it = std::find_if(objectMap.begin(), objectMap.end(),
+                    [](const std::pair<int, T*>& pair) {
+                        return pair.second == nullptr;
+                    });
+
+                if (it != objectMap.end()) {
+                    return it->first;
+                }
+                return static_cast<int>(objectMap.size());
+            }
+
         };
 
     }
