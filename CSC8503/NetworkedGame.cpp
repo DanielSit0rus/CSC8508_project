@@ -82,14 +82,17 @@ void NetworkedGame::UpdateGame(float dt) {
 }
 
 void NetworkedGame::UpdateAsServer(float dt) {
-	packetsToSnapshot--;
-	if (packetsToSnapshot < 0) {
-		BroadcastSnapshot(false);
-		packetsToSnapshot = 5;
-	}
-	else {
-		BroadcastSnapshot(true);
-	}
+	//packetsToSnapshot--;
+	//if (packetsToSnapshot < 0) {
+	//	BroadcastSnapshot(false);
+	//	packetsToSnapshot = 5;
+	//}
+	//else {
+	//	BroadcastSnapshot(true);
+	//}
+
+	BroadcastSnapshot(false);
+
 	this->thisServer->UpdateServer();
 }
 
@@ -113,13 +116,13 @@ void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
 		//and store the lastID somewhere. A map between player
 		//and an int could work, or it could be part of a 
 		//NetworkPlayer struct. 
-		int playerState = 0;
 		GamePacket* newPacket = nullptr;
 		if (o->WritePacket(&newPacket, deltaFrame, playerState)) {
 			thisServer->SendGlobalPacket(*newPacket);
 			delete newPacket;
 		}
 	}
+	if (!deltaFrame) playerState++;
 }
 
 void NetworkedGame::UpdateMinimumState() {
@@ -175,6 +178,10 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 	case Delta_State: {
 		if (isDebug) std::cout << "Received delta packet from source: " << source << std::endl;
 		DeltaPacket* deltaPacket = (DeltaPacket*)payload;
+
+		int objectID = deltaPacket->objectID;
+
+		networkObjects[objectID]->ReadPacket(*deltaPacket);
 
 		break;
 	}
