@@ -40,7 +40,7 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		// 识别子弹和物体
 		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet) {
 			//std::cout << "子弹击中目标！" << std::endl;
-			GameManager::GetInstance().DeleteObject((PaintballBullet*)body1->getUserData());
+			((PaintballBullet*)body1->getUserData())->Destroy();
 			((PaintballGameObject*)body2->getUserData())->GetRenderObject()->SetColour(
 				((PaintballGameObject*)body1->getUserData())->GetRenderObject()->GetColour()
 			);
@@ -49,7 +49,7 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		}
 		if (((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::bullet) {
 			//std::cout << "子弹击中目标！" << std::endl;
-			GameManager::GetInstance().DeleteObject((PaintballBullet*)body2->getUserData());
+			((PaintballBullet*)body2->getUserData())->Destroy();
 			((PaintballGameObject*)body1->getUserData())->GetRenderObject()->SetColour(
 				((PaintballGameObject*)body2->getUserData())->GetRenderObject()->GetColour()
 			);

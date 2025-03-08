@@ -15,12 +15,12 @@ namespace NCL::CSC8503 {
 		Vector4 GetColor() const;
 		void SetColor(const Vector4& newColor);
 
-		void InitBullet(const rp3d::Quaternion& direction, bool isEnemy);
+		void InitBullet(rp3d::Vector3 direction, bool isEnemy);
 		void Destroy();
 	private:
 		Vector4 color;
 		bool isEnemy;
-		float speed = 100.0f;
+		float speed;
 		float lifeTime; // 以秒为单位
 		std::chrono::high_resolution_clock::time_point startTime;
 	};

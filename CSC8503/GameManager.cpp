@@ -316,10 +316,6 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 
     concave->GetRenderObject()->SetColour(color);
 
-    rp3d::Vector3 pos(position.x, position.y, position.z);
-    rp3d::Quaternion ori = rp3d::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-
-
     // create a rigid body
     rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
     concaveBody->setType(rp3d::BodyType::STATIC);
@@ -337,9 +333,9 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     return concave;
 }
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
+PaintballBullet* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {
-    AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
+    //AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
 
     ResourceManager& resources = ResourceManager::GetInstance();
     PaintballBullet* cube = new PaintballBullet();
@@ -370,9 +366,8 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bo
     //      ?   ?       ?           ?  
     collider->setCollisionCategoryBits(BULLET);
     collider->setIsTrigger(true);
-    float speed = 300.0f; // 设置初速度
-    rp3d::Vector3 velocity = ori3 * speed; // 计算速度向量
-    cubeBody->setLinearVelocity(velocity); // 设置初速度
+
+    cube->InitBullet(ori3, isenemy);
 
     world->AddGameObject(cube);
 
