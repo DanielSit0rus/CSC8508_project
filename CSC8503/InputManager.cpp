@@ -62,8 +62,13 @@ void InputManager::HandleGameInput() {
     }
 
     if (Vector::LengthSquared(moveDirection) > 0) {
+        player->Ismove = true;
         moveDirection = Vector::Normalise(moveDirection);
         Move(physicsObject, moveDirection, moveForce);
+    }
+    else {
+
+        player->Ismove = false;
     }
 
     if (IsKeyPressed(KeyCodes::SPACE)) {

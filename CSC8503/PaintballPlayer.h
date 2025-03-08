@@ -3,7 +3,9 @@
 #include "PaintballGameWorld.h"
 #include "PaintballBullet.h"
 #include "GameManager.h"
-
+#include "StateTransition.h"
+#include "StateMachine.h"
+#include "State.h"
 
 namespace NCL::CSC8503 {
 	enum class WeaponType {
@@ -53,12 +55,17 @@ namespace NCL::CSC8503 {
 		void UpdatePlayerRotation();
 		void Update(float dt) override;
 
+		bool Ismove = false;
 
 		bool isControl = false;
+
 	private:
 		Vector4 color;
 		PerspectiveCamera* camera;
 		WeaponType currentWeapon = WeaponType::RedGun; // ?      
 		PlayerState  currentState;
+		StateMachine* stateMachine;
+
+		void SetupStateMachine();
 	};
 }

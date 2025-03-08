@@ -211,7 +211,7 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
         resources.GetRoleMesh(),
         resources.GetBasicTex(),
         resources.GetBasicShader(),
-        resources.GetRoleanim(),
+        resources.GetIdleanim(),
         resources.GetRolemat()
     );
 
@@ -267,7 +267,7 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
         resources.GetRoleMesh(),
         resources.GetBasicTex(),
         resources.GetBasicShader(),
-        resources.GetRoleanim(),
+        resources.GetIdleanim(),
         resources.GetRolemat()
     );
 

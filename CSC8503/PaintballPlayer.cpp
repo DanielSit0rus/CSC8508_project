@@ -5,6 +5,7 @@ using namespace NCL::CSC8503;
 NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
 	:PaintballGameObject(type = GameObjectType::player, name)
 {
+	currentState = PlayerState::IdleState;
 	name = objectName;
 	worldID = -1;
 	isActive = true;
@@ -12,7 +13,36 @@ NCL::CSC8503::PaintballPlayer::PaintballPlayer(const std::string& objectName)
 	renderObject = nullptr;
 	physicsObject = nullptr;
 	camera = nullptr;
+	stateMachine = new StateMachine();
+	SetupStateMachine();
 }
+
+void NCL::CSC8503::PaintballPlayer::SetupStateMachine() {
+
+	State* idleState = new State([&](float dt) {
+		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
+		});
+
+	State* runState = new State([&](float dt) {
+		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
+		});
+
+	// Add states to the machine
+	stateMachine->AddState(idleState);
+	stateMachine->AddState(runState);
+
+	// Transitions
+	stateMachine->AddTransition(new StateTransition(idleState, runState, [&]() -> bool {
+		return this->currentState == PlayerState::RunState;
+		}));
+
+	stateMachine->AddTransition(new StateTransition(runState, idleState, [&]() -> bool {
+		return this->currentState == PlayerState::IdleState;
+		}));
+
+}
+
+
 
 NCL::CSC8503::PaintballPlayer::~PaintballPlayer()
 {
@@ -151,10 +181,20 @@ void NCL::CSC8503::PaintballPlayer::Update(float dt)
 {
 	PaintballGameObject::Update(dt);
 
+	if (Ismove && currentState != PlayerState::RunState)
+	{
+		SwitchState(PlayerState::RunState);
+	}
+	else if (!Ismove && currentState != PlayerState::IdleState)
+	{
+		SwitchState(PlayerState::IdleState);
+	}
+	stateMachine->Update(dt);
+
 	if (isControl)
 	{
 		UpdatePlayerRotation();
-		//Move(10.0f); //       10.0f ֻ  ʾ  
+		//Move(10.0f); //      
 	}
-	UpdateWeaponSelection(); // 添加武器切换
+	UpdateWeaponSelection();
 }

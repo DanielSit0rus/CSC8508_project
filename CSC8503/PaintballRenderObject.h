@@ -53,6 +53,10 @@ namespace NCL {
 				return animation;
 			}
 
+			void SetAnimation(std::shared_ptr<MeshAnimation> a)  {
+				 animation = a;
+			}
+
 			int GetCurrentFrame() const {
 				return currentFrame;
 			}

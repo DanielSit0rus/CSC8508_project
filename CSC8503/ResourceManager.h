@@ -29,9 +29,11 @@ namespace NCL {
             Mesh* GetCapsuleMesh() const { return capsuleMesh; }
 
             Mesh* GetRoleMesh() const { return RoleMesh; }
-            std::shared_ptr<MeshAnimation> GetRoleanim() const { return Roleanim; }
+            std::shared_ptr<MeshAnimation> GetIdleanim() const { return Roleanim; }
+
             std::shared_ptr<MeshMaterial> GetRolemat() const { return Rolemat; }
 
+            std::shared_ptr<MeshAnimation> GetMoveanim() const { return Moveanim; }
             Texture* GetBasicTex() const { return basicTex; }
             Shader* GetBasicShader() const { return basicShader; }
 
@@ -57,6 +59,7 @@ namespace NCL {
 
                 Mesh* RoleMesh = nullptr;
                 std::shared_ptr<MeshAnimation> Roleanim;
+                std::shared_ptr<MeshAnimation> Moveanim;
                 std::shared_ptr<MeshMaterial> Rolemat;
 
                 Texture* basicTex = nullptr;

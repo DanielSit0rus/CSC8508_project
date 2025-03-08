@@ -15,7 +15,8 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         capsuleMesh = renderer->LoadMesh("capsule.msh");
 
         RoleMesh = renderer->LoadMesh("Role_T.msh");
-        Roleanim = std::make_shared<MeshAnimation>("Role_T.anm");
+        Roleanim = std::make_shared<MeshAnimation>("Role_T_Idle.anm");
+        Moveanim = std::make_shared<MeshAnimation>("Role_T.anm");
         Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
         basicTex = renderer->LoadTexture("checkerboard.png");
