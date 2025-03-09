@@ -44,7 +44,7 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 	//Set up the light properties
 	lightColour = Vector4(0.8f, 0.8f, 0.5f, 1.0f);
 	lightRadius = 1000.0f;
-	lightPosition = Vector3(-200.0f, 60.0f, -200.0f);
+	lightPosition = light1.GetPosition();
 
 	//Skybox!
 	skyboxShader = new OGLShader("skybox.vert", "skybox.frag");
@@ -164,40 +164,56 @@ void GameTechRenderer::SortObjectList() {
 }
 
 void GameTechRenderer::RenderShadowMap() {
+	// Bind the FBO for the shadow map and clear only the depth buffer.
 	glBindFramebuffer(GL_FRAMEBUFFER, shadowFBO);
 	glClear(GL_DEPTH_BUFFER_BIT);
 	glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 	glViewport(0, 0, SHADOWSIZE, SHADOWSIZE);
 
+	// Cull front faces to help reduce shadow acne.
 	glCullFace(GL_FRONT);
 
+	// Use the shadow shader.
 	UseShader(*shadowShader);
 	int mvpLocation = glGetUniformLocation(shadowShader->GetProgramID(), "mvpMatrix");
 
-	Matrix4 shadowViewMatrix = Matrix::View(lightPosition, Vector3(0, 0, 0), Vector3(0,1,0));
-	Matrix4 shadowProjMatrix = Matrix::Perspective(1.0f, 1000.0f, 1.0f, 90.0f);
+	// Compute the light’s view matrix.
+	// Instead of always looking at (0,0,0), choose a target that covers your scene.
+	// For example, if your scene is centered around (0,0,0), that is acceptable.
+	Vector3 lightTarget = Vector3(0, -1, 0);  // Change this if your scene center is different.
+	Matrix4 shadowViewMatrix = Matrix::View(lightPosition, lightTarget, Vector3(0, 1, 0));
 
-	Matrix4 mvMatrix = shadowProjMatrix * shadowViewMatrix;
+	// Use a perspective projection for the light camera.
+	// (A 45° field-of-view is typical.)
+	Matrix4 shadowProjMatrix = Matrix::Perspective(45.0f, 1.0f, 1.0f, 1000.0f);
 
-	shadowMatrix = biasMatrix * mvMatrix; //we'll use this one later on
+	// Combine to get the light’s MVP (for all objects)
+	Matrix4 lightMVP = shadowProjMatrix * shadowViewMatrix;
 
-	for (const auto&i : activeObjects) {
-		Matrix4 modelMatrix = (*i).GetTransform()->GetMatrix();
-		Matrix4 mvpMatrix	= mvMatrix * modelMatrix;
+	// Compute the final shadow matrix with bias (to move coordinates from [-1,1] to [0,1]).
+	shadowMatrix = biasMatrix * lightMVP;
+
+	// Render each active object using the shadow shader.
+	for (const auto& obj : activeObjects) {
+		Matrix4 modelMatrix = (*obj).GetTransform()->GetMatrix();
+		// For each object, the final matrix is lightMVP * modelMatrix.
+		Matrix4 mvpMatrix = lightMVP * modelMatrix;
 		glUniformMatrix4fv(mvpLocation, 1, false, (float*)&mvpMatrix);
-		BindMesh((OGLMesh&)*(*i).GetMesh());
-		size_t layerCount = (*i).GetMesh()->GetSubMeshCount();
-		for (size_t i = 0; i < layerCount; ++i) {
-			DrawBoundMesh((uint32_t)i);
+		BindMesh((OGLMesh&)*(*obj).GetMesh());
+		size_t layerCount = (*obj).GetMesh()->GetSubMeshCount();
+		for (size_t j = 0; j < layerCount; ++j) {
+			DrawBoundMesh((uint32_t)j);
 		}
 	}
 
+	// Restore the viewport and state.
 	glViewport(0, 0, windowSize.x, windowSize.y);
 	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 	glCullFace(GL_BACK);
 }
+
+
 
 void GameTechRenderer::AddLight(const Light& light) {
 	if (lights.size() < 8) { // Limit to 8 lights (defined in shader)

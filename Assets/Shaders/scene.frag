@@ -8,7 +8,7 @@ uniform sampler2DShadow shadowTex;
 
 struct Light {
     vec3 position;
-    vec3 direction; 
+    vec3 direction;
     vec4 color;
     float radius;
     float cutoff;
@@ -31,20 +31,17 @@ in Vertex
 
 out vec4 fragColor;
 
-// Function to calculate shadows
 float GetShadowFactor(vec4 shadowCoord) {
     vec3 projCoords = shadowCoord.xyz / shadowCoord.w;
     projCoords = projCoords * 0.5 + 0.5;
 
-    // Avoid shadow acne
     float bias = max(0.005 * (1.0 - dot(IN.normal, normalize(lights[0].position - IN.worldPos))), 0.0005);
     float shadowSample = textureProj(shadowTex, vec4(projCoords.xy, projCoords.z - bias, 1.0));
 
     return mix(0.2, 1.0, shadowSample);
 }
 
-void main(void)
-{
+void main(void) {
     float shadowFactor = 1.0;
     if (IN.shadowProj.w > 0.0) {
         shadowFactor = GetShadowFactor(IN.shadowProj);
@@ -62,8 +59,7 @@ void main(void)
         float distance = length(lights[i].position - IN.worldPos);
         float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * (distance * distance));
 
-        // Spotlight effect
-        float theta = dot(lightDir, normalize(-lights[i].direction)); 
+        float theta = dot(lightDir, normalize(-lights[i].direction));
         float epsilon = lights[i].cutoff - 0.02;
         float spotlightIntensity = clamp((theta - epsilon) / (lights[i].cutoff - epsilon), 0.0, 1.0);
 
@@ -75,9 +71,8 @@ void main(void)
         totalLighting += (lambert + specular) * lights[i].color.rgb * attenuation * spotlightIntensity * shadowFactor;
     }
 
-    // **Ensure parts without light stay black**
-    totalLighting = max(totalLighting, vec3(0.0f)); 
+    totalLighting = max(totalLighting, vec3(0.0f));
 
-    fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0f / 2.2f)); // Gamma correction
+    fragColor.rgb = pow(totalLighting * albedo.rgb, vec3(1.0f / 2.2f));
     fragColor.a = albedo.a;
 }
