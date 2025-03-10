@@ -111,6 +111,16 @@ void Console::NetworkCommand(std::string s) const {
         EventManager::Trigger(EventType::Network_StartAsServer);
     }
     else if (arg == "t" || arg == "test") {
+
+        std::cout << GameManager::GetInstance().GetNetworkObjects().size() << std::endl;
+        for (int i = 0; i < GameManager::GetInstance().GetNetworkObjects().size(); i++)
+        {
+            if (GameManager::GetInstance().GetNetworkObjects()[i] == nullptr) std::cout << "0";
+            else std::cout << "1";
+        }
+        std::cout << std::endl;
+
+        /*
         std::string text;
         std::getline(stream, text);
         if (!text.empty()) {
@@ -119,6 +129,7 @@ void Console::NetworkCommand(std::string s) const {
         else {
             EventManager::Trigger(EventType::Network_Test);
         }
+        */
     }
     else {
         std::cout << "Unknown argument: " << s << "\nAvailable: client(c), server(s), test(t)" << std::endl;
@@ -202,7 +213,7 @@ void Console::TestCommand(std::string s) {
 
     stream >> target;
 
-    if (target == "freeList" || "f") {
+    if (target == "freeList" || target == "f") {
         testing = true;
 
         testThread = new std::thread([&]

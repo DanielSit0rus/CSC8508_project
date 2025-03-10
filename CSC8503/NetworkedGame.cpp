@@ -224,6 +224,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
 		ClientPacket* clientPacket = (ClientPacket*)payload;
 
+		/*
 		if (clientPacket->buttonstates[0] == 1)std::cout << "W" << std::endl;;
 		if (clientPacket->buttonstates[1] == 1)std::cout << "A" << std::endl;
 		if (clientPacket->buttonstates[2] == 1)std::cout << "S" << std::endl;
@@ -231,6 +232,8 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (clientPacket->buttonstates[4] == 1)std::cout << "SPACE" << std::endl;
 
 		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
+		*/
+
 
 		break;
 	}

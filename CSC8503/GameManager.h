@@ -67,7 +67,11 @@ namespace NCL {
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
             void DeleteObject(PaintballGameObject* obj) {
-                    objectsToDelete.insert(obj);
+                if (obj->GetNetworkObject()) {
+                    obj->GetNetworkObject()->toDelete = true;
+                }
+
+                objectsToDelete.insert(obj);
             }
 
             // GameState management

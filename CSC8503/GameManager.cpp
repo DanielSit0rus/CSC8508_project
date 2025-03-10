@@ -30,6 +30,11 @@ void GameManager::Update(float dt) {
         + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
 
     for (auto object : objectsToDelete) {
+
+        if (object->GetNetworkObject()) {
+            networkObjects[object->GetNetworkObject()->GetNetworkID()] = nullptr;
+        }
+
         //std::cout << "name = [" << object->GetName()<<"]" << std::endl;
         world->RemoveGameObject(object, true);
     }

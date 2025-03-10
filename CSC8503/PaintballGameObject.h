@@ -43,6 +43,8 @@ namespace NCL::CSC8503 {
 
         virtual void Update(float dt);
 
+        void Delete();
+
         bool IsActive() const {
             return isActive;
         }
