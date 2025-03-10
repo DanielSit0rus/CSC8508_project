@@ -28,6 +28,8 @@ namespace NCL {
 			void NewRenderTextures();
 
 			void RenderFrame()	override;
+			void DebugShadowFrustum(const Matrix4& shadowProjMatrix, const Matrix4& shadowViewMatrix);
+
 
 			OGLShader*		defaultShader;
 

@@ -19,7 +19,7 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
 	animShader = new OGLShader("anim.vert", "anim.frag");
 
-	Light light1(Vector3(10, 40, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
+	Light light1(Vector3(-10, 50, 0), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1000.0f,50.0f);
 	AddLight(light1);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
@@ -142,6 +142,55 @@ void GameTechRenderer::RenderFrame() {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
+void NCL::CSC8503::GameTechRenderer::DebugShadowFrustum(const Matrix4& shadowProjMatrix, const Matrix4& shadowViewMatrix)
+{
+	// Define the 8 corners of the frustum in clip space
+	Vector4 frustumCorners[] = {
+		Vector4(-1, -1, 0, 1), // Near bottom left
+		Vector4(1, -1, 0, 1), // Near bottom right
+		Vector4(-1,  1, 0, 1), // Near top left
+		Vector4(1,  1, 0, 1), // Near top right
+		Vector4(-1, -1, 1, 1), // Far bottom left
+		Vector4(1, -1, 1, 1), // Far bottom right
+		Vector4(-1,  1, 1, 1), // Far top left
+		Vector4(1,  1, 1, 1)  // Far top right
+	};
+
+	// Compute inverse light-space transform
+	Matrix4 lightMatrix = shadowProjMatrix * shadowViewMatrix;
+	Matrix4 inverseLightMatrix = Matrix::Inverse(lightMatrix);
+
+	// Transform frustum corners from light clip space to world space
+	Vector3 worldFrustumCorners[8];
+	for (int i = 0; i < 8; i++) {
+		Vector4 worldPos = inverseLightMatrix * frustumCorners[i];
+
+		// Manually extract x, y, and z instead of using .xyz()
+		worldFrustumCorners[i] = Vector3(worldPos.x / worldPos.w, worldPos.y / worldPos.w, worldPos.z / worldPos.w);
+	}
+
+	// Define a yellow color for visualization
+	Vector4 debugColor = Vector4(1, 1, 0, 1); // Yellow
+
+	// Draw Near Plane
+	Debug::DrawLine(worldFrustumCorners[0], worldFrustumCorners[1], debugColor);
+	Debug::DrawLine(worldFrustumCorners[1], worldFrustumCorners[3], debugColor);
+	Debug::DrawLine(worldFrustumCorners[3], worldFrustumCorners[2], debugColor);
+	Debug::DrawLine(worldFrustumCorners[2], worldFrustumCorners[0], debugColor);
+
+	// Draw Far Plane
+	Debug::DrawLine(worldFrustumCorners[4], worldFrustumCorners[5], debugColor);
+	Debug::DrawLine(worldFrustumCorners[5], worldFrustumCorners[7], debugColor);
+	Debug::DrawLine(worldFrustumCorners[7], worldFrustumCorners[6], debugColor);
+	Debug::DrawLine(worldFrustumCorners[6], worldFrustumCorners[4], debugColor);
+
+	// Connect Near and Far Planes
+	Debug::DrawLine(worldFrustumCorners[0], worldFrustumCorners[4], debugColor);
+	Debug::DrawLine(worldFrustumCorners[1], worldFrustumCorners[5], debugColor);
+	Debug::DrawLine(worldFrustumCorners[2], worldFrustumCorners[6], debugColor);
+	Debug::DrawLine(worldFrustumCorners[3], worldFrustumCorners[7], debugColor);
+}
+
 void GameTechRenderer::BuildObjectList() {
 	activeObjects.clear();
 
@@ -180,12 +229,18 @@ void GameTechRenderer::RenderShadowMap() {
 	// Compute the light’s view matrix.
 	// Instead of always looking at (0,0,0), choose a target that covers your scene.
 	// For example, if your scene is centered around (0,0,0), that is acceptable.
-	Vector3 lightTarget = Vector3(0, -1, 0);  // Change this if your scene center is different.
-	Matrix4 shadowViewMatrix = Matrix::View(lightPosition, lightTarget, Vector3(0, 1, 0));
+	Vector3 lightTarget = Vector3(0, 0, 0);  // Change this if your scene center is different.
+	Matrix4 shadowViewMatrix = Matrix::View(Vector3(-10, 50, 0), lightTarget, Vector3(0, 1, 0));
 
 	// Use a perspective projection for the light camera.
 	// (A 45° field-of-view is typical.)
-	Matrix4 shadowProjMatrix = Matrix::Perspective(45.0f, 1.0f, 1.0f, 1000.0f);
+	//Matrix4 shadowProjMatrix = Matrix::Perspective(45.0f, 1.0f, 1.0f, 1000.0f);
+	Matrix4 shadowProjMatrix = Matrix::Perspective(20.0f, 75.0f, 1.0f, 100.0f);
+
+
+
+
+
 
 	// Combine to get the light’s MVP (for all objects)
 	Matrix4 lightMVP = shadowProjMatrix * shadowViewMatrix;
@@ -193,7 +248,7 @@ void GameTechRenderer::RenderShadowMap() {
 	// Compute the final shadow matrix with bias (to move coordinates from [-1,1] to [0,1]).
 	shadowMatrix = biasMatrix * lightMVP;
 
-	// Render each active object using the shadow shader.
+	// Render each active object using the shadow shader.SSS
 	for (const auto& obj : activeObjects) {
 		Matrix4 modelMatrix = (*obj).GetTransform()->GetMatrix();
 		// For each object, the final matrix is lightMVP * modelMatrix.
@@ -205,6 +260,12 @@ void GameTechRenderer::RenderShadowMap() {
 			DrawBoundMesh((uint32_t)j);
 		}
 	}
+	Debug::DrawLine(lightPosition, lightTarget, Vector4(1, 1, 0, 1)); // Draw light direction
+	Debug::DrawBox(lightPosition, Vector3(1, 1, 1), Vector4(1, 0, 0, 1), 20000000.0f); // Draw light position
+
+	DebugShadowFrustum(shadowProjMatrix, shadowViewMatrix);
+
+
 
 	// Restore the viewport and state.
 	glViewport(0, 0, windowSize.x, windowSize.y);
@@ -212,6 +273,7 @@ void GameTechRenderer::RenderShadowMap() {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glCullFace(GL_BACK);
 }
+
 
 
 
@@ -310,8 +372,7 @@ void GameTechRenderer::RenderCamera() {
 			activeShader = shader;
 		}
 		int hasAnimLocation = glGetUniformLocation(shader->GetProgramID(), "hasAnimation");
-		//std::cout << "Has Animation? " << (i->GetAnimation() ? "Yes" : "No") << std::endl;
-		//glUniform1i(hasAnimLocation, i->GetAnimation() ? 1 : 0);
+		
 
 		if (i->GetAnimation()) {
 			//std::cout << "Animation detected" << std::endl;
