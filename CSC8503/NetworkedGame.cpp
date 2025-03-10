@@ -76,6 +76,8 @@ void NetworkedGame::UpdateGame(float dt) {
 			UpdateAsClient(dt);
 		}
 		timeToNextPacket += 1.0f / 20.0f; //20hz server/client update
+
+		GameManager::GetInstance().PostCleanUp();
 	}
 
 	TutorialGame::UpdateGame(dt);

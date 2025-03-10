@@ -45,6 +45,7 @@ namespace NCL {
 
             void Init(PaintballGameWorld* world, float gameTime = 120);
             void Update(float dt);
+            void PostCleanUp();
 
             //void InitWorld();
             rp3d::PhysicsWorld* getRPworld() { return RpWorld; }

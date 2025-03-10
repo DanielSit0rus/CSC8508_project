@@ -29,6 +29,17 @@ void GameManager::Update(float dt) {
     Debug::Print("Left time: "
         + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
 
+    if (hasPhys) RpWorld->update(dt);
+
+    //FMOD
+    if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
+        AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");
+        canStart_FMOD = false;
+    }
+}
+
+void GameManager::PostCleanUp() // after (20Hz) server/client update
+{
     for (auto object : objectsToDelete) {
 
         if (object->GetNetworkObject()) {
@@ -39,14 +50,6 @@ void GameManager::Update(float dt) {
         world->RemoveGameObject(object, true);
     }
     objectsToDelete.clear();
-
-    if (hasPhys) RpWorld->update(dt);
-
-    //FMOD
-    if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
-        AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");
-        canStart_FMOD = false;
-    }
 }
 
 void GameManager::InitWorld(int arg)
