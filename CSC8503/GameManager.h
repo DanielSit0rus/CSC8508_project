@@ -90,6 +90,8 @@ namespace NCL {
             PerspectiveCamera& GetMainCamera() {
                 return world->GetMainCamera();
             }
+            Vector3 GetCameraFront();
+
 
             PaintballGameWorld* GetWorld() { return world; }
 

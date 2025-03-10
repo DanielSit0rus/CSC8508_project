@@ -97,6 +97,21 @@ void NetworkedGame::UpdateAsServer(float dt) {
 }
 
 void NetworkedGame::UpdateAsClient(float dt) {
+	ClientPacket newPacket;
+	newPacket.type = Received_State;
+
+	newPacket.buttonstates[0] = Window::GetKeyboard()->KeyDown(KeyCodes::W) ? 1 : 0;
+	newPacket.buttonstates[1] = Window::GetKeyboard()->KeyDown(KeyCodes::A) ? 1 : 0;
+	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
+	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
+	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
+
+	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
+
+	thisClient->SendPacket(newPacket);
+	this->thisClient->UpdateClient();
+
+
 	this->thisClient->UpdateClient();
 }
 
@@ -209,6 +224,15 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 	case Received_State: {
 		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
 		ClientPacket* clientPacket = (ClientPacket*)payload;
+
+		if (clientPacket->buttonstates[0] == 1)std::cout << "W" << std::endl;;
+		if (clientPacket->buttonstates[1] == 1)std::cout << "A" << std::endl;
+		if (clientPacket->buttonstates[2] == 1)std::cout << "S" << std::endl;
+		if (clientPacket->buttonstates[3] == 1)std::cout << "D" << std::endl;
+		if (clientPacket->buttonstates[4] == 1)std::cout << "SPACE" << std::endl;
+
+		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
+
 		break;
 	}
 	case None: {

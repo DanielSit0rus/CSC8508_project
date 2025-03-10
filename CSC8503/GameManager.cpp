@@ -408,3 +408,13 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
 
     return concaveMeshShape;
 }
+
+Vector3 GameManager::GetCameraFront()
+{
+    Vector3 camPos = world->GetMainCamera().GetPosition();
+    float yaw = DegreesToRadians(world->GetMainCamera().GetYaw());
+    float pitch = DegreesToRadians(-world->GetMainCamera().GetPitch());
+    Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
+    return     front = -Vector::Normalise(front);
+}
+

@@ -159,14 +159,8 @@ void PaintballPlayer::Attack()
 		break;
 	}
 
-	Vector3 camPos = camera->GetPosition();
-	float yaw = DegreesToRadians(camera->GetYaw());
-	float pitch = DegreesToRadians(-camera->GetPitch());
-	Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
-	front = -Vector::Normalise(front);
 
-
-	GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(front), false,
+	GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()), false,
 		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
 		rp3d::Quaternion().identity(), bulletColor);
 }
