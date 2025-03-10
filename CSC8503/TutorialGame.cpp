@@ -281,7 +281,7 @@ void TutorialGame::LockedObjectMovement() {
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
 	
-	G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
+	if (G1.shoottest) G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));

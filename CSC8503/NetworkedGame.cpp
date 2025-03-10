@@ -18,16 +18,20 @@ struct MessagePacket : public GamePacket {
 	}
 };
 
-NetworkedGame::NetworkedGame()	{
+NetworkedGame::NetworkedGame() {
 	thisServer = nullptr;
 	thisClient = nullptr;
 
 	NetworkBase::Initialise();
-	timeToNextPacket  = 0.0f;
+	timeToNextPacket = 0.0f;
 	packetsToSnapshot = 0;
 
 	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
-	EventManager::Subscribe(EventType::Network_StartAsClient, [this]() {StartAsClient(127, 0, 0, 1); });
+	EventManager::Subscribe(EventType::Network_StartAsClient, [this](std::string& s) {
+		std::istringstream stream(s); int a, b, c, d;
+		stream >> a; stream >> b; stream >> c; stream >> d;
+		StartAsClient(a, b, c, d);
+		});
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
 	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
 }
@@ -75,7 +79,7 @@ void NetworkedGame::UpdateGame(float dt) {
 		else if (thisClient) {
 			UpdateAsClient(dt);
 		}
-		timeToNextPacket += 1.0f / 20.0f; //20hz server/client update
+		timeToNextPacket += 1.0f / frame; //20hz server/client update
 
 		GameManager::GetInstance().PostCleanUp();
 	}
@@ -116,6 +120,8 @@ void NetworkedGame::UpdateAsClient(float dt) {
 }
 
 void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
+	//std::cout << "BroadcastSnapshot" << std::endl;
+
 	std::vector<PaintballGameObject*>::const_iterator first;
 	std::vector<PaintballGameObject*>::const_iterator last;
 

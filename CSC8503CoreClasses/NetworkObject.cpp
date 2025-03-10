@@ -58,7 +58,7 @@ bool NetworkObject::ReadDeltaPacket(DeltaPacket &p) {
 
 bool NetworkObject::ReadFullPacket(FullPacket &p) {
 	if (p.fullState.toDelete == true) {
-		std::cout << "[delete]" << std::endl;
+		//std::cout << "[delete]" << std::endl;
 		object.Delete();
 		return true;
 	}
@@ -114,7 +114,7 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 
 	if (toDelete == true) {
 		fp->fullState.toDelete = true;
-		std::cout << "[delete]!" << networkID << std::endl;
+		//std::cout << "[delete]!" << networkID << std::endl;
 	}
 	else
 	{

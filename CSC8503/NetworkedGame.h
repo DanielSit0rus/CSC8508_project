@@ -26,6 +26,8 @@ namespace NCL {
 
 			void OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b);
 
+			void SetFrame(unsigned int f) { frame = f; }
+
 		protected:
 			void UpdateAsServer(float dt);
 			void UpdateAsClient(float dt);
@@ -34,6 +36,8 @@ namespace NCL {
 			void UpdateMinimumState();
 			std::map<int, int> stateIDs;
 
+			unsigned int frame = 40;
+
 			GameServer* thisServer;
 			GameClient* thisClient;
 			float timeToNextPacket;
@@ -41,11 +45,11 @@ namespace NCL {
 
 			std::map<int, PaintballGameObject*> serverPlayers;
 			PaintballGameObject* localPlayer;
+			int playerState = 0;
 
 			bool isDebug = false;
 			void SendPacketTest();
 			void SendPacketTest(std::string s);
-			int playerState = 0;
 
 		};
 	}

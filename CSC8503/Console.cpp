@@ -105,7 +105,18 @@ void Console::NetworkCommand(std::string s) const {
     stream >> arg;
 
     if (arg == "c" || arg == "client") {
-        EventManager::Trigger(EventType::Network_StartAsClient);
+        std::string ip = "127 0 0 1";
+        int a, b, c, d;
+        stream >> a;
+        stream >> b;
+        stream >> c;
+        stream >> d;
+
+        if (0 <= a && a <= 255 && 0 <= b && b <= 255 && 0 <= c && c <= 255 && 0 <= d && d <= 255)
+            ip = std::to_string(a) + " " + std::to_string(b) + " " + std::to_string(c) + " " + std::to_string(d);
+
+        std::cout << "ip = " << ip << std::endl;
+        EventManager::Trigger(EventType::Network_StartAsClient, ip);
     }
     else if (arg == "s" || arg == "server") {
         EventManager::Trigger(EventType::Network_StartAsServer);
