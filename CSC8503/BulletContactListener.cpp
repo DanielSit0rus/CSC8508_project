@@ -56,5 +56,16 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 
 			//((PaintballGameObject*)body1->getUserData())->SetActive(false);
 		}
+
+		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet&& ((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::cube) {
+			std::cout << "×Óµ¯»÷ÖÐffffffff£¡" << std::endl;
+			((PaintballBullet*)body1->getUserData())->Destroy();
+			((PaintballGameObject*)body2->getUserData())->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 100, 0));
+
+			
+		}
+
+
+		
 	}
 }

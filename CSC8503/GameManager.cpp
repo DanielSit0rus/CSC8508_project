@@ -409,6 +409,19 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
     return concaveMeshShape;
 }
 
+PaintballGameObject* NCL::CSC8503::GameManager::AddTriggerCube()
+{
+    PaintballGameObject* trip1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* trip2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    // Anchor point in world-space
+    const rp3d::Vector3 anchorPoint(2.0, 4.0, 0.0);
+
+  
+    // Create the joint info object
+    reactphysics3d::BallAndSocketJointInfo jointInfo(&trip1->GetPhysicsObject()->GetRigidbody(), &trip2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
+    return nullptr;
+}
+
 Vector3 GameManager::GetCameraFront()
 {
     Vector3 camPos = world->GetMainCamera().GetPosition();

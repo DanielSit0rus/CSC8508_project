@@ -182,7 +182,7 @@ void TutorialGame::InitWorld() {
 
 
 		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
-
+		G1.AddTriggerCube();
 		GameManager::GetInstance().SetPlayer(G1.shoottest);
 		G1.SetGameState(GameState::InGame);
 
