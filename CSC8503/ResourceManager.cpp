@@ -7,7 +7,8 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         sphereMesh = renderer->LoadMesh("sphere.msh");
         catMesh = renderer->LoadMesh("ORIGAMI_Chat.msh");
         kittenMesh = renderer->LoadMesh("Kitten.msh");
-        mapMesh = renderer->LoadMesh("EmptyMap.msh");
+        floor1Mesh = renderer->LoadMesh("Map1Floor.msh");
+        mainWallMesh = renderer->LoadMesh("MainWall.msh");
         doorWayMesh = renderer->LoadMesh("DoorWay.msh");
         oppDoorWayMesh = renderer->LoadMesh("OppDoorWay.msh");
         midDoorMesh = renderer->LoadMesh("MIdDoor.msh");
@@ -19,6 +20,7 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         cylinderMesh = renderer->LoadMesh("Cylinders.msh");
         bigCylinderMesh = renderer->LoadMesh("BigCylinder.msh");
         targetMesh = renderer->LoadMesh("Targets.msh");
+        bigCubeMesh = renderer->LoadMesh("BigCube.msh");
         secondMapMesh = renderer->LoadMesh("Second Map 1.msh");
         gooseMesh = renderer->LoadMesh("goose.msh");
         enemyMesh = renderer->LoadMesh("Keeper.msh");

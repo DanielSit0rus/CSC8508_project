@@ -21,7 +21,8 @@ namespace NCL {
             Mesh* GetSphereMesh() const { return sphereMesh; }
             Mesh* GetCatMesh() const { return catMesh; }
             Mesh* GetKittenMesh() const { return kittenMesh; }
-            Mesh* GetMapMesh() const { return mapMesh; }
+            Mesh* GetFloor1Mesh() const { return floor1Mesh; }
+            Mesh* GetMainWallMesh() const { return mainWallMesh; }
             Mesh* GetDoorWayMesh() const { return doorWayMesh; }
             Mesh* GetOppDoorWayMesh() const { return oppDoorWayMesh; }
             Mesh* GetMidDoorMesh() const { return midDoorMesh; }
@@ -33,6 +34,7 @@ namespace NCL {
             Mesh* GetCylinderMesh() const { return cylinderMesh; }
             Mesh* GetBigCylinderMesh() const { return bigCylinderMesh; }
             Mesh* GetTargetMesh() const { return targetMesh; }
+            Mesh* GetBigCubeMesh() const { return bigCubeMesh; }
             Mesh* GetSecondMapMesh() const { return secondMapMesh; }
             Mesh* GetGooseMesh() const { return gooseMesh; }
             Mesh* GetEnemyMesh() const { return enemyMesh; }
@@ -61,7 +63,8 @@ namespace NCL {
                 Mesh* sphereMesh = nullptr;
                 Mesh* catMesh = nullptr;
                 Mesh* kittenMesh = nullptr;
-                Mesh* mapMesh = nullptr;
+                Mesh* floor1Mesh = nullptr;
+                Mesh* mainWallMesh = nullptr;
                 Mesh* doorWayMesh = nullptr;
                 Mesh* oppDoorWayMesh = nullptr;
                 Mesh* midDoorMesh = nullptr;
@@ -73,6 +76,7 @@ namespace NCL {
                 Mesh* cylinderMesh = nullptr;
                 Mesh* bigCylinderMesh = nullptr;
                 Mesh* targetMesh = nullptr;
+                Mesh* bigCubeMesh = nullptr;
                 Mesh* secondMapMesh = nullptr;
                 Mesh* gooseMesh = nullptr;
                 Mesh* enemyMesh = nullptr;

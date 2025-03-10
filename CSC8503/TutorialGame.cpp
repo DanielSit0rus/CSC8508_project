@@ -176,11 +176,13 @@ void TutorialGame::InitWorld() {
 
 
 		//FIRST MAP
-		G1.AddConcaveMesh(rp3d::Vector3(-95, 1, -30), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMapMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetFloor1Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetMainWallMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetDoorWayMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-5, 1, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+		G1.AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetOppDoorWayMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetMidDoorMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -192,14 +194,16 @@ void TutorialGame::InitWorld() {
 			ResourceManager::GetInstance().GetOpenWallMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetWall3Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-31, -1, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+		G1.AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetWall4Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-41, 2, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+		G1.AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetCylinderMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetBigCylinderMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			ResourceManager::GetInstance().GetTargetMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetBigCubeMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
 
