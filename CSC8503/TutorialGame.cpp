@@ -193,6 +193,8 @@ void TutorialGame::InitWorld() {
 }
 
 void TutorialGame::UpdateKeys() {
+	if (!G1.isPhysEnabled())return;
+
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
 		if (G1.selectionObject) {	//set colour to deselected;
 			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
@@ -213,6 +215,12 @@ void TutorialGame::UpdateKeys() {
 
 	}
 
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Middle)) {
+		if (G1.selectionObject) {
+			G1.DeleteObject(G1.selectionObject);
+			G1.selectionObject = nullptr;
+		}
+	}
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
 		if (!G1.selectionObject) return;

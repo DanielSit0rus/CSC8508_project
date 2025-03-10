@@ -57,6 +57,12 @@ bool NetworkObject::ReadDeltaPacket(DeltaPacket &p) {
 }
 
 bool NetworkObject::ReadFullPacket(FullPacket &p) {
+	if (p.fullState.toDelete == true) {
+		std::cout << "[delete]" << std::endl;
+		object.Delete();
+		return true;
+	}
+
 	if (p.fullState.stateID < lastFullState.stateID) {
 		return false;
 	}
@@ -104,11 +110,18 @@ bool NetworkObject::WriteDeltaPacket(GamePacket**p, int stateID) {
 
 bool NetworkObject::WriteFullPacket(GamePacket**p) {
 	FullPacket* fp = new FullPacket();
-
 	fp->objectID = networkID;
-	fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
-	fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
-	fp->fullState.stateID = lastFullState.stateID++;
+
+	if (toDelete == true) {
+		fp->fullState.toDelete = true;
+		std::cout << "[delete]!" << networkID << std::endl;
+	}
+	else
+	{
+		fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
+		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
+		fp->fullState.stateID = lastFullState.stateID++;
+	}
 	*p = fp;
 
 	stateHistory.emplace_back(fp->fullState);

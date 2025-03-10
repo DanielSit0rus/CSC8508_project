@@ -39,6 +39,11 @@ void PaintballGameObject::Update(float dt) {
 	if (audioObject) audioObject->Update();
 }
 
+void PaintballGameObject::Delete()
+{
+	GameManager::GetInstance().DeleteObject(this);
+}
+
 void PaintballGameObject::SaveData(nlohmann::json& j) {
 	//std::cout << "[obj] Saved" << std::endl;
 	nlohmann::json objData;

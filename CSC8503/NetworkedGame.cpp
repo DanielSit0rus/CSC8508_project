@@ -109,8 +109,6 @@ void NetworkedGame::UpdateAsClient(float dt) {
 	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
 
 	thisClient->SendPacket(newPacket);
-	this->thisClient->UpdateClient();
-
 
 	this->thisClient->UpdateClient();
 }
@@ -178,9 +176,10 @@ void NetworkedGame::StartLevel() {
 	for (auto i = first; i != last; ++i) {
 		if ((*i)->GetType() != GameObjectType::bullet)
 		{
-			NetworkObject* obj = new NetworkObject(**i, networkObjects.size());
+			NetworkObject* obj = new NetworkObject(**i, G1.GetNetworkObjects().size());
 			(*i)->SetNetworkObject(obj);
-			networkObjects[networkObjects.size()] = obj;
+			G1.GetNetworkObjects()[G1.GetNetworkObjects().size()] = obj;
+			std::cout<< G1.GetNetworkObjects().size() <<std::endl;
 		}
 	}
 }
@@ -196,7 +195,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 
 		int objectID = deltaPacket->objectID;
 
-		networkObjects[objectID]->ReadPacket(*deltaPacket);
+		G1.GetNetworkObjects()[objectID]->ReadPacket(*deltaPacket);
 
 		break;
 	}
@@ -211,7 +210,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		int stateID = fullPacket->fullState.stateID;
 		*/
 
-		networkObjects[objectID]->ReadPacket(*fullPacket);
+		G1.GetNetworkObjects()[objectID]->ReadPacket(*fullPacket);
 
 		break;
 	}
@@ -225,6 +224,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
 		ClientPacket* clientPacket = (ClientPacket*)payload;
 
+		/*
 		if (clientPacket->buttonstates[0] == 1)std::cout << "W" << std::endl;;
 		if (clientPacket->buttonstates[1] == 1)std::cout << "A" << std::endl;
 		if (clientPacket->buttonstates[2] == 1)std::cout << "S" << std::endl;
@@ -232,6 +232,8 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (clientPacket->buttonstates[4] == 1)std::cout << "SPACE" << std::endl;
 
 		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
+		*/
+
 
 		break;
 	}

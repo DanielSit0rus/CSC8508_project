@@ -70,7 +70,11 @@ namespace NCL {
 
 
             void DeleteObject(PaintballGameObject* obj) {
-                    objectsToDelete.insert(obj);
+                if (obj->GetNetworkObject()) {
+                    obj->GetNetworkObject()->toDelete = true;
+                }
+
+                objectsToDelete.insert(obj);
             }
 
             // GameState management
@@ -99,6 +103,9 @@ namespace NCL {
             PaintballGameWorld* GetWorld() { return world; }
 
             float GetLeftTime() const { return leftTime; }
+
+            std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
+
 
             //Pointers - to be private later
             PaintballPlayer* playerObject;
@@ -158,6 +165,8 @@ namespace NCL {
             
             //FMOD
             bool canStart_FMOD = true;
+
+            std::map<int, NetworkObject*> networkObjects;
         };
     }
 }

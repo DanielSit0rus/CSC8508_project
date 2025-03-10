@@ -13,6 +13,8 @@ namespace NCL {
 			rp3d::Vector3		position;
 			rp3d::Quaternion	orientation;
 			int					stateID;
+
+			bool				toDelete = false;
 		};
 	}
 }
