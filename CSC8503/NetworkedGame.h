@@ -39,8 +39,6 @@ namespace NCL {
 			float timeToNextPacket;
 			int packetsToSnapshot;
 
-			std::map<int, NetworkObject*> networkObjects;
-
 			std::map<int, PaintballGameObject*> serverPlayers;
 			PaintballGameObject* localPlayer;
 

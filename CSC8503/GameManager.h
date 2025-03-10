@@ -97,6 +97,9 @@ namespace NCL {
 
             float GetLeftTime() const { return leftTime; }
 
+            std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
+
+
             //Pointers - to be private later
             PaintballPlayer* playerObject;
             PaintballGameObject* selectionObject = nullptr;
@@ -155,6 +158,8 @@ namespace NCL {
             
             //FMOD
             bool canStart_FMOD = true;
+
+            std::map<int, NetworkObject*> networkObjects;
         };
     }
 }
