@@ -22,6 +22,17 @@ namespace NCL {
             Mesh* GetCatMesh() const { return catMesh; }
             Mesh* GetKittenMesh() const { return kittenMesh; }
             Mesh* GetMapMesh() const { return mapMesh; }
+            Mesh* GetDoorWayMesh() const { return doorWayMesh; }
+            Mesh* GetOppDoorWayMesh() const { return oppDoorWayMesh; }
+            Mesh* GetMidDoorMesh() const { return midDoorMesh; }
+            Mesh* GetWallMesh() const { return wallMesh; }
+            Mesh* GetWall2Mesh() const { return wall2Mesh; }
+            Mesh* GetOpenWallMesh() const { return openWallMesh; }
+            Mesh* GetWall3Mesh() const { return wall3Mesh; }
+            Mesh* GetWall4Mesh() const { return wall4Mesh; }
+            Mesh* GetCylinderMesh() const { return cylinderMesh; }
+            Mesh* GetBigCylinderMesh() const { return bigCylinderMesh; }
+            Mesh* GetTargetMesh() const { return targetMesh; }
             Mesh* GetSecondMapMesh() const { return secondMapMesh; }
             Mesh* GetGooseMesh() const { return gooseMesh; }
             Mesh* GetEnemyMesh() const { return enemyMesh; }
@@ -51,6 +62,17 @@ namespace NCL {
                 Mesh* catMesh = nullptr;
                 Mesh* kittenMesh = nullptr;
                 Mesh* mapMesh = nullptr;
+                Mesh* doorWayMesh = nullptr;
+                Mesh* oppDoorWayMesh = nullptr;
+                Mesh* midDoorMesh = nullptr;
+                Mesh* wallMesh = nullptr;
+                Mesh* wall2Mesh = nullptr;
+                Mesh* openWallMesh = nullptr;
+                Mesh* wall3Mesh = nullptr;
+                Mesh* wall4Mesh = nullptr;
+                Mesh* cylinderMesh = nullptr;
+                Mesh* bigCylinderMesh = nullptr;
+                Mesh* targetMesh = nullptr;
                 Mesh* secondMapMesh = nullptr;
                 Mesh* gooseMesh = nullptr;
                 Mesh* enemyMesh = nullptr;
