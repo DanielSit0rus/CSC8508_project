@@ -123,9 +123,9 @@ void Console::NetworkCommand(std::string s) const {
     }
     else if (arg == "t" || arg == "test") {
 
-        std::cout << GameManager::GetInstance().GetNetworkObjects().size() << std::endl;
+        std::cout << G1.GetNetworkObjects().size() << std::endl;
 
-        for (const auto& [key, value] : GameManager::GetInstance().GetNetworkObjects()) {
+        for (const auto& [key, value] : G1.GetNetworkObjects()) {
             if (value == nullptr) std::cout << "0";
             else std::cout << "1";
         }
@@ -168,8 +168,8 @@ void Console::AddObjCommand(std::string s) const { //add obj size num
 
     if (shape == "cube" || shape == "c") {
         for (int i = 0; i < num; i++)
-            GameManager::GetInstance().AddObject(GameObjectType::cube,
-                Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
+            G1.AddObject(GameObjectType::cube,
+                Util::NCLToRP3d(G1.GetMainCamera().GetPosition()),
                 rp3d::Vector3(scaleValue, scaleValue, scaleValue),
                 rp3d::Quaternion().identity()
             );
@@ -177,8 +177,8 @@ void Console::AddObjCommand(std::string s) const { //add obj size num
     }
     else if (shape == "sphere" || shape == "s") {
         for (int i = 0; i < num; i++)
-            GameManager::GetInstance().AddObject(GameObjectType::sphere,
-                Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
+            G1.AddObject(GameObjectType::sphere,
+                Util::NCLToRP3d(G1.GetMainCamera().GetPosition()),
                 rp3d::Vector3(scaleValue, scaleValue, scaleValue),
                 rp3d::Quaternion().identity()
             );
@@ -226,18 +226,21 @@ void Console::TestCommand(std::string s) {
         testThread = new std::thread([&]
             {
                 while (testing) {
-                    PerspectiveCamera camera = GameManager::GetInstance().GetMainCamera();
+                    PerspectiveCamera camera = G1.GetMainCamera();
                     Vector3 camPos = camera.GetPosition();
 
-                    GameManager::GetInstance().AddObject(GameObjectType::bullet,
-                        Util::NCLToRP3d(camPos + GameManager::GetInstance().GetCameraFront() * 3.f), rp3d::Vector3(1, 1, 1),
+                    G1.AddObject(GameObjectType::bullet,
+                        Util::NCLToRP3d(camPos + G1.GetCameraFront() * 3.f), rp3d::Vector3(1, 1, 1),
                         rp3d::Quaternion().identity(),
-                        Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+                        Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(G1.GetCameraFront()));
 
                     std::this_thread::sleep_for(std::chrono::milliseconds(300));  // 限制输出频率，避免过快输出
                 }
             }
         );
+    }
+    if (target == "t") {
+        std::cout << G1.GetWorld()->GetObjectsNum() << std::endl;
     }
     else {
         std::cout << "Unknown argument: " << s << std::endl;

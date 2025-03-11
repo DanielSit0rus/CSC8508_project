@@ -1,87 +1,87 @@
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\body\Body.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Body.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\body\RigidBody.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\RigidBody.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\Collider.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Collider.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\CollisionCallback.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionCallback.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\ContactManifold.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ContactManifold.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\ConvexMesh.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexMesh.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\HalfEdgeStructure.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HalfEdgeStructure.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\HeightField.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HeightField.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\OverlapCallback.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\OverlapCallback.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\PolygonVertexArray.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\PolygonVertexArray.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\RaycastInfo.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\RaycastInfo.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleMesh.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleMesh.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleVertexArray.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\VertexArray.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\VertexArray.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\broadphase\DynamicAABBTree.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\DynamicAABBTree.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CapsuleVsCapsuleAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleVsCapsuleAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CapsuleVsConvexPolyhedronAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleVsConvexPolyhedronAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CollisionDispatch.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionDispatch.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\GJK\GJKAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\GJKAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\GJK\VoronoiSimplex.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\VoronoiSimplex.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\NarrowPhaseInfoBatch.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\NarrowPhaseInfoBatch.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\NarrowPhaseInput.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\NarrowPhaseInput.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SAT\SATAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SATAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsCapsuleAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsCapsuleAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsConvexPolyhedronAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsConvexPolyhedronAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsSphereAlgorithm.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsSphereAlgorithm.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\AABB.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\AABB.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\BoxShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\BoxShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\CapsuleShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\CollisionShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConcaveMeshShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConcaveMeshShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConcaveShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConcaveShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexMeshShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexMeshShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexPolyhedronShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexPolyhedronShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\HeightFieldShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HeightFieldShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\SphereShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SphereShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\TriangleShape.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleShape.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\BallAndSocketJointComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\BallAndSocketJointComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\BodyComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\BodyComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\ColliderComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ColliderComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\Components.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Components.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\FixedJointComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\FixedJointComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\HingeJointComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HingeJointComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\JointComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\JointComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\RigidBodyComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\RigidBodyComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\SliderJointComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SliderJointComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\components\TransformComponents.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\TransformComponents.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\BallAndSocketJoint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\BallAndSocketJoint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\ContactPoint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ContactPoint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\FixedJoint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\FixedJoint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\HingeJoint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HingeJoint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\Joint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Joint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\constraint\SliderJoint.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SliderJoint.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\Entity.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Entity.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\EntityManager.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\EntityManager.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\Island.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Island.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\Material.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Material.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\OverlappingPairs.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\OverlappingPairs.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\PhysicsCommon.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\PhysicsCommon.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\engine\PhysicsWorld.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\PhysicsWorld.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Matrix2x2.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Matrix2x2.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Matrix3x3.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Matrix3x3.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Quaternion.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Quaternion.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Transform.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Transform.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Vector2.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Vector2.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Vector3.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Vector3.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\memory\HeapAllocator.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\HeapAllocator.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\memory\MemoryAllocator.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\MemoryAllocator.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\memory\MemoryManager.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\MemoryManager.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\memory\PoolAllocator.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\PoolAllocator.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\memory\SingleFrameAllocator.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SingleFrameAllocator.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\BroadPhaseSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\BroadPhaseSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\CollisionDetectionSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionDetectionSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\ConstraintSolverSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ConstraintSolverSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\ContactSolverSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\ContactSolverSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\DynamicsSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\DynamicsSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveBallAndSocketJointSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SolveBallAndSocketJointSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveFixedJointSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SolveFixedJointSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveHingeJointSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SolveHingeJointSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveSliderJointSystem.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\SolveSliderJointSystem.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\utils\DebugRenderer.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\DebugRenderer.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\utils\DefaultLogger.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\DefaultLogger.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\utils\Profiler.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\Profiler.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\utils\quickhull\QHHalfEdgeStructure.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\QHHalfEdgeStructure.obj
-D:\vs code\team\CSC8508_project\SDK\ReactPhysics3D\src\utils\quickhull\QuickHull.cpp;D:\vs code\team\CSC8508_project\ReactPhysics3D.dir\Debug\QuickHull.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\body\Body.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Body.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\body\RigidBody.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\RigidBody.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\Collider.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Collider.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\CollisionCallback.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionCallback.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\ContactManifold.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ContactManifold.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\ConvexMesh.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexMesh.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\HalfEdgeStructure.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HalfEdgeStructure.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\HeightField.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HeightField.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\OverlapCallback.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\OverlapCallback.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\PolygonVertexArray.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\PolygonVertexArray.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\RaycastInfo.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\RaycastInfo.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleMesh.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleMesh.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleVertexArray.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\VertexArray.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\VertexArray.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\broadphase\DynamicAABBTree.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\DynamicAABBTree.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CapsuleVsCapsuleAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleVsCapsuleAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CapsuleVsConvexPolyhedronAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleVsConvexPolyhedronAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\CollisionDispatch.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionDispatch.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexPolyhedronVsConvexPolyhedronAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\GJK\GJKAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\GJKAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\GJK\VoronoiSimplex.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\VoronoiSimplex.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\NarrowPhaseInfoBatch.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\NarrowPhaseInfoBatch.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\NarrowPhaseInput.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\NarrowPhaseInput.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SAT\SATAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SATAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsCapsuleAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsCapsuleAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsConvexPolyhedronAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsConvexPolyhedronAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\narrowphase\SphereVsSphereAlgorithm.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SphereVsSphereAlgorithm.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\AABB.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\AABB.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\BoxShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\BoxShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\CapsuleShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CapsuleShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\CollisionShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConcaveMeshShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConcaveMeshShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConcaveShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConcaveShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexMeshShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexMeshShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexPolyhedronShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexPolyhedronShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\ConvexShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConvexShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\HeightFieldShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HeightFieldShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\SphereShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SphereShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\shapes\TriangleShape.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\TriangleShape.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\BallAndSocketJointComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\BallAndSocketJointComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\BodyComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\BodyComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\ColliderComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ColliderComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\Components.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Components.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\FixedJointComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\FixedJointComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\HingeJointComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HingeJointComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\JointComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\JointComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\RigidBodyComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\RigidBodyComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\SliderJointComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SliderJointComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\components\TransformComponents.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\TransformComponents.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\BallAndSocketJoint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\BallAndSocketJoint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\ContactPoint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ContactPoint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\FixedJoint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\FixedJoint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\HingeJoint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HingeJoint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\Joint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Joint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\constraint\SliderJoint.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SliderJoint.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\Entity.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Entity.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\EntityManager.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\EntityManager.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\Island.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Island.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\Material.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Material.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\OverlappingPairs.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\OverlappingPairs.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\PhysicsCommon.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\PhysicsCommon.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\engine\PhysicsWorld.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\PhysicsWorld.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Matrix2x2.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Matrix2x2.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Matrix3x3.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Matrix3x3.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Quaternion.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Quaternion.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Transform.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Transform.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Vector2.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Vector2.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\mathematics\Vector3.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Vector3.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\memory\HeapAllocator.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\HeapAllocator.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\memory\MemoryAllocator.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\MemoryAllocator.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\memory\MemoryManager.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\MemoryManager.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\memory\PoolAllocator.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\PoolAllocator.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\memory\SingleFrameAllocator.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SingleFrameAllocator.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\BroadPhaseSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\BroadPhaseSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\CollisionDetectionSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\CollisionDetectionSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\ConstraintSolverSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ConstraintSolverSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\ContactSolverSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\ContactSolverSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\DynamicsSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\DynamicsSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveBallAndSocketJointSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SolveBallAndSocketJointSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveFixedJointSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SolveFixedJointSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveHingeJointSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SolveHingeJointSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\systems\SolveSliderJointSystem.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\SolveSliderJointSystem.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\utils\DebugRenderer.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\DebugRenderer.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\utils\DefaultLogger.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\DefaultLogger.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\utils\Profiler.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\Profiler.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\utils\quickhull\QHHalfEdgeStructure.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\QHHalfEdgeStructure.obj
+D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\utils\quickhull\QuickHull.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\ReactPhysics3D.dir\Debug\QuickHull.obj

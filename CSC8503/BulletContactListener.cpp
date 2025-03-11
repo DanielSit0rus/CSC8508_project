@@ -37,6 +37,11 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		rp3d::RigidBody* body2 = static_cast<rp3d::RigidBody*>(overlapPair.getBody2());
 		if (!body1->getUserData() || !body2->getUserData()) continue;
 
+		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet &&
+			((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::bullet) {
+			return;
+		}
+
 		// 识别子弹和物体
 		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet) {
 			//std::cout << "子弹击中目标！" << std::endl;

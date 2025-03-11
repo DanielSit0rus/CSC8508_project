@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EventManager.h"
+#include "GameManager.h"
 
 #include <iostream>
 #include <string>
@@ -45,6 +46,8 @@ namespace NCL {
 #pragma endregion
             bool running = true;
             bool testing = false;
+
+            GameManager& G1 = GameManager::GetInstance();
 
             Window* w = nullptr;
             bool isShow = false;

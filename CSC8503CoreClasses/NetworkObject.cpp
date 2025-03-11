@@ -67,13 +67,13 @@ bool NetworkObject::ReadFullPacket(FullPacket &p) {
 		return false;
 	}
 	lastFullState = p.fullState;
-
 	object.SetActive(p.fullState.isActive);
-	object.GetTransform().SetPosition(lastFullState.position);
-	object.GetTransform().SetOrientation(lastFullState.orientation);
 
-	object.GetRenderObject()->SetColour(lastFullState.color);
-
+	if (object.IsActive()) {
+		object.GetTransform().SetPosition(lastFullState.position);
+		object.GetTransform().SetOrientation(lastFullState.orientation);
+		object.GetRenderObject()->SetColour(lastFullState.color);
+	}
 
 	stateHistory.emplace_back(lastFullState);
 

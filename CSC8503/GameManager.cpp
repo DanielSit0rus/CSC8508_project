@@ -123,8 +123,8 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
 
     if (obj->GetNetworkObject() == nullptr) {
         NetworkObject* netObj = new NetworkObject(*obj, networkID == -1 ? networkObjects.size() : networkID);
-        obj->SetNetworkObject(netObj);
         networkObjects[networkObjects.size()] = netObj;
+        obj->SetNetworkObject(netObj);
     }
 
     return obj;
@@ -382,8 +382,8 @@ PaintballBullet* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool i
     cube->GetPhysicsObject()->SetMass(mass);
 
     //      ?   ?       ?           ?  
-    collider->setCollisionCategoryBits(BULLET);
     collider->setIsTrigger(true);
+    collider->setCollisionCategoryBits(BULLET);
 
     cube->InitBullet(ori3, isenemy);
 
