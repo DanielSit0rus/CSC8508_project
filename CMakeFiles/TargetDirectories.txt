@@ -1,7 +1,7 @@
-D:/vs code/team/CSC8508_project/CMakeFiles/ReactPhysics3D.dir
-D:/vs code/team/CSC8508_project/CMakeFiles/ALL_BUILD.dir
-D:/vs code/team/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
-D:/vs code/team/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
-D:/vs code/team/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
-D:/vs code/team/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
-D:/vs code/team/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
+F:/Gameprojects/CSC8508_project/CMakeFiles/ReactPhysics3D.dir
+F:/Gameprojects/CSC8508_project/CMakeFiles/ALL_BUILD.dir
+F:/Gameprojects/CSC8508_project/CMakeFiles/ZERO_CHECK.dir
+F:/Gameprojects/CSC8508_project/NCLCoreClasses/CMakeFiles/NCLCoreClasses.dir
+F:/Gameprojects/CSC8508_project/CSC8503CoreClasses/CMakeFiles/CSC8503CoreClasses.dir
+F:/Gameprojects/CSC8508_project/OpenGLRendering/CMakeFiles/OpenGLRendering.dir
+F:/Gameprojects/CSC8508_project/CSC8503/CMakeFiles/CSC8503.dir
