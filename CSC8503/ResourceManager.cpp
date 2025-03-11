@@ -21,7 +21,8 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         bigCylinderMesh = renderer->LoadMesh("BigCylinder.msh");
         targetMesh = renderer->LoadMesh("Targets.msh");
         bigCubeMesh = renderer->LoadMesh("BigCube.msh");
-        secondMapMesh = renderer->LoadMesh("Second Map 1.msh");
+        floor2Mesh = renderer->LoadMesh("FloorM2.msh");
+        mainWall2Mesh = renderer->LoadMesh("MainWallM2.msh");
         gooseMesh = renderer->LoadMesh("goose.msh");
         enemyMesh = renderer->LoadMesh("Keeper.msh");
         bonusMesh = renderer->LoadMesh("19463_Kitten_Head_v1.msh");

@@ -35,7 +35,8 @@ namespace NCL {
             Mesh* GetBigCylinderMesh() const { return bigCylinderMesh; }
             Mesh* GetTargetMesh() const { return targetMesh; }
             Mesh* GetBigCubeMesh() const { return bigCubeMesh; }
-            Mesh* GetSecondMapMesh() const { return secondMapMesh; }
+            Mesh* GetFloor2Mesh() const { return floor2Mesh; }
+            Mesh* GetMainWall2Mesh() const { return mainWall2Mesh; }
             Mesh* GetGooseMesh() const { return gooseMesh; }
             Mesh* GetEnemyMesh() const { return enemyMesh; }
             Mesh* GetBonusMesh() const { return bonusMesh; }
@@ -77,7 +78,8 @@ namespace NCL {
                 Mesh* bigCylinderMesh = nullptr;
                 Mesh* targetMesh = nullptr;
                 Mesh* bigCubeMesh = nullptr;
-                Mesh* secondMapMesh = nullptr;
+                Mesh* floor2Mesh = nullptr;
+                Mesh* mainWall2Mesh = nullptr;
                 Mesh* gooseMesh = nullptr;
                 Mesh* enemyMesh = nullptr;
                 Mesh* bonusMesh = nullptr;

@@ -208,8 +208,10 @@ void TutorialGame::InitWorld() {
 
 
 		//SECOND MAP
-		G1.AddConcaveMesh(rp3d::Vector3(-50, 1, 500), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetSecondMapMesh(), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetFloor2Mesh(), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			ResourceManager::GetInstance().GetMainWall2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
 		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
