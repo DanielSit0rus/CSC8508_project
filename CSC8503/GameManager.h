@@ -56,7 +56,8 @@ namespace NCL {
             void InitWorld(int arg);
 
             PaintballGameObject* AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-                Mesh* mesh, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f), float mass = 10.0f, bool isEnemy = false, rp3d::Vector3 oriV3 = rp3d::Vector3());
+                Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f), Mesh* mesh = nullptr, float mass = 10.0f, bool isEnemy = false, rp3d::Vector3 oriV3 = rp3d::Vector3(),
+                int network = -1);
 
             PaintballGameObject* AddPlayer(const rp3d::Vector3& position);
             PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);

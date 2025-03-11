@@ -218,8 +218,8 @@ void TutorialGame::UpdateKeys() {
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Middle)) {
 		if (G1.selectionObject) {
 			G1.selectionObject->SetActive(false);
-			//G1.DeleteObject(G1.selectionObject);
-			G1.selectionObject = nullptr;
+			G1.DeleteObject(G1.selectionObject);
+			//G1.selectionObject = nullptr;
 		}
 	}
 
@@ -252,6 +252,12 @@ void TutorialGame::UpdateKeys() {
 	//shoot test
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::Q)) {
 		if(G1.shoottest) G1.shoottest->Attack();
+		else {
+			GameManager::GetInstance().AddObject(GameObjectType::bullet,
+				Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
+				rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
+				Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+		}
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {

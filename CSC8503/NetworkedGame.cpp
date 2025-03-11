@@ -177,6 +177,7 @@ void NetworkedGame::SpawnPlayer() {
 void NetworkedGame::StartLevel() {
 	GameManager::GetInstance().InitWorld(1);
 
+	/*
 	std::vector<PaintballGameObject*>::const_iterator first;
 	std::vector<PaintballGameObject*>::const_iterator last;
 	world->GetObjectIterators(first, last);
@@ -186,10 +187,11 @@ void NetworkedGame::StartLevel() {
 		{
 			NetworkObject* obj = new NetworkObject(**i, G1.GetNetworkObjects().size());
 			(*i)->SetNetworkObject(obj);
-			G1.GetNetworkObjects()[G1.GetNetworkObjects().size()] = obj;
+			G1.GetNetworkObjects().find(G1.GetNetworkObjects().size()] = obj;
 			//std::cout<< G1.GetNetworkObjects().size() <<std::endl;
 		}
 	}
+	*/
 }
 
 void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
@@ -203,7 +205,10 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 
 		int objectID = deltaPacket->objectID;
 
-		G1.GetNetworkObjects()[objectID]->ReadPacket(*deltaPacket);
+		auto it = G1.GetNetworkObjects().find(objectID);
+		if (it != G1.GetNetworkObjects().end()) {
+			it->second->ReadPacket(*deltaPacket);
+		}
 
 		break;
 	}
@@ -218,11 +223,18 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		int stateID = fullPacket->fullState.stateID;
 		*/
 
-		if(G1.GetNetworkObjects()[objectID]) G1.GetNetworkObjects()[objectID]->ReadPacket(*fullPacket);
-		else {
-			//todo - create obj;
+		auto it = G1.GetNetworkObjects().find(objectID);
+		if (it != G1.GetNetworkObjects().end()) {
+			it->second->ReadPacket(*fullPacket);
 		}
-
+		else {
+			NetworkState state = fullPacket->fullState;
+			std::cout << "add " << objectID << std::endl;
+			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
+				state.position, state.scale, state.orientation,
+				 state.color, nullptr, state.mass, state.isEnemy, state.oriV3, objectID);
+		}
+		//networkObjects[
 
 		break;
 	}

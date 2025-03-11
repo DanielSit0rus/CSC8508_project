@@ -124,11 +124,12 @@ void Console::NetworkCommand(std::string s) const {
     else if (arg == "t" || arg == "test") {
 
         std::cout << GameManager::GetInstance().GetNetworkObjects().size() << std::endl;
-        for (int i = 0; i < GameManager::GetInstance().GetNetworkObjects().size(); i++)
-        {
-            if (GameManager::GetInstance().GetNetworkObjects()[i] == nullptr) std::cout << "0";
+
+        for (const auto& [key, value] : GameManager::GetInstance().GetNetworkObjects()) {
+            if (value == nullptr) std::cout << "0";
             else std::cout << "1";
         }
+
         std::cout << std::endl;
 
         /*
@@ -161,13 +162,13 @@ void Console::AddObjCommand(std::string s) const { //add obj size num
             scaleValue = 1.0f;
         }
     }
+    int num = 1;
+    stream >> num;
+    if (num <= 0) num = 1;
 
     if (shape == "cube" || shape == "c") {
-        int num = 1;
-        stream >> num;
-        if (num <= 0) num = 1;
         for (int i = 0; i < num; i++)
-            GameManager::GetInstance().AddCube(
+            GameManager::GetInstance().AddObject(GameObjectType::cube,
                 Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
                 rp3d::Vector3(scaleValue, scaleValue, scaleValue),
                 rp3d::Quaternion().identity()
@@ -175,14 +176,8 @@ void Console::AddObjCommand(std::string s) const { //add obj size num
         std::cout << "A cube is added!" << std::endl;
     }
     else if (shape == "sphere" || shape == "s") {
-        int num = 1;
-        stream >> num;
-        if (num <= 0) num = 1;
         for (int i = 0; i < num; i++)
-            //GameManager::GetInstance().AddBullet(rp3d::Vector3(0,-1,0), false,
-            //    Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()) + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1),
-            //    rp3d::Quaternion().identity(), Vector4(1,1,1,1));
-            GameManager::GetInstance().AddSphere(
+            GameManager::GetInstance().AddObject(GameObjectType::sphere,
                 Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition()),
                 rp3d::Vector3(scaleValue, scaleValue, scaleValue),
                 rp3d::Quaternion().identity()
@@ -237,7 +232,7 @@ void Console::TestCommand(std::string s) {
                     GameManager::GetInstance().AddObject(GameObjectType::bullet,
                         Util::NCLToRP3d(camPos + GameManager::GetInstance().GetCameraFront() * 3.f), rp3d::Vector3(1, 1, 1),
                         rp3d::Quaternion().identity(),
-                        nullptr, Vector4(1, 1, 1, 1), 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+                        Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
 
                     std::this_thread::sleep_for(std::chrono::milliseconds(300));  // 限制输出频率，避免过快输出
                 }
