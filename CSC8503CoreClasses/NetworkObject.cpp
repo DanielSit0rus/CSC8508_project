@@ -68,6 +68,7 @@ bool NetworkObject::ReadFullPacket(FullPacket &p) {
 	}
 	lastFullState = p.fullState;
 
+	object.SetActive(p.fullState.isActive);
 	object.GetTransform().SetPosition(lastFullState.position);
 	object.GetTransform().SetOrientation(lastFullState.orientation);
 
@@ -118,6 +119,7 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 	}
 	else
 	{
+		fp->fullState.isActive = object.IsActive();
 		fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
 		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
 		fp->fullState.stateID = lastFullState.stateID++;

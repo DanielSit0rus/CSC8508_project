@@ -218,7 +218,11 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		int stateID = fullPacket->fullState.stateID;
 		*/
 
-		G1.GetNetworkObjects()[objectID]->ReadPacket(*fullPacket);
+		if(G1.GetNetworkObjects()[objectID]) G1.GetNetworkObjects()[objectID]->ReadPacket(*fullPacket);
+		else {
+			//todo - create obj;
+		}
+
 
 		break;
 	}

@@ -15,6 +15,7 @@ namespace NCL {
 			int					stateID;
 
 			bool				toDelete = false;
+			bool				isActive = true;
 		};
 	}
 }

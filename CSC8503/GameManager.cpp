@@ -79,44 +79,42 @@ void GameManager::InitWorld(int arg)
 
     if (j.contains("objs") && j["objs"].is_array()) {
         for (const auto& obj : j["objs"]) {
-
             if (obj.contains("type")) {
-                int type = obj["type"];
-                switch (type)
-                {
-                case GameObjectType::cube:
-                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
-                    AddCube(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0] * 0.5f, obj["scale"][1] * 0.5f, obj["scale"][2] * 0.5f),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        obj["mass"],
-                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
-                    break;
-
-                case GameObjectType::sphere:
-                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
-                    AddSphere(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        obj["mass"],
-                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
-                    break;
-
-                case GameObjectType::concave1:
-                    //std::cout << "[GameManager::InitWorld] cube." << std::endl;
-                    AddConcaveMesh(rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        ResourceManager::GetInstance().GetMapMesh(),
-                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]));
-                    break;
-
-                default:
-                    std::cout << "[GameManager::InitWorld] Unknown type." << std::endl;
-                    break;
-                }
+                AddObject(obj["type"],
+                    rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                    rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
+                    rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                    ResourceManager::GetInstance().GetMapMesh(),
+                    Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
+                    obj["mass"]);
             }
         }
+    }
+}
+
+PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Mesh* mesh, Vector4 color, float mass)
+{
+    switch (type)
+    {
+    case GameObjectType::cube:
+        //std::cout << "[GameManager::AddObject] cube." << std::endl;
+        return AddCube(position, dimensions * 0.5f, orientation, mass, color);
+        break;
+
+    case GameObjectType::sphere:
+        //std::cout << "[GameManager::AddObject] cube." << std::endl;
+        return AddSphere(position, dimensions, orientation, mass, color);
+        break;
+
+    case GameObjectType::concave1:
+        //std::cout << "[GameManager::AddObject] cube." << std::endl;
+        return AddConcaveMesh(position, dimensions, orientation, mesh, color);
+        break;
+
+    default:
+        std::cout << "[GameManager::AddObject] Unknown type." << std::endl;
+        return nullptr;
+        break;
     }
 }
 
