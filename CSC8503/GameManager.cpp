@@ -419,16 +419,52 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
     return concaveMeshShape;
 }
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddTriggerCube()
+PaintballGameObject* NCL::CSC8503::GameManager::AddTrigger(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
-    PaintballGameObject* trip1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-    PaintballGameObject* trip2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-    // Anchor point in world-space
+    ResourceManager& resources = ResourceManager::GetInstance();
+
+    PaintballGameObject* cube = new PaintballGameObject(GameObjectType::trigger1);
+
+    cube->GetTransform()
+        .SetPosition(position)
+        .SetOrientation(orientation)
+        .SetScale(dimensions * 2.0f)
+        .SetRatioR(dimensions * 2.0f);
+
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->GetRenderObject()->SetColour(color);
+
+    // create a rigid body
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cube->GetTransform().GetRpTransform());
+    // create Shape
+    rp3d::BoxShape* shape = physicsCommon.createBoxShape(dimensions);
+    //rp3d::SphereShape* shape = physicsCommon.createSphereShape(halfExtents.x);
+    // bind Shape to rigid body
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+    //add rigid body to gameobject
+    cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
+    cube->GetPhysicsObject()->SetMass(mass);
+   
+    collider->setIsTrigger(true);
+    world->AddGameObject(cube);
+
+    return cube;
+}
+
+PaintballGameObject* NCL::CSC8503::GameManager::AddTrap()
+{
+    PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
+    PaintballGameObject* trigger = AddTrigger(rp3d::Vector3(2, 15, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    trigger->target = tripcube1;
+    // Anchor point on world-space
     const rp3d::Vector3 anchorPoint(2.0, 4.0, 0.0);
 
   
     // Create the joint info object
-    reactphysics3d::BallAndSocketJointInfo jointInfo(&trip1->GetPhysicsObject()->GetRigidbody(), &trip2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
+    reactphysics3d::BallAndSocketJointInfo jointInfo(&tripcube1->GetPhysicsObject()->GetRigidbody(), &tripcube2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
     return nullptr;
 }
 

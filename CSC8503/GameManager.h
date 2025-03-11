@@ -28,7 +28,7 @@ namespace NCL {
         class PaintballPlayer;
         class PaintballBullet;
         class PaintballEnemy; //forward declaration
-        class GameManager
+        class GameManager 
         {
         public:
             static GameManager& GetInstance() {
@@ -70,7 +70,9 @@ namespace NCL {
             PaintballBullet* AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass = 10.0f);
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
-            PaintballGameObject* AddTriggerCube( );
+
+            PaintballGameObject* AddTrigger(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+            PaintballGameObject* AddTrap( );
 
 
             void DeleteObject(PaintballGameObject* obj) {

@@ -26,6 +26,7 @@ namespace NCL::CSC8503 {
         player,
         enemy,
         bullet,
+        trigger1,
 
         concave1,
         concave2,
@@ -107,6 +108,13 @@ namespace NCL::CSC8503 {
 		int GetWorldID() const {
 			return worldID;
 		}
+
+        void TriggerAction() {
+            target->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 10, 0));
+        }
+
+        PaintballGameObject* target = nullptr;
+
 
     protected:
         void SaveData(nlohmann::json& j);
