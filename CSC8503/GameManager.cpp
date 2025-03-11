@@ -2,6 +2,7 @@
 #include "AudioSystem.h"
 #include "SLSystem.h"
 #include "EventManager.h"
+#include "GameObjectFreeList.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -92,7 +93,8 @@ void GameManager::InitWorld(int arg)
     }
 }
 
-PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Mesh* mesh, Vector4 color, float mass)
+PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
+    Mesh* mesh, Vector4 color, float mass, bool isEnemy, rp3d::Vector3 oriV3)
 {
     switch (type)
     {
@@ -105,14 +107,16 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
         return AddSphere(position, dimensions, orientation, mass, color);
         break;
-
+    case GameObjectType::bullet:
+        return GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
+        break;
     case GameObjectType::concave1:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
         return AddConcaveMesh(position, dimensions, orientation, mesh, color);
         break;
 
     default:
-        std::cout << "[GameManager::AddObject] Unknown type." << std::endl;
+        std::cout << "[GameManager::AddObject] Unsupported type : " << type << std::endl;
         return nullptr;
         break;
     }

@@ -217,6 +217,7 @@ void Console::TestCommand(std::string s) {
         testing = false;
         testThread->join();
         delete testThread;
+        testThread = nullptr;
     }
 
     std::istringstream stream(s);
@@ -232,14 +233,12 @@ void Console::TestCommand(std::string s) {
                 while (testing) {
                     PerspectiveCamera camera = GameManager::GetInstance().GetMainCamera();
                     Vector3 camPos = camera.GetPosition();
-                    float yaw = DegreesToRadians(camera.GetYaw());
-                    float pitch = DegreesToRadians(-camera.GetPitch());
-                    Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
-                    front = -Vector::Normalise(front);
 
-                    GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(front), false,
-                        Util::NCLToRP3d(camPos+ front*3.f), rp3d::Vector3(1, 1, 1),
-                        rp3d::Quaternion().identity(), Vector4(1, 1, 1, 1));
+                    GameManager::GetInstance().AddObject(GameObjectType::bullet,
+                        Util::NCLToRP3d(camPos + GameManager::GetInstance().GetCameraFront() * 3.f), rp3d::Vector3(1, 1, 1),
+                        rp3d::Quaternion().identity(),
+                        nullptr, Vector4(1, 1, 1, 1), 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+
                     std::this_thread::sleep_for(std::chrono::milliseconds(300));  // 限制输出频率，避免过快输出
                 }
             }

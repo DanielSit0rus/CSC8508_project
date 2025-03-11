@@ -187,7 +187,7 @@ void NetworkedGame::StartLevel() {
 			NetworkObject* obj = new NetworkObject(**i, G1.GetNetworkObjects().size());
 			(*i)->SetNetworkObject(obj);
 			G1.GetNetworkObjects()[G1.GetNetworkObjects().size()] = obj;
-			std::cout<< G1.GetNetworkObjects().size() <<std::endl;
+			//std::cout<< G1.GetNetworkObjects().size() <<std::endl;
 		}
 	}
 }
