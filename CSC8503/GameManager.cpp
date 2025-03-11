@@ -44,7 +44,7 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
     for (auto object : objectsToDelete) {
 
         if (object->GetNetworkObject()) {
-            networkObjects[object->GetNetworkObject()->GetNetworkID()] = nullptr;
+            networkObjects.find(object->GetNetworkObject()->GetNetworkID())->second = nullptr;
         }
 
         //std::cout << "name = [" << object->GetName()<<"]" << std::endl;
@@ -85,8 +85,8 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                    ResourceManager::GetInstance().GetMapMesh(),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
+                    ResourceManager::GetInstance().GetMapMesh(),
                     obj["mass"]);
             }
         }
@@ -94,32 +94,40 @@ void GameManager::InitWorld(int arg)
 }
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-    Mesh* mesh, Vector4 color, float mass, bool isEnemy, rp3d::Vector3 oriV3)
+    Vector4 color, Mesh* mesh, float mass, bool isEnemy, rp3d::Vector3 oriV3,int networkID)
 {
+    PaintballGameObject* obj = nullptr;
     switch (type)
     {
     case GameObjectType::cube:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
-        return AddCube(position, dimensions * 0.5f, orientation, mass, color);
+        obj = AddCube(position, dimensions * 0.5f, orientation, mass, color);
         break;
 
     case GameObjectType::sphere:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
-        return AddSphere(position, dimensions, orientation, mass, color);
+        obj = AddSphere(position, dimensions, orientation, mass, color);
         break;
     case GameObjectType::bullet:
-        return GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
+        obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
     case GameObjectType::concave1:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
-        return AddConcaveMesh(position, dimensions, orientation, mesh, color);
+        obj = AddConcaveMesh(position, dimensions, orientation, mesh, color);
         break;
 
     default:
         std::cout << "[GameManager::AddObject] Unsupported type : " << type << std::endl;
-        return nullptr;
-        break;
+        return obj;
     }
+
+    if (obj->GetNetworkObject() == nullptr) {
+        NetworkObject* netObj = new NetworkObject(*obj, networkID == -1 ? networkObjects.size() : networkID);
+        obj->SetNetworkObject(netObj);
+        networkObjects[networkObjects.size()] = netObj;
+    }
+
+    return obj;
 }
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
