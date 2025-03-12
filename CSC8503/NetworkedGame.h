@@ -15,6 +15,7 @@ namespace NCL {
 
 			void StartAsServer();
 			void StartAsClient(char a, char b, char c, char d);
+			void RequestStart(int arg) { toStart = arg; }
 
 			void UpdateGame(float dt) override;
 
@@ -31,6 +32,7 @@ namespace NCL {
 		protected:
 			void UpdateAsServer(float dt);
 			void UpdateAsClient(float dt);
+			int ip1, ip2, ip3, ip4;
 
 			void BroadcastSnapshot(bool deltaFrame);
 			void UpdateMinimumState();
@@ -51,6 +53,7 @@ namespace NCL {
 			void SendPacketTest();
 			void SendPacketTest(std::string s);
 
+			int toStart = -1;	//0 for server, 1 for client
 		};
 	}
 }

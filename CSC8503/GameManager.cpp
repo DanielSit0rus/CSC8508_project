@@ -51,6 +51,8 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
         world->RemoveGameObject(object, true);
     }
     objectsToDelete.clear();
+
+    if (toRebuild != -1) InitWorld(toRebuild);
 }
 
 void GameManager::InitWorld(int arg)
@@ -91,6 +93,8 @@ void GameManager::InitWorld(int arg)
             }
         }
     }
+
+    toRebuild = -1;
 }
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
@@ -486,4 +490,3 @@ Vector3 GameManager::GetCameraFront()
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
 }
-

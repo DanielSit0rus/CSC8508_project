@@ -116,6 +116,7 @@ namespace NCL {
 
             std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
 
+            void RequestRebuildWorld(int arg) { toRebuild = arg; }
 
             //Pointers - to be private later
             PaintballPlayer* playerObject;
@@ -177,6 +178,7 @@ namespace NCL {
             bool canStart_FMOD = true;
 
             std::map<int, NetworkObject*> networkObjects;
+            int toRebuild = -1;
         };
     }
 }

@@ -244,7 +244,7 @@ void Console::TestCommand(const std::string& s) {
     }
     else if (target == "world" || target == "w") {
         std::cout << "rebuilding world..." << std::endl;
-        G1.InitWorld(1);
+        G1.RequestRebuildWorld(1);
     }
     else {
         std::cout << "Unknown argument: " << s << std::endl;

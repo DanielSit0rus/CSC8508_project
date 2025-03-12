@@ -26,11 +26,11 @@ NetworkedGame::NetworkedGame() {
 	timeToNextPacket = 0.0f;
 	packetsToSnapshot = 0;
 
-	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
+	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {RequestStart(0); });
 	EventManager::Subscribe(EventType::Network_StartAsClient, [this](std::string& s) {
-		std::istringstream stream(s); int a, b, c, d;
-		stream >> a; stream >> b; stream >> c; stream >> d;
-		StartAsClient(a, b, c, d);
+		std::istringstream stream(s);
+		stream >> ip1; stream >> ip2; stream >> ip3; stream >> ip4;
+		RequestStart(1);
 		});
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
 	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
@@ -70,6 +70,7 @@ void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	StartLevel();
 }
 
+
 void NetworkedGame::UpdateGame(float dt) {
 	timeToNextPacket -= dt;
 	if (timeToNextPacket < 0) {
@@ -82,6 +83,14 @@ void NetworkedGame::UpdateGame(float dt) {
 		timeToNextPacket += 1.0f / frame; //20hz server/client update
 
 		GameManager::GetInstance().PostCleanUp();
+	}
+	if (toStart == 0) {
+		StartAsServer();
+		toStart = -1;
+	}
+	else if (toStart == 1) {
+		StartAsClient(ip1, ip2, ip3, ip4);
+		toStart = -1;
 	}
 
 	TutorialGame::UpdateGame(dt);
@@ -177,7 +186,7 @@ void NetworkedGame::SpawnPlayer() {
 }
 
 void NetworkedGame::StartLevel() {
-	GameManager::GetInstance().InitWorld(1);
+	GameManager::GetInstance().RequestRebuildWorld(1);
 
 	/*
 	std::vector<PaintballGameObject*>::const_iterator first;
