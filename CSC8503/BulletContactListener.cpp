@@ -61,15 +61,25 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 
 			//((PaintballGameObject*)body1->getUserData())->SetActive(false);
 		}
+		PaintballGameObject* obj1 = static_cast<PaintballGameObject*>(body1->getUserData());
+		PaintballGameObject* obj2 = static_cast<PaintballGameObject*>(body2->getUserData());
 
-		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet&& ((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::trigger1) {
-			std::cout << "子弹击中ffffffff！" << std::endl;
-			((PaintballBullet*)body1->getUserData())->Destroy();
-			((PaintballGameObject*)body2->getUserData())->TriggerAction();
-
-			
+		// 先检查指针有效性
+		if (!obj1 || !obj2) return;
+		// 检测子弹和触发器的碰撞
+		if (obj1->GetType() == GameObjectType::bullet && obj2->GetType() == GameObjectType::trigger1) {
+			PaintballBullet* bullet = dynamic_cast<PaintballBullet*>(obj1);
+			if (bullet) {
+				bullet->Destroy();
+			}
+			obj2->TriggerAction(); 
 		}
 
+		// 检测玩家和触发器的碰撞
+		if (obj1->GetType() == GameObjectType::player && obj2->GetType() == GameObjectType::trigger1) {
+			std::cout << "发生碰撞！" << std::endl; 
+			obj2->TriggerAction(); 
+		}
 
 		
 	}

@@ -216,7 +216,7 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
 
     // Create the player object
     player = new PaintballPlayer();
-
+    
     player->GetTransform()
         .SetPosition(position)
         .SetScale(dimensions * 1.0f)
@@ -463,10 +463,12 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddTrigger(const rp3d::Vector3& 
 PaintballGameObject* NCL::CSC8503::GameManager::AddTrap()
 {
     PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* trigger1 = AddTrigger(rp3d::Vector3(2, 15, -25), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    trigger1->target = tripcube1;
 
-    PaintballGameObject* trigger = AddTrigger(rp3d::Vector3(2, 15, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-    trigger->target = tripcube1;
+    PaintballGameObject* trigger2 = AddTrigger(rp3d::Vector3(10, 5, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(10, 35, -25), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    trigger2->target = tripcube2;
     // Anchor point on world-space
     const rp3d::Vector3 anchorPoint(2.0, 4.0, 0.0);
 
