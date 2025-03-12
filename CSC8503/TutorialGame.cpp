@@ -151,12 +151,13 @@ void TutorialGame::InitWorld() {
 	G1.lockedObject = nullptr;
 	G1.selectionObject = nullptr;
 
-	world->ClearAndErase();
 
 	if (false) {
 		G1.InitWorld(1);
 	}
 	else {
+		world->ClearAndErase();
+
 		//ResourceManager::GetInstance().ReloadAnimations();
 
 		G1.playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
