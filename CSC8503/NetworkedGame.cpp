@@ -234,7 +234,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 			std::cout << "add " << objectID << std::endl;
 			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
 				state.position, state.scale, state.orientation,
-				 state.color, nullptr, state.mass, state.isEnemy, state.oriV3, objectID);
+				 state.color, "", state.mass, state.isEnemy, state.oriV3, objectID);
 		}
 		//networkObjects[
 
@@ -265,7 +265,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 			G1.AddObject(GameObjectType::bullet,
 				Util::NCLToRP3d(clientPacket->camPos + clientPacket->camFront * 3.f), rp3d::Vector3(1, 1, 1),
 				rp3d::Quaternion().identity(),
-				Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(clientPacket->camFront));
+				Vector4(1, 1, 1, 1), "", 1, false, Util::NCLToRP3d(clientPacket->camFront));
 		}
 
 		break;

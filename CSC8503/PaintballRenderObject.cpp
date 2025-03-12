@@ -1,20 +1,31 @@
 #include "PaintballRenderObject.h"
 #include "Mesh.h"
+#include "ResourceManager.h"
 
 using namespace NCL::CSC8503;
 using namespace NCL;
 
-PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
+PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform, std::string meshName, std::string textureName, std::string shaderName,
     std::shared_ptr<MeshAnimation> animation, std::shared_ptr<MeshMaterial> material)
-    : transform(parentTransform), mesh(mesh), texture(tex), shader(shader), animation(animation), material(material) {
+    : transform(parentTransform), meshName(meshName), textureName(textureName), shaderName(shaderName), animation(animation), material(material) {
+
     colour = Vector4(1, 1, 1, 1);
     currentFrame = 0;
     frameTime = 0.0f;
+
+    mesh = ResourceManager::GetInstance().GetMesh(meshName);
+    texture = ResourceManager::GetInstance().GetTexture(textureName);
+    shader = ResourceManager::GetInstance().GetBasicShader();
 }
 
 PaintballRenderObject::~PaintballRenderObject() {
 
  
+}
+
+void PaintballRenderObject::SetDefaultTexture(const std::string& t)
+{
+    texture = ResourceManager::GetInstance().GetTexture(t);
 }
 
 void PaintballRenderObject::UpdateAnimation(float dt) {
