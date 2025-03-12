@@ -86,7 +86,7 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                    ResourceManager::GetInstance().GetFloor1Mesh(),
+                    ResourceManager::GetInstance().GetMesh("floor_1"),
                     obj["mass"]);
             }
         }
@@ -141,7 +141,7 @@ PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::V
         .SetScale(dimensions * 2.0f)
         .SetRatioR(dimensions * 2.0f);
 
-    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetMesh("cube"), resources.GetTexture("basic"), resources.GetBasicShader()));
     cube->GetRenderObject()->SetColour(color);
 
     // create a rigid body
@@ -173,7 +173,7 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
         .SetScale(dimensions * 1.0f)
         .SetRatioR(dimensions * 1.0f);
 
-    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetSphereMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetMesh("sphere"), resources.GetTexture("basic"), resources.GetBasicShader()));
 
     cube->GetRenderObject()->SetColour(color);
 
@@ -226,8 +226,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     // Create render object with animation support
     PaintballRenderObject* renderObj = new PaintballRenderObject(
         &player->GetTransform(),
-        resources.GetRoleMesh(),
-        resources.GetBasicTex(),
+        resources.GetMesh("role"),
+        resources.GetTexture("basic"),
         resources.GetBasicShader(),
         resources.GetIdleanim(),
         resources.GetRolemat()
@@ -282,8 +282,8 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
     // Create render object
     PaintballRenderObject* renderObj = new PaintballRenderObject(
         &cube->GetTransform(),
-        resources.GetRoleMesh(),
-        resources.GetBasicTex(),
+        resources.GetMesh("role"),
+        resources.GetTexture("basic"),
         resources.GetBasicShader(),
         resources.GetIdleanim(),
         resources.GetRolemat()
@@ -330,7 +330,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
         .SetRatioR(dimensions * 1.0f);
 
     concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),
-        mesh, resources.GetBasicTex(), resources.GetBasicShader()));
+        mesh, resources.GetTexture("basic"), resources.GetBasicShader()));
 
     concave->GetRenderObject()->SetColour(color);
 
@@ -364,7 +364,7 @@ PaintballBullet* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool i
         .SetScale(dimensions * 1.0f)
         .SetRatioR(dimensions * 1.0f);
 
-    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetSphereMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetMesh("sphere"), resources.GetTexture("basic"), resources.GetBasicShader()));
 
     cube->GetRenderObject()->SetColour(color);
 
@@ -439,7 +439,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddTrigger(const rp3d::Vector3& 
         .SetScale(dimensions * 2.0f)
         .SetRatioR(dimensions * 2.0f);
 
-    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetCubeMesh(), resources.GetBasicTex(), resources.GetBasicShader()));
+    cube->SetRenderObject(new PaintballRenderObject(&cube->GetTransform(), resources.GetMesh("cube"), resources.GetTexture("basic"), resources.GetBasicShader()));
     cube->GetRenderObject()->SetColour(color);
 
     // create a rigid body

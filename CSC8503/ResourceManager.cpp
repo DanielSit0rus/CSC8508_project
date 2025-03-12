@@ -2,57 +2,76 @@
 using namespace NCL::CSC8503;
 
 void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
-    if (cubeMesh == nullptr) { // Only load once
-
+    if (GetMesh("cube", false) == nullptr) { // Only load once
         meshes["cube"] = renderer->LoadMesh("cube.msh");
+        meshes["sphere"] = renderer->LoadMesh("sphere.msh");
 
-        cubeMesh = renderer->LoadMesh("cube.msh");
-        sphereMesh = renderer->LoadMesh("sphere.msh");
-        catMesh = renderer->LoadMesh("ORIGAMI_Chat.msh");
-        kittenMesh = renderer->LoadMesh("Kitten.msh");
+        meshes["cat"] = renderer->LoadMesh("ORIGAMI_Chat.msh");
+        meshes["kitten"] = renderer->LoadMesh("Kitten.msh");
 
-        floor1Mesh = renderer->LoadMesh("Map1Floor.msh");
-        mainWallMesh = renderer->LoadMesh("MainWall.msh");
-        doorWayMesh = renderer->LoadMesh("DoorWay.msh");
-        oppDoorWayMesh = renderer->LoadMesh("OppDoorWay.msh");
-        midDoorMesh = renderer->LoadMesh("MIdDoor.msh");
-        wallMesh = renderer->LoadMesh("Walls.msh");
-        wall2Mesh = renderer->LoadMesh("Walls2.msh");
-        openWallMesh = renderer->LoadMesh("OpenWall.msh");
-        wall3Mesh = renderer->LoadMesh("Wall3.msh");
-        wall4Mesh = renderer->LoadMesh("Wall4.msh");
-        cylinderMesh = renderer->LoadMesh("Cylinders.msh");
-        bigCylinderMesh = renderer->LoadMesh("BigCylinder.msh");
-        targetMesh = renderer->LoadMesh("Targets.msh");
-        bigCubeMesh = renderer->LoadMesh("BigCube.msh");
-        floor2Mesh = renderer->LoadMesh("FloorM2.msh");
-        mainWall2Mesh = renderer->LoadMesh("MainWallM2.msh");
-        doorWayM2Mesh = renderer->LoadMesh("DoorWayM2.msh");
-        wall1M2Mesh = renderer->LoadMesh("Wall1M2.msh");
-        oppDoorWayM2Mesh = renderer->LoadMesh("OppDoorWayM2.msh");
-        wall2M2Mesh = renderer->LoadMesh("Wall2M2.msh");
-        wall3M2Mesh = renderer->LoadMesh("Wall3M2.msh");
-        columnsM2Mesh = renderer->LoadMesh("ColumnsM2.msh");
-        midTunnelMesh = renderer->LoadMesh("MidTunnel.msh");
-        elevationMesh = renderer->LoadMesh("Elevation.msh");
-        bridgeMesh = renderer->LoadMesh("Bridge.msh");
-        elevRailMesh = renderer->LoadMesh("ElevRail.msh");
-        midRailMesh = renderer->LoadMesh("MidRail.msh");
-        bridgeRailMesh = renderer->LoadMesh("BridgeRail.msh");
+        meshes["floor_1"] = renderer->LoadMesh("Map1Floor.msh");
+        meshes["mainWall_1"] = renderer->LoadMesh("MainWall.msh");
+        meshes["doorWay_1"] = renderer->LoadMesh("DoorWay.msh");
+        meshes["oppDoorWay_1"] = renderer->LoadMesh("OppDoorWay.msh");
+        meshes["midDoor"] = renderer->LoadMesh("MIdDoor.msh");
+        meshes["wall_1"] = renderer->LoadMesh("Walls.msh");
+        meshes["wall_2"] = renderer->LoadMesh("Walls2.msh");
+        meshes["openWall"] = renderer->LoadMesh("OpenWall.msh");
+        meshes["wall_3"] = renderer->LoadMesh("Wall3.msh");
+        meshes["wall_4"] = renderer->LoadMesh("Wall4.msh");
+        meshes["cylinder"] = renderer->LoadMesh("Cylinders.msh");
+        meshes["bigCylinder"] = renderer->LoadMesh("BigCylinder.msh");
+        meshes["target"] = renderer->LoadMesh("Targets.msh");
+        meshes["bigCube"] = renderer->LoadMesh("BigCube.msh");
+        meshes["floor_2"] = renderer->LoadMesh("FloorM2.msh");
+        meshes["mainWall_2"] = renderer->LoadMesh("MainWallM2.msh");
+        meshes["doorWay_2"] = renderer->LoadMesh("DoorWayM2.msh");
+        meshes["wall_2_1"] = renderer->LoadMesh("Wall1M2.msh");
+        meshes["oppDoorWay_2"] = renderer->LoadMesh("OppDoorWayM2.msh");
+        meshes["wall_2_2"] = renderer->LoadMesh("Wall2M2.msh");
+        meshes["wall_2_3"] = renderer->LoadMesh("Wall3M2.msh");
+        meshes["columns_2"] = renderer->LoadMesh("ColumnsM2.msh");
+        meshes["midTunnel"] = renderer->LoadMesh("MidTunnel.msh");
+        meshes["elevation"] = renderer->LoadMesh("Elevation.msh");
+        meshes["bridge"] = renderer->LoadMesh("Bridge.msh");
+        meshes["elevRail"] = renderer->LoadMesh("ElevRail.msh");
+        meshes["midRail"] = renderer->LoadMesh("MidRail.msh");
+        meshes["bridgeRail"] = renderer->LoadMesh("BridgeRail.msh");
 
-        gooseMesh = renderer->LoadMesh("goose.msh");
-        enemyMesh = renderer->LoadMesh("Keeper.msh");
-        bonusMesh = renderer->LoadMesh("19463_Kitten_Head_v1.msh");
-        capsuleMesh = renderer->LoadMesh("capsule.msh");
+        meshes["goose"] = renderer->LoadMesh("goose.msh");
+        meshes["enemy"] = renderer->LoadMesh("Keeper.msh");
+        meshes["bonus"] = renderer->LoadMesh("19463_Kitten_Head_v1.msh");
+        meshes["capsule"] = renderer->LoadMesh("capsule.msh");
 
-        RoleMesh = renderer->LoadMesh("Role_T.msh");
+        meshes["role"] = renderer->LoadMesh("Role_T.msh");
         Roleanim = std::make_shared<MeshAnimation>("Role_T_Idle.anm");
         Moveanim = std::make_shared<MeshAnimation>("Role_T.anm");
         Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
-        basicTex = renderer->LoadTexture("checkerboard.png");
+        textures["basic"] = renderer->LoadTexture("checkerboard.png");;
+
         basicShader = renderer->LoadShader("scene.vert", "scene.frag");
     }
+}
+
+NCL::Rendering::Mesh* ResourceManager::GetMesh(const std::string& name, bool debug)
+{
+    auto it = meshes.find(name);
+    if (it != meshes.end()) {
+        return it->second;
+    }
+    if (debug) std::cerr << "[ResourceManager] Cannot find mesh [" << name << "]" << std::endl;
+    return nullptr;
+}
+
+NCL::Rendering::Texture* ResourceManager::GetTexture(const std::string& name, bool debug)
+{
+    auto it = textures.find(name);
+    if (it != textures.end()) {
+        return it->second;
+    }
+    if (debug) std::cerr << "[ResourceManager] Cannot find texture [" << name << "]" << std::endl;
+    return nullptr;
 }
 
 //void ResourceManager::ReloadAnimations() {

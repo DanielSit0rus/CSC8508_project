@@ -192,65 +192,65 @@ void TutorialGame::InitWorld() {
 
 		//FIRST MAP
 		G1.AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetFloor1Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("floor_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMainWallMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("mainWall_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetDoorWayMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("doorWay_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetOppDoorWayMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("oppDoorWay_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMidDoorMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("midDoor"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWallMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetOpenWallMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("openWall"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall3Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_3"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall4Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_4"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetCylinderMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("cylinder"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetBigCylinderMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("bigCylinder"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetTargetMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("target"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetBigCubeMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("bigCube"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
 
 		//SECOND MAP
 		G1.AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetFloor2Mesh(), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("floor_2"), Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMainWall2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("mainWall_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetDoorWayM2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("doorWay_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetOppDoorWayM2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("oppDoorWay_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall1M2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_2_1"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall2M2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_2_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetWall3M2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("wall_2_3"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetColumnsM2Mesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("columns_2"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMidTunnelMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("midTunnel"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetElevationMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("elevation"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetBridgeMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("bridge"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetElevRailMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("elevRail"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetMidRailMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("midRail"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			ResourceManager::GetInstance().GetBridgeRailMesh(), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			ResourceManager::GetInstance().GetMesh("bridgeRail"), Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
 		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
@@ -503,7 +503,7 @@ void TutorialGame::MoveEnemyAlongPath() {
 
 void TutorialGame::ShowMainPage() {
 	Debug::UpdateRenderables(0.1f);
-	Debug::DrawTex(*ResourceManager::GetInstance().GetBasicTex(), Vector2(0, 0), Vector2(100, 100), Debug::WHITE);
+	Debug::DrawTex(*ResourceManager::GetInstance().GetTexture("basic"), Vector2(0, 0), Vector2(100, 100), Debug::WHITE);
 	Debug::Print("Main Page : Press SPACE to start, ESCAPE to quit", Vector2(5, 65), Debug::RED);
 	renderer->Render();
 }
