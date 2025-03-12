@@ -86,7 +86,7 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                    ResourceManager::GetInstance().GetMapMesh(),
+                    ResourceManager::GetInstance().GetFloor1Mesh(),
                     obj["mass"]);
             }
         }
