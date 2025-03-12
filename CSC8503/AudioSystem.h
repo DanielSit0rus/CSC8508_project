@@ -39,7 +39,7 @@ namespace NCL {
 			void PauseEvent(EventInstance* event);
 			void ResumeEvent(EventInstance* event);
 
-			EventInstance* GetEvent(std::string eventName);
+			EventInstance* GetEvent(const std::string& eventName);
 
 		private:
 

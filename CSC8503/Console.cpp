@@ -99,7 +99,7 @@ void Console::ShowHelpCommnad() const {
     }
 }
 
-void Console::NetworkCommand(std::string s) const {
+void Console::NetworkCommand(const std::string& s) const {
     std::istringstream stream(s);
     std::string arg;
     stream >> arg;
@@ -148,7 +148,7 @@ void Console::NetworkCommand(std::string s) const {
     }
 }
 
-void Console::AddObjCommand(std::string s) const { //add obj size num
+void Console::AddObjCommand(const std::string& s) const { //add obj size num
     std::istringstream stream(s);
     std::string shape;
     float scaleValue = 1.0f;
@@ -189,7 +189,7 @@ void Console::AddObjCommand(std::string s) const { //add obj size num
     }
 }
 
-void Console::AudioCommand(std::string s) const {
+void Console::AudioCommand(const std::string& s) const {
     std::istringstream stream(s);
     std::string target;
 
@@ -207,7 +207,7 @@ void Console::AudioCommand(std::string s) const {
     }
 }
 
-void Console::TestCommand(std::string s) {
+void Console::TestCommand(const std::string& s) {
     if (testing) {
         testing = false;
         testThread->join();

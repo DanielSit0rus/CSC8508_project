@@ -278,7 +278,7 @@ void AudioSystem::ResumeEvent(EventInstance* event) {
     }
 }
 
-EventInstance* AudioSystem::GetEvent(std::string eventName)
+EventInstance* AudioSystem::GetEvent(const std::string& eventName)
 {
 
     auto descIt = eventDescriptions.find(eventName);

@@ -16,6 +16,16 @@ namespace NCL {
             void LoadAssets(GameTechRenderer* renderer);
             void ReloadAnimations();
 
+
+            Mesh* GetMesh(const std::string& name) {
+                auto it = meshes.find(name);
+                return (it != meshes.end()) ? it->second : nullptr;
+            }
+            Texture* GetTexture(const std::string& name) {
+                auto it = textures.find(name);
+                return (it != textures.end()) ? it->second : nullptr;
+            }
+
             // Getters for assets
             Mesh* GetCubeMesh() const { return cubeMesh; }
             Mesh* GetSphereMesh() const { return sphereMesh; }
@@ -120,6 +130,9 @@ namespace NCL {
 
                 Texture* basicTex = nullptr;
                 Shader* basicShader = nullptr;
+
+                std::unordered_map<std::string, Mesh*> meshes;
+                std::unordered_map<std::string, Texture*> textures;
 		};
 	}
 }

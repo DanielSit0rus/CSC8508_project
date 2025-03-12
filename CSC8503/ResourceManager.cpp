@@ -3,6 +3,9 @@ using namespace NCL::CSC8503;
 
 void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
     if (cubeMesh == nullptr) { // Only load once
+
+        meshes["cube"] = renderer->LoadMesh("cube.msh");
+
         cubeMesh = renderer->LoadMesh("cube.msh");
         sphereMesh = renderer->LoadMesh("sphere.msh");
         catMesh = renderer->LoadMesh("ORIGAMI_Chat.msh");

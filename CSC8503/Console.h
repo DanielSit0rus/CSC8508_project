@@ -38,11 +38,11 @@ namespace NCL {
 
 #pragma region CommandFunc
             void ShowHelpCommnad() const;
-            void NetworkCommand(std::string args) const;
+            void NetworkCommand(const std::string& args) const;
             void ClearCommnad() const { system("cls"); }
-            void AddObjCommand(std::string args) const;
-            void AudioCommand(std::string args) const;
-            void TestCommand(std::string args);
+            void AddObjCommand(const std::string& args) const;
+            void AudioCommand(const std::string& args) const;
+            void TestCommand(const std::string& args);
 #pragma endregion
             bool running = true;
             bool testing = false;
