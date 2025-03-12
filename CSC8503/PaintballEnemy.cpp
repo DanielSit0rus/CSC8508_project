@@ -2,7 +2,7 @@
 #include "StateTransition.h"
 #include "StateMachine.h"
 #include "State.h"
-
+#include "Debug.h"
 #include "GameManager.h"
 #include "EventManager.h"
 
@@ -46,6 +46,7 @@ PaintballEnemy::~PaintballEnemy()
 void PaintballEnemy::Update(float dt)
 {
 	StateGameObject::Update(dt);
+	behaviorTree->Execute();
 	//std::cout << "PaintballEnemy::Update" << std::endl;
 }
 
@@ -106,6 +107,8 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 		: Util::NCLToRP3d(pathNodes.back());
 	targetPos.y = currentPos.y; // Keep enemy on the same Y level
 
+	Debug::Print("Moving to: " + std::to_string(targetPos.x) + ", " + std::to_string(targetPos.y) + ", " + std::to_string(targetPos.z), Vector2(10, 100), Debug::WHITE);
+	
 	// Compute direction and distance to the target node
 	rp3d::Vector3 direction = targetPos - currentPos;
 	float distanceToTarget = direction.length();
@@ -169,8 +172,4 @@ void PaintballEnemy::InitBehaviorTree() {
 	root->AddChild(new ActionPatrol(this));
 
 	behaviorTree = root;
-}
-
-void PaintballEnemy::Update(float dt) {
-	behaviorTree->Execute();
 }

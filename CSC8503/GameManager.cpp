@@ -199,8 +199,6 @@ PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
     return p;
 }
 
-
-
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
     rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);

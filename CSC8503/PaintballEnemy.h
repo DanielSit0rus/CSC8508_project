@@ -63,7 +63,9 @@ namespace NCL {
             class ConditionCanSeePlayer : public BTNode {
             public:
                 ConditionCanSeePlayer(PaintballEnemy* bot) : bot(bot) {}
-                bool Execute() override { return bot->CanSeePlayer(); }
+                bool Execute() override { 
+                    std::cout << "ConditionCanSeePlayer\n";
+                    return bot->CanSeePlayer(); }
             private:
                 PaintballEnemy* bot;
             };
@@ -80,7 +82,9 @@ namespace NCL {
             class ActionPatrol : public BTNode {
             public:
                 ActionPatrol(PaintballEnemy* bot) : bot(bot) {}
-                bool Execute() override { bot->Patrol(0.016f); return true; }
+                bool Execute() override { 
+                    std::cout << "ActionPatrol\n";
+                    bot->Patrol(0.016f); return true; }
             private:
                 PaintballEnemy* bot;
             };
@@ -88,7 +92,9 @@ namespace NCL {
             class ActionMoveToPlayer : public BTNode {
             public:
                 ActionMoveToPlayer(PaintballEnemy* bot) : bot(bot) {}
-                bool Execute() override { bot->MoveEnemyAlongPath(); return true; }
+                bool Execute() override { 
+                    std::cout << "ActionMoveToPlayer\n";
+                    bot->MoveEnemyAlongPath(); return true; }
             private:
                 PaintballEnemy* bot;
             };
@@ -96,7 +102,9 @@ namespace NCL {
             class ActionAttackPlayer : public BTNode {
             public:
                 ActionAttackPlayer(PaintballEnemy* bot) : bot(bot) {}
-                bool Execute() override { bot->AttackPlayer(0.016f); return true; }
+                bool Execute() override { 
+                    std::cout << "ActionAttackPlayer\n";
+                    bot->AttackPlayer(0.016f); return true; }
             private:
                 PaintballEnemy* bot;
             };
