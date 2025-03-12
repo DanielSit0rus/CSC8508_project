@@ -86,7 +86,7 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                    "floor_1",
+                    "floor_1","basic","basic",
                     obj["mass"]);
             }
         }
@@ -94,7 +94,8 @@ void GameManager::InitWorld(int arg)
 }
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-    Vector4 color, const string& meshName, float mass, bool isEnemy, rp3d::Vector3 oriV3,int networkID)
+    Vector4 color, const string& meshName, const string& textureName, const string& shaderName,
+    float mass, bool isEnemy, rp3d::Vector3 oriV3, int networkID)
 {
     PaintballGameObject* obj = nullptr;
     switch (type)
@@ -113,7 +114,7 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         break;
     case GameObjectType::concave1:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
-        obj = AddConcaveMesh(position, dimensions, orientation, meshName, color);
+        obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureName, shaderName, color);
         break;
 
     default:
@@ -317,7 +318,8 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
 }
 
 
-PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,const string& meshName, Vector4 color)
+PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
+    const string& meshName, const string& textureName, const string& shaderName, Vector4 color)
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -330,7 +332,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
         .SetRatioR(dimensions * 1.0f);
 
     concave->SetRenderObject(new PaintballRenderObject(&concave->GetTransform(),
-        meshName, "basic", "basic"));
+        meshName, textureName, shaderName));
 
     concave->GetRenderObject()->SetColour(color);
 

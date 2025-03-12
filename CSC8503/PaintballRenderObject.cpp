@@ -15,7 +15,7 @@ PaintballRenderObject::PaintballRenderObject(PaintballTransform* parentTransform
 
     mesh = ResourceManager::GetInstance().GetMesh(meshName);
     texture = ResourceManager::GetInstance().GetTexture(textureName);
-    shader = ResourceManager::GetInstance().GetBasicShader();
+    shader = ResourceManager::GetInstance().GetShader(shaderName);
 }
 
 PaintballRenderObject::~PaintballRenderObject() {

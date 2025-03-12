@@ -50,7 +50,7 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
 
         textures["basic"] = renderer->LoadTexture("checkerboard.png");;
 
-        basicShader = renderer->LoadShader("scene.vert", "scene.frag");
+        shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
     }
 }
 
@@ -72,6 +72,21 @@ NCL::Rendering::Texture* ResourceManager::GetTexture(const std::string& name, bo
     }
     if (debug) std::cerr << "[ResourceManager] Cannot find texture [" << name << "]" << std::endl;
     return nullptr;
+}
+
+NCL::Rendering::Shader* ResourceManager::GetShader(const std::string& name, bool debug)
+{
+    auto it = shaders.find(name);
+    if (it != shaders.end()) {
+        return it->second;
+    }
+    if (debug) std::cerr << "[ResourceManager] Cannot find shader [" << name << "]" << std::endl;
+    return nullptr;
+}
+
+NCL::Rendering::Shader* NCL::CSC8503::ResourceManager::GetBasicShader()
+{
+    return GetShader("basic");
 }
 
 //void ResourceManager::ReloadAnimations() {

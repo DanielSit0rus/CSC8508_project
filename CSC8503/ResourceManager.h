@@ -19,13 +19,16 @@ namespace NCL {
             // Getters for assets
             Mesh* GetMesh(const std::string& name, bool debug = true);
             Texture* GetTexture(const std::string& name, bool debug = true);
+            Shader* GetShader(const std::string& name, bool debug = true);
+
+            Shader* GetBasicShader();
 
             std::shared_ptr<MeshAnimation> GetIdleanim() const { return Roleanim; }
 
             std::shared_ptr<MeshMaterial> GetRolemat() const { return Rolemat; }
 
             std::shared_ptr<MeshAnimation> GetMoveanim() const { return Moveanim; }
-            Shader* GetBasicShader() const { return basicShader; }
+
 
             private:
                 ResourceManager() = default; // Private constructor
@@ -41,10 +44,9 @@ namespace NCL {
                 std::shared_ptr<MeshAnimation> Moveanim;
                 std::shared_ptr<MeshMaterial> Rolemat;
 
-                Shader* basicShader = nullptr;
-
                 std::unordered_map<std::string, Mesh*> meshes;
                 std::unordered_map<std::string, Texture*> textures;
+                std::unordered_map<std::string, Shader*> shaders;
 		};
 	}
 }

@@ -162,7 +162,7 @@ void PaintballPlayer::Attack()
 
 	GameManager::GetInstance().AddObject(GameObjectType::bullet,
 		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-		bulletColor, "", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+		bulletColor, "", "basic", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
 
 	//Disused way
 	/*GameObjectFreeList::GetInstance().GetBullet(Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()), false,
