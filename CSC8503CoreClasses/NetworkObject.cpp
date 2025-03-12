@@ -122,18 +122,20 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 	}
 	else
 	{
-
 		fp->fullState.type = object.GetType();
 		fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
 		fp->fullState.scale = object.GetTransform().GetScale();
 		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
 		
+		fp->fullState.meshName = object.GetRenderObject()->GetMeshName();
+		fp->fullState.textureName = object.GetRenderObject()->GetTextureName();;
+		fp->fullState.shaderName = object.GetRenderObject()->GetShaderName();
+
 		fp->fullState.color = object.GetRenderObject()->GetColour();
 		fp->fullState.mass = object.GetPhysicsObject()->GetMass();
 
 		fp->fullState.stateID = lastFullState.stateID++;
 		fp->fullState.isActive = object.IsActive();
-
 	}
 	*p = fp;
 

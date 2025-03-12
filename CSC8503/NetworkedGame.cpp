@@ -111,7 +111,7 @@ void NetworkedGame::UpdateAsClient(float dt) {
 	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
 	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
 	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
-	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyDown(KeyCodes::Q) ? 1 : 0;
+	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyPressed(KeyCodes::Q) ? 1 : 0;
 
 	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
 	newPacket.camPos = GameManager::GetInstance().GetMainCamera().GetPosition();
@@ -234,7 +234,8 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 			std::cout << "add " << objectID << std::endl;
 			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
 				state.position, state.scale, state.orientation,
-				 state.color, "", "basic", "basic", state.mass, state.isEnemy, state.oriV3, objectID);
+				state.color, state.meshName, state.textureName, state.shaderName,
+				state.mass, state.isEnemy, state.oriV3, objectID);
 		}
 		//networkObjects[
 

@@ -86,7 +86,7 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                    "floor_1","basic","basic",
+                    obj["mesh"], obj["texture"], obj["shader"],
                     obj["mass"]);
             }
         }
@@ -112,7 +112,7 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
     case GameObjectType::bullet:
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
-    case GameObjectType::concave1:
+    case GameObjectType::concave:
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
         obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureName, shaderName, color);
         break;
@@ -323,7 +323,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave);
 
     concave->GetTransform()
         .SetPosition(position)

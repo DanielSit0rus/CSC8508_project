@@ -27,8 +27,7 @@ namespace NCL::CSC8503 {
         enemy,
         bullet,
 
-        concave1,
-        concave2,
+        concave,
 
         test_character,
         test_stateObj,
@@ -36,7 +35,6 @@ namespace NCL::CSC8503 {
 
         //If u want to add a new type, please put it below
         trigger1,
-
     };
 
     class PaintballGameObject : public ISaveable
