@@ -111,8 +111,10 @@ void NetworkedGame::UpdateAsClient(float dt) {
 	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
 	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
 	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
+	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyDown(KeyCodes::Q) ? 1 : 0;
 
 	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
+	newPacket.camPos = GameManager::GetInstance().GetMainCamera().GetPosition();
 
 	thisClient->SendPacket(newPacket);
 
@@ -258,6 +260,13 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
 		*/
 
+		if (clientPacket->buttonstates[5] == 1)
+		{
+			G1.AddObject(GameObjectType::bullet,
+				Util::NCLToRP3d(clientPacket->camPos + clientPacket->camFront * 3.f), rp3d::Vector3(1, 1, 1),
+				rp3d::Quaternion().identity(),
+				Vector4(1, 1, 1, 1), nullptr, 1, false, Util::NCLToRP3d(clientPacket->camFront));
+		}
 
 		break;
 	}

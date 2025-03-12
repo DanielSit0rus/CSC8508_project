@@ -32,6 +32,7 @@ namespace NCL::CSC8503 {
 		int		lastID;
 		char	buttonstates[8];
 		Vector3 camFront;
+		Vector3 camPos;
 
 		ClientPacket() {
 			size = sizeof(ClientPacket);

@@ -117,7 +117,7 @@ void TutorialGame::UpdateGame(float dt) {
 
     // Always point the spotlight downward
     Vector3 lightDir = Vector3(0, -1, 0);
-	std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
+	//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
 
     // Update the spotlight's position and direction
     renderer->UpdateLight(2, lightPos, lightDir);
