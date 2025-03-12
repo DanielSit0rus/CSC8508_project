@@ -21,6 +21,7 @@ namespace NCL {
 			Mesh*		LoadMesh(const std::string& name);
 			Texture*	LoadTexture(const std::string& name);
 			Shader*		LoadShader(const std::string& vertex, const std::string& fragment);
+			void UpdateLight(int index, const Vector3& position, const Vector3& direction);
 
 		protected:
 			void NewRenderLines();
@@ -84,6 +85,7 @@ namespace NCL {
 			GLuint textColourVBO;
 			GLuint textTexVBO;
 			size_t textCount;
+			
 		};
 	}
 }

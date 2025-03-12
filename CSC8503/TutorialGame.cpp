@@ -109,6 +109,21 @@ void TutorialGame::UpdateGame(float dt) {
 		Debug::Print("+", Vector2(49, 51));
 	}
 
+	if (G1.shoottest) { // If the player exists
+    Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
+
+    // Set the spotlight 5 units above the player
+    Vector3 lightPos = playerPos + Vector3(0, 5, 0);
+
+    // Always point the spotlight downward
+    Vector3 lightDir = Vector3(0, -1, 0);
+	std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
+
+    // Update the spotlight's position and direction
+    renderer->UpdateLight(2, lightPos, lightDir);
+}
+
+
 	CalculatePathToPlayer();
 	DisplayPath();
 	MoveEnemyAlongPath();
@@ -507,3 +522,4 @@ void TutorialGame::ShowMenuPage() {
 	Debug::Print("Press U to close menu", Vector2(20, 55), Debug::BLACK);
 
 }
+

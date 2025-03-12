@@ -874,3 +874,10 @@ void GameTechRenderer::SetDebugLineBufferSizes(size_t newVertCount) {
 		glBindVertexArray(0);
 	}
 }
+
+void GameTechRenderer::UpdateLight(int index, const Vector3& position, const Vector3& direction) {
+	if (index >= lights.size()) return; // Prevent out-of-bounds access
+
+	lights[index].SetPosition(position);
+	lights[index].SetDirection(direction);
+}
