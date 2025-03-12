@@ -234,10 +234,12 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 			std::cout << "add " << objectID << std::endl;
 			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
 				state.position, state.scale, state.orientation,
-				state.color, state.meshName, state.textureName, state.shaderName,
+				state.color,
+				Util::GetStringFromNetData(state.meshName, state.size[0]),
+				Util::GetStringFromNetData(state.textureName, state.size[1]),
+				Util::GetStringFromNetData(state.shaderName, state.size[2]),
 				state.mass, state.isEnemy, state.oriV3, objectID);
 		}
-		//networkObjects[
 
 		break;
 	}

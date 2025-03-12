@@ -40,6 +40,16 @@ namespace NCL {
                 return static_cast<int>(objectMap.size());
             }
 
+            static void StringToCharArray(const std::string& input, char output[256]) {
+                memcpy(output, input.data(), input.size());
+            }
+
+            static std::string GetStringFromNetData(char input[256], int size) {
+                std::string realString(input);
+                realString.resize(size);
+                return realString;
+            }
+
         };
 
     }

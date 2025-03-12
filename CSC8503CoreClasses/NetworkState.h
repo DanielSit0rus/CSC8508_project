@@ -15,9 +15,10 @@ namespace NCL {
 			rp3d::Vector3		scale;
 			rp3d::Quaternion	orientation;
 
-			std::string			meshName;
-			std::string			textureName;
-			std::string			shaderName;
+			char meshName[256];
+			char textureName[256];
+			char shaderName[256];
+			short size[3];
 
 			Vector4				color;
 			int					mass;

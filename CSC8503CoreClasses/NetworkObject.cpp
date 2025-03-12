@@ -127,9 +127,12 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 		fp->fullState.scale = object.GetTransform().GetScale();
 		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
 		
-		fp->fullState.meshName = object.GetRenderObject()->GetMeshName();
-		fp->fullState.textureName = object.GetRenderObject()->GetTextureName();;
-		fp->fullState.shaderName = object.GetRenderObject()->GetShaderName();
+		fp->fullState.size[0] = (short)object.GetRenderObject()->GetMeshName().length();
+		fp->fullState.size[1] = (short)object.GetRenderObject()->GetTextureName().length();
+		fp->fullState.size[2] = (short)object.GetRenderObject()->GetShaderName().length();
+		Util::StringToCharArray(object.GetRenderObject()->GetMeshName(), fp->fullState.meshName);
+		Util::StringToCharArray(object.GetRenderObject()->GetTextureName(), fp->fullState.textureName);
+		Util::StringToCharArray(object.GetRenderObject()->GetShaderName(), fp->fullState.shaderName);
 
 		fp->fullState.color = object.GetRenderObject()->GetColour();
 		fp->fullState.mass = object.GetPhysicsObject()->GetMass();

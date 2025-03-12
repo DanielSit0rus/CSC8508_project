@@ -242,6 +242,10 @@ void Console::TestCommand(const std::string& s) {
     if (target == "t") {
         std::cout << G1.GetWorld()->GetObjectsNum() << std::endl;
     }
+    if (target == "world"||target == "w") {
+        std::cout << "rebuilding world..." << std::endl;
+        G1.InitWorld(1);
+    }
     else {
         std::cout << "Unknown argument: " << s << std::endl;
     }
