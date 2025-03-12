@@ -154,7 +154,7 @@ void TutorialGame::InitWorld() {
 
 
 
-		Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
+		Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1, 1, 1, 1), 1.0f, 45.0f, LightType::Spot);
 		renderer->AddLight(light2);
 
 		//FMOD
