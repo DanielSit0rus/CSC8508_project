@@ -152,7 +152,7 @@ void TutorialGame::InitWorld() {
 	G1.selectionObject = nullptr;
 
 
-	if (true) {
+	if (false) {
 		G1.InitWorld(1);
 	}
 	else {
