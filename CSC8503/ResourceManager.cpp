@@ -49,7 +49,7 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
         textures["basic"] = renderer->LoadTexture("checkerboard.png");
-        textures["floor"] = renderer->LoadTexture("Texture_5_Specular.png");
+        textures["floor"] = renderer->LoadTexture("6x6_base.png");
         textures["mainwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
         textures["doorway"] = renderer->LoadTexture("Texture_1_Specular.png");
         textures["midwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
