@@ -46,7 +46,7 @@ void main(void)
     }
 
     // Start with small ambient
-    vec3 result = albedo.rgb * 0.01;
+    vec3 result = albedo.rgb * 0.05;
 
     for(int i = 0; i < numLights; i++)
     {
@@ -61,12 +61,12 @@ void main(void)
         float spec    = pow(max(dot(halfDir, IN.normal), 0.0), 32.0);
 
         // Distance attenuation
-        float attenuation = 1.0 / (1.0 + 0.02 * dist + 0.001 * dist*dist);
-          // If it's a spotlight, modulate by angle
+        float attenuation = 1.0 / (1.0 + 0.005 * dist + 0.0001 * dist*dist);
+         
         if(lights[i].type == 1)
         {
             float angle = dot(lightDir, -normalize(lights[i].direction));
-            // lights[i].cutoff is already cos(angle)
+            
             float cutoffVal = lights[i].cutoff;
             float eps       = cutoffVal - 0.02; 
             float intensity = clamp((angle - eps)/(cutoffVal - eps), 0.0, 1.0);

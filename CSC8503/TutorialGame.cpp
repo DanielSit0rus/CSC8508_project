@@ -217,7 +217,7 @@ void TutorialGame::InitWorld() {
 		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			"bigCylinder", "wall4", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"target", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"target", "floor", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			"bigCube", "wall4", "basic");
 
