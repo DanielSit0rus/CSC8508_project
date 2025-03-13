@@ -61,6 +61,26 @@ bool AudioSystem::Init()
 
 void AudioSystem::Update()
 {
+    for (auto& pair : activeEvents) {
+        auto& instances = pair.second;
+
+        instances.erase(std::remove_if(instances.begin(), instances.end(),
+            [&](FMOD::Studio::EventInstance* instance) {
+                FMOD_STUDIO_PLAYBACK_STATE state;
+                instance->getPlaybackState(&state);
+
+                if (state == FMOD_STUDIO_PLAYBACK_STOPPED) {
+                    instance->stop(FMOD_STUDIO_STOP_IMMEDIATE);
+                    eventPool[pair.first].push_back(instance);
+                    return true;
+                }
+                return false;
+            }),
+            instances.end());
+    }
+
+    //std::cout << activeEvents["event:/Effect/GunShoot"].size() << ", " << eventPool["event:/Effect/GunShoot"].size() << std::endl;
+
     Matrix4 view = GameManager::GetInstance().GetMainCamera().BuildViewMatrix();;
     Vector3 forward = Vector::Normalise(-Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
     Vector3 up = Vector::Normalise(-Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
@@ -155,37 +175,35 @@ void AudioSystem::GetBusVolume(const std::string& busName, float& v)
 }
 
 bool AudioSystem::TriggerEvent(const std::string& eventName, rp3d::Vector3 pos) {
-    auto it = events.find(eventName);
-    if (it != events.end()) {
-        triggerAttributes->position = { pos.x, pos.y, pos.z };
-        it->second->set3DAttributes(triggerAttributes);
-        it->second->start();
-        it->second->get3DAttributes(triggerAttributes);
-        return true;
-    }
-
     auto descIt = eventDescriptions.find(eventName);
     if (descIt == eventDescriptions.end()) {
-        EventDescription* eventDesc = nullptr;
+        Studio::EventDescription* eventDesc = nullptr;
         if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-            std::cerr << "[Audio] Cannot find the event £º" << eventName << std::endl;
+            std::cerr << "[Audio] Cannot find the event: " << eventName << std::endl;
             return false;
         }
         eventDescriptions[eventName] = eventDesc;
     }
 
-    EventInstance* eventInstance = nullptr;
-    if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
-        std::cerr << "[Audio] Cannot create the event instance £º" << eventName << std::endl;
-        return false;
+    Studio::EventInstance* eventInstance = nullptr;
+
+    if (!eventPool[eventName].empty()) {
+        eventInstance = eventPool[eventName].back();
+        eventPool[eventName].pop_back();
+    }
+    else {
+        if (eventDescriptions[eventName]->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
+            std::cerr << "[Audio] Cannot create event instance: " << eventName << std::endl;
+            return false;
+        }
     }
 
     triggerAttributes->position = { pos.x, pos.y, pos.z };
     eventInstance->set3DAttributes(triggerAttributes);
     eventInstance->start();
     eventInstance->get3DAttributes(triggerAttributes);
+    activeEvents[eventName].push_back(eventInstance);
 
-    events[eventName] = eventInstance;
     return true;
 }
 

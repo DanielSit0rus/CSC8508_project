@@ -65,6 +65,10 @@ namespace NCL {
 			std::unordered_map<std::string, Bus*> buses;
 			std::unordered_map<std::string, EventDescription*> eventDescriptions;
 			std::unordered_map<std::string, EventInstance*> events;	//global events (e.g. BGM)
+
+			std::unordered_map<std::string, std::vector<FMOD::Studio::EventInstance*>> eventPool;
+			std::unordered_map<std::string, std::vector<FMOD::Studio::EventInstance*>> activeEvents;
+
 			//std::unordered_map<std::string, std::string> eventPaths;  // map from name to path
 
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
