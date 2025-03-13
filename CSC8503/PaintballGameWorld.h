@@ -67,6 +67,7 @@ namespace NCL {
 			void SetGameState(PaintballGameState state);
 			PaintballGameState GetGameState() { return currentstate; };
 
+			int GetObjectsNum(){return gameObjects.size();}
 
 		protected:
 			std::vector<PaintballGameObject*> gameObjects;

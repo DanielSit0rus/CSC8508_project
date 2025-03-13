@@ -86,12 +86,6 @@ void TutorialGame::UpdateGame(float dt) {
 	//	return;
 	//}
 
-	
-	if (pause) {
-		renderer->Render();
-		return;
-	}
-
 	CSC8503::PaintballGameState currentState = world->GetGameState();
 	
 

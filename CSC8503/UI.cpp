@@ -195,7 +195,7 @@ void UI::Update(float dt)
 	ImGuiIO& io = ImGui::GetIO();
 	
 	CSC8503::PaintballGameState state = world->GetGameState();
-	std::cout << "[UI::Update] Current state before processing: " << (int)state << std::endl;
+	//std::cout << "[UI::Update] Current state before processing: " << (int)state << std::endl;
 
 	// Enable mouse in MENU and SETTING states
 	if (state == CSC8503::PaintballGameState::MENU || 
@@ -226,11 +226,11 @@ void UI::Update(float dt)
 	switch (state)
 	{
 	case CSC8503::PaintballGameState::LOADING:
-		std::cout << "[UI::Update] Drawing Loading screen" << std::endl;
+		//std::cout << "[UI::Update] Drawing Loading screen" << std::endl;
 		DrawLoading(dt);
 		break;
 	case CSC8503::PaintballGameState::MENU:
-		std::cout << "[UI::Update] Drawing Menu screen" << std::endl;
+		//std::cout << "[UI::Update] Drawing Menu screen" << std::endl;
 		DrawMenu(dt);
 		break;
 	case CSC8503::PaintballGameState::CHOOSESERVER:
@@ -262,7 +262,7 @@ void UI::Update(float dt)
 		break;
 	}
 
-	std::cout << "[UI::Update] Current state after processing: " << (int)world->GetGameState() << std::endl;
+	//std::cout << "[UI::Update] Current state after processing: " << (int)world->GetGameState() << std::endl;
 
 	ImGui::EndFrame();
 	ImGui::Render();

@@ -31,7 +31,7 @@ void GameManager::Update(float dt) {
         + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
 
     if (hasPhys) RpWorld->update(dt);
-
+    //std::cout << "1";
     //FMOD
     if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
         AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");

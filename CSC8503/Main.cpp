@@ -287,7 +287,7 @@ int main() {
 	w->SetWindowPosition(5, 30);
 
 	NetworkedGame* g = new NetworkedGame();
-	PushdownMachine machine(new IntroScreen(g, w));
+	PushdownMachine machine(new GameScreen(g, w));
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
 	//TestNetworking();
