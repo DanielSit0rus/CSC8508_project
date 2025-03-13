@@ -1,37 +1,54 @@
 #include "PaintballBullet.h"
+#include "GameObjectFreeList.h"
 
 using namespace NCL::CSC8503;
 
-NCL::CSC8503::PaintballBullet::PaintballBullet(const std::string& objectName)
+PaintballBullet::PaintballBullet(const std::string& objectName)
+	:PaintballGameObject(type = GameObjectType::bullet, name)
 {
 	name = objectName;
+	speed = 300.0f;
+	lifeTime = 0.3f;
 
-	speed = 100.0f;
-	lifeTime = 2.0f;
+	startTime = std::chrono::high_resolution_clock::now();
 }
 
-NCL::CSC8503::PaintballBullet::~PaintballBullet()
+PaintballBullet::~PaintballBullet()
 {
-	delete networkObject;
-	delete renderObject;
-	delete physicsObject;
+	//delete networkObject;
+	//delete renderObject;
+	//delete physicsObject;
 }
 
-Vector4 NCL::CSC8503::PaintballBullet::GetColor() const
+void PaintballBullet::Update(float dt)
+{
+	PaintballGameObject::Update(dt);
+
+	auto now = std::chrono::high_resolution_clock::now();
+	float elapsed = std::chrono::duration<float>(now - startTime).count();
+	if (elapsed >= lifeTime) Destroy();
+}
+
+Vector4 PaintballBullet::GetColor() const
 {
 	return color;
 }
 
-void NCL::CSC8503::PaintballBullet::SetColor(const Vector4& newColor)
+void PaintballBullet::SetColor(const Vector4& newColor)
 {
 	color = newColor;
 }
 
-void NCL::CSC8503::PaintballBullet::InitBullet(const rp3d::Quaternion& direction, bool isEnemy)
+void PaintballBullet::InitBullet(rp3d::Vector3 direction, bool arg)
 {
-   
+	direction.normalize();
+	rp3d::Vector3 velocity = direction * speed; // 计算速度向量
+	physicsObject->GetRigidbody().setLinearVelocity(velocity); // 设置初速度
+	isEnemy = arg;
+	startTime = std::chrono::high_resolution_clock::now();
 }
 
-void NCL::CSC8503::PaintballBullet::Destroy()
+void PaintballBullet::Destroy()
 {
+	if (isActive) GameObjectFreeList::GetInstance().PushObject(this);
 }

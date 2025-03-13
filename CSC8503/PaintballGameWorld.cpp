@@ -1,5 +1,6 @@
 #include "PaintballGameWorld.h"
 #include "Camera.h"
+#include "GameObjectFreeList.h"
 
 using namespace NCL;
 using namespace NCL::CSC8503;
@@ -15,6 +16,7 @@ PaintballGameWorld::~PaintballGameWorld() {
 
 void PaintballGameWorld::Clear() {
 	gameObjects.clear();
+	GameObjectFreeList::GetInstance().Clear();
 	worldIDCounter = 0;
 	worldStateCounter = 0;
 }
@@ -67,24 +69,7 @@ void PaintballGameWorld::UpdateWorld(float dt) {
 	std::default_random_engine e(seed);
 
 	for (auto& obj : gameObjects) {
-		// Sync physics transform to render transform
-		PaintballPhysicsObject* physicsObj = obj->GetPhysicsObject();
-		if (physicsObj) {
-			rp3d::RigidBody& body = obj->GetPhysicsObject()->GetRigidbody();
-			rp3d::Transform physicsTransform = body.getTransform();
-
-			// Convert physics transform to game transform
-			if (!obj->GetRenderObject() || !obj->GetRenderObject()->GetAnimation())
-			{
-				obj->GetTransform().SetRpTransform(physicsTransform);
-			}
-		}
-
-		// Update animation if applicable
-		PaintballRenderObject* renderObj = obj->GetRenderObject();
-		if (renderObj && renderObj->GetAnimation()) {
-			renderObj->UpdateAnimation(dt);
-		}
+		obj->Update(dt);
 	}
 
 	if (shuffleObjects) {

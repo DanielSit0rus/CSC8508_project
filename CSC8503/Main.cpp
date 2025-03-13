@@ -129,94 +129,6 @@ void TestBehaviourTree() {
 	std::cout << " All done ! \n ";
 }
 
-
-class PauseScreen : public PushdownState {
-	PushdownResult OnUpdate(float dt,
-	PushdownState * *newState) override {
-		if (Window::GetKeyboard() -> KeyPressed(KeyCodes::U)) {
-			return PushdownResult::Pop;
-			
-		}
-		return PushdownResult::NoChange;
-		
-	}
-	void OnAwake() override {
-		std::cout << "Press U to unpause game ! \n";
-	}
-	
-};
-
-class GameScreen : public PushdownState {
-	PushdownResult OnUpdate(float dt,
-	PushdownState * *newState) override {
-		pauseReminder -= dt;
-		if (pauseReminder < 0) {
-			std::cout << " Coins mined : " << coinsMined << " \n ";
-			std::cout << " Press P to pause game , or F1 to return to main menu ! \n " ;
-			pauseReminder += 1.0f;
-		}
-		if (Window::GetKeyboard() -> KeyDown(KeyCodes::P)) {
-			*newState = new PauseScreen();
-			return PushdownResult::Push;
-			
-		}
-		if (Window::GetKeyboard() -> KeyDown(KeyCodes::F1)) {
-			std::cout << " Returning to main menu !\n ";
-			return PushdownResult::Pop;
-			
-		}
-		if (rand() % 7 == 0) {
-			coinsMined++;
-			
-		}
-		return PushdownResult::NoChange;
-		
-	};
-	void OnAwake() override {
-		std::cout << "Preparing to mine coins ! \n";
-		
-	}
-    protected:
-	int coinsMined = 0;
-	float pauseReminder = 1;
-};
-
-class IntroScreen : public PushdownState {
-	PushdownResult OnUpdate(float dt,
-	PushdownState** newState) override {
-		std::cout << "\n Checking for input...\n";
-		if (Window::GetKeyboard() ->KeyDown(KeyCodes::SPACE)) {
-			std::cout << "\n space pressed...\n";
-			*newState = new GameScreen();
-			return PushdownResult::Push;
-			
-		}
-		if (Window::GetKeyboard() ->KeyPressed(KeyCodes::ESCAPE)) {
-			return PushdownResult::Pop;
-			
-		}
-		return PushdownResult::NoChange;
-	};
-
-	void OnAwake() override {
-		std::cout << " Welcome to a really awesome game ! \n ";
-		std::cout << " Press Space To Begin or escape to quit ! \n ";
-		
-	}
-	
-};
-
-void TestPushdownAutomata(Window* w) {
-	PushdownMachine machine(new IntroScreen());
-	while (w -> UpdateWindow()) {
-		float dt = w->GetTimer().GetTimeDeltaSeconds();
-		if (!machine.Update(dt)) {
-			return;
-			
-		}
-	}
-}
-
 /*
 
 The main function should look pretty familar to you!
@@ -230,126 +142,132 @@ hide or show the
 
 */
 
-bool paused = false;
-bool reset = false;
-float elapsedTime = 120;
-
-class pauseScreen : public PushdownState {
+class MenueScreen : public PushdownState {
 public:
-	pauseScreen(Window* window) {
-		w = window;
+	MenueScreen(NetworkedGame* game, Window* window) {
+		g = game; w = window;
 	}
-	PushdownResult OnUpdate(float dt,
-		PushdownState** newState) override {
-
-		Debug::Print("PAUSED press U to unpause", Vector2(5, 10));
-
+	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
+		g->ShowMenuPage();
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::ESCAPE)) {
+			return PushdownResult::PopAll;
+		}
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::N)) {
+			return PushdownResult::ToBottom;
+		}
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::U)) {
+			return PushdownResult::Pop;
+		}
+		/*if (g->isGaming) */g->UpdateGame(dt);
+		return PushdownResult::NoChange;
+	};
+private:
+	NetworkedGame* g;
+	Window* w;
+};
+class PauseScreen : public PushdownState {
+public:
+	PauseScreen(NetworkedGame* game, Window* window) {
+		g = game; w = window;
+	}
+	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
+		g->ShowPausedPage();
 
 		if (Window::GetKeyboard()->KeyPressed(KeyCodes::U)) {
-			paused = false;
 			return PushdownResult::Pop;
-
 		}
 		return PushdownResult::NoChange;
-
-	}
+	};
 	void OnAwake() override {
-		paused = true;
-
 		w->ShowOSPointer(true);
 		w->LockMouseToWindow(false);
+		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
+		EventManager::Trigger(EventType::Game_Pause);
+		//w->ShowConsole(true);
+		//Vector3 pos = g->GetCameraPosition();
+		//std::cout << "[Main.cpp]camPos = " << pos.x << ", " << pos.y << ", " << pos.z << "\n\n";
 	}
-	void OnSleep() override {
+	void OnSleep() {
+		EventManager::Trigger(EventType::Game_Resume);
+		//w->ShowConsole(false);
+	}
+private:
+	NetworkedGame* g;
+	Window* w;
+};
+class GameScreen : public PushdownState {
+public:
+	GameScreen(NetworkedGame* game, Window* window) {
+		g = game; w = window;
+	}
+	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::P)) {
+			*newState = new PauseScreen(g, w);
+			return PushdownResult::Push;
+		}
+
+		if (/*!g->isGaming || */Window::GetKeyboard()->KeyPressed(KeyCodes::M)) {
+			*newState = new MenueScreen(g, w);
+			return PushdownResult::Push;
+		}
+
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::ESCAPE)) {
+			return PushdownResult::Pop;
+		}
+		g->UpdateGame(dt);
+		return PushdownResult::NoChange;
+	};
+	void OnAwake() override {
 		w->ShowOSPointer(false);
 		w->LockMouseToWindow(true);
 	}
 private:
+	NetworkedGame* g;
 	Window* w;
 };
 
-class WinScreen : public PushdownState {
+class IntroScreen : public PushdownState {
+public:
+	IntroScreen(NetworkedGame* game, Window* window) {
+		g = game; w = window;
+	}
+
+
 	PushdownResult OnUpdate(float dt,
 		PushdownState** newState) override {
+		g->ShowMainPage();
 
-		Debug::Print("You Win, Press R to play again or ESC to quit", Vector2(5, 10), Debug::GREEN);
-
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::R)) {
-			elapsedTime = 120;
-			//pause = false;
-			reset = true;
-			return PushdownResult::Pop;
-			//ResetGame();
-		}
-
-		return PushdownResult::NoChange;
-
-	}
-	void OnAwake() override {
-		paused = true;
-
-	}
-
-};
-
-class gameOverScreen : public PushdownState {
-	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
-		//std::cout << "Game Over! Press R to Retry or ESC to Exit.\n";
-		Debug::Print("Game Over! Press R to Retry or ESC to Quit", Vector2(5, 10), Debug::RED);
-
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::R)) {
-			elapsedTime = 120;
-			//pause = false;
-			reset = true;
-			return PushdownResult::Pop;
-			//ResetGame();
-		}
-
-		return PushdownResult::NoChange;
-	}
-
-	void OnAwake() override {
-		paused = true;
-		//std::cout << "Game Over! Thank you for playing.\n";
-	}
-};
-
-
-class gameScreen : public PushdownState {
-public:
-	gameScreen(Window* window) {
-		w = window;
-	}
-
-	PushdownResult OnUpdate(float dt, PushdownState** newState) override {
-		//reset = false;
-		pauseReminder -= dt;
-		elapsedTime -= dt;
-		if (pauseReminder < 0) {
-			//std::cout << "\n Press P to pause game\n";
-			pauseReminder += 1.0f;
-		}
-		if (UI::IsDebugMode()) {
-			Debug::Print("Starting Game, timer: " + std::to_string(elapsedTime), Vector2(5, 15));
-		}
-		// Pause state transition
-		if (Window::GetKeyboard()->KeyDown(KeyCodes::P)) {
-			*newState = new pauseScreen(w);
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::SPACE)) {
+			*newState = new GameScreen(g, w);
 			return PushdownResult::Push;
 		}
+
+		if (Window::GetKeyboard()->KeyPressed(KeyCodes::ESCAPE)) {
+			return PushdownResult::Pop;
+		}
 		return PushdownResult::NoChange;
-	}
+	};
+
 
 	void OnAwake() override {
-		paused = false;
-		//reset = false;
-		//std::cout << "Preparing to mine coins!\n";
+		EventManager::Trigger(EventType::Game_End);
+		w->ShowOSPointer(true);
+		w->LockMouseToWindow(false);
+		Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+		SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.5f);
+		g->InitWorld();
+		g->InitCamera();
 	}
-protected:
-	//int coinsMined = 0;
-	float pauseReminder = 1.0f;
+	void OnSleep() override {
+		EventManager::Trigger(EventType::Game_Start);
+	}
+private:
+	NetworkedGame* g;
 	Window* w;
 };
+
+
 
 int main() {
 	SLSystem::GetInstance().Init();
@@ -361,8 +279,6 @@ int main() {
 	initInfo.windowTitle = "CSC8508!";
 
 	Window*w = Window::CreateGameWindow(initInfo);
-	//TestPushdownAutomata(w);
-	//TestBehaviourTree();
 
 	if (!w->HasInitialised()) {
 		return -1;
@@ -371,15 +287,13 @@ int main() {
 	w->SetWindowPosition(5, 30);
 
 	NetworkedGame* g = new NetworkedGame();
-	PushdownMachine* PushMachine = new PushdownMachine(new gameScreen(w));
+	PushdownMachine machine(new IntroScreen(g, w));
 	w->GetTimer().GetTimeDeltaSeconds(); //Clear the timer so we don't get a larget first dt!
 	//TestPathfinding();
 	//TestNetworking();
 	
 	Console::GetInstance().Init(w);
 	std::thread console([] {Console::GetInstance().ProcessInput(); });
-
-	EventManager::Trigger(EventType::Game_Start);
 
 	while (w->UpdateWindow() && !Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
 		float dt = w->GetTimer().GetTimeDeltaSeconds();
@@ -396,29 +310,16 @@ int main() {
 
 		w->SetTitle("Gametech frame time:" + std::to_string(1000.0f * dt));
 
-		PushMachine->Update(dt);
-		if (paused)
-		{
-			g->pauseGame();
+		if (!machine.Update(dt)) {
+			break;
 		}
-		if (!paused)
-		{
-			g->UnpauseGame();
-		}
-		if (reset)
-		{
-			g = new NetworkedGame();
-			reset = false;
-		}
-
-		g->UpdateGame(dt);
 
 		AudioSystem::GetInstance().Update();
 	} 
 	EventManager::Trigger(EventType::Game_End);
-
+	
+	Console::GetInstance().Release();
 	console.detach();
-	AudioSystem::GetInstance().Release();
 
 	Window::DestroyGameWindow();
 }

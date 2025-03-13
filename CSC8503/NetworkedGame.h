@@ -15,6 +15,7 @@ namespace NCL {
 
 			void StartAsServer();
 			void StartAsClient(char a, char b, char c, char d);
+			void RequestStart(int arg) { toStart = arg; }
 
 			void UpdateGame(float dt) override;
 
@@ -26,27 +27,33 @@ namespace NCL {
 
 			void OnPlayerCollision(NetworkPlayer* a, NetworkPlayer* b);
 
+			void SetFrame(unsigned int f) { frame = f; }
+
 		protected:
 			void UpdateAsServer(float dt);
 			void UpdateAsClient(float dt);
+			int ip1, ip2, ip3, ip4;
 
 			void BroadcastSnapshot(bool deltaFrame);
 			void UpdateMinimumState();
 			std::map<int, int> stateIDs;
+
+			unsigned int frame = 40;
 
 			GameServer* thisServer;
 			GameClient* thisClient;
 			float timeToNextPacket;
 			int packetsToSnapshot;
 
-			std::vector<NetworkObject*> networkObjects;
-
 			std::map<int, PaintballGameObject*> serverPlayers;
 			PaintballGameObject* localPlayer;
+			int playerState = 0;
 
-			bool isDebug = true;
+			bool isDebug = false;
 			void SendPacketTest();
 			void SendPacketTest(std::string s);
+
+			int toStart = -1;	//0 for server, 1 for client
 		};
 	}
 }

@@ -43,8 +43,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 
 	InitialiseAssets();
-	playerObject->InitializeController();
-	GameManager::GetInstance().SetPlayer(playerObject);
+
 
 	
 
@@ -68,7 +67,7 @@ for this module, even in the coursework, but you can add it if you like!
 void TutorialGame::InitialiseAssets() {
 
 	
-	navMesh = new NavigationMesh("Map1Navigation");
+	G1.navMesh = new NavigationMesh("Map1Navmesh","SecondMapMesh");
 
 	InitWorld();
 	InitCamera();
@@ -77,18 +76,8 @@ void TutorialGame::InitialiseAssets() {
 
 TutorialGame::~TutorialGame()	{
 
-
-	
 }
 
-bool TutorialGame::pauseGame(){
-	EventManager::Trigger(EventType::Game_Pause);
-	return pause = true;
-}
-bool TutorialGame::UnpauseGame() {
-	EventManager::Trigger(EventType::Game_Resume);
-	return pause = false;
-}
 
 void TutorialGame::UpdateGame(float dt) {
 
@@ -134,7 +123,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	const Camera& camera = world->GetMainCamera();
 	inputManager.Update();
-	GameManager::GetInstance().Update();
+	GameManager::GetInstance().Update(dt);
 	UpdateKeys();
 
 	/*Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
@@ -146,6 +135,7 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+	Debug::Print("Press P to pause or M to open menu", Vector2(5, 85));
 
 	
 
@@ -155,15 +145,14 @@ void TutorialGame::UpdateGame(float dt) {
 	
 	G1.getRPworld()->update(dt);	//rp3d
 
-	navMesh->DrawNavMesh();
-
-	if (lockedObject) {
-		Vector3 lockedScale = Util::RP3dToNCL(lockedObject->GetTransform().GetScale());
+	G1.navMesh->DrawNavMesh(); 
+	if (G1.lockedObject) {
+		Vector3 lockedScale = Util::RP3dToNCL(G1.lockedObject->GetTransform().GetScale());
 		LockedObjectMovement();
 
 		world->GetMainCamera().UpdateCameraView3(
-			Util::RP3dToNCL(lockedObject->GetTransform().GetPosition()),
-			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 5.0f);
+			Util::RP3dToNCL(G1.lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
+			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 10.0f);
 	}
 	else
 	{
@@ -193,28 +182,23 @@ void TutorialGame::UpdateGame(float dt) {
 		Debug::Print("+", Vector2(49, 51));
 	}
 
-	//Fmod
-	Matrix4 view = camera.BuildViewMatrix();;
-	Vector3 forward = Vector::Normalise(Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
-	Vector3 up = Vector::Normalise(Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
-	listenerAttributes = new FMOD_3D_ATTRIBUTES();
-	listenerAttributes->position = { pos.x, pos.y, pos.z };
-	listenerAttributes->forward = { forward.x,forward.y,forward.z };
-	listenerAttributes->up = { up.x,up.y,up.z };
-	AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
-	rp3d::Vector3 pos2 = speakerObj->GetTransform().GetPosition();
-	AudioSystem::GetInstance().sourceAttributes->position = { pos2.x, pos2.y, pos2.z };
-	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
+	if (G1.shoottest) { // If the player exists
+    Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
+
+    // Set the spotlight 5 units above the player
+    Vector3 lightPos = playerPos + Vector3(0, 5, 0);
+
+    // Always point the spotlight downward
+    Vector3 lightDir = Vector3(0, -1, 0);
+	//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
+
+    // Update the spotlight's position and direction
+    renderer->UpdateLight(2, lightPos, lightDir);
+}
 
 
-	/*CalculatePathToPlayer();
-	DisplayPath();*/
-
-	if (renderer->GetUI()->IsDebugMode()) {
-		CalculatePathToPlayer();
-		DisplayPath();
-	}
-
+	CalculatePathToPlayer();
+	DisplayPath();
 	MoveEnemyAlongPath();
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
@@ -290,74 +274,138 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 
-	lockedObject = nullptr;
-	selectionObject = nullptr;
+	G1.lockedObject = nullptr;
+	G1.selectionObject = nullptr;
 	forceMagnitude = 60.0f;
 }
 
 void TutorialGame::InitWorld() {
-	lockedObject = nullptr;
-	selectionObject = nullptr;
+	//return;
 
-	world->ClearAndErase();
-
-	playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 22, -21));
-	
-	enemyObject = G1.AddPlayerClass(rp3d::Vector3(1, 1, -1));
-
-	CharacterObject = G1.Addcharacter(rp3d::Vector3(0, 8, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 2, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-
-	forceMagnitude = 60.0f;
+	G1.lockedObject = nullptr;
+	G1.selectionObject = nullptr;
 
 
-	Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(0, 1, 0, 1), 1.0f, 45.0f);
-	renderer->AddLight(light2);
+	if (false) {
+		G1.InitWorld(1);
+	}
+	else {
+		world->ClearAndErase();
+
+		//ResourceManager::GetInstance().ReloadAnimations();
+
+		G1.playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
+
+		G1.enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
+
+		G1.CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
+
+		forceMagnitude = 60.0f;
 
 
-	speakerObj =G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
 
-	//rp3d
-	objList_pb.clear();
-	float angleInRadians = 10.0f * PI / 180.0f;
-	rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(0, 15, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(1, 20, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(2, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+		Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
+		renderer->AddLight(light2);
+
+		//FMOD
+		G1.speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+		G1.speakerObj->SetAudioObject(new PaintballAudioObject(&G1.speakerObj->GetTransform(),
+			AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
+		//G1.speakerObj->GetAudioObject()->Play(true);
+
+		//rp3d
+		float angleInRadians = 10.0f * PI / 180.0f;
+		rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+		/*G1.AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(34, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddCube(rp3d::Vector3(32, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
+		G1.AddCube(rp3d::Vector3(-10, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));*/
 
 
-	objList_pb.push_back(G1.AddConcaveMesh(rp3d::Vector3(-100, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f)));
-	objList_pb.push_back(G1.AddSecondConcaveMesh(rp3d::Vector3(200, 1, 0), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 1.0f, 1.0f, 1.0f)));
+		//FIRST MAP
+		G1.AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"floor_1", "floor", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"mainWall_1", "mainwall", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"doorWay_1", "doorway", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"oppDoorWay_1", "doorway", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"midDoor", "mainwall", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_1", "wall123", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_2", "wall123", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"openWall", "openwall", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_3", "wall123", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_4", "wall4", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"cylinder", "wall4", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"bigCylinder", "wall4", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"target", "floor", "basic");
+		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"bigCube", "wall4", "basic");
 
 
-	shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
-	
-	//InitDefaultFloor();
 
+		//SECOND MAP
+		G1.AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"floor_2", "basic", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"mainWall_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"doorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"oppDoorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_2_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_2_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"wall_2_3", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"columns_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"midTunnel", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"elevation", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"bridge", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"elevRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"midRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+		G1.AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+			"bridgeRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
+
+		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+		G1.AddTrap();
+		GameManager::GetInstance().SetPlayer(G1.shoottest);
+		G1.SetGameState(GameState::InGame);
+
+		//InitDefaultFloor();
+
+
+	}
 }
 
 void TutorialGame::UpdateKeys() {
-
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::B)) { 
-		
-		world->SetGameState(PaintballGameState::SETTING);
-	}
-
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::ESCAPE)) {
-		if (world->GetGameState() == PaintballGameState::PLAYING) {
-			world->SetGameState(PaintballGameState::PAUSED);
-			pauseGame();
-		}
-	}
-
+	if (!G1.isPhysEnabled())return;
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
-		if (selectionObject) {	//set colour to deselected;
-			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-			selectionObject = nullptr;
+		if (G1.selectionObject) {	//set colour to deselected;
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
+			G1.selectionObject = nullptr;
 		}
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
@@ -366,15 +414,27 @@ void TutorialGame::UpdateKeys() {
 		RaycastHitCallback  callback;
 		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
-			selectionObject = (PaintballGameObject*)callback.rb->getUserData();
-			selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
+			//G1.GetInstance().DeleteObject((PaintballGameObject*)callback.rb->getUserData());
+
+			G1.selectionObject = (PaintballGameObject*)callback.rb->getUserData();
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(0, 1, 0, 1));
 		}
 
 	}
 
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Middle)) {
+		if (G1.selectionObject) {
+			if(true)
+				G1.selectionObject->SetActive(false);
+			else {
+				G1.DeleteObject(G1.selectionObject);
+				G1.selectionObject = nullptr;
+			}
+		}
+	}
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
-		if (!selectionObject) return;
+		if (!G1.selectionObject) return;
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
 		rp3d::Vector3 pos = Util::NCLToRP3d(world->GetMainCamera().GetPosition());
@@ -382,26 +442,32 @@ void TutorialGame::UpdateKeys() {
 		RaycastHitCallback  callback;
 		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
-			if (selectionObject == (PaintballGameObject*)callback.rb->getUserData())
+			if (G1.selectionObject == (PaintballGameObject*)callback.rb->getUserData())
 				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
 		}
 	}
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
-		if (selectionObject) {
-			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
-			if (lockedObject == selectionObject) {
-				lockedObject = nullptr;
+		if (G1.selectionObject) {
+			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
+			if (G1.lockedObject == G1.selectionObject) {
+				G1.lockedObject = nullptr;
 			}
 			else {
-				lockedObject = selectionObject;
+				G1.lockedObject = G1.selectionObject;
 			}
 		}
-		else lockedObject = nullptr;
+		else G1.lockedObject = nullptr;
 	}
 
 	//shoot test
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::Q)) {
-		shoottest->Attack();
+		if(G1.shoottest) G1.shoottest->Attack();
+		else {
+			GameManager::GetInstance().AddObject(GameObjectType::bullet,
+				Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
+				rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
+				Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+		}
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
@@ -428,15 +494,13 @@ void TutorialGame::LockedObjectMovement() {
 	fwdAxis.y = 0.0f;
 	fwdAxis = Vector::Normalise(fwdAxis);
 
-	PaintballGameObject* target = lockedObject;
+	PaintballGameObject* target = G1.lockedObject;
 
 	const float& mass = target->GetPhysicsObject()->GetMass();
 	float camYaw = world->GetMainCamera().GetYaw();
-	if (target->GetName() == "player" || target->GetName() == "kitten") camYaw += 180.0f;
-	if (lockedObject == shoottest) {
-		shoottest->isControl = true;
-		return;
-	}
+	
+	if (G1.shoottest) G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
+
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
 	}
@@ -501,44 +565,46 @@ line - after the third, they'll be able to twist under torque aswell.
 
 
 void TutorialGame::CalculatePathToPlayer() {
-	if (!playerObject || !enemyObject) {
+	if (!G1.playerObject || !G1.enemyObject) {
 		Debug::Print("Player or Enemy object is not initialized!", Vector2(10, 20), Debug::RED);
 		return;
 	}
 
-	rp3d::Vector3 startPos = enemyObject->GetTransform().GetPosition();
-	rp3d::Vector3 endPos = playerObject->GetTransform().GetPosition();
+	rp3d::Vector3 startPos = G1.enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 endPos = G1.playerObject->GetTransform().GetPosition();
 
 	NavigationPath outPath;
-	pathNodes.clear();
+	G1.pathNodes.clear();
 
-	if (navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
+	if (G1.navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
 		Vector3 pos;
 		while (outPath.PopWaypoint(pos)) {
-			pathNodes.push_back(pos);
+			G1.pathNodes.push_back(pos);
 		}
 	}
 
 }
 
 void TutorialGame::DisplayPath() {
-	for (size_t i = 1; i < pathNodes.size(); ++i) {
-		Vector3 a = pathNodes[i - 1];
-		Vector3 b = pathNodes[i];
+	for (size_t i = 1; i < G1.pathNodes.size(); ++i) {
+		Vector3 a = G1.pathNodes[i - 1];
+		Vector3 b = G1.pathNodes[i];
 			Debug::DrawLine(a, b, Vector4(0, 1, 0, 1));
 	}
 }
 
 void TutorialGame::MoveEnemyAlongPath() {
-	if (pathNodes.empty()) {
-		enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+	if (!G1.enemyObject) return;
+
+	if (G1.pathNodes.empty()) {
+		G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
 		return;
 	}
 
 	// Get current position and the next target position
-	rp3d::Vector3 currentPos = enemyObject->GetTransform().GetPosition();
-	rp3d::Vector3 targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
-		: Util::NCLToRP3d(pathNodes.back());
+	rp3d::Vector3 currentPos = G1.enemyObject->GetTransform().GetPosition();
+	rp3d::Vector3 targetPos = G1.pathNodes.size() > 1 ? Util::NCLToRP3d(G1.pathNodes[G1.pathNodes.size() - 2])
+		: Util::NCLToRP3d(G1.pathNodes.back());
 	targetPos.y = currentPos.y; // Keep enemy on the same Y level
 
 	// Compute direction and distance to the target node
@@ -551,14 +617,14 @@ void TutorialGame::MoveEnemyAlongPath() {
 
 	if (distanceToTarget < arrivalThreshold) {
 		// Remove the reached node
-		pathNodes.erase(pathNodes.begin());
-		if (pathNodes.empty()) {
-			enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
+		G1.pathNodes.erase(G1.pathNodes.begin());
+		if (G1.pathNodes.empty()) {
+			G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(rp3d::Vector3(0, 0, 0));
 			return;
 		}
 		// Update the target position to the new front of the path
-		targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2])
-			: Util::NCLToRP3d(pathNodes.back());
+		targetPos = G1.pathNodes.size() > 1 ? Util::NCLToRP3d(G1.pathNodes[G1.pathNodes.size() - 2])
+			: Util::NCLToRP3d(G1.pathNodes.back());
 		targetPos.y = currentPos.y;
 		direction = targetPos - currentPos;
 	}
@@ -568,6 +634,28 @@ void TutorialGame::MoveEnemyAlongPath() {
 	rp3d::Vector3 velocity = direction * moveSpeed;
 
 	// Set linear velocity
-	enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
+	G1.enemyObject->GetPhysicsObject()->SetLinearVelocity(velocity);
+}
+
+void TutorialGame::ShowMainPage() {
+	Debug::UpdateRenderables(0.1f);
+	Debug::DrawTex(*ResourceManager::GetInstance().GetTexture("basic"), Vector2(0, 0), Vector2(100, 100), Debug::WHITE);
+	Debug::Print("Main Page : Press SPACE to start, ESCAPE to quit", Vector2(5, 65), Debug::RED);
+	renderer->Render();
+}
+
+void TutorialGame::ShowPausedPage() {
+	Debug::Print("Paused : Press U to unpause game", Vector2(20, 50), Debug::WHITE);
+	renderer->Render();
+}
+void TutorialGame::ShowMenuPage() {
+	Vector4 titleColour = Debug::GREEN;
+
+	Debug::Print("Press ESCAPE to quit game", Vector2(20, 45), Debug::BLACK);
+	Debug::Print("Press N for a main game", Vector2(20, 50), Debug::BLACK);
+
+	Debug::Print("MENU", Vector2(20, 35), Debug::BLACK);
+	Debug::Print("Press U to close menu", Vector2(20, 55), Debug::BLACK);
+
 }
 

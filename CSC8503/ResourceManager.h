@@ -14,25 +14,21 @@ namespace NCL {
             }
 
             void LoadAssets(GameTechRenderer* renderer);
+            void ReloadAnimations();
 
             // Getters for assets
-            Mesh* GetCubeMesh() const { return cubeMesh; }
-            Mesh* GetSphereMesh() const { return sphereMesh; }
-            Mesh* GetCatMesh() const { return catMesh; }
-            Mesh* GetKittenMesh() const { return kittenMesh; }
-            Mesh* GetMapMesh() const { return mapMesh; }
-            Mesh* GetSecondMapMesh() const { return secondMapMesh; }
-            Mesh* GetGooseMesh() const { return gooseMesh; }
-            Mesh* GetEnemyMesh() const { return enemyMesh; }
-            Mesh* GetBonusMesh() const { return bonusMesh; }
-            Mesh* GetCapsuleMesh() const { return capsuleMesh; }
+            Mesh* GetMesh(const std::string& name, bool debug = true);
+            Texture* GetTexture(const std::string& name, bool debug = true);
+            Shader* GetShader(const std::string& name, bool debug = true);
 
-            Mesh* GetRoleMesh() const { return RoleMesh; }
-            MeshAnimation* GetRoleanim() const { return Roleanim; }
-            MeshMaterial* GetRolemat() const { return Rolemat; }
+            Shader* GetBasicShader();
 
-            Texture* GetBasicTex() const { return basicTex; }
-            Shader* GetBasicShader() const { return basicShader; }
+            std::shared_ptr<MeshAnimation> GetIdleanim() const { return Roleanim; }
+
+            std::shared_ptr<MeshMaterial> GetRolemat() const { return Rolemat; }
+
+            std::shared_ptr<MeshAnimation> GetMoveanim() const { return Moveanim; }
+
 
             private:
                 ResourceManager() = default; // Private constructor
@@ -43,23 +39,14 @@ namespace NCL {
                 ResourceManager& operator=(const ResourceManager&) = delete;
 
                 // Assets
-                Mesh* cubeMesh = nullptr;
-                Mesh* sphereMesh = nullptr;
-                Mesh* catMesh = nullptr;
-                Mesh* kittenMesh = nullptr;
-                Mesh* mapMesh = nullptr;
-                Mesh* secondMapMesh = nullptr;
-                Mesh* gooseMesh = nullptr;
-                Mesh* enemyMesh = nullptr;
-                Mesh* bonusMesh = nullptr;
-                Mesh* capsuleMesh = nullptr;
 
-                Mesh* RoleMesh = nullptr;
-                MeshAnimation* Roleanim;
-                MeshMaterial* Rolemat;
+                std::shared_ptr<MeshAnimation> Roleanim;
+                std::shared_ptr<MeshAnimation> Moveanim;
+                std::shared_ptr<MeshMaterial> Rolemat;
 
-                Texture* basicTex = nullptr;
-                Shader* basicShader = nullptr;
+                std::unordered_map<std::string, Mesh*> meshes;
+                std::unordered_map<std::string, Texture*> textures;
+                std::unordered_map<std::string, Shader*> shaders;
 		};
 	}
 }

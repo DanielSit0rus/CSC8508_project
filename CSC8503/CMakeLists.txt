@@ -204,12 +204,6 @@ target_link_libraries(${PROJECT_NAME} LINK_PUBLIC OpenGLRendering)
 
 #target_link_libraries(${PROJECT_NAME} PUBLIC ${reactphysics3d})
 
-
-
-
-
-target_link_libraries(${PROJECT_NAME} LINK_PUBLIC nlohmann_json::nlohmann_json)
-
 if(USE_VULKAN)
     include_directories("../VulkanRendering/")
     target_link_libraries(${PROJECT_NAME} LINK_PUBLIC VulkanRendering)

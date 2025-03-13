@@ -1,6 +1,9 @@
 #include "SLSystem.h"
+#include <iostream>
+#include <chrono>
+#include <iomanip>
+
 using namespace NCL::CSC8503;
-using namespace NCL;
 
 SLSystem::~SLSystem()
 {
@@ -13,23 +16,36 @@ void SLSystem::Init()
     EventManager::Subscribe(EventType::Data_Load, [this]() {LoadAll(); });
 }
 
-void SLSystem::RegisterISaveable(ISaveable* saveable) {
-    if (std::find(saveableList.begin(), saveableList.end(), saveable) == saveableList.end()) {
-        saveableList.push_back(saveable);
+json SLSystem::LoadData(std::string file) const
+{
+    std::string filename = savePath + file + ".json";
+    std::ifstream in_file(filename);
+    if (!in_file) {
+        std::cerr << "[Error] Failed to open file: " << filename << std::endl;
+        return false;
     }
-}
 
-void SLSystem::UnRegisterISaveable(ISaveable* saveable) {
-    auto it = std::find(saveableList.begin(), saveableList.end(), saveable);
-    if (it != saveableList.end()) {
-        saveableList.erase(it);
-    }
+    json j;
+    in_file >> j;
+
+    return j;
 }
 
 void SLSystem::SaveAll() {
     for (const auto& item : saveableList) {
         item->SaveData(jsonData);
     }
+
+    std::string filename = savePath + "save_" + getCurrentTime() + ".json";
+    std::ofstream out_file(filename);
+    if (!out_file.is_open()) {
+        std::cerr << "[Error] Failed to open file: " << filename << std::endl;
+        return;
+    }
+    out_file << jsonData.dump(4);  // 格式化输出（4个空格的缩进）
+    out_file.close();
+
+    std::cout << "JSON written to " << filename << std::endl;
     std::cout << "[SLSystem] Save finished" << std::endl;
 }
 
@@ -41,11 +57,9 @@ void SLSystem::LoadAll() {
     std::cout << "[SLSystem] Load finished" << std::endl;
 }
 
-void NCL::CSC8503::SLSystem::JsonSave() {
-    // 创建 JSON 对象
-    nlohmann::json j;
+void SLSystem::JsonSaveTest() {
+    json j;
 
-    // 填充数据
     j["person"] = {
         {"name", "john"},
         {"age", 30},
@@ -61,25 +75,32 @@ void NCL::CSC8503::SLSystem::JsonSave() {
         {"hobbies", {"reading", "coding", "hiking"}}
     };
 
-    // 打开文件并写入 JSON 数据
-    std::ofstream out_file("../Assets/Json/output_data.json");
+    std::string filename = savePath + "save_" + getCurrentTime() + ".json";
+
+    std::ofstream out_file(filename);
+    if (!out_file.is_open()) {
+        std::cerr << "[Error] Failed to open file: " << filename << std::endl;
+        return;
+    }
+
     out_file << j.dump(4);  // 格式化输出（4个空格的缩进）
     out_file.close();
 
-    std::cout << "JSON written to person_data.json" << std::endl;
+    std::cout << "[Test] JSON written to " << filename << std::endl;
 }
 
-void NCL::CSC8503::SLSystem::JsonLoad()
+
+void SLSystem::JsonLoadTest() const
 {
     // 从文件读取 JSON 数据
-    std::ifstream in_file("../Assets/Json/output_data.json");
+    std::ifstream in_file(savePath + "output_data.json");
     if (!in_file) {
         std::cerr << "Error opening file!" << std::endl;
         return;
     }
 
     // 解析 JSON 数据
-    nlohmann::json j;
+    json j;
     in_file >> j;
 
     // 访问和输出数据
@@ -92,4 +113,28 @@ void NCL::CSC8503::SLSystem::JsonLoad()
         std::cout << hobby << " ";
     }
     std::cout << std::endl;
+}
+
+
+std::string SLSystem::getCurrentTime() {
+    auto now = std::chrono::system_clock::now();
+    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+    std::tm localTime;
+    localtime_s(&localTime, &now_c);
+    std::ostringstream oss;
+    oss << std::put_time(&localTime, "%Y-%m-%d_%H-%M-%S");
+    return oss.str();
+}
+
+void SLSystem::RegisterISaveable(ISaveable* saveable) {
+    if (std::find(saveableList.begin(), saveableList.end(), saveable) == saveableList.end()) {
+        saveableList.push_back(saveable);
+    }
+}
+
+void SLSystem::UnRegisterISaveable(ISaveable* saveable) {
+    auto it = std::find(saveableList.begin(), saveableList.end(), saveable);
+    if (it != saveableList.end()) {
+        saveableList.erase(it);
+    }
 }

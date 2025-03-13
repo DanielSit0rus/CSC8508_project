@@ -21,8 +21,10 @@ namespace NCL {
 
 			void Init();
 
-			void JsonSave();
-			void JsonLoad();
+			json LoadData(std::string file = "save") const;
+
+			void JsonSaveTest();
+			void JsonLoadTest() const;
 
 			void RegisterISaveable(ISaveable* saveable);
 			void UnRegisterISaveable(ISaveable* saveable);
@@ -35,9 +37,11 @@ namespace NCL {
 			SLSystem() = default;
 			~SLSystem();
 
-			std::list<ISaveable*> saveableList;
+			std::string getCurrentTime();
 
-			nlohmann::json jsonData;
+			std::string savePath = "../Assets/Json/";
+			std::list<ISaveable*> saveableList;
+			json jsonData;
 		};
 	}
 }

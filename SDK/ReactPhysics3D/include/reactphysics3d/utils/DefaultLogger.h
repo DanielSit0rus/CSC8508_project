@@ -31,6 +31,7 @@
 #include <reactphysics3d/containers/Array.h>
 #include <reactphysics3d/containers/Map.h>
 #include <string>
+#include <chrono>
 #include <iostream>
 #include <fstream>
 #include <sstream>

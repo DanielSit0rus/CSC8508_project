@@ -18,25 +18,41 @@ bool PushdownMachine::Update(float dt) {
 		PushdownState::PushdownResult result = activeState->OnUpdate(dt, &newState);
 
 		switch (result) {
-			case PushdownState::Pop: {
-				activeState->OnSleep();
-				delete activeState;
-				stateStack.pop();
-				if (stateStack.empty()) {
-					return false;
-				}
-				else {
-					activeState = stateStack.top();
-					activeState->OnAwake();
-				}					
-			}break;
-			case PushdownState::Push: {
-				activeState->OnSleep();		
-
-				stateStack.push(newState);
-				activeState = newState;
+		case PushdownState::Pop: {
+			activeState->OnSleep();
+			delete activeState;
+			stateStack.pop();
+			if (stateStack.empty()) {
+				return false;
+			}
+			else {
+				activeState = stateStack.top();
 				activeState->OnAwake();
-			}break;
+			}
+		}break;
+		case PushdownState::Push: {
+			activeState->OnSleep();
+
+			stateStack.push(newState);
+			activeState = newState;
+			activeState->OnAwake();
+		}break;
+		case PushdownState::ToBottom: {
+			activeState->OnSleep();
+			delete activeState;
+			while (stateStack.size() > 1) {
+				stateStack.pop();
+			}
+			activeState = stateStack.top();
+			activeState->OnAwake();
+		}break;
+		case PushdownState::PopAll: {
+			delete activeState;
+			while (stateStack.size() > 0) {
+				stateStack.pop();
+			}
+			return false;
+		}break;
 		}
 	}
 	else {
