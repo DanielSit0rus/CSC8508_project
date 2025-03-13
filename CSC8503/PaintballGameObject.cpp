@@ -37,6 +37,12 @@ void PaintballGameObject::Update(float dt) {
 	}
 
 	if (audioObject) audioObject->Update();
+
+	if (transform.GetPosition().y < -10) {
+		physicsObject->GetRigidbody().setTransform(
+			rp3d::Transform(rp3d::Vector3(0, 20, 0), rp3d::Quaternion().identity())
+		);
+	}
 }
 
 void PaintballGameObject::Delete()

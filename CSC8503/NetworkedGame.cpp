@@ -3,6 +3,7 @@
 #include "NetworkObject.h"
 #include "GameServer.h"
 #include "GameClient.h"
+#include "SLSystem.h"
 
 #define COLLISION_MSG 30
 
@@ -46,6 +47,12 @@ NetworkedGame::NetworkedGame() {
 				thisClient = nullptr;
 			}
 			G1.SetNet(false);
+		});
+
+	EventManager::Subscribe(EventType::Network_Connected, [&](int arg) {
+		IntPacket newPacket(arg);
+		thisServer->SendGlobalPacket(newPacket);
+		this->thisServer->UpdateServer();
 		});
 }
 
@@ -204,10 +211,6 @@ void NetworkedGame::UpdateMinimumState() {
 	}
 }
 
-void NetworkedGame::SpawnPlayer() {
-
-}
-
 void NetworkedGame::StartLevel() {
 	if (thisServer) G1.RequestRebuildWorld(1);
 	else if (thisClient) G1.CleanWorld();
@@ -304,6 +307,12 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 				Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(clientPacket->camFront));
 		}
 
+		break;
+	}
+	case Player_Connected: {
+		IntPacket* realPacket = (IntPacket*)payload;
+		if (thisPeer == -1)thisPeer = realPacket->num;
+		std::cout << "Received thisPeer: \"" << thisPeer << "\" from " << source << std::endl;
 		break;
 	}
 	case None: {

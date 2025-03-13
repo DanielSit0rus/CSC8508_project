@@ -21,6 +21,8 @@ namespace NCL {
             Network_StartAsServer,
             Network_StartAsClient,
             Network_Test,
+            Network_Connected,
+            Network_Disconnected,
         };
 
         class EventManager {

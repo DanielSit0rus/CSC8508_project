@@ -1,6 +1,9 @@
 #include "GameServer.h"
 #include "GameWorld.h"
 #include "./enet/enet.h"
+
+#include "../CSC8503/EventManager.h"
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -58,9 +61,11 @@ void GameServer::UpdateServer() {
 		int peer = p -> incomingPeerID;
 		if (type == ENetEventType::ENET_EVENT_TYPE_CONNECT) {
 			std::cout << " Server : New client connected " << std::endl;
+			EventManager::Trigger(EventType::Network_Connected, peer);
 		}
 		else if (type == ENetEventType::ENET_EVENT_TYPE_DISCONNECT) {
 			std::cout << " Server : A client has disconnected " << std::endl;
+			EventManager::Trigger(EventType::Network_Disconnected, peer);
 		}
 		else if (type == ENetEventType::ENET_EVENT_TYPE_RECEIVE) {
 			GamePacket * packet = (GamePacket*)event.packet -> data;

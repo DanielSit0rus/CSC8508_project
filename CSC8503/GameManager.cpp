@@ -24,6 +24,21 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, fl
     EventManager::Subscribe(EventType::Game_Start, [this]() {leftTime = totalTime; canStart_FMOD = true; });
 
     RpWorld->setEventListener(&bulletlistener);
+
+    EventManager::Subscribe(EventType::Network_Connected, [&](int arg) {
+        if (hasNetwork) {
+            json j = SLSystem::GetInstance().LoadData("save");
+            if (j.contains("objs") && j["objs"].is_array()) {
+                for (const auto& obj : j["objs"]) {
+                    if (obj.contains("type") && obj["type"] == GameObjectType::player) {
+                        networkPlayers[arg] = AddPlayerClass(rp3d::Vector3(0, 20, 0));
+                        break;
+                    }
+                }
+            }
+        }
+        });
+
 }
 
 void GameManager::Update(float dt) {
@@ -53,7 +68,22 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
     }
     objectsToDelete.clear();
 
-    if (toRebuild != -1) InitWorld(toRebuild);
+    if (toRebuild != -1) {
+        InitWorld(toRebuild);
+        if (hasNetwork) {
+            json j = SLSystem::GetInstance().LoadData("save");
+            if (j.contains("objs") && j["objs"].is_array()) {
+                for (const auto& obj : j["objs"]) {
+                    if (obj.contains("type") && obj["type"] == GameObjectType::player) {
+                        networkPlayers[0] = AddPlayerClass(rp3d::Vector3(0, 20, 0));
+                        shoottest = networkPlayers[0];
+                        lockedObject = shoottest;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
 
 void GameManager::CleanWorld()
@@ -81,6 +111,7 @@ void GameManager::CleanWorld()
     enemies.clear();
     objectsToDelete.clear();
     networkObjects.clear();
+    networkPlayers.clear();
 }
 
 void GameManager::InitWorld() {
@@ -88,6 +119,7 @@ void GameManager::InitWorld() {
     lockedObject = nullptr;
     selectionObject = nullptr;
     networkObjects.clear();
+    networkPlayers.clear();
     world->ClearAndErase();
 
     //ResourceManager::GetInstance().ReloadAnimations();
@@ -214,6 +246,7 @@ void GameManager::InitWorld(int arg)
         }
     }
 
+
     toRebuild = -1;
 }
 
@@ -233,6 +266,10 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         //std::cout << "[GameManager::AddObject] cube." << std::endl;
         obj = AddSphere(position, dimensions, orientation, mass, color);
         break;
+    case GameObjectType::player:
+        if (hasNetwork) return obj;
+        else obj = AddPlayerClass(position);
+        break;
     case GameObjectType::bullet:
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
@@ -246,10 +283,17 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         return obj;
     }
 
-    if (obj->GetNetworkObject() == nullptr) {
-        NetworkObject* netObj = new NetworkObject(*obj, networkID == -1 ? networkObjects.size() : networkID);
-        networkObjects[networkObjects.size()] = netObj;
-        obj->SetNetworkObject(netObj);
+    if (obj->GetNetworkObject() == nullptr) {   //freelist
+        if (type == GameObjectType::player) {
+            shoottest = (PaintballPlayer*)obj;
+            lockedObject = shoottest;
+        }
+        else
+        {
+            NetworkObject* netObj = new NetworkObject(*obj, networkID == -1 ? networkObjects.size() : networkID);
+            networkObjects[networkObjects.size()] = netObj;
+            obj->SetNetworkObject(netObj);
+        }
     }
 
     return obj;
@@ -257,7 +301,6 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
 
 PaintballGameObject* GameManager::AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
     ResourceManager& resources = ResourceManager::GetInstance();
-
     PaintballGameObject* cube = new PaintballGameObject(GameObjectType::cube);
 
     cube->GetTransform()

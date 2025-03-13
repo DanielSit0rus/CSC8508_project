@@ -38,9 +38,9 @@ bool AudioSystem::Init()
     LoadBus("Voice");
     LoadBus("Effect");
 
-    //SetBusVolume("BGM", 0);
-    //SetBusVolume("Voice", 0);
-    //SetBusVolume("Effect", 0);
+    SetBusVolume("BGM", 0);
+    SetBusVolume("Voice", 0);
+    SetBusVolume("Effect", 0);
 
     RegisterSL();
 

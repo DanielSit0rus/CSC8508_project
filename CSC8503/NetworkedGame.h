@@ -19,8 +19,6 @@ namespace NCL {
 
 			void UpdateGame(float dt) override;
 
-			void SpawnPlayer();
-
 			void StartLevel();
 
 			void ReceivePacket(int type, GamePacket* payload, int source) override;
@@ -45,8 +43,6 @@ namespace NCL {
 			float timeToNextPacket;
 			int packetsToSnapshot;
 
-			std::map<int, PaintballGameObject*> serverPlayers;
-			PaintballGameObject* localPlayer;
 			int playerState = 0;
 
 			bool isDebug = false;
@@ -54,6 +50,8 @@ namespace NCL {
 			void SendPacketTest(std::string s);
 
 			int toStart = -1;	//0 for server, 1 for client
+
+			int thisPeer = -1;
 		};
 	}
 }

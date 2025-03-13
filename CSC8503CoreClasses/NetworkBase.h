@@ -52,6 +52,15 @@ struct StringPacket : public GamePacket {
 	}
 };
 
+struct IntPacket : public GamePacket {
+	int num;
+
+	IntPacket(const int& arg) {
+		type = BasicNetworkMessages::Player_Connected;
+		size = sizeof(arg);
+		num = arg;
+	};
+};
 
 
 

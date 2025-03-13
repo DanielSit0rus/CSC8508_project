@@ -158,7 +158,7 @@ void TutorialGame::UpdateGameBody(float dt)
 		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
 	/*Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);*/
 	if (renderer->GetUI()->IsDebugMode()) {
-		Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
+		Debug::Print("Pos = " + posString, Vector2(5, 95), Debug::BLUE);
 	}
 
 	/*

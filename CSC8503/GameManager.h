@@ -117,6 +117,7 @@ namespace NCL {
             float GetLeftTime() const { return leftTime; }
 
             std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
+            std::map<int, PaintballPlayer*>& GetNetworkPlayers() { return networkPlayers; }
 
             void RequestRebuildWorld(int arg) { toRebuild = arg; }
 
@@ -171,6 +172,8 @@ namespace NCL {
             bool canStart_FMOD = true;
 
             std::map<int, NetworkObject*> networkObjects;
+            std::map<int, PaintballPlayer*> networkPlayers;
+
             int toRebuild = -1;
 
             Window* w = nullptr;
