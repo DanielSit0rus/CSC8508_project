@@ -173,3 +173,7 @@ void PaintballEnemy::InitBehaviorTree() {
 
 	behaviorTree = root;
 }
+
+void PaintballEnemy::SetTransform(const rp3d::Vector3& pos) {
+	this->GetTransform().SetPosition(pos);
+}

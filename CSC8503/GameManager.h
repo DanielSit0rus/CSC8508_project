@@ -9,7 +9,9 @@
 #include "PaintballPlayer.h"
 #include "BulletContactListener.h"
 #include "Camera.h"
+#include "NavigationMesh.h"
 #include <unordered_set>
+#include "PaintballEnemy.h"
 
 namespace NCL {
     const UINT16 PLAYER = 0x0001;   // 0000 0000 0000 0001
@@ -66,7 +68,6 @@ namespace NCL {
             PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
-
             PaintballBullet* AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass = 10.0f);
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
 
@@ -104,6 +105,8 @@ namespace NCL {
                 return world->GetMainCamera();
             }
             Vector3 GetCameraFront();
+
+            PaintballEnemy* AddEnemy(const rp3d::Vector3& position, NavigationMesh* navMesh, PaintballGameObject* player);
 
 
             PaintballGameWorld* GetWorld() { return world; }

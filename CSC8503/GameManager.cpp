@@ -3,6 +3,7 @@
 #include "SLSystem.h"
 #include "EventManager.h"
 #include "GameObjectFreeList.h"
+#include "PaintballEnemy.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -222,6 +223,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
         resources.GetIdleanim(),
         resources.GetRolemat()
     );
+
+
 
     renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
 
@@ -473,5 +476,17 @@ Vector3 GameManager::GetCameraFront()
     float pitch = DegreesToRadians(-world->GetMainCamera().GetPitch());
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
+}
+
+PaintballEnemy* GameManager::AddEnemy(const rp3d::Vector3& position, NavigationMesh* navMesh, PaintballGameObject* player) {
+    PaintballEnemy* enemy = new PaintballEnemy();
+
+    enemy->SetTransform(position);  // Set the enemy's position
+    enemy->SetNavMesh(navMesh);     // Assign the navigation mesh
+    enemy->SetPlayer(player);       // Set the target player
+
+    world->AddGameObject(enemy);    // Add enemy to the game world
+
+    return enemy;
 }
 

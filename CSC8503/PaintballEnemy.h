@@ -1,7 +1,10 @@
+#pragma once
 #include "StateGameObject.h"
 #include "PaintballGameObject.h"
 #include "PaintballGameWorld.h"
 #include "NavigationMesh.h"
+#include "GameManager.h"
+
 
 namespace NCL {
     namespace CSC8503 {
@@ -12,6 +15,7 @@ namespace NCL {
 
             void Update(float dt) override;
 
+            void SetTransform(const rp3d::Vector3& pos);
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
 
