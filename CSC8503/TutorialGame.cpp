@@ -23,10 +23,6 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	renderer->InitStructures();
 #else 
 	renderer = new GameTechRenderer(*world);
-	
-	
-	
-	//renderer->AddLight(light1);
 #endif	
 	
 
@@ -39,7 +35,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	controller.MapAxis(3, "XLook");
 	controller.MapAxis(4, "YLook");
 	ResourceManager::GetInstance().LoadAssets(renderer);
-	G1.Init(world);
+	G1.Init(world, renderer);
 
 
 	InitialiseAssets();
@@ -97,19 +93,19 @@ void TutorialGame::UpdateGame(float dt) {
 		UpdateGameBody(dt);
 		break;
 	case MENU:
-		UpdateMenu(dt);
+		UpdateUI(dt);
 		break;
 	case SETTING:
-		UpdateSetting(dt);
+		UpdateUI(dt);
 		break;
 	case PAUSED:
-		UpdatePaused(dt);
+		UpdateUI(dt);
 		break;
 	case FAILURE:
-		UpdateFailure(dt);
+		UpdateUI(dt);
 		break;
 	case FINISH:
-		UpdateFinish(dt);
+		UpdateUI(dt);
 		break;
 	default:
 		break;
@@ -128,13 +124,13 @@ void TutorialGame::UpdateGameBody(float dt)
 
 	/*Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 
-	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));*/
+	Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));*/
 	if (renderer->GetUI()->IsDebugMode()) {
 		Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
-		Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
+		Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));
 	}
 
-	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
+	G1.forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	world->UpdateWorld(dt);
 	renderer->Update(dt);
@@ -153,7 +149,7 @@ void TutorialGame::UpdateGameBody(float dt)
 	}
 	else
 	{
-		world->GetMainCamera().UpdateCamera(dt, forceMagnitude * 0.5f);
+		world->GetMainCamera().UpdateCamera(dt, G1.forceMagnitude * 0.5f);
 	}
 
 	const Vector3& pos = camera.GetPosition();
@@ -207,60 +203,23 @@ void TutorialGame::AssetsLoading() {
 	if (assetsLoadedStep < 5) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		assetsLoadedStep++;
-	
 	}
 }
 
 void TutorialGame::UpdateLoading(float dt)
 {
 	std::cout << "[UpdateLoading] assetsLoadedStep = " << assetsLoadedStep << std::endl;
-
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //UI
-	renderer->GetUI()->SetLoadingStep(assetsLoadedStep);
-	renderer->Render();
 	if (assetsLoadedStep == 5) G1.SetGameState(MENU);
 	AssetsLoading();
+
+	UpdateUI(dt);
+	renderer->GetUI()->SetLoadingStep(assetsLoadedStep);
 }
 
-void TutorialGame::UpdatePaused(float dt)
-{
-	TutorialGame::UpdateKeys();
-	
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //UI
-	renderer->Render();
-}
-
-void TutorialGame::UpdateMenu(float dt)
-{
-	
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //UI
-	renderer->Render();
-}
-
-void TutorialGame::UpdateFailure(float dt)
-{
-	
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //UI
-	renderer->Render();
-}
-
-void TutorialGame::UpdateFinish(float dt)
-{
-	
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //UI
-	renderer->Render();
-}
-
-void TutorialGame::UpdateSetting(float dt)
+void TutorialGame::UpdateUI(float dt)
 {
 	renderer->Update(dt);
 	renderer->GetUI()->Update(dt); //UI
-	renderer->Render();
 }
 
 void TutorialGame::InitCamera() {
@@ -274,123 +233,15 @@ void TutorialGame::InitCamera() {
 
 	G1.lockedObject = nullptr;
 	G1.selectionObject = nullptr;
-	forceMagnitude = 60.0f;
+	G1.forceMagnitude = 60.0f;
 }
 
 void TutorialGame::InitWorld() {
-	//return;
-
-	G1.lockedObject = nullptr;
-	G1.selectionObject = nullptr;
-
-
 	if (false) {
-		G1.InitWorld(1);
+		G1.InitWorld(1);	//for data-driven
 	}
 	else {
-		world->ClearAndErase();
-
-		//ResourceManager::GetInstance().ReloadAnimations();
-
-		G1.playerObject = G1.AddPlayerClass(rp3d::Vector3(1, 52, -21));
-
-		G1.enemyObject = G1.AddPlayerClass(rp3d::Vector3(5, 1, -1));
-
-		G1.CharacterObject = G1.AddPlayerClass(rp3d::Vector3(0, 8, -30));
-
-		forceMagnitude = 60.0f;
-
-
-
-		Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
-		renderer->AddLight(light2);
-
-		//FMOD
-		G1.speakerObj = G1.AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-		G1.speakerObj->SetAudioObject(new PaintballAudioObject(&G1.speakerObj->GetTransform(),
-			AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
-		//G1.speakerObj->GetAudioObject()->Play(true);
-
-		//rp3d
-		float angleInRadians = 10.0f * PI / 180.0f;
-		rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
-		/*G1.AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-
-
-		G1.AddCube(rp3d::Vector3(-10, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));*/
-
-
-		//FIRST MAP
-		G1.AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"floor_1", "floor", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"mainWall_1", "mainwall", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"doorWay_1", "doorway", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"oppDoorWay_1", "doorway", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"midDoor", "mainwall", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_1", "wall123", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_2", "wall123", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"openWall", "openwall", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_3", "wall123", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_4", "wall4", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"cylinder", "wall4", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bigCylinder", "wall4", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"target", "floor", "basic");
-		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bigCube", "wall4", "basic");
-
-
-
-		//SECOND MAP
-		G1.AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"floor_2", "basic", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"mainWall_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"doorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"oppDoorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_2_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_2_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_2_3", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"columns_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"midTunnel", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"elevation", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bridge", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"elevRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"midRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-		G1.AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bridgeRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-
-
-		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
-		G1.AddTrap();
-		GameManager::GetInstance().SetPlayer(G1.shoottest);
-
-		//InitDefaultFloor();
+		G1.InitWorld();		//add objs manually
 	}
 }
 
@@ -438,7 +289,7 @@ void TutorialGame::UpdateKeys() {
 		G1.getRPworld()->raycast(ray, &callback);
 		if (callback.rb && callback.rb->getUserData()) {
 			if (G1.selectionObject == (PaintballGameObject*)callback.rb->getUserData())
-				callback.rb->applyWorldForceAtWorldPosition(dir * forceMagnitude * 100, callback.hitpoint);
+				callback.rb->applyWorldForceAtWorldPosition(dir * G1.forceMagnitude * 100, callback.hitpoint);
 		}
 	}
 	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
@@ -497,26 +348,26 @@ void TutorialGame::LockedObjectMovement() {
 	if (G1.shoottest) G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * forceMagnitude));
+		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * G1.forceMagnitude));
 	}
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-fwdAxis * forceMagnitude));
+		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-fwdAxis * G1.forceMagnitude));
 	}
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-rightAxis * forceMagnitude));
+		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-rightAxis * G1.forceMagnitude));
 	}
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
-		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(rightAxis * forceMagnitude));
+		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(rightAxis * G1.forceMagnitude));
 	}
 
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) && target->GetPhysicsObject()->isStand()) {
-		target->GetPhysicsObject()->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.025f, 0));
+		target->GetPhysicsObject()->ApplyLinearImpulse(rp3d::Vector3(0, G1.forceMagnitude * 0.025f, 0));
 	}
 	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
-		target->GetPhysicsObject()->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
+		target->GetPhysicsObject()->AddForce(rp3d::Vector3(0, -G1.forceMagnitude, 0));
 	}
 }
 

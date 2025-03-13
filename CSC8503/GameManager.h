@@ -50,7 +50,7 @@ namespace NCL {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
             };
 
-            void Init(PaintballGameWorld* world, float gameTime = 120);
+            void Init(PaintballGameWorld* world, GameTechRenderer* renderer, float gameTime = 120);
             void Update(float dt);
             void PostCleanUp();
 
@@ -60,6 +60,7 @@ namespace NCL {
             bool isPhysEnabled() const { return hasPhys; }
             void EnablePhys(bool arg) { hasPhys = arg; }
 
+            void InitWorld();
             void InitWorld(int arg);
 
             PaintballGameObject* AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
@@ -117,7 +118,7 @@ namespace NCL {
             void RequestRebuildWorld(int arg) { toRebuild = arg; }
 
             void SetGameState(PaintballGameState state);
-            PaintballGameState GetGameState() const { return currentstate; };
+            PaintballGameState GetGameState() const { return curState; };
 
 
             //Pointers - to be private later
@@ -133,6 +134,8 @@ namespace NCL {
             //shoot 
             PaintballPlayer* shoottest = nullptr;
             PaintballEnemy* enemy = nullptr;
+            //test
+            float		forceMagnitude;
 
         private:
             GameManager() = default;
@@ -145,6 +148,7 @@ namespace NCL {
             PaintballPlayer* player;
             std::vector<PaintballGameObject*> enemies;
 
+            GameTechRenderer* renderer;
 
             bool hasPhys = true;
             PaintballGameWorld* world = nullptr;
@@ -166,7 +170,8 @@ namespace NCL {
             int toRebuild = -1;
 
             Window* w = nullptr;
-            PaintballGameState currentstate;
+            PaintballGameState curState;
+            PaintballGameState lastState = LOADING;
         };
     }
 }

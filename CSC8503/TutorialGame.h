@@ -51,11 +51,7 @@ namespace NCL {
 			void AssetsLoading();
 			int assetsLoadedStep = 0;
 			void UpdateLoading(float dt);
-			virtual void UpdatePaused(float dt);
-			virtual void UpdateFailure(float dt);
-			virtual void UpdateFinish(float dt);
-			void UpdateMenu(float dt);
-			void UpdateSetting(float dt);
+			void UpdateUI(float dt);
 
 			/*
 			These are some of the world/object creation functions I created when testing the functionality
@@ -82,8 +78,6 @@ namespace NCL {
 			GameManager& G1 = GameManager::GetInstance();
 
 			KeyboardMouseController controller;
-
-			float		forceMagnitude;
 
 			InputManager inputManager;
 		};

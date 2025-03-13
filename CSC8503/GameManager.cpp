@@ -7,9 +7,11 @@
 using namespace NCL;
 using namespace CSC8503;
 
-void GameManager::Init(PaintballGameWorld* world,float gameTime)
+void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, float gameTime)
 {
     this->world = world;
+    this->renderer = renderer;
+
     RpWorld = physicsCommon.createPhysicsWorld(RpSettings);
     if (RpWorld == nullptr) {
         std::cerr << "Error: Failed to create Physics World!" << std::endl;
@@ -55,9 +57,122 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
     if (toRebuild != -1) InitWorld(toRebuild);
 }
 
+void GameManager::InitWorld() {
+    leftTime = totalTime;
+    lockedObject = nullptr;
+    selectionObject = nullptr;
+    world->ClearAndErase();
+
+    //ResourceManager::GetInstance().ReloadAnimations();
+
+    playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
+
+    enemyObject = AddPlayerClass(rp3d::Vector3(5, 1, -1));
+
+    CharacterObject = AddPlayerClass(rp3d::Vector3(0, 8, -30));
+
+    forceMagnitude = 60.0f;
+
+
+
+    Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
+    renderer->AddLight(light2);
+
+    //FMOD
+    speakerObj = AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
+        AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
+    //speakerObj->GetAudioObject()->Play(true);
+
+    //rp3d
+    float angleInRadians = 10.0f * PI / 180.0f;
+    rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+    /*AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
+
+    AddCube(rp3d::Vector3(-10, 32, -11), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddCube(rp3d::Vector3(-10, 20, -7), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));*/
+
+
+    //FIRST MAP
+    AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "floor_1", "floor", "basic");
+    AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "mainWall_1", "mainwall", "basic");
+    AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "doorWay_1", "doorway", "basic");
+    AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "oppDoorWay_1", "doorway", "basic");
+    AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midDoor", "mainwall", "basic");
+    AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_1", "wall123", "basic");
+    AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2", "wall123", "basic");
+    AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "openWall", "openwall", "basic");
+    AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_3", "wall123", "basic");
+    AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_4", "wall4", "basic");
+    AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "cylinder", "wall4", "basic");
+    AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bigCylinder", "wall4", "basic");
+    AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "target", "floor", "basic");
+    AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bigCube", "wall4", "basic");
+
+
+
+    //SECOND MAP
+    AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "floor_2", "basic", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "mainWall_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "doorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "oppDoorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_3", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "columns_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midTunnel", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "elevation", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bridge", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "elevRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bridgeRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
+
+    shoottest = AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
+    AddTrap();
+    SetPlayer(shoottest);
+    //InitDefaultFloor();
+}
+
+
+
 void GameManager::InitWorld(int arg)
 {
-    GameManager::GetInstance().GetWorld()->ClearAndErase();
+    leftTime = totalTime;
+    lockedObject = nullptr;
+    selectionObject = nullptr;
+    world->ClearAndErase();
 
     //Pointers - to be private later
     playerObject = nullptr;
@@ -76,7 +191,6 @@ void GameManager::InitWorld(int arg)
     player = nullptr;
     enemies.clear();
     objectsToDelete.clear();
-
 
     json j = SLSystem::GetInstance().LoadData("save");
 
@@ -492,16 +606,21 @@ Vector3 GameManager::GetCameraFront()
 }
 
 void GameManager::SetGameState(PaintballGameState state) {
-    currentstate = state;
+    //std::cout << "curState = " << state << std::endl;
+
+    lastState = curState;
+    curState = state;
     switch (state)
     {
     case LOADING:
         break;
     case PLAYING:
-        if (leftTime == totalTime)
+        if (leftTime == totalTime) {
             EventManager::Trigger(EventType::Game_Start);
-        else
+        }
+        else {
             EventManager::Trigger(EventType::Game_Resume);
+        }
         break;
     case SERVERPLAYING:
         break;
@@ -515,6 +634,9 @@ void GameManager::SetGameState(PaintballGameState state) {
     case FINISH:
         break;
     case MENU:
+        if (lastState == PLAYING || lastState == PAUSED) {
+            InitWorld();
+        }
         break;
     case SETTING:
         break;

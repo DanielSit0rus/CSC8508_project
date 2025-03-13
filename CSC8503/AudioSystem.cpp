@@ -206,6 +206,13 @@ bool AudioSystem::TriggerEvent(const std::string& eventName) {
 bool AudioSystem::PlayEvent(const std::string& eventName) {
     auto it = events.find(eventName);
     if (it != events.end()) {
+
+        bool state;
+        it->second->getPaused(&state);
+        if (state == true) {
+            it->second->setPaused(false);
+        }
+
         it->second->start();
         return true;
     }
