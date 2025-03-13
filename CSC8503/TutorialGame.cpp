@@ -193,33 +193,33 @@ void TutorialGame::InitWorld() {
 
 		//FIRST MAP
 		G1.AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"floor_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"floor_1", "floor", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"mainWall_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"mainWall_1", "mainwall", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"doorWay_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"doorWay_1", "doorway", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"oppDoorWay_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"oppDoorWay_1", "doorway", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"midDoor", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"midDoor", "mainwall", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"wall_1", "wall123", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"wall_2", "wall123", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"openWall", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"openWall", "openwall", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_3", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"wall_3", "wall123", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"wall_4", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"wall_4", "wall4", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"cylinder", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"cylinder", "wall4", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bigCylinder", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"bigCylinder", "wall4", "basic");
 		G1.AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
 			"target", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 		G1.AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-			"bigCube", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+			"bigCube", "wall4", "basic");
 
 
 

@@ -48,7 +48,15 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         Moveanim = std::make_shared<MeshAnimation>("Role_T.anm");
         Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
-        textures["basic"] = renderer->LoadTexture("checkerboard.png");;
+        textures["basic"] = renderer->LoadTexture("checkerboard.png");
+        textures["floor"] = renderer->LoadTexture("Texture_5_Specular.png");
+        textures["mainwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
+        textures["doorway"] = renderer->LoadTexture("Texture_1_Specular.png");
+        textures["midwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
+        textures["openwall"] = renderer->LoadTexture("Texture_2_Specular.png");
+        textures["wall123"] = renderer->LoadTexture("Texture_4_Diffuse.png");
+        textures["wall4"] = renderer->LoadTexture("Texture_4_Specular.png");
+ 
 
         shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
     }

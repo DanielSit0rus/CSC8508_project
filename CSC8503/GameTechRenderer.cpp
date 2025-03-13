@@ -19,7 +19,7 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 	shadowShader = new OGLShader("shadow.vert", "shadow.frag");
 	animShader = new OGLShader("anim.vert", "anim.frag");
 
-	Light light1(Vector3(-150.0f, 100.0f, -116.0f), Vector3(0, -1, 0), Vector4(1.0f, 1.0f, 1.0f, 1.0f), 1000.0f, 50.0f, LightType::Point);
+	Light light1(Vector3(-150.0f, 100.0f, -116.0f), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1000.0f, 50.0f, LightType::Point);
 	AddLight(light1);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
