@@ -18,16 +18,20 @@ struct MessagePacket : public GamePacket {
 	}
 };
 
-NetworkedGame::NetworkedGame()	{
+NetworkedGame::NetworkedGame() {
 	thisServer = nullptr;
 	thisClient = nullptr;
 
 	NetworkBase::Initialise();
-	timeToNextPacket  = 0.0f;
+	timeToNextPacket = 0.0f;
 	packetsToSnapshot = 0;
 
-	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {StartAsServer(); });
-	EventManager::Subscribe(EventType::Network_StartAsClient, [this]() {StartAsClient(127, 0, 0, 1); });
+	EventManager::Subscribe(EventType::Network_StartAsServer, [this]() {RequestStart(0); });
+	EventManager::Subscribe(EventType::Network_StartAsClient, [this](std::string& s) {
+		std::istringstream stream(s);
+		stream >> ip1; stream >> ip2; stream >> ip3; stream >> ip4;
+		RequestStart(1);
+		});
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
 	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
 }
@@ -61,9 +65,11 @@ void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient->RegisterPacketHandler(Player_Disconnected, this);
 	thisClient->RegisterPacketHandler(String_Message, this);
 
+	GameManager::GetInstance().EnablePhys(false);
 
 	StartLevel();
 }
+
 
 void NetworkedGame::UpdateGame(float dt) {
 	timeToNextPacket -= dt;
@@ -74,29 +80,59 @@ void NetworkedGame::UpdateGame(float dt) {
 		else if (thisClient) {
 			UpdateAsClient(dt);
 		}
-		timeToNextPacket += 1.0f / 20.0f; //20hz server/client update
+		timeToNextPacket += 1.0f / frame; //20hz server/client update
+
+		GameManager::GetInstance().PostCleanUp();
+	}
+	if (toStart == 0) {
+		StartAsServer();
+		toStart = -1;
+	}
+	else if (toStart == 1) {
+		StartAsClient(ip1, ip2, ip3, ip4);
+		toStart = -1;
 	}
 
 	TutorialGame::UpdateGame(dt);
 }
 
 void NetworkedGame::UpdateAsServer(float dt) {
-	packetsToSnapshot--;
-	if (packetsToSnapshot < 0) {
-		BroadcastSnapshot(false);
-		packetsToSnapshot = 5;
-	}
-	else {
-		BroadcastSnapshot(true);
-	}
+	//packetsToSnapshot--;
+	//if (packetsToSnapshot < 0) {
+	//	BroadcastSnapshot(false);
+	//	packetsToSnapshot = 5;
+	//}
+	//else {
+	//	BroadcastSnapshot(true);
+	//}
+
+	BroadcastSnapshot(false);
+
 	this->thisServer->UpdateServer();
 }
 
 void NetworkedGame::UpdateAsClient(float dt) {
+	ClientPacket newPacket;
+	newPacket.type = Received_State;
+
+	newPacket.buttonstates[0] = Window::GetKeyboard()->KeyDown(KeyCodes::W) ? 1 : 0;
+	newPacket.buttonstates[1] = Window::GetKeyboard()->KeyDown(KeyCodes::A) ? 1 : 0;
+	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
+	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
+	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
+	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyPressed(KeyCodes::Q) ? 1 : 0;
+
+	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
+	newPacket.camPos = GameManager::GetInstance().GetMainCamera().GetPosition();
+
+	thisClient->SendPacket(newPacket);
+
 	this->thisClient->UpdateClient();
 }
 
 void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
+	//std::cout << "BroadcastSnapshot" << std::endl;
+
 	std::vector<PaintballGameObject*>::const_iterator first;
 	std::vector<PaintballGameObject*>::const_iterator last;
 
@@ -112,13 +148,13 @@ void NetworkedGame::BroadcastSnapshot(bool deltaFrame) {
 		//and store the lastID somewhere. A map between player
 		//and an int could work, or it could be part of a 
 		//NetworkPlayer struct. 
-		int playerState = 0;
 		GamePacket* newPacket = nullptr;
 		if (o->WritePacket(&newPacket, deltaFrame, playerState)) {
 			thisServer->SendGlobalPacket(*newPacket);
 			delete newPacket;
 		}
 	}
+	if (!deltaFrame) playerState++;
 }
 
 void NetworkedGame::UpdateMinimumState() {
@@ -150,7 +186,23 @@ void NetworkedGame::SpawnPlayer() {
 }
 
 void NetworkedGame::StartLevel() {
+	GameManager::GetInstance().RequestRebuildWorld(1);
 
+	/*
+	std::vector<PaintballGameObject*>::const_iterator first;
+	std::vector<PaintballGameObject*>::const_iterator last;
+	world->GetObjectIterators(first, last);
+
+	for (auto i = first; i != last; ++i) {
+		if ((*i)->GetType() != GameObjectType::bullet)
+		{
+			NetworkObject* obj = new NetworkObject(**i, G1.GetNetworkObjects().size());
+			(*i)->SetNetworkObject(obj);
+			G1.GetNetworkObjects().find(G1.GetNetworkObjects().size()] = obj;
+			//std::cout<< G1.GetNetworkObjects().size() <<std::endl;
+		}
+	}
+	*/
 }
 
 void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
@@ -162,6 +214,13 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (isDebug) std::cout << "Received delta packet from source: " << source << std::endl;
 		DeltaPacket* deltaPacket = (DeltaPacket*)payload;
 
+		int objectID = deltaPacket->objectID;
+
+		auto it = G1.GetNetworkObjects().find(objectID);
+		if (it != G1.GetNetworkObjects().end()) {
+			it->second->ReadPacket(*deltaPacket);
+		}
+
 		break;
 	}
 	case Full_State: {
@@ -169,9 +228,27 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		FullPacket* fullPacket = (FullPacket*)payload;
 
 		int objectID = fullPacket->objectID;
+		/*
 		rp3d::Vector3 position = fullPacket->fullState.position;
 		rp3d::Quaternion orientation = fullPacket->fullState.orientation;
 		int stateID = fullPacket->fullState.stateID;
+		*/
+
+		auto it = G1.GetNetworkObjects().find(objectID);
+		if (it != G1.GetNetworkObjects().end()) {
+			it->second->ReadPacket(*fullPacket);
+		}
+		else {
+			NetworkState state = fullPacket->fullState;
+			std::cout << "add " << objectID << std::endl;
+			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
+				state.position, state.scale, state.orientation,
+				state.color,
+				Util::GetStringFromNetData(state.meshName, state.size[0]),
+				Util::GetStringFromNetData(state.textureName, state.size[1]),
+				Util::GetStringFromNetData(state.shaderName, state.size[2]),
+				state.mass, state.isEnemy, state.oriV3, objectID);
+		}
 
 		break;
 	}
@@ -184,6 +261,25 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 	case Received_State: {
 		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
 		ClientPacket* clientPacket = (ClientPacket*)payload;
+
+		/*
+		if (clientPacket->buttonstates[0] == 1)std::cout << "W" << std::endl;;
+		if (clientPacket->buttonstates[1] == 1)std::cout << "A" << std::endl;
+		if (clientPacket->buttonstates[2] == 1)std::cout << "S" << std::endl;
+		if (clientPacket->buttonstates[3] == 1)std::cout << "D" << std::endl;
+		if (clientPacket->buttonstates[4] == 1)std::cout << "SPACE" << std::endl;
+
+		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
+		*/
+
+		if (clientPacket->buttonstates[5] == 1)
+		{
+			G1.AddObject(GameObjectType::bullet,
+				Util::NCLToRP3d(clientPacket->camPos + clientPacket->camFront * 3.f), rp3d::Vector3(1, 1, 1),
+				rp3d::Quaternion().identity(),
+				Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(clientPacket->camFront));
+		}
+
 		break;
 	}
 	case None: {

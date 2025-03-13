@@ -105,37 +105,25 @@ set(FMOD_STUDIO_LIB fmodstudio)  	# FMOD Studio lib
 ################################################################################
 # ReactPhysics3D Setup
 ################################################################################
-# set ReactPhysics3D root path
-set(ReactPhysics3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
-include_directories(${ReactPhysics3D_ROOT}/include)
+set(RP3D_ROOT "${CMAKE_SOURCE_DIR}/SDK/ReactPhysics3D")
 
-# set ReactPhysics3D lib path
-link_directories(${ReactPhysics3D_ROOT}/lib)
+include_directories(${RP3D_ROOT}/include)
 
-# set ReactPhysics3D lib name
-set(ReactPhysics3D_Lib reactphysics3d)
+file(GLOB_RECURSE RP3D_SRC "${RP3D_ROOT}/src/*.cpp")
 
-# Visual Studio
-if(MSVC)
-    # Debug mode path
-    set(DEBUG_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Debug/${ReactPhysics3D_Lib}.lib")
-    
-    # Release mode path
-    set(RELEASE_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Release/${ReactPhysics3D_Lib}.lib")
-else()
-    set(DEBUG_LIB_PATH "${ReactPhysics3D_ROOT}/lib/Debug/${ReactPhysics3D_Lib}.lib")	
-endif()
+add_library(ReactPhysics3D STATIC ${RP3D_SRC})
+
 ################################################################################
 # Json Setup
 ################################################################################
 # 设置 nlohmann_json 库的路径
 set(NLOHMANN_JSON_PATH "${CMAKE_SOURCE_DIR}/SDK/nlohmannjson-json")
 
-# 将 nlohmann_json 添加为一个子目录（它的 CMakeLists.txt 中会定义相关的目标）
-add_subdirectory(${NLOHMANN_JSON_PATH})
+include_directories(${NLOHMANN_JSON_PATH}/single_include)
 
-
-#imgui
+################################################################################
+# imgui Setup
+################################################################################
 set(imgui_ROOT "${CMAKE_SOURCE_DIR}/SDK/imgui")
 include_directories(${imgui_ROOT})
 include_directories(${imgui_ROOT}/backends)

@@ -1,0 +1,10 @@
+^C:\PROJECT\GROUP\CSC8508_PROJECT\CSC8503CORECLASSES\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Project/Group/CSC8508_project -BC:/Project/Group/CSC8508_project --check-stamp-file C:/Project/Group/CSC8508_project/CSC8503CoreClasses/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

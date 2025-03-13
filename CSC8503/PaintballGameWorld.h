@@ -43,6 +43,8 @@ namespace NCL {
 				return worldStateCounter;
 			}
 
+			int GetObjectsNum() { return gameObjects.size(); }
+
 		protected:
 			std::vector<PaintballGameObject*> gameObjects;
 

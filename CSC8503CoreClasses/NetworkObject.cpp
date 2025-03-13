@@ -27,6 +27,7 @@ bool NetworkObject::WritePacket(GamePacket** p, bool deltaFrame, int stateID) {
 		if (!WriteDeltaPacket(p, stateID)) {
 			return WriteFullPacket(p);
 		}
+		return true;
 	}
 	return WriteFullPacket(p);
 }
@@ -51,17 +52,28 @@ bool NetworkObject::ReadDeltaPacket(DeltaPacket &p) {
 
 	object.GetTransform().SetPosition(fullPos);
 	object.GetTransform().SetOrientation(fullOrientation);
+
 	return true;
 }
 
 bool NetworkObject::ReadFullPacket(FullPacket &p) {
+	if (p.fullState.toDelete == true) {
+		//std::cout << "[delete]" << std::endl;
+		object.Delete();
+		return true;
+	}
+
 	if (p.fullState.stateID < lastFullState.stateID) {
 		return false;
 	}
 	lastFullState = p.fullState;
+	object.SetActive(p.fullState.isActive);
 
-	object.GetTransform().SetPosition(lastFullState.position);
-	object.GetTransform().SetOrientation(lastFullState.orientation);
+	if (object.IsActive()) {
+		object.GetTransform().SetPosition(lastFullState.position);
+		object.GetTransform().SetOrientation(lastFullState.orientation);
+		object.GetRenderObject()->SetColour(lastFullState.color);
+	}
 
 	stateHistory.emplace_back(lastFullState);
 
@@ -72,9 +84,9 @@ bool NetworkObject::WriteDeltaPacket(GamePacket**p, int stateID) {
 	DeltaPacket* dp = new DeltaPacket();
 	NetworkState state;
 	if (!GetNetworkState(stateID, state)) {
+		//std::cout << "false" << std::endl;
 		return false;
 	}
-
 	dp->fullID = stateID;
 	dp->objectID = networkID;
 
@@ -93,17 +105,47 @@ bool NetworkObject::WriteDeltaPacket(GamePacket**p, int stateID) {
 	dp->orientation[2] = (char)(currentOrientation.z * 127.0f);
 	dp->orientation[3] = (char)(currentOrientation.w * 127.0f);
 	*p = dp;
+
+	//std::cout << "succeed " << dp->fullID << std::endl;
+	UpdateStateHistory(dp->fullID);
+
 	return true;
 }
 
 bool NetworkObject::WriteFullPacket(GamePacket**p) {
 	FullPacket* fp = new FullPacket();
-
 	fp->objectID = networkID;
-	fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
-	fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
-	fp->fullState.stateID = lastFullState.stateID++;
+
+	if (toDelete == true) {
+		fp->fullState.toDelete = true;
+		//std::cout << "[delete]!" << networkID << std::endl;
+	}
+	else
+	{
+		fp->fullState.type = object.GetType();
+		fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
+		fp->fullState.scale = object.GetTransform().GetScale();
+		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
+		
+		fp->fullState.size[0] = (short)object.GetRenderObject()->GetMeshName().length();
+		fp->fullState.size[1] = (short)object.GetRenderObject()->GetTextureName().length();
+		fp->fullState.size[2] = (short)object.GetRenderObject()->GetShaderName().length();
+		Util::StringToCharArray(object.GetRenderObject()->GetMeshName(), fp->fullState.meshName);
+		Util::StringToCharArray(object.GetRenderObject()->GetTextureName(), fp->fullState.textureName);
+		Util::StringToCharArray(object.GetRenderObject()->GetShaderName(), fp->fullState.shaderName);
+
+		fp->fullState.color = object.GetRenderObject()->GetColour();
+		fp->fullState.mass = object.GetPhysicsObject()->GetMass();
+
+		fp->fullState.stateID = lastFullState.stateID++;
+		fp->fullState.isActive = object.IsActive();
+	}
 	*p = fp;
+
+	stateHistory.emplace_back(fp->fullState);
+	
+	//std::cout << "full packet"  << std::endl;
+
 	return true;
 }
 
@@ -113,11 +155,13 @@ NetworkState& NetworkObject::GetLatestNetworkState() {
 
 bool NetworkObject::GetNetworkState(int stateID, NetworkState& state) {
 	for (auto i = stateHistory.begin(); i < stateHistory.end(); ++i) {
+		//std::cout << (*i).stateID << " ";
 		if ((*i).stateID == stateID) {
 			state = (*i);
 			return true;
 		}
 	}
+	//std::cout << std::endl << stateHistory.size() << " not found " << std::endl;
 	return false;
 }
 

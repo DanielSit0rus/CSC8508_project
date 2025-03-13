@@ -7,54 +7,61 @@ using namespace NCL;
 using namespace CSC8503;
 using namespace std;
 
-NavigationMesh::NavigationMesh()
-{
-}
+struct NavMeshTransform {
+	Vector3 offset;
+	float scaleFactor;
 
-NavigationMesh::NavigationMesh(const std::string&filename)
+	NavMeshTransform(Vector3 off, float scale) : offset(off), scaleFactor(scale) {}
+};
+
+
+void NavigationMesh::LoadNavMesh(const std::string&filename, Vector3 offset, float scaleFactor)
 {
 	ifstream file(Assets::DATADIR + filename);
 	if (!file.is_open()) {
-		Debug::Print("Failed to open navigation mesh file: " + filename, Vector2(10, 10), Debug::RED);
 		return;
 	}
+
+	navMeshTransforms.emplace_back(offset, scaleFactor);
 
 	int numVertices = 0;
 	int numIndices	= 0;
 
 	file >> numVertices;
 	file >> numIndices;
-	Debug::Print("Loaded " + std::to_string(numVertices) + " vertices and " +
-		std::to_string(numIndices) + " indices.", Vector2(10, 20), Debug::GREEN);
+	int startIndex = allVerts.size();
 
-	// Transform reference point (-13.06667, 1.016667, 4.8) to (0, 1, 0)
-    Vector3 referencePoint(-13.06667f, 1.016667f, 4.8f);
-    Vector3 targetPoint(0.0f, 1.0f, 0.0f);
-    Vector3 translation = targetPoint - referencePoint;
-
-	allVerts.reserve(numVertices); // avoid reallocation
+	allVerts.reserve(allVerts.size() + numVertices); // avoid reallocation
 	for (int i = 0; i < numVertices; ++i) {
 		Vector3 vert;
 		file >> vert.x;
 		file >> vert.y;
 		file >> vert.z;
-		vert += translation;
+
+		vert += offset;
+		vert *= scaleFactor;
+
 		allVerts.emplace_back(vert);
+
 	}
 
-	allTris.resize(numIndices / 3);
+	size_t currentTris = allTris.size();
+	allTris.resize(currentTris + (numIndices / 3));
 
-	for (int i = 0; i < allTris.size(); ++i) {
+	for (size_t i = currentTris; i < allTris.size(); ++i) {
 		NavTri* tri = &allTris[i];
 		file >> tri->indices[0];
 		file >> tri->indices[1];
 		file >> tri->indices[2];
 
-		tri->centroid = allVerts[tri->indices[0]] +
-			allVerts[tri->indices[1]] +
-			allVerts[tri->indices[2]];
+		tri->indices[0] += startIndex;
+		tri->indices[1] += startIndex;
+		tri->indices[2] += startIndex;
 
-		tri->centroid = allTris[i].centroid / 3.0f;
+
+		tri->centroid = (allVerts[tri->indices[0]] +
+			allVerts[tri->indices[1]] +
+			allVerts[tri->indices[2]]) / 3.0f;
 
 		tri->triPlane = Plane::PlaneFromTri(allVerts[tri->indices[0]],
 			allVerts[tri->indices[1]],
@@ -62,18 +69,55 @@ NavigationMesh::NavigationMesh(const std::string&filename)
 
 		tri->area = Maths::AreaofTri3D(allVerts[tri->indices[0]], allVerts[tri->indices[1]], allVerts[tri->indices[2]]);
 	}
-	for (int i = 0; i < allTris.size(); ++i) {
+	for (size_t i = currentTris; i < allTris.size(); ++i) {
 		NavTri* tri = &allTris[i];
+
+
 		for (int j = 0; j < 3; ++j) {
 			int index = 0;
 			file >> index;
-			if (index != -1) {
-				tri->neighbours[j] = &allTris[index];
-			}
+				if (index >= 0 && index < allTris.size()) {
+					tri->neighbours[j] = &allTris[currentTris + index];
+
+				}
+
+				else {
+
+					tri->neighbours[j] = nullptr;
+				}
 		}
 	}
 
-	Debug::Print("Navigation mesh loaded successfully.", Vector2(10, 30), Debug::GREEN);
+
+}
+
+void NavigationMesh::MoveNavMesh(int meshIndex, Vector3 newOffset) {
+	if (meshIndex < 0 || meshIndex >= navMeshTransforms.size()) {
+		return;
+	}
+
+	Vector3 delta = newOffset - navMeshTransforms[meshIndex].offset;
+	navMeshTransforms[meshIndex].offset = newOffset;
+
+	size_t vertStart = (meshIndex == 0) ? 0 : (allVerts.size() / navMeshTransforms.size()) * meshIndex;
+	size_t vertEnd = (meshIndex == navMeshTransforms.size() - 1) ? allVerts.size() : (allVerts.size() / navMeshTransforms.size()) * (meshIndex + 1);
+
+	for (size_t i = vertStart; i < vertEnd; ++i) {
+		allVerts[i] += delta;
+	}
+
+	for (size_t i = vertStart / 3; i < vertEnd / 3; ++i) {
+		allTris[i].centroid += delta;
+		allTris[i].triPlane = Plane::PlaneFromTri(
+			allVerts[allTris[i].indices[0]],
+			allVerts[allTris[i].indices[1]],
+			allVerts[allTris[i].indices[2]]
+		);
+	}
+}
+
+NavigationMesh::NavigationMesh(const std::string& filename1, const std::string& filename2) {
+	NavigationMesh::LoadNavMesh(filename2, Vector3(-20, 0, 0), 5.0f);
 }
 
 NavigationMesh::~NavigationMesh()
@@ -81,8 +125,11 @@ NavigationMesh::~NavigationMesh()
 }
 
 bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, NavigationPath& outPath) {
+	//Debug::Print("FindPath called!", Vector2(10, 5), Debug::BLUE);
+
 	const NavTri* startTri = GetTriForPosition(from);
 	const NavTri* goalTri = GetTriForPosition(to);
+
 
 	if (!startTri || !goalTri) {
 		return false; 
@@ -109,16 +156,23 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 	cameFrom[startTri] = nullptr;
 
 	while (!openList.empty()) {
+	
+
 		const NavTri* current = openList.top().second;
+		
 		openList.pop();
 
 		// Check if we have reached the goal
 		if (current == goalTri) {
 			// Reconstruct path
 			const NavTri* step = goalTri;
-			while (step != startTri) {
+			while (step && step != startTri) {
 				outPath.PushWaypoint(step->centroid);
-				step = cameFrom[step];
+				auto it = cameFrom.find(step);
+				if (it == cameFrom.end()) {
+					return false;
+				}
+				step = it->second;
 			}
 			outPath.PushWaypoint(startTri->centroid);
 			std::reverse(outPath.waypoints.begin(), outPath.waypoints.end());
@@ -128,7 +182,10 @@ bool NavigationMesh::FindPath(const Vector3& from, const Vector3& to, Navigation
 		// Explore each neighbor
 		for (int i = 0; i < 3; ++i) {
 			const NavTri* neighbor = current->neighbours[i];
-			if (!neighbor) continue; // Skip if no neighbor
+			if (!neighbor) {
+				continue;
+			}// Skip if no neighbor
+
 
 			float newCost = costSoFar[current] + heuristic(current->centroid, neighbor->centroid);
 			if (costSoFar.find(neighbor) == costSoFar.end() || newCost < costSoFar[neighbor]) {

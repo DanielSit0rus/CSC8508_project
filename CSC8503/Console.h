@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EventManager.h"
+#include "GameManager.h"
 
 #include <iostream>
 #include <string>
@@ -21,6 +22,8 @@ namespace NCL {
             Console& operator=(const Console&) = delete;
 
             void Init(Window* win);
+            void Release();
+
             void ProcessInput();
             void RegisterCommand(const std::string& command, CommandHandler handler, const std::string& text = "");
             void ShowConsole(bool t);
@@ -33,24 +36,29 @@ namespace NCL {
 
             void HandleCommand(const std::string& input);
 
-
 #pragma region CommandFunc
             void ShowHelpCommnad() const;
-            void NetworkCommand(std::string args) const;
+            void NetworkCommand(const std::string& args) const;
             void ClearCommnad() const { system("cls"); }
-            void AddObjCommand(std::string args) const;
+            void AddObjCommand(const std::string& args) const;
+            void AudioCommand(const std::string& args) const;
+            void TestCommand(const std::string& args);
 #pragma endregion
+            bool running = true;
+            bool testing = false;
+
+            GameManager& G1 = GameManager::GetInstance();
 
             Window* w = nullptr;
             bool isShow = false;
-
-            std::string input;
 
             struct CommandInfo {
                 CommandHandler handler;
                 std::string description;
             };
             std::unordered_map<std::string, CommandInfo> commands;
+
+            std::thread* testThread = nullptr;
         };
     }
 }

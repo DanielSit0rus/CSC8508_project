@@ -15,13 +15,11 @@ namespace NCL {
 		class PaintballRenderObject
 		{
 		public:
-			PaintballRenderObject(PaintballTransform* parentTransform, Mesh* mesh, Texture* tex, Shader* shader,
-				MeshAnimation* animation = nullptr, MeshMaterial* material = nullptr);
+			PaintballRenderObject(PaintballTransform* parentTransform, std::string meshName, std::string textureName, std::string shaderName,
+				std::shared_ptr<MeshAnimation> animation = nullptr, std::shared_ptr<MeshMaterial> material = nullptr);
 			~PaintballRenderObject();
 
-			void SetDefaultTexture(Texture* t) {
-				texture = t;
-			}
+			void SetDefaultTexture(const std::string& t);
 
 			Texture* GetDefaultTexture() const {
 				return texture;
@@ -49,24 +47,36 @@ namespace NCL {
 
 			void UpdateAnimation(float dt);
 
-			MeshAnimation* GetAnimation() const {
+			std::shared_ptr<MeshAnimation> GetAnimation() const {
 				return animation;
+			}
+
+			void SetAnimation(std::shared_ptr<MeshAnimation> a) {
+				animation = a;
 			}
 
 			int GetCurrentFrame() const {
 				return currentFrame;
 			}
 
+			std::string GetMeshName() { return meshName; }
+			std::string GetTextureName() { return textureName; }
+			std::string GetShaderName() { return shaderName; }
 
 		protected:
+
+			std::string meshName;
+			std::string textureName;
+			std::string shaderName;
+
 			Mesh* mesh;
 			Texture* texture;
 			Shader* shader;
 			PaintballTransform* transform;
 			Vector4		colour;
 
-			MeshAnimation* animation;
-			MeshMaterial* material;
+			std::shared_ptr<MeshAnimation> animation;
+			std::shared_ptr<MeshMaterial> material;
 			int currentFrame;
 			float frameTime;
 		};
