@@ -3,14 +3,18 @@
 
 using namespace NCL::CSC8503;
 
-PaintballAudioObject::PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* instance)
+PaintballAudioObject::PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* instance, bool isAuto)
 	: event(instance)
 {
 	transform = parentTransform;
 	sourceAttributes = new FMOD_3D_ATTRIBUTES;
 
-	EventManager::Subscribe(EventType::Game_Resume, [this]() {Play(true); });
-	EventManager::Subscribe(EventType::Game_Pause, [this]() {Play(false); });
+	if (isAuto) {
+		EventManager::Subscribe(EventType::Game_Start, [this]() {Play(true); });
+		EventManager::Subscribe(EventType::Game_End, [this]() {Play(false); });
+		EventManager::Subscribe(EventType::Game_Resume, [this]() {Play(true); });
+		EventManager::Subscribe(EventType::Game_Pause, [this]() {Play(false); });
+	}
 }
 
 PaintballAudioObject::~PaintballAudioObject()

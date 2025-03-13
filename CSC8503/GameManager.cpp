@@ -29,8 +29,7 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, fl
 void GameManager::Update(float dt) {
     leftTime -= dt;
 
-    Debug::Print("Left time: "
-        + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
+    //Debug::Print("Left time: " + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
 
     if (hasPhys) RpWorld->update(dt);
     //std::cout << "1";
@@ -57,10 +56,38 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
     if (toRebuild != -1) InitWorld(toRebuild);
 }
 
+void GameManager::CleanWorld()
+{
+    leftTime = totalTime;
+    lockedObject = nullptr;
+    selectionObject = nullptr;
+    world->ClearAndErase();
+
+    //Pointers - to be private later
+    playerObject = nullptr;
+    selectionObject = nullptr;
+    lockedObject = nullptr;
+    enemyObject = nullptr;
+    CharacterObject = nullptr;
+    pathNodes.clear();
+    //FMOD
+    speakerObj = nullptr;
+    //shoot 
+    shoottest = nullptr;
+    enemy = nullptr;
+    //private
+    gameObjects.clear();
+    player = nullptr;
+    enemies.clear();
+    objectsToDelete.clear();
+    networkObjects.clear();
+}
+
 void GameManager::InitWorld() {
     leftTime = totalTime;
     lockedObject = nullptr;
     selectionObject = nullptr;
+    networkObjects.clear();
     world->ClearAndErase();
 
     //ResourceManager::GetInstance().ReloadAnimations();
@@ -169,28 +196,7 @@ void GameManager::InitWorld() {
 
 void GameManager::InitWorld(int arg)
 {
-    leftTime = totalTime;
-    lockedObject = nullptr;
-    selectionObject = nullptr;
-    world->ClearAndErase();
-
-    //Pointers - to be private later
-    playerObject = nullptr;
-    selectionObject = nullptr;
-    lockedObject = nullptr;
-    enemyObject = nullptr;
-    CharacterObject = nullptr;
-    pathNodes.clear();
-    //FMOD
-    speakerObj = nullptr;
-    //shoot 
-    shoottest = nullptr;
-    enemy = nullptr;
-    //private
-    gameObjects.clear();
-    player = nullptr;
-    enemies.clear();
-    objectsToDelete.clear();
+    CleanWorld();
 
     json j = SLSystem::GetInstance().LoadData("save");
 
@@ -636,6 +642,7 @@ void GameManager::SetGameState(PaintballGameState state) {
     case MENU:
         if (lastState == PLAYING || lastState == PAUSED) {
             InitWorld();
+            EventManager::Trigger(EventType::Game_End);
         }
         break;
     case SETTING:

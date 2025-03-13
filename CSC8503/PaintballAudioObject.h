@@ -9,7 +9,7 @@ namespace NCL::CSC8503 {
 	class PaintballAudioObject
 	{
 	public:
-		PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* ins);
+		PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* ins, bool isAuto = false);
 		~PaintballAudioObject();
 
 		void Update();

@@ -99,7 +99,8 @@ void TutorialGame::UpdateGame(float dt) {
 		UpdateUI(dt);
 		break;
 	case PAUSED:
-		UpdateUI(dt);
+		if (G1.GetNetwork()) UpdateGameBody(dt);
+		else UpdateUI(dt);
 		break;
 	case FAILURE:
 		UpdateUI(dt);
@@ -133,8 +134,8 @@ void TutorialGame::UpdateGameBody(float dt)
 	G1.forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	world->UpdateWorld(dt);
-	renderer->Update(dt);
-	renderer->GetUI()->Update(dt); //ui
+
+	UpdateUI(dt);
 
 	G1.getRPworld()->update(dt);	//rp3d
 

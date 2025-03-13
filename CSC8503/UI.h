@@ -56,6 +56,10 @@ namespace NCL {
 
 			int loadingstep = 0;
 
+			float bgmVolume;
+			float effectVolume;
+			float voiceVolume;
+
 			ImFont* titlefont;
 			ImFont* menufont;
 			ImFont* infofont;

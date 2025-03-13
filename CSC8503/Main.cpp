@@ -176,7 +176,7 @@ int main() {
 
 		AudioSystem::GetInstance().Update();
 	}
-	EventManager::Trigger(EventType::Game_End);
+	EventManager::Trigger(EventType::MainMenu_Quit);
 	
 	Console::GetInstance().Release();
 	console.detach();

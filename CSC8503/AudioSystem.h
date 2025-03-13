@@ -27,6 +27,7 @@ namespace NCL {
 			void Release();
 
 			void SetBusVolume(const std::string& busName, float v);
+			void GetBusVolume(const std::string& busName, float& v);
 
 			bool TriggerEvent(const std::string& eventName,rp3d::Vector3 pos);
 			bool TriggerEvent(const std::string& eventName);
@@ -68,6 +69,8 @@ namespace NCL {
 
 			FMOD_3D_ATTRIBUTES* listenerAttributes = nullptr;
 			FMOD_3D_ATTRIBUTES* triggerAttributes = nullptr;
+
+			float volTemp = 0;
 		};
 	}
 }

@@ -173,6 +173,10 @@ UI::UI(PaintballGameWorld* world)
 
 	// Load saved server list
 	LoadServerList();
+
+	AudioSystem::GetInstance().GetBusVolume("BGM", bgmVolume);
+	AudioSystem::GetInstance().GetBusVolume("Effect", effectVolume);
+	AudioSystem::GetInstance().GetBusVolume("Voice", voiceVolume);
 }
 
 UI::~UI()
@@ -439,7 +443,7 @@ void UI::DrawPlayingUI(float dt) {
 		
 		ImGui::PushFont(infofont);
 		ImGui::Text("Score: %d", 0); // Replace 0 with actual score
-		ImGui::Text("Time: %.1f", 100.0f); // Replace with actual time
+		ImGui::Text("Time: %.1f", GameManager::GetInstance().GetLeftTime()); // Replace with actual time
 		ImGui::Text("Health: 100"); // Replace with actual health
 		ImGui::PopFont();
 		
@@ -557,10 +561,6 @@ void UI::DrawSettingMenu(float dt) {
 	float startY = main_viewport->Size.y * 0.3f;
 	float itemSpacing = 80.0f;
 
-	// set
-	static float bgmVolume = 1.0f;
-	static float effectVolume = 0.8f;
-	static float voiceVolume = 0.7f;
 	/*static bool debugMode = false;*/
 
 
@@ -582,6 +582,11 @@ void UI::DrawSettingMenu(float dt) {
 	ImGui::SliderFloat("##Voice", &voiceVolume, 0.0f, 1.0f, "%.2f");
 
 	ImGui::PopItemWidth();
+
+	AudioSystem::GetInstance().SetBusVolume("BGM", bgmVolume);
+	AudioSystem::GetInstance().SetBusVolume("Effect", effectVolume);
+	AudioSystem::GetInstance().SetBusVolume("Voice", voiceVolume);
+
 
 	// Debug Mode 
 	ImGui::SetCursorPos(ImVec2(startX, startY + itemSpacing * 3));

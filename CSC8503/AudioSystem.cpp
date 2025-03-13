@@ -39,7 +39,7 @@ bool AudioSystem::Init()
     LoadBus("Effect");
 
     //SetBusVolume("BGM", 0);
-    SetBusVolume("Voice", 0);
+    //SetBusVolume("Voice", 0);
     //SetBusVolume("Effect", 0);
 
     RegisterSL();
@@ -121,7 +121,7 @@ bool AudioSystem::LoadBus(const std::string& busName) {
     return true;
 }
 
-void AudioSystem::SetBusVolume(const std::string& busName,float v) {
+void AudioSystem::SetBusVolume(const std::string& busName, float v) {
     if (v < 0 || v > 1)
     {
         std::cerr << "[Audio] Invalid volume value£º" << busName << std::endl;
@@ -130,8 +130,23 @@ void AudioSystem::SetBusVolume(const std::string& busName,float v) {
 
     auto it = buses.find(busName);
     if (it != buses.end()) {
+        buses[busName]->getVolume(&volTemp);
+        if (volTemp == v) return;
+
         buses[busName]->setVolume(v);
-        std::cout << "[Audio] Set bus(" << busName<<") volume to [" << v <<"] successfully." << std::endl;
+        std::cout << "[Audio] Set bus(" << busName << ") volume to [" << v << "] successfully." << std::endl;
+    }
+    else
+    {
+        std::cerr << "[Audio] Cannot find the bus £º" << busName << std::endl;
+    }
+}
+
+void AudioSystem::GetBusVolume(const std::string& busName, float& v)
+{
+    auto it = buses.find(busName);
+    if (it != buses.end()) {
+        buses[busName]->getVolume(&v);
     }
     else
     {

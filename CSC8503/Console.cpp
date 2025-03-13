@@ -33,7 +33,7 @@ void Console::Init(Window* win) {
     EventManager::Subscribe(EventType::Game_Pause, [this]() { ShowMouse(true); });
     EventManager::Subscribe(EventType::Game_Resume, [this]() { ShowMouse(false); });
     
-    EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
+    EventManager::Subscribe(EventType::MainMenu_Quit, [this]() {ShowConsole(true); });
 
     std::cout << "\nInput commnad (Type help to list all commands) :\n> ";
 }

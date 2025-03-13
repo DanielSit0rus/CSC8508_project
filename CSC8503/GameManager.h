@@ -54,12 +54,15 @@ namespace NCL {
             void Update(float dt);
             void PostCleanUp();
 
-            //void InitWorld();
             rp3d::PhysicsWorld* getRPworld() { return RpWorld; }
             rp3d::PhysicsCommon& getPhysCommon() { return physicsCommon; }
             bool isPhysEnabled() const { return hasPhys; }
             void EnablePhys(bool arg) { hasPhys = arg; }
 
+            bool GetNetwork() const { return hasNetwork; }
+            void SetNet(bool arg) { hasNetwork = arg; }
+
+            void CleanWorld();
             void InitWorld();
             void InitWorld(int arg);
 
@@ -142,6 +145,7 @@ namespace NCL {
 
             float totalTime;
             float leftTime;
+            bool hasNetwork = false;
 
             //NEW
             std::vector<PaintballGameObject*> gameObjects;

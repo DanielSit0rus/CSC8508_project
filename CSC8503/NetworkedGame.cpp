@@ -34,6 +34,19 @@ NetworkedGame::NetworkedGame() {
 		});
 	EventManager::Subscribe(EventType::Network_Test, [this]() {SendPacketTest(); });
 	EventManager::Subscribe(EventType::Network_Test, [this](std::string& s) {SendPacketTest(s); });
+
+	EventManager::Subscribe(EventType::Game_End, [this]()
+		{
+			if (thisServer) {
+				delete thisServer;
+				thisServer = nullptr;
+			}
+			if (thisClient) {
+				delete thisClient;
+				thisClient = nullptr;
+			}
+			G1.SetNet(false);
+		});
 }
 
 NetworkedGame::~NetworkedGame()	{
@@ -42,22 +55,31 @@ NetworkedGame::~NetworkedGame()	{
 }
 
 void NetworkedGame::StartAsServer() {
-	thisServer = new GameServer(NetworkBase::GetDefaultPort(), 4);
+	if (thisServer || thisClient) return;
+
+	thisServer = new GameServer(NetworkBase::GetDefaultPort(), 8);
 
 	thisServer->RegisterPacketHandler(Received_State, this);
 	thisServer->RegisterPacketHandler(String_Message, this);
 
 	std::cout << "[NetworkedGame.cpp]Start As Server" << std::endl;
 
+	G1.SetNet(true);
+
 	StartLevel();
 }
 
 void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
+	if (thisServer || thisClient) return;
+
 	thisClient = new GameClient();
 
 	bool isConnected = thisClient->Connect(a, b, c, d, NetworkBase::GetDefaultPort());
-	if (isConnected) std::cout << "[NetworkedGame.cpp]Connected" << std::endl;
-	else std::cout << "[NetworkedGame.cpp]Error in connection" << std::endl;
+	if (isConnected) std::cout << "[NetworkedGame.cpp]Connecting" << std::endl;
+	else {
+		std::cout << "[NetworkedGame.cpp]Error in connection" << std::endl;
+		return;
+	}
 
 	thisClient->RegisterPacketHandler(Delta_State, this);
 	thisClient->RegisterPacketHandler(Full_State, this);
@@ -66,6 +88,7 @@ void NetworkedGame::StartAsClient(char a, char b, char c, char d) {
 	thisClient->RegisterPacketHandler(String_Message, this);
 
 	GameManager::GetInstance().EnablePhys(false);
+	G1.SetNet(true);
 
 	StartLevel();
 }
@@ -186,7 +209,8 @@ void NetworkedGame::SpawnPlayer() {
 }
 
 void NetworkedGame::StartLevel() {
-	GameManager::GetInstance().RequestRebuildWorld(1);
+	if (thisServer) G1.RequestRebuildWorld(1);
+	else if (thisClient) G1.CleanWorld();
 
 	/*
 	std::vector<PaintballGameObject*>::const_iterator first;
