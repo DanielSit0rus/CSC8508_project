@@ -6,12 +6,9 @@
 using namespace NCL::CSC8503;
 
 void InputManager::Update() {
-    GameState currentState = GameManager::GetInstance().GetGameState();
+    PaintballGameState currentState = GameManager::GetInstance().GetGameState();
     switch (currentState) {
-    case GameState::MainMenu:
-        HandleMainMenuInput();
-        break;
-    case GameState::InGame:
+    case PLAYING:
         HandleGameInput();
         break;
     default:

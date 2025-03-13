@@ -6,6 +6,8 @@
 using namespace NCL;
 using namespace CSC8503;
 
+GameManager& G1 = GameManager::GetInstance();
+
 void Console::Init(Window* win) {
     w = win;
     RegisterCommand("help", [this](const std::string&) { ShowHelpCommnad(); }, "List all commands");
@@ -20,7 +22,12 @@ void Console::Init(Window* win) {
 
     RegisterCommand("test", [this](const std::string& args) { TestCommand(args); }, "Test command");
 
-    EventManager::Subscribe(EventType::Game_Start, [this]() {ShowConsole(false); });
+    EventManager::Subscribe(EventType::Game_Start, [this]() {
+        ShowConsole(false);
+        ShowMouse(false);
+        });
+    EventManager::Subscribe(EventType::Game_Pause, [this]() { ShowMouse(true); });
+    EventManager::Subscribe(EventType::Game_Resume, [this]() { ShowMouse(false); });
     EventManager::Subscribe(EventType::Game_End, [this]() {ShowConsole(true); });
 
     std::cout << "\nInput commnad (Type help to list all commands) :\n> ";
@@ -34,16 +41,22 @@ void Console::Release()
     delete testThread;
 }
 
-void Console::ShowConsole(bool t) {
-    w->ShowConsole(t);
-    w->ShowOSPointer(t);
-    w->LockMouseToWindow(!t);
-    isShow = t;
+void Console::ShowConsole(bool arg) {
+    w->ShowConsole(arg);
+    w->ShowOSPointer(arg);
+    w->LockMouseToWindow(!arg);
+    isShow = arg;
 }
 
 void Console::ShowConsole() {
     isShow = !isShow;
     w->ShowConsole(isShow);
+    w->ShowOSPointer(isShow);
+    w->LockMouseToWindow(!isShow);
+}
+
+void Console::ShowMouse(bool isShow)
+{
     w->ShowOSPointer(isShow);
     w->LockMouseToWindow(!isShow);
 }

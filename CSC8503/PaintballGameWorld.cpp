@@ -76,9 +76,3 @@ void PaintballGameWorld::UpdateWorld(float dt) {
 		std::shuffle(gameObjects.begin(), gameObjects.end(), e);
 	}
 }
-
-void PaintballGameWorld::SetGameState(PaintballGameState state) { 
-	
-	currentstate = state; 
-	
-}

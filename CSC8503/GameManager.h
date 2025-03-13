@@ -17,24 +17,27 @@ namespace NCL {
     const UINT16 ENEMY = 0x0002;    // 0000 0000 0000 0010
     const UINT16 BULLET = 0x0004;   // 0000 0000 0000 0100
 
-    enum class GameState {
-        MainMenu,
-        InGame,
-        Settings,
-        Paused,
-        GameOver
-        // add others if necessary
-    };
+    enum PaintballGameState {
+        LOADING,
+        PLAYING,
+        SERVERPLAYING,
+        CLIENTPLAYING,
+        PAUSED,
+        FAILURE,
+        FINISH,
+        MENU,
+        SETTING,
+        CHOOSESERVER,
+        EXIT
+    };//imgui gamestate
+
     namespace CSC8503 {
         class PaintballPlayer;
         class PaintballBullet;
         class PaintballEnemy; //forward declaration
-        class GameManager 
+        class GameManager
         {
         public:
-
-            using GameState = NCL::GameState;
-
             static GameManager& GetInstance() {
                 static GameManager instance;
                 return instance;
@@ -80,7 +83,7 @@ namespace NCL {
 
 
             PaintballGameObject* AddTrigger(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-            PaintballGameObject* AddTrap( );
+            PaintballGameObject* AddTrap();
 
 
             void DeleteObject(PaintballGameObject* obj) {
@@ -91,15 +94,6 @@ namespace NCL {
                 objectsToDelete.insert(obj);
             }
 
-            //GameState management
-           void SetGameState(GameState newState) {
-                currentState = newState;
-                HandleStateChange(newState);
-            }
-
-            GameState GetGameState() const {
-                return currentState;
-            }
             PaintballPlayer* GetPlayer() const {
                 return player;
             }
@@ -122,6 +116,10 @@ namespace NCL {
 
             void RequestRebuildWorld(int arg) { toRebuild = arg; }
 
+            void SetGameState(PaintballGameState state);
+            PaintballGameState GetGameState() const { return currentstate; };
+
+
             //Pointers - to be private later
             PaintballPlayer* playerObject;
             PaintballGameObject* selectionObject = nullptr;
@@ -138,23 +136,6 @@ namespace NCL {
 
         private:
             GameManager() = default;
-            GameState currentState = GameState::InGame;
-
-            void HandleStateChange(GameState state) {
-              // Implement logic that should happen on state change
-                switch (state) {
-               case GameState::MainMenu:
-                   // Pause game, show main menu
-                   break;
-              case GameState::InGame:
-                   // Resume or start game
-                   break;
-              case GameState::Paused:
-                   // Pause or toggle game pause
-                   break;
-                    // Handle other states
-               }
-            }
 
             float totalTime;
             float leftTime;
@@ -174,15 +155,18 @@ namespace NCL {
 
             std::unordered_set<PaintballGameObject*> objectsToDelete;
 
-            
+
 
             //NavigationMesh* navMesh;
-            
+
             //FMOD
             bool canStart_FMOD = true;
 
             std::map<int, NetworkObject*> networkObjects;
             int toRebuild = -1;
+
+            Window* w = nullptr;
+            PaintballGameState currentstate;
         };
     }
 }

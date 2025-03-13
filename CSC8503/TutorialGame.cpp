@@ -48,13 +48,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	
 
 
-	world->SetGameState(PaintballGameState::LOADING);
-	
-
-
-	
-	
-	
+	G1.SetGameState(PaintballGameState::LOADING);
 }
 
 /*
@@ -84,37 +78,49 @@ void TutorialGame::UpdateGame(float dt) {
 	//if (!gameStarted) {  // ��Ϸδ��ʼʱ����ͣ�߼�
 	//	renderer->Render();
 	//	return;
-	//}
+	//}	
 
-	CSC8503::PaintballGameState currentState = world->GetGameState();
-	
-
-	
-
-	switch (currentState) {
-	case CSC8503::PaintballGameState::LOADING:
+	switch (G1.GetGameState()) {
+	case LOADING:
 		UpdateLoading(dt);
 		break;
-	case CSC8503::PaintballGameState::MENU:
+	case PLAYING:
+		UpdateGameBody(dt);
+		break;
+	case SERVERPLAYING:
+		UpdateGameBody(dt);
+		break;
+	case CLIENTPLAYING:
+		UpdateGameBody(dt);
+		break;
+	case CHOOSESERVER:
+		UpdateGameBody(dt);
+		break;
+	case MENU:
 		UpdateMenu(dt);
 		break;
-	case CSC8503::PaintballGameState::SETTING:
-		
+	case SETTING:
 		UpdateSetting(dt);
 		break;
-	case CSC8503::PaintballGameState::PAUSED:
+	case PAUSED:
 		UpdatePaused(dt);
 		break;
-	case CSC8503::PaintballGameState::FAILURE:
+	case FAILURE:
 		UpdateFailure(dt);
 		break;
-	case CSC8503::PaintballGameState::FINISH:
+	case FINISH:
 		UpdateFinish(dt);
 		break;
 	default:
 		break;
 	}
 
+	renderer->Render();
+	Debug::UpdateRenderables(dt);
+}
+
+void TutorialGame::UpdateGameBody(float dt)
+{
 	const Camera& camera = world->GetMainCamera();
 	inputManager.Update();
 	GameManager::GetInstance().Update(dt);
@@ -129,17 +135,14 @@ void TutorialGame::UpdateGame(float dt) {
 	}
 
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
-	Debug::Print("Press P to pause or M to open menu", Vector2(5, 85));
-
-	
 
 	world->UpdateWorld(dt);
 	renderer->Update(dt);
 	renderer->GetUI()->Update(dt); //ui
-	
+
 	G1.getRPworld()->update(dt);	//rp3d
 
-	G1.navMesh->DrawNavMesh(); 
+	G1.navMesh->DrawNavMesh();
 	if (G1.lockedObject) {
 		Vector3 lockedScale = Util::RP3dToNCL(G1.lockedObject->GetTransform().GetScale());
 		LockedObjectMovement();
@@ -160,6 +163,8 @@ void TutorialGame::UpdateGame(float dt) {
 	if (renderer->GetUI()->IsDebugMode()) {
 		Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
 	}
+
+	/*
 	if (false) {
 		Vector3 camPos = camera.GetPosition();
 		float yaw = DegreesToRadians(camera.GetYaw());
@@ -175,27 +180,26 @@ void TutorialGame::UpdateGame(float dt) {
 	{
 		Debug::Print("+", Vector2(49, 51));
 	}
+	*/
 
 	if (G1.shoottest) { // If the player exists
-    Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
+		Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
 
-    // Set the spotlight 5 units above the player
-    Vector3 lightPos = playerPos + Vector3(0, 5, 0);
+		// Set the spotlight 5 units above the player
+		Vector3 lightPos = playerPos + Vector3(0, 5, 0);
 
-    // Always point the spotlight downward
-    Vector3 lightDir = Vector3(0, -1, 0);
-	//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
+		// Always point the spotlight downward
+		Vector3 lightDir = Vector3(0, -1, 0);
+		//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
 
-    // Update the spotlight's position and direction
-    renderer->UpdateLight(2, lightPos, lightDir);
-}
+		// Update the spotlight's position and direction
+		renderer->UpdateLight(2, lightPos, lightDir);
+	}
 
 
 	CalculatePathToPlayer();
 	DisplayPath();
 	MoveEnemyAlongPath();
-	renderer->Render();
-	Debug::UpdateRenderables(dt);
 }
 
 void TutorialGame::AssetsLoading() {
@@ -215,7 +219,7 @@ void TutorialGame::UpdateLoading(float dt)
 	renderer->GetUI()->Update(dt); //UI
 	renderer->GetUI()->SetLoadingStep(assetsLoadedStep);
 	renderer->Render();
-	if (assetsLoadedStep == 5) world->SetGameState(CSC8503::PaintballGameState::MENU);
+	if (assetsLoadedStep == 5) G1.SetGameState(MENU);
 	AssetsLoading();
 }
 
@@ -385,11 +389,8 @@ void TutorialGame::InitWorld() {
 		G1.shoottest = G1.AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
 		G1.AddTrap();
 		GameManager::GetInstance().SetPlayer(G1.shoottest);
-		G1.SetGameState(GameState::InGame);
 
 		//InitDefaultFloor();
-
-
 	}
 }
 
@@ -650,6 +651,4 @@ void TutorialGame::ShowMenuPage() {
 
 	Debug::Print("MENU", Vector2(20, 35), Debug::BLACK);
 	Debug::Print("Press U to close menu", Vector2(20, 55), Debug::BLACK);
-
 }
-

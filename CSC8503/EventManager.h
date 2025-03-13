@@ -7,6 +7,9 @@
 namespace NCL {
     namespace CSC8503 {
         enum class EventType {
+            MainMenu_Start,
+            MainMenu_Quit,
+
             Game_Start,
             Game_Pause,
             Game_Resume,

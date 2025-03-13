@@ -357,7 +357,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     return concave;
 }
 
-PaintballBullet* NCL::CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
+PaintballBullet* CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {
     //AudioSystem::GetInstance().TriggerEvent("event:/Effect/GunShoot", position);
 
@@ -433,7 +433,7 @@ reactphysics3d::ConcaveMeshShape* GameManager::CreateConcaveMeshShape(Mesh* mesh
     return concaveMeshShape;
 }
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddTrigger(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
+PaintballGameObject* CSC8503::GameManager::AddTrigger(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
 
@@ -466,7 +466,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddTrigger(const rp3d::Vector3& 
     return cube;
 }
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddTrap()
+PaintballGameObject* CSC8503::GameManager::AddTrap()
 {
     PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
     PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -489,4 +489,40 @@ Vector3 GameManager::GetCameraFront()
     float pitch = DegreesToRadians(-world->GetMainCamera().GetPitch());
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
+}
+
+void GameManager::SetGameState(PaintballGameState state) {
+    currentstate = state;
+    switch (state)
+    {
+    case LOADING:
+        break;
+    case PLAYING:
+        if (leftTime == totalTime)
+            EventManager::Trigger(EventType::Game_Start);
+        else
+            EventManager::Trigger(EventType::Game_Resume);
+        break;
+    case SERVERPLAYING:
+        break;
+    case CLIENTPLAYING:
+        break;
+    case PAUSED:
+        EventManager::Trigger(EventType::Game_Pause);
+        break;
+    case FAILURE:
+        break;
+    case FINISH:
+        break;
+    case MENU:
+        break;
+    case SETTING:
+        break;
+    case CHOOSESERVER:
+        break;
+    case EXIT:
+        break;
+    default:
+        break;
+    }
 }

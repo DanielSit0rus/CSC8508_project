@@ -29,11 +29,10 @@ namespace NCL {
 		public:
 			TutorialGame();
 		/*	bool gameStarted = false;*/
-			bool pauseGame();
-			bool UnpauseGame();
 
 			~TutorialGame();
 			virtual void UpdateGame(float dt);
+			void UpdateGameBody(float dt);
 
 			void ShowMainPage();
 			void ShowPausedPage();
@@ -87,8 +86,6 @@ namespace NCL {
 			float		forceMagnitude;
 
 			InputManager inputManager;
-
-			static TutorialGame* instance;
 		};
 
 

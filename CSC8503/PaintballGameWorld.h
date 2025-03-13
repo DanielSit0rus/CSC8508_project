@@ -10,33 +10,12 @@ namespace NCL {
 		class PaintballGameObject;
 
 		typedef std::function<void(PaintballGameObject*)> PaintballGameObjectFunc;
-		typedef std::vector<PaintballGameObject*>::const_iterator PaintballGameObjectIterator;
-
-		enum PaintballGameState {
-			LOADING,
-			PLAYING,
-			SERVERPLAYING,
-			CLIENTPLAYING,
-			PAUSED,
-			FAILURE,
-			FINISH,
-			MENU,
-			SETTING,
-			CHOOSESERVER,
-			EXIT
-		};//imgui gamestate
-
-		
+		typedef std::vector<PaintballGameObject*>::const_iterator PaintballGameObjectIterator;		
 
 		class PaintballGameWorld {
 		public:
 			PaintballGameWorld();
 			~PaintballGameWorld();
-
-			PaintballGameState GetGameState() const {
-
-				return currentstate;
-			}
 
 			void Clear();
 			void ClearAndErase();
@@ -64,9 +43,6 @@ namespace NCL {
 				return worldStateCounter;
 			}
 
-			void SetGameState(PaintballGameState state);
-			PaintballGameState GetGameState() { return currentstate; };
-
 			int GetObjectsNum(){return gameObjects.size();}
 
 		protected:
@@ -77,8 +53,6 @@ namespace NCL {
 			bool shuffleObjects;
 			int		worldIDCounter;
 			int		worldStateCounter;
-
-			PaintballGameState currentstate;
 		};
 	}
 }

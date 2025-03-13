@@ -26,8 +26,10 @@ namespace NCL {
 
             void ProcessInput();
             void RegisterCommand(const std::string& command, CommandHandler handler, const std::string& text = "");
-            void ShowConsole(bool t);
+            void ShowConsole(bool isShow);
             void ShowConsole();
+
+            void ShowMouse(bool isShow);
 
         private:
 
@@ -46,8 +48,6 @@ namespace NCL {
 #pragma endregion
             bool running = true;
             bool testing = false;
-
-            GameManager& G1 = GameManager::GetInstance();
 
             Window* w = nullptr;
             bool isShow = false;

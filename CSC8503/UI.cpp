@@ -194,68 +194,67 @@ void UI::Update(float dt)
 
 	ImGuiIO& io = ImGui::GetIO();
 	
-	CSC8503::PaintballGameState state = world->GetGameState();
 	//std::cout << "[UI::Update] Current state before processing: " << (int)state << std::endl;
 
 	// Enable mouse in MENU and SETTING states
-	if (state == CSC8503::PaintballGameState::MENU || 
-		state == CSC8503::PaintballGameState::PAUSED || 
-		state == CSC8503::PaintballGameState::LOADING || 
-		state == CSC8503::PaintballGameState::SETTING || 
-		state == CSC8503::PaintballGameState::PLAYING ||
-		state == CSC8503::PaintballGameState::CHOOSESERVER) {
-		Window::GetWindow()->ShowOSPointer(true);
-		Window::GetWindow()->LockMouseToWindow(false);
+	if (GameManager::GetInstance().GetGameState() == MENU ||
+		GameManager::GetInstance().GetGameState() == PAUSED ||
+		GameManager::GetInstance().GetGameState() == LOADING ||
+		GameManager::GetInstance().GetGameState() == SETTING ||
+		GameManager::GetInstance().GetGameState() == PLAYING ||
+		GameManager::GetInstance().GetGameState() == CHOOSESERVER) {
+		//Window::GetWindow()->ShowOSPointer(true);
+		//Window::GetWindow()->LockMouseToWindow(false);
 		
 		// Enable mouse input
 		io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	}
 	else {
-		Window::GetWindow()->ShowOSPointer(false);
-		Window::GetWindow()->LockMouseToWindow(true);
+		//Window::GetWindow()->ShowOSPointer(false);
+		//Window::GetWindow()->LockMouseToWindow(true);
 	}
 
-	if (world->GetGameState() == CSC8503::PaintballGameState::LOADING) {
-		loadingstep += dt * 2;  
+	if (GameManager::GetInstance().GetGameState() == LOADING) {
+		loadingstep += dt * 2;
 		if (loadingstep >= 5) {
-			world->SetGameState(CSC8503::PaintballGameState::MENU);  
+			GameManager::GetInstance().SetGameState(MENU);
 		}
 	}
 
-	switch (state)
+	switch (GameManager::GetInstance().GetGameState())
 	{
-	case CSC8503::PaintballGameState::LOADING:
+	case LOADING:
 		//std::cout << "[UI::Update] Drawing Loading screen" << std::endl;
 		DrawLoading(dt);
 		break;
-	case CSC8503::PaintballGameState::MENU:
+	case MENU:
 		//std::cout << "[UI::Update] Drawing Menu screen" << std::endl;
 		DrawMenu(dt);
 		break;
-	case CSC8503::PaintballGameState::CHOOSESERVER:
+	case CHOOSESERVER:
 		DrawChooseServer(dt);
 		break;
-	case CSC8503::PaintballGameState::PLAYING:
+	case PLAYING:
 		DrawPlayingUI(dt);
 		break;
-	case CSC8503::PaintballGameState::SERVERPLAYING:
+	case SERVERPLAYING:
 		DrawServerPlayingUI(dt);
 		break;
-	case CSC8503::PaintballGameState::CLIENTPLAYING:
+	case CLIENTPLAYING:
 		DrawClientPlayingUI(dt);
 		break;
-	case CSC8503::PaintballGameState::SETTING:
+	case SETTING:
 		
 		DrawSettingMenu(dt);
 		break;
-	case CSC8503::PaintballGameState::PAUSED:
+	case PAUSED:
 		DrawPausedMenu(dt);
 		break;
-	case CSC8503::PaintballGameState::FAILURE:
+	case FAILURE:
 		DrawFailureMenu(dt);
 		break;
-	case CSC8503::PaintballGameState::FINISH:
+	case FINISH:
 		DrawFinishMenu(dt);
 		break;
 	default:
@@ -387,14 +386,14 @@ void UI::DrawMenu(float dt) {
 	ImGui::SetCursorPos(ImVec2(centerX, startY));
 	if (ImGui::Button("Singleplayer", ImVec2(buttonWidth, buttonHeight))) {
 		
-		world->SetGameState(PaintballGameState::PLAYING);
+		GameManager::GetInstance().SetGameState(PLAYING);
 	}
 
 	// Multiplayer button
 	ImGui::SetCursorPos(ImVec2(centerX, startY + buttonHeight + buttonSpacing));
 	if (ImGui::Button("Multiplayer", ImVec2(buttonWidth, buttonHeight))) {
 
-		world->SetGameState(PaintballGameState::CHOOSESERVER);
+		GameManager::GetInstance().SetGameState(CHOOSESERVER);
 	}
 
 	// Settings button
@@ -403,8 +402,8 @@ void UI::DrawMenu(float dt) {
 		
 		
 		if (world) {
-			world->SetGameState(PaintballGameState::SETTING);
-			std::cout << "[DrawMenu] State changed to: " << (int)world->GetGameState() << std::endl;
+			GameManager::GetInstance().SetGameState(SETTING);
+			//std::cout << "[DrawMenu] State changed to: " << (int)GameManager::GetInstance().GetGameState() << std::endl;
 		}
 	}
 
@@ -413,7 +412,8 @@ void UI::DrawMenu(float dt) {
 	// Exit button
 	ImGui::SetCursorPos(ImVec2(centerX, startY + (buttonHeight + buttonSpacing) * 3));
 	if (ImGui::Button("Exit", ImVec2(buttonWidth, buttonHeight))) {
-		exit(0);  
+		GameManager::GetInstance().SetGameState(EXIT);
+		//exit(0);  
 	}
 
 	ImGui::PopStyleColor(4);  
@@ -424,6 +424,8 @@ void UI::DrawMenu(float dt) {
 
 void UI::DrawPlayingUI(float dt) {
 	const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
+
+	ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 	
 	// Game info window (top-left corner)
 	ImGui::SetNextWindowPos(ImVec2(10, 10));
@@ -493,8 +495,9 @@ void UI::DrawPlayingUI(float dt) {
 		ImGuiWindowFlags_NoCollapse |
 		ImGuiWindowFlags_NoTitleBar)) {
 		
-		if (ImGui::Button("Pause", ImVec2(110, 30))) {
-			world->SetGameState(PaintballGameState::PAUSED);
+		if (ImGui::Button("Pause", ImVec2(110, 30))||
+			Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
+			GameManager::GetInstance().SetGameState(PAUSED);
 		}
 		
 		ImGui::End();
@@ -590,7 +593,7 @@ void UI::DrawSettingMenu(float dt) {
 	));
 
 	if (ImGui::Button("Back to Menu", ImVec2(buttonWidth, buttonHeight))) {
-		world->SetGameState(PaintballGameState::MENU);
+		GameManager::GetInstance().SetGameState(MENU);
 	}
 
 	ImGui::PopStyleColor(7);
@@ -724,13 +727,13 @@ void UI::DrawChooseServer(float dt) {
 			// Parse IP address and connect
 			std::string ip = availableServers[selectedServer].ip;
 			// TODO: Parse IP and connect
-			world->SetGameState(PaintballGameState::CLIENTPLAYING);
+			GameManager::GetInstance().SetGameState(CLIENTPLAYING);
 		}
 	}
 
 	ImGui::SameLine(0, buttonSpacing);
 	if (ImGui::Button("Back", ImVec2(buttonWidth, buttonHeight))) {
-		world->SetGameState(PaintballGameState::MENU);
+		GameManager::GetInstance().SetGameState(MENU);
 	}
 
 	ImGui::PopStyleColor(5);
@@ -742,10 +745,10 @@ void UI::DrawPausedMenu(float dt) {
 	ImGui::Begin("Paused");
 	ImGui::Text("Game is paused");
 	if (ImGui::Button("Resume")) {
-		world->SetGameState(PaintballGameState::PLAYING);
+		GameManager::GetInstance().SetGameState(PLAYING);
 	}
 	if (ImGui::Button("Main Menu")) {
-		world->SetGameState(PaintballGameState::MENU);
+		GameManager::GetInstance().SetGameState(MENU);
 	}
 	ImGui::End();
 }
@@ -754,10 +757,10 @@ void UI::DrawFailureMenu(float dt) {
 	ImGui::Begin("Game Over");
 	ImGui::Text("You failed!");
 	if (ImGui::Button("Retry")) {
-		world->SetGameState(PaintballGameState::PLAYING);
+		GameManager::GetInstance().SetGameState(PLAYING);
 	}
 	if (ImGui::Button("Main Menu")) {
-		world->SetGameState(PaintballGameState::MENU);
+		GameManager::GetInstance().SetGameState(MENU);
 	}
 	ImGui::End();
 }
@@ -766,10 +769,10 @@ void UI::DrawFinishMenu(float dt) {
 	ImGui::Begin("Victory");
 	ImGui::Text("You won!");
 	if (ImGui::Button("Play Again")) {
-		world->SetGameState(PaintballGameState::PLAYING);
+		GameManager::GetInstance().SetGameState(PLAYING);
 	}
 	if (ImGui::Button("Main Menu")) {
-		world->SetGameState(PaintballGameState::MENU);
+		GameManager::GetInstance().SetGameState(MENU);
 	}
 	ImGui::End();
 }
