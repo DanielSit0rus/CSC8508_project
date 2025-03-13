@@ -19,7 +19,6 @@ using namespace std;
 
 // Forward declare message handler from imgui_impl_win32.cpp
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-bool NCL::CSC8503::UI::debugMode = false;
 
 void ImguiProcessInput(auto* data) {
 	ImGuiIO& io = ImGui::GetIO();
@@ -484,6 +483,7 @@ void UI::DrawPlayingUI(float dt) {
 		ImGui::End();
 	}
 
+	/*
 	// Pause button (top-right corner)
 	ImGui::SetNextWindowPos(ImVec2(main_viewport->Size.x - 110, 10));
 	ImGui::SetNextWindowSize(ImVec2(100, 50));
@@ -495,12 +495,16 @@ void UI::DrawPlayingUI(float dt) {
 		ImGuiWindowFlags_NoCollapse |
 		ImGuiWindowFlags_NoTitleBar)) {
 		
-		if (ImGui::Button("Pause", ImVec2(110, 30))||
-			Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
+		if (ImGui::Button("Pause", ImVec2(110, 30))) {
 			GameManager::GetInstance().SetGameState(PAUSED);
 		}
 		
 		ImGui::End();
+	}
+	*/
+
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::ESCAPE)) {
+		GameManager::GetInstance().SetGameState(PAUSED);
 	}
 }
 
@@ -583,7 +587,7 @@ void UI::DrawSettingMenu(float dt) {
 	ImGui::SetCursorPos(ImVec2(startX, startY + itemSpacing * 3));
 	ImGui::Text("Debug Mode");
 	ImGui::SameLine(startX + labelWidth + extraSpacing); 
-	ImGui::Checkbox("##Debug", &UI::debugMode);
+	ImGui::Checkbox("##Debug", &debugMode);
 	// back
 	float buttonWidth = 300.0f;
 	float buttonHeight = 50.0f;

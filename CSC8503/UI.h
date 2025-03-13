@@ -48,7 +48,7 @@ namespace NCL {
 
 			void SetLoadingStep(int step);
 			void SetSuccess(bool s) { success = s; }
-			static bool IsDebugMode() { return debugMode; }
+			bool IsDebugMode() const { return debugMode; }
 
 			float GetPlayTime() { return playtime; };
 		protected:
@@ -72,7 +72,7 @@ namespace NCL {
 			UI_Image assassin;
 
 			bool success = false;
-			static bool debugMode;
+			bool debugMode = true;
 
 			float playtime;
 			int fflag = 1;
