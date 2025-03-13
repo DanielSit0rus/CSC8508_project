@@ -35,6 +35,7 @@ https://research.ncl.ac.uk/game/
 namespace NCL::Win32Code {
 	class Win32Mouse;
 	class Win32Keyboard;
+	typedef void(*ExInputFunc)(void*);
 
 	class Win32Window : public Window {
 	public:
@@ -48,6 +49,8 @@ namespace NCL::Win32Code {
 
 		HWND		GetHandle()			const { return windowHandle; }
 		HINSTANCE	GetInstance()		const { return windowInstance; }
+
+		void SetExtraMsgFunc(ExInputFunc func) { exInputFunc = func; }
 
 	protected:
 		//Win32Window(const std::string& title, int sizeX, int sizeY, bool fullScreen, int offsetX, int offsetY);
@@ -76,6 +79,8 @@ namespace NCL::Win32Code {
 
 		Win32Mouse*		winMouse;
 		Win32Keyboard*  winKeyboard;
+
+		ExInputFunc exInputFunc = nullptr;
 	};
 }
 #endif //_WIN32

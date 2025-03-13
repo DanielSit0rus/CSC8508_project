@@ -2421,8 +2421,8 @@ ImFontConfig::ImFontConfig()
 // A work of art lies ahead! (. = white layer, X = black layer, others are blank)
 // The 2x2 white texels on the top left are the ones we'll use everywhere in Dear ImGui to render filled shapes.
 // (This is used when io.MouseDrawCursor = true)
-const int FONT_ATLAS_DEFAULT_TEX_DATA_W = 122; // Actual texture will be 2 times that + 1 spacing.
-const int FONT_ATLAS_DEFAULT_TEX_DATA_H = 27;
+const int FONT_ATLAS_DEFAULT_TEX_DATA_W = 128; // Actual texture will be 2 times that + 1 spacing.
+const int FONT_ATLAS_DEFAULT_TEX_DATA_H = 40;
 static const char FONT_ATLAS_DEFAULT_TEX_DATA_PIXELS[FONT_ATLAS_DEFAULT_TEX_DATA_W * FONT_ATLAS_DEFAULT_TEX_DATA_H + 1] =
 {
     "..-         -XXXXXXX-    X    -           X           -XXXXXXX          -          XXXXXXX-     XX          - XX       XX "

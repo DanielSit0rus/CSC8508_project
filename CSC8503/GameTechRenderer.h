@@ -3,7 +3,7 @@
 #include "OGLShader.h"
 #include "OGLTexture.h"
 #include "OGLMesh.h"
-
+#include"UI.h"
 #include "PaintballGameWorld.h"
 #include <vector>
 #include "Light.h"
@@ -22,6 +22,8 @@ namespace NCL {
 			Texture*	LoadTexture(const std::string& name);
 			Shader*		LoadShader(const std::string& vertex, const std::string& fragment);
 
+			UI* GetUI() { return ui; };
+
 		protected:
 			void NewRenderLines();
 			void NewRenderText();
@@ -32,6 +34,7 @@ namespace NCL {
 			OGLShader*		defaultShader;
 
 			PaintballGameWorld&	gameWorld;
+			UI* ui;
 
 			void BuildObjectList();
 			void SortObjectList();

@@ -60,12 +60,12 @@ bool AudioSystem::Init()
         return false;
     }
 
-    // ÉèÖÃ3DÊôÐÔ
+    // ï¿½ï¿½ï¿½ï¿½3Dï¿½ï¿½ï¿½ï¿½
     sourceAttributes = new FMOD_3D_ATTRIBUTES();
-    sourceAttributes->position = { 0.0f, 0.0f, 0.0f }; // ÉèÖÃÒôÔ´Î»ÖÃ
-    sourceAttributes->velocity = { 0.0f, 0.0f, 0.0f }; // ÉèÖÃÒôÔ´ËÙ¶È
-    sourceAttributes->forward = { 0.0f, 0.0f, 1.0f };  // ÉèÖÃÒôÔ´Ç°·½·½Ïò
-    sourceAttributes->up = { 0.0f, 1.0f, 0.0f };       // ÉèÖÃÒôÔ´ÉÏ·½·½Ïò
+    sourceAttributes->position = { 0.0f, 0.0f, 0.0f }; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Î»ï¿½ï¿½
+    sourceAttributes->velocity = { 0.0f, 0.0f, 0.0f }; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ù¶ï¿½
+    sourceAttributes->forward = { 0.0f, 0.0f, 1.0f };  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    sourceAttributes->up = { 0.0f, 1.0f, 0.0f };       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½
 
     result = eventInstance->set3DAttributes(sourceAttributes);
     if (result != FMOD_OK) {
@@ -112,7 +112,7 @@ bool AudioSystem::LoadBank(const std::string& bankFile)
 {
     Bank* bank = nullptr;
     if (studioSystem->loadBankFile((bankPath + bankFile).c_str(), FMOD_STUDIO_LOAD_BANK_NORMAL, &bank) != FMOD_OK) {
-        std::cerr << "¼ÓÔØBankÊ§°Ü£º" << bankFile << std::endl;
+        std::cerr << "ï¿½ï¿½ï¿½ï¿½BankÊ§ï¿½Ü£ï¿½" << bankFile << std::endl;
         return false;
     }
     banks[bankFile] = bank;
@@ -143,13 +143,13 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
 
     EventDescription* eventDesc = nullptr;
     if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
-        std::cerr << "»ñÈ¡ÊÂ¼þÊ§°Ü£º" << eventName << std::endl;
+        std::cerr << "ï¿½ï¿½È¡ï¿½Â¼ï¿½Ê§ï¿½Ü£ï¿½" << eventName << std::endl;
         return false;
     }
 
     EventInstance* eventInstance = nullptr;
     if (eventDesc->createInstance(&eventInstance) != FMOD_OK || !eventInstance) {
-        std::cerr << "´´½¨ÊÂ¼þÊµÀýÊ§°Ü£º" << eventName << std::endl;
+        std::cerr << "ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Êµï¿½ï¿½Ê§ï¿½Ü£ï¿½" << eventName << std::endl;
         return false;
     }
 

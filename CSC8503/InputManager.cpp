@@ -1,10 +1,13 @@
 #include "InputManager.h"
 #include "GameManager.h"
+#include"PaintballGameWorld.h"
 
 using namespace NCL::CSC8503;
 
+
+
 void InputManager::Update() {
-    // Check the current game state from GameManager.
+    
     GameState currentState = GameManager::GetInstance().GetGameState();
     switch (currentState) {
     case GameState::MainMenu:

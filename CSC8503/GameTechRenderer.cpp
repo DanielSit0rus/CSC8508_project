@@ -13,6 +13,8 @@ using namespace CSC8503;
 Matrix4 biasMatrix = Matrix::Translation(Vector3(0.5f, 0.5f, 0.5f)) * Matrix::Scale(Vector3(0.5f, 0.5f, 0.5f));
 
 GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Window::GetWindow()), gameWorld(world)	{
+	std::cout << std::endl << "--------Initialising Renderer--------" << std::endl;
+	ui = new UI(&world);
 	glEnable(GL_DEPTH_TEST);
 
 	debugShader  = new OGLShader("debug.vert", "debug.frag");
@@ -78,11 +80,18 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 }
 
 GameTechRenderer::~GameTechRenderer()	{
+
+	delete ui;
 	glDeleteTextures(1, &shadowTex);
 	glDeleteFramebuffers(1, &shadowFBO);
 }
 
 void GameTechRenderer::LoadSkybox() {
+
+
+
+
+
 	std::string filenames[6] = {
 		"/Cubemap/skyrender0004.png",
 		"/Cubemap/skyrender0001.png",
@@ -140,6 +149,7 @@ void GameTechRenderer::RenderFrame() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	ui->DrawUI();
 }
 
 void GameTechRenderer::BuildObjectList() {

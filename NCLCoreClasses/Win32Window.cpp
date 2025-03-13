@@ -4,6 +4,8 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <io.h>
+#include "imgui_impl_win32.h"
+#include <imgui_impl_win32.cpp>
 using namespace NCL;
 using namespace Win32Code;
 
@@ -212,6 +214,9 @@ LRESULT CALLBACK Win32Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam,
 	Win32Window* thisWindow = (Win32Window*)window;
 
 	bool applyResize = false;
+	if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam)) {
+		return true;
+	}
 
     switch(message)	 {
         case(WM_DESTROY):	{

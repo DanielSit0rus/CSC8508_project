@@ -55,8 +55,14 @@ void PaintballGameWorld::OperateOnContents(PaintballGameObjectFunc f) {
 }
 
 void PaintballGameWorld::UpdateWorld(float dt) {
-	auto rng = std::default_random_engine{};
+	//// Only update physics and game objects in playing states
+	//if (currentstate != PaintballGameState::PLAYING &&
+	//	currentstate != PaintballGameState::SERVERPLAYING &&
+	//	currentstate != PaintballGameState::CLIENTPLAYING) {
+	//	return;
+	//}
 
+	auto rng = std::default_random_engine{};
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::default_random_engine e(seed);
 
@@ -72,7 +78,6 @@ void PaintballGameWorld::UpdateWorld(float dt) {
 			{
 				obj->GetTransform().SetRpTransform(physicsTransform);
 			}
-			
 		}
 
 		// Update animation if applicable
@@ -85,4 +90,10 @@ void PaintballGameWorld::UpdateWorld(float dt) {
 	if (shuffleObjects) {
 		std::shuffle(gameObjects.begin(), gameObjects.end(), e);
 	}
+}
+
+void PaintballGameWorld::SetGameState(PaintballGameState state) { 
+	
+	currentstate = state; 
+	
 }

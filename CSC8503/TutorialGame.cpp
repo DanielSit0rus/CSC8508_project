@@ -2,12 +2,21 @@
 #include "GameWorld.h"
 #include "TextureLoader.h"
 #include "Vector.h"
+#include"PaintballGameWorld.h"
+#include"InputManager.h"
+#include"UI.h"
+#include"GameTechRenderer.h"
+#include"Window.h"
+#include <thread>
+
+
 using namespace NCL;
 using namespace CSC8503;
 
 
 TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *Window::GetWindow()->GetMouse()) {
 	world		= new PaintballGameWorld();
+	
 #ifdef USEVULKAN
 	renderer	= new GameTechVulkanRenderer(*world);
 	renderer->Init();
@@ -36,7 +45,11 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	InitialiseAssets();
 	playerObject->InitializeController();
 	GameManager::GetInstance().SetPlayer(playerObject);
-	G1.SetGameState(GameState::InGame);
+
+	
+
+
+	world->SetGameState(PaintballGameState::LOADING);
 	
 
 
@@ -78,10 +91,45 @@ bool TutorialGame::UnpauseGame() {
 }
 
 void TutorialGame::UpdateGame(float dt) {
+
+	//if (!gameStarted) {  // ��Ϸδ��ʼʱ����ͣ�߼�
+	//	renderer->Render();
+	//	return;
+	//}
+
+	
 	if (pause) {
-		// Only update the PushMachine and render the current frame.
 		renderer->Render();
-		return; // Skip the rest of the game updates.
+		return;
+	}
+
+	CSC8503::PaintballGameState currentState = world->GetGameState();
+	
+
+	
+
+	switch (currentState) {
+	case CSC8503::PaintballGameState::LOADING:
+		UpdateLoading(dt);
+		break;
+	case CSC8503::PaintballGameState::MENU:
+		UpdateMenu(dt);
+		break;
+	case CSC8503::PaintballGameState::SETTING:
+		
+		UpdateSetting(dt);
+		break;
+	case CSC8503::PaintballGameState::PAUSED:
+		UpdatePaused(dt);
+		break;
+	case CSC8503::PaintballGameState::FAILURE:
+		UpdateFailure(dt);
+		break;
+	case CSC8503::PaintballGameState::FINISH:
+		UpdateFinish(dt);
+		break;
+	default:
+		break;
 	}
 
 	const Camera& camera = world->GetMainCamera();
@@ -89,15 +137,22 @@ void TutorialGame::UpdateGame(float dt) {
 	GameManager::GetInstance().Update();
 	UpdateKeys();
 
-	Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
+	/*Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 
-	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
+	Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));*/
+	if (renderer->GetUI()->IsDebugMode()) {
+		Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
+		Debug::Print("Force/Speed:" + std::to_string((int)forceMagnitude), Vector2(5, 80));
+	}
+
 	forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	
 
 	world->UpdateWorld(dt);
-
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //ui
+	
 	G1.getRPworld()->update(dt);	//rp3d
 
 	navMesh->DrawNavMesh();
@@ -118,7 +173,10 @@ void TutorialGame::UpdateGame(float dt) {
 	const Vector3& pos = camera.GetPosition();
 	std::string posString = std::to_string((int)pos.x) + ", "
 		+ std::to_string((int)pos.y) + ", " + std::to_string((int)pos.z);
-	Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
+	/*Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);*/
+	if (renderer->GetUI()->IsDebugMode()) {
+		Debug::Print("Pos = " + posString, Vector2(60, 95), Debug::BLUE);
+	}
 	if (false) {
 		Vector3 camPos = camera.GetPosition();
 		float yaw = DegreesToRadians(camera.GetYaw());
@@ -149,11 +207,78 @@ void TutorialGame::UpdateGame(float dt) {
 	AudioSystem::GetInstance().eventInstance->set3DAttributes(AudioSystem::GetInstance().sourceAttributes);
 
 
-	CalculatePathToPlayer();
-	DisplayPath();
+	/*CalculatePathToPlayer();
+	DisplayPath();*/
+
+	if (renderer->GetUI()->IsDebugMode()) {
+		CalculatePathToPlayer();
+		DisplayPath();
+	}
+
 	MoveEnemyAlongPath();
 	renderer->Render();
 	Debug::UpdateRenderables(dt);
+}
+
+void TutorialGame::AssetsLoading() {
+	std::cout << "[AssetsLoading] Before: assetsLoadedStep = " << assetsLoadedStep << std::endl;
+	if (assetsLoadedStep < 5) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		assetsLoadedStep++;
+	
+	}
+}
+
+void TutorialGame::UpdateLoading(float dt)
+{
+	std::cout << "[UpdateLoading] assetsLoadedStep = " << assetsLoadedStep << std::endl;
+
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->GetUI()->SetLoadingStep(assetsLoadedStep);
+	renderer->Render();
+	if (assetsLoadedStep == 5) world->SetGameState(CSC8503::PaintballGameState::MENU);
+	AssetsLoading();
+}
+
+void TutorialGame::UpdatePaused(float dt)
+{
+	TutorialGame::UpdateKeys();
+	
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->Render();
+}
+
+void TutorialGame::UpdateMenu(float dt)
+{
+	
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->Render();
+}
+
+void TutorialGame::UpdateFailure(float dt)
+{
+	
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->Render();
+}
+
+void TutorialGame::UpdateFinish(float dt)
+{
+	
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->Render();
+}
+
+void TutorialGame::UpdateSetting(float dt)
+{
+	renderer->Update(dt);
+	renderer->GetUI()->Update(dt); //UI
+	renderer->Render();
 }
 
 void TutorialGame::InitCamera() {
@@ -215,6 +340,20 @@ void TutorialGame::InitWorld() {
 }
 
 void TutorialGame::UpdateKeys() {
+
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::B)) { 
+		
+		world->SetGameState(PaintballGameState::SETTING);
+	}
+
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::ESCAPE)) {
+		if (world->GetGameState() == PaintballGameState::PLAYING) {
+			world->SetGameState(PaintballGameState::PAUSED);
+			pauseGame();
+		}
+	}
+
+
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
 		if (selectionObject) {	//set colour to deselected;
 			selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
@@ -272,6 +411,7 @@ void TutorialGame::UpdateKeys() {
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {
 		InitCamera(); //F2 will reset the camera to a specific default place
 	}
+
 }
 
 void TutorialGame::LockedObjectMovement() {

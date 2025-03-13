@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <algorithm>
-
+#include<string>
 #include <reactphysics3d/reactphysics3d.h>
 #include "PaintballGameWorld.h"
 #include "PaintballGameObject.h"
@@ -29,7 +29,7 @@ namespace NCL {
 		class TutorialGame		{
 		public:
 			TutorialGame();
-			
+		/*	bool gameStarted = false;*/
 			bool pauseGame();
 			bool UnpauseGame();
 
@@ -37,12 +37,25 @@ namespace NCL {
 			bool pause = false;
 			virtual void UpdateGame(float dt);
 
+			static TutorialGame* GetGame() {
+				return instance;
+			};
+
 		protected:
 			void InitialiseAssets();
 
 			void InitCamera();
 			void UpdateKeys();
 			void LockedObjectMovement();
+
+			void AssetsLoading();
+			int assetsLoadedStep = 0;
+			void UpdateLoading(float dt);
+			virtual void UpdatePaused(float dt);
+			virtual void UpdateFailure(float dt);
+			virtual void UpdateFinish(float dt);
+			void UpdateMenu(float dt);
+			void UpdateSetting(float dt);
 
 			/*
 			These are some of the world/object creation functions I created when testing the functionality
@@ -97,6 +110,7 @@ namespace NCL {
 
 			InputManager inputManager;
 
+			static TutorialGame* instance;
 		};
 
 

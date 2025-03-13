@@ -1,6 +1,7 @@
 #pragma once
 #include "ResourceManager.h"
 #include "GameWorld.h"
+#include"PaintballGameWorld.h"
 #include "PaintballGameWorld.h"
 #include "PaintballGameObject.h"
 #include <reactphysics3d/reactphysics3d.h>
@@ -28,6 +29,9 @@ namespace NCL {
         class GameManager
         {
         public:
+
+            using GameState = NCL::GameState;
+
             static GameManager& GetInstance() {
                 static GameManager instance;
                 return instance;
@@ -63,8 +67,8 @@ namespace NCL {
 
             void DeleteObject(PaintballGameObject* obj) { objectsToDelete.push_back(obj); }
 
-            // GameState management
-            void SetGameState(GameState newState) {
+            //GameState management
+           void SetGameState(GameState newState) {
                 currentState = newState;
                 HandleStateChange(newState);
             }
@@ -90,19 +94,19 @@ namespace NCL {
             GameState currentState = GameState::InGame;
 
             void HandleStateChange(GameState state) {
-                // Implement logic that should happen on state change
+              // Implement logic that should happen on state change
                 switch (state) {
-                case GameState::MainMenu:
-                    // Pause game, show main menu
-                    break;
-                case GameState::InGame:
-                    // Resume or start game
-                    break;
-                case GameState::Paused:
-                    // Pause or toggle game pause
-                    break;
+               case GameState::MainMenu:
+                   // Pause game, show main menu
+                   break;
+              case GameState::InGame:
+                   // Resume or start game
+                   break;
+              case GameState::Paused:
+                   // Pause or toggle game pause
+                   break;
                     // Handle other states
-                }
+               }
             }
 
             //NEW

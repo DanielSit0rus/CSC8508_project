@@ -329,7 +329,9 @@ public:
 			//std::cout << "\n Press P to pause game\n";
 			pauseReminder += 1.0f;
 		}
-		Debug::Print("Starting Game, timer: " + std::to_string(elapsedTime), Vector2(5, 15));
+		if (UI::IsDebugMode()) {
+			Debug::Print("Starting Game, timer: " + std::to_string(elapsedTime), Vector2(5, 15));
+		}
 		// Pause state transition
 		if (Window::GetKeyboard()->KeyDown(KeyCodes::P)) {
 			*newState = new pauseScreen(w);

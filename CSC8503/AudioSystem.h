@@ -59,7 +59,7 @@ namespace NCL {
 			std::unordered_map<std::string, Bank*> banks;
 			std::unordered_map<std::string, Bus*> buses;
 			std::unordered_map<std::string, EventInstance*> events;
-			//std::unordered_map<std::string, std::string> eventPaths;  // ´æ´¢ÊÂ¼şÃû³Æµ½Â·¾¶µÄÓ³Éä
+			//std::unordered_map<std::string, std::string> eventPaths;  // ï¿½æ´¢ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Æµï¿½Â·ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½
 		};
 	}
 }
