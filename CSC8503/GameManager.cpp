@@ -124,34 +124,79 @@ void GameManager::InitWorld() {
 
 
     //FIRST MAP
-    AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "floor_1", "floor", "basic");
+    /*AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "floor_1", "texture5_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "mainWall_1", "mainwall", "basic");
+        "mainWall_1", "texture3_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "doorWay_1", "doorway", "basic");
+        "doorWay_1", "texture1_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "oppDoorWay_1", "doorway", "basic");
+        "oppDoorWay_1", "texture1_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "midDoor", "mainwall", "basic");
+        "midDoor", "texture1_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_1", "wall123", "basic");
+        "wall_1", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2", "wall123", "basic");
+        "wall_2", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "openWall", "openwall", "basic");
+        "openWall", "texture2_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_3", "wall123", "basic");
+        "wall_3", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_4", "wall4", "basic");
+        "wall_4", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "cylinder", "wall4", "basic");
+        "cylinder", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bigCylinder", "wall4", "basic");
+        "bigCylinder", "texture4_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "target", "floor", "basic");
+        "target", "texture5_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bigCube", "wall4", "basic");
+        "bigCube", "texture4_diffuse", "basic");*/
+
+        // FIRST MAP
+    AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "floor_1", "texture5_diffuse", "texture5_specular", "texture5_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "mainWall_1", "texture3_diffuse", "texture3_specular", "texture3_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-215, 1, -25), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "doorWay_1", "texture1_diffuse", "texture1_specular", "texture1_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-5, 0, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "oppDoorWay_1", "texture1_diffuse", "texture1_specular", "texture1_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-121, 2, -55), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midDoor", "texture1_diffuse", "texture1_specular", "texture1_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-62, 7, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_1", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-94, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-150, 2, -78), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "openWall", "texture2_diffuse", "texture2_specular", "texture2_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-153, 2, 88), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_3", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-31, -2, -38), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_4", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-41, 1, 53), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "cylinder", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-173, 2, -19), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bigCylinder", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-194, 2, 123), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "target", "texture5_diffuse", "texture5_specular", "texture5_normal", "basic");
+
+    AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bigCube", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
+
+
 
 
 
@@ -442,8 +487,14 @@ PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp
 }
 
 
-PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-    const string& meshName, const string& textureName, const string& shaderName, Vector4 color)
+PaintballGameObject* GameManager::AddConcaveMesh(
+    const rp3d::Vector3& position,
+    rp3d::Vector3 dimensions,
+    rp3d::Quaternion orientation,
+    const std::string& meshName,
+    const std::string& textureName,
+    const std::string& shaderName,
+    Vector4 color)
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -473,6 +524,59 @@ PaintballGameObject* GameManager::AddConcaveMesh(const rp3d::Vector3& position, 
     //add rigid body to gameobject
     concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
 
+    world->AddGameObject(concave);
+    return concave;
+}
+
+
+PaintballGameObject* GameManager::AddConcaveMesh(
+    const rp3d::Vector3& position,
+    rp3d::Vector3 dimensions,
+    rp3d::Quaternion orientation,
+    const std::string& meshName,
+    const std::string& diffuseTexture,
+    const std::string& specularTexture,
+    const std::string& normalTexture,
+    const std::string& shaderName,
+    Vector4 color
+) {
+    ResourceManager& resources = ResourceManager::GetInstance();
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave);
+
+    concave->GetTransform()
+        .SetPosition(position)
+        .SetOrientation(orientation)
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(dimensions * 1.0f);
+
+    // Create Render Object with only Diffuse
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &concave->GetTransform(), meshName, diffuseTexture, shaderName
+    );
+    concave->SetRenderObject(renderObj);
+
+    // Assign Specular and Normal Maps ONLY IF PROVIDED
+    if (!specularTexture.empty()) {
+        Texture* specularTex = resources.GetTexture(specularTexture, false);
+        if (specularTex) renderObj->SetSpecularTexture(specularTex);
+    }
+    if (!normalTexture.empty()) {
+        Texture* normalTex = resources.GetTexture(normalTexture, false);
+        if (normalTex) renderObj->SetNormalTexture(normalTex);
+    }
+
+    concave->GetRenderObject()->SetColour(color);
+
+    // Physics Setup (Same as Before)
+    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
+    concaveBody->setType(rp3d::BodyType::STATIC);
+
+    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMesh(meshName));
+    shape->setScale(dimensions);
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
+
+    concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
     world->AddGameObject(concave);
     return concave;
 }
