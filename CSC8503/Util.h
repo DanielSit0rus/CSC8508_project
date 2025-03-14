@@ -50,6 +50,9 @@ namespace NCL {
                 return realString;
             }
 
+            static int GetResourceIdByString(const std::string& type, const std::string& target);
+            static std::string GetResourceByID(const std::string& type, const int& id);
+
         };
 
     }

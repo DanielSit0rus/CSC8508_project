@@ -72,11 +72,19 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         textures["texture5_specular"] = renderer->LoadTexture("Texture_5_Specular.png");
 
 
-
-       
- 
-
         shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
+
+
+        //build ID list at the end
+        for (const auto& pair : meshes) {
+            meshID.push_back(pair.first);
+        }        
+        for (const auto& pair : textures) {
+            textureID.push_back(pair.first);
+        }        
+        for (const auto& pair : shaders) {
+            shaderID.push_back(pair.first);
+        }
     }
 }
 
@@ -113,6 +121,59 @@ NCL::Rendering::Shader* ResourceManager::GetShader(const std::string& name, bool
 NCL::Rendering::Shader* NCL::CSC8503::ResourceManager::GetBasicShader()
 {
     return GetShader("basic");
+}
+
+int ResourceManager::GetResourceIdByString(const std::string& type, const std::string& target)
+{
+    if (type == "mesh") {
+        for (int i = 0; i < meshID.size(); ++i) {
+            if (meshID[i] == target) {
+                return i;
+            }
+        }
+    }
+    else if (type == "texture") {
+        for (int i = 0; i < textureID.size(); ++i) {
+            if (textureID[i] == target) {
+                return i;
+            }
+        }
+    }
+    else if (type == "shader")
+    {
+        for (int i = 0; i < shaderID.size(); ++i) {
+            if (shaderID[i] == target) {
+                return i;
+            }
+        }
+    }
+    else
+    {
+        std::cout << "[ResourceManager::findIdByString] Cannot find type[" << type << "] - target[" << target << "]" << std::endl;
+    }
+    return -1;
+}
+
+std::string ResourceManager::GetResourceByID(const std::string& type, const int& id)
+{
+    if (id == -1) return "";
+
+    if (type == "mesh") {
+        return meshID[id];
+    }
+    else if (type == "texture") {
+        return textureID[id];
+
+    }
+    else if (type == "shader")
+    {
+        return shaderID[id];
+    }
+    else
+    {
+        std::cout << "[ResourceManager::GetResourceByID] Unknown type : [" << type << "]" << std::endl;
+        return "";
+    }
 }
 
 //void ResourceManager::ReloadAnimations() {
