@@ -1,4 +1,4 @@
-# Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project
+# Install script for directory: C:/Project/Group/CSC8508_project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,22 +34,22 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/D_Project/cpp/DanielSit0rus/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
+  include("C:/Project/Group/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
+  include("C:/Project/Group/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/cmake_install.cmake")
+  include("C:/Project/Group/CSC8508_project/OpenGLRendering/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503/cmake_install.cmake")
+  include("C:/Project/Group/CSC8508_project/CSC8503/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/D_Project/cpp/DanielSit0rus/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Project/Group/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

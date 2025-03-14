@@ -2,6 +2,7 @@
 
 #define MAX_LIGHTS 8
 
+// Texture Samplers
 uniform sampler2D       mainTex;        // Diffuse texture
 uniform sampler2D       specularTex;    // Specular map (optional)
 uniform sampler2D       normalTex;      // Normal map   (optional)
@@ -26,7 +27,9 @@ in Vertex {
     vec4 colour;        // Possibly vertex color
     vec2 texCoord;
     vec4 shadowProj;    // For sampling shadow
-    vec3 normal;
+    vec3 normal;        // Normal from vertex shader
+    vec3 tangent;       // Tangent from vertex shader
+    vec3 binormal;      // Binormal from vertex shader
     vec3 worldPos;
 } IN;
 
@@ -38,7 +41,6 @@ void main(void)
     float shadow = 1.0;
     if (IN.shadowProj.w > 0.0) {
         float rawShadow = textureProj(shadowTex, IN.shadowProj);
-        // mix(0.4, 1.0, rawShadow) means ~0.4 darkness in fully shadowed areas
         shadow = mix(0.4, 1.0, rawShadow);
     }
 
@@ -50,27 +52,30 @@ void main(void)
         albedo *= pow(texture(mainTex, IN.texCoord), vec4(2.2));
     }
 
-    // 3) Normal mapping fallback
+    // 3) Construct TBN Matrix for Normal Mapping
+    mat3 TBN = mat3(normalize(IN.tangent), normalize(IN.binormal), normalize(IN.normal));
+
+    // 4) Normal mapping fallback
     // If normalTex is valid, sample it. Otherwise, fallback to the geometry normal.
     vec3 N;
     if (textureSize(normalTex, 0).x > 1) {
-        // Expand normal from [0..1] to [-1..1]
-        N = normalize(texture(normalTex, IN.texCoord).rgb * 2.0 - 1.0);
+        // Expand normal from [0..1] to [-1..1] and transform it to world space
+        N = normalize(TBN * (texture(normalTex, IN.texCoord).rgb * 2.0 - 1.0));
     } else {
         N = normalize(IN.normal);
     }
 
-    // 4) Specular mapping fallback
+    // 5) Specular mapping fallback
     float specularStrength = 1.0;
     if (textureSize(specularTex, 0).x > 1) {
         // e.g. Red channel might store spec factor
         specularStrength = texture(specularTex, IN.texCoord).r;
     }
 
-    // 5) Start with a small ambient term
-    vec3 result = albedo.rgb * 0.05;
+    // 6) Start with a small ambient term
+    vec3 result = albedo.rgb * 0.005;
 
-    // 6) Lighting loop
+    // 7) Lighting loop
     for(int i = 0; i < numLights; i++)
     {
         vec3 L = lights[i].position - IN.worldPos;
@@ -83,7 +88,7 @@ void main(void)
         // Specular (Blinn-Phong)
         vec3 viewDir = normalize(cameraPos - IN.worldPos);
         vec3 halfDir = normalize(lightDir + viewDir);
-        float spec   = pow(max(dot(halfDir, N), 0.0), 32.0) * specularStrength;
+        float spec   = pow(max(dot(halfDir, N), 0.0), 1.0) * specularStrength;
 
         // Distance attenuation
         float attenuation = 1.0 / (1.0 + 0.005 * dist + 0.0001 * (dist * dist));
@@ -102,10 +107,12 @@ void main(void)
 
         // Combine diffuse + spec, scaled by (light color * attenuation * shadow)
         vec3 lightCol = lights[i].color.rgb;
-        result += (lambert + spec) * lightCol * attenuation * shadow;
+        result += (lambert * albedo.rgb) * lightCol * attenuation * shadow;
+        result += (spec * albedo.rgb) * lightCol * attenuation * shadow * 0.5; // Specular scaled
+
     }
 
-    // 7) Final gamma correction (linear -> sRGB)
+    // 8) Final gamma correction (linear -> sRGB)
     result = pow(result, vec3(1.0 / 2.2));
     fragColor = vec4(result, albedo.a);
 }
