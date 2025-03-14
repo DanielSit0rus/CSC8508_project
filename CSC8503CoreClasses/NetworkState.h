@@ -30,6 +30,8 @@ namespace NCL {
 
 			bool				toDelete = false;
 			bool				isActive = true;
+
+			int					playerID;
 		};
 	}
 }

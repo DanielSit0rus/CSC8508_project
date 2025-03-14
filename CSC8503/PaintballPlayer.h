@@ -52,6 +52,7 @@ namespace NCL::CSC8503 {
 
 		void Move(float forceMagnitude);
 		void Attack();
+		void Attack(Vector3 front, Vector4 color);
 		void UpdatePlayerRotation();
 		void Update(float dt) override;
 

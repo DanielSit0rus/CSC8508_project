@@ -54,6 +54,8 @@ namespace NCL::CSC8503 {
 		int GetNetworkID() const { return networkID; }
 		bool toDelete = false;
 
+		void SetPlayerID(int arg) { playerId = arg; }
+
 	protected:
 
 		NetworkState& GetLatestNetworkState();
@@ -76,5 +78,7 @@ namespace NCL::CSC8503 {
 		int fullErrors;
 
 		int networkID;
+
+		int playerId = -2;
 	};
 }

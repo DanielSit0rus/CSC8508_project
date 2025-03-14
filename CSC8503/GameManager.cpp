@@ -32,13 +32,18 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, fl
                 for (const auto& obj : j["objs"]) {
                     if (obj.contains("type") && obj["type"] == GameObjectType::player) {
                         networkPlayers[arg] = AddPlayerClass(rp3d::Vector3(0, 20, 0));
+
+                        NetworkObject* netObj = new NetworkObject(*networkPlayers[arg], networkObjects.size());
+                        netObj->SetPlayerID(arg);
+                        networkObjects[networkObjects.size()] = netObj;
+                        networkPlayers[arg]->SetNetworkObject(netObj);
+
                         break;
                     }
                 }
             }
         }
         });
-
 }
 
 void GameManager::Update(float dt) {
@@ -52,6 +57,11 @@ void GameManager::Update(float dt) {
     if (canStart_FMOD && leftTime < 118.5f && leftTime > 115) {
         AudioSystem::GetInstance().TriggerEvent("event:/Felicia/Start2");
         canStart_FMOD = false;
+    }
+
+    if (hasNetwork) {
+        shoottest = networkPlayers[thisPeer];
+        lockedObject = shoottest;
     }
 }
 
@@ -75,9 +85,15 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
             if (j.contains("objs") && j["objs"].is_array()) {
                 for (const auto& obj : j["objs"]) {
                     if (obj.contains("type") && obj["type"] == GameObjectType::player) {
-                        networkPlayers[0] = AddPlayerClass(rp3d::Vector3(0, 20, 0));
-                        shoottest = networkPlayers[0];
-                        lockedObject = shoottest;
+                        networkPlayers[-1] = AddPlayerClass(rp3d::Vector3(0, 20, 0));
+                        //shoottest = networkPlayers[-1];
+                        //lockedObject = shoottest;
+
+                        NetworkObject* netObj = new NetworkObject(*networkPlayers[-1], networkObjects.size());
+                        netObj->SetPlayerID(-1);
+                        networkObjects[networkObjects.size()] = netObj;
+                        networkPlayers[-1]->SetNetworkObject(netObj);
+
                         break;
                     }
                 }
@@ -367,15 +383,6 @@ PaintballGameObject* GameManager::AddSphere(const rp3d::Vector3& position, rp3d:
 PaintballGameObject* GameManager::AddFloorToWorld(const rp3d::Vector3& position) {
     return AddCube(position, rp3d::Vector3(200, 2, 200), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1, 1, 1, 1));
 }
-
-PaintballGameObject* GameManager::AddPlayer(const rp3d::Vector3& position) {
-
-    PaintballGameObject* p = AddCube(position, rp3d::Vector3(0.3f, 1, 0.3f), rp3d::Quaternion(0, 0, 0, 1.0f));
-    p->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
-    return p;
-}
-
-
 
 PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);

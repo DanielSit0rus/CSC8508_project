@@ -267,14 +267,32 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		}
 		else {
 			NetworkState state = fullPacket->fullState;
-			std::cout << "add " << objectID << std::endl;
-			GameManager::GetInstance().AddObject(static_cast<GameObjectType>(state.type),
-				state.position, state.scale, state.orientation,
-				state.color,
-				Util::GetStringFromNetData(state.meshName, state.size[0]),
-				Util::GetStringFromNetData(state.textureName, state.size[1]),
-				Util::GetStringFromNetData(state.shaderName, state.size[2]),
-				state.mass, state.isEnemy, state.oriV3, objectID);
+			//std::cout << "add " << objectID << std::endl;
+			GameObjectType type = static_cast<GameObjectType>(state.type);
+			if (type == GameObjectType::player) {
+				if (state.playerID == -2) break;	//error data
+
+				PaintballPlayer* obj = (PaintballPlayer*)G1.AddPlayerClass(state.position);
+
+				NetworkObject* netObj = new NetworkObject(*obj, G1.GetNetworkObjects().size());
+				G1.GetNetworkObjects()[G1.GetNetworkObjects().size()] = netObj;
+				obj->SetNetworkObject(netObj);
+
+				G1.GetNetworkPlayers()[state.playerID] = obj;
+
+				//std::cout << "addPlayer : thisPeer = " << thisPeer << std::endl;
+				//G1.GetNetworkPlayers()[thisPeer] = obj;
+			}
+			else
+			{
+				G1.AddObject(type,
+					state.position, state.scale, state.orientation,
+					state.color,
+					Util::GetStringFromNetData(state.meshName, state.size[0]),
+					Util::GetStringFromNetData(state.textureName, state.size[1]),
+					Util::GetStringFromNetData(state.shaderName, state.size[2]),
+					state.mass, state.isEnemy, state.oriV3, objectID);
+			}
 		}
 
 		break;
@@ -301,18 +319,15 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 
 		if (clientPacket->buttonstates[5] == 1)
 		{
-			G1.AddObject(GameObjectType::bullet,
-				Util::NCLToRP3d(clientPacket->camPos + clientPacket->camFront * 3.f), rp3d::Vector3(1, 1, 1),
-				rp3d::Quaternion().identity(),
-				Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(clientPacket->camFront));
+			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, Vector4(1, 1, 1, 1));
 		}
 
 		break;
 	}
 	case Player_Connected: {
 		IntPacket* realPacket = (IntPacket*)payload;
-		if (thisPeer == -1)thisPeer = realPacket->num;
-		std::cout << "Received thisPeer: \"" << thisPeer << "\" from " << source << std::endl;
+		if (G1.GetThisPeer() == -1) G1.GetThisPeer() = realPacket->num;
+		std::cout << "Received thisPeer: \"" << G1.GetThisPeer() << "\" from " << source << std::endl;
 		break;
 	}
 	case None: {

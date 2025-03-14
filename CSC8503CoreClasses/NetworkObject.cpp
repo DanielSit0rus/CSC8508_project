@@ -139,6 +139,8 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 
 		fp->fullState.stateID = lastFullState.stateID++;
 		fp->fullState.isActive = object.IsActive();
+
+		fp->fullState.playerID = playerId;
 	}
 	*p = fp;
 

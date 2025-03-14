@@ -71,7 +71,6 @@ namespace NCL {
                 float mass = 10.0f, bool isEnemy = false, rp3d::Vector3 oriV3 = rp3d::Vector3(),
                 int network = -1);
 
-            PaintballGameObject* AddPlayer(const rp3d::Vector3& position);
             PaintballGameObject* AddFloorToWorld(const rp3d::Vector3& position);
             PaintballGameObject* AddCube(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
             PaintballGameObject* AddSphere(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
@@ -118,6 +117,7 @@ namespace NCL {
 
             std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
             std::map<int, PaintballPlayer*>& GetNetworkPlayers() { return networkPlayers; }
+            int& GetThisPeer() { return thisPeer; }
 
             void RequestRebuildWorld(int arg) { toRebuild = arg; }
 
@@ -171,6 +171,7 @@ namespace NCL {
             //FMOD
             bool canStart_FMOD = true;
 
+            int thisPeer = -1;
             std::map<int, NetworkObject*> networkObjects;
             std::map<int, PaintballPlayer*> networkPlayers;
 
