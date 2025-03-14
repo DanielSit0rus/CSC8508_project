@@ -1,5 +1,7 @@
 #include "NetworkObject.h"
 #include "./enet/enet.h"
+
+
 using namespace NCL;
 using namespace CSC8503;
 
@@ -112,7 +114,7 @@ bool NetworkObject::WriteDeltaPacket(GamePacket**p, int stateID) {
 	return true;
 }
 
-bool NetworkObject::WriteFullPacket(GamePacket**p) {
+bool NetworkObject::WriteFullPacket(GamePacket** p) {
 	FullPacket* fp = new FullPacket();
 	fp->objectID = networkID;
 
@@ -126,17 +128,17 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 		fp->fullState.position = object.GetTransform().GetPosition();		//GetWorldPosition();
 		fp->fullState.scale = object.GetTransform().GetScale();
 		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
-		
-		fp->fullState.size[0] = (short)object.GetRenderObject()->GetMeshName().length();
-		fp->fullState.size[1] = (short)object.GetRenderObject()->GetDefaultTextureName().length();
-		fp->fullState.size[2] = (short)object.GetRenderObject()->GetSpecularTextureName().length();
-		fp->fullState.size[3] = (short)object.GetRenderObject()->GetNormalTextureName().length();
-		fp->fullState.size[4] = (short)object.GetRenderObject()->GetShaderName().length();
-		Util::StringToCharArray(object.GetRenderObject()->GetMeshName(), fp->fullState.meshName);
-		Util::StringToCharArray(object.GetRenderObject()->GetDefaultTextureName(), fp->fullState.textureNameD);
-		Util::StringToCharArray(object.GetRenderObject()->GetSpecularTextureName(), fp->fullState.textureNameS);
-		Util::StringToCharArray(object.GetRenderObject()->GetNormalTextureName(), fp->fullState.textureNameN);
-		Util::StringToCharArray(object.GetRenderObject()->GetShaderName(), fp->fullState.shaderName);
+
+		fp->fullState.meshID =
+			Util::GetResourceIdByString("mesh", object.GetRenderObject()->GetMeshName());
+		fp->fullState.textureID_D =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetDefaultTextureName());
+		fp->fullState.textureID_S =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetSpecularTextureName());
+		fp->fullState.textureID_N =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetNormalTextureName());
+		fp->fullState.shaderID =
+			Util::GetResourceIdByString("shader", object.GetRenderObject()->GetShaderName());
 
 		fp->fullState.color = object.GetRenderObject()->GetColour();
 		fp->fullState.mass = object.GetPhysicsObject()->GetMass();
@@ -149,7 +151,7 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 	*p = fp;
 
 	stateHistory.emplace_back(fp->fullState);
-	
+
 	//std::cout << "full packet"  << std::endl;
 
 	return true;

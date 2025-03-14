@@ -285,14 +285,15 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 			}
 			else
 			{
+				if (state.meshID == -1)break;
 				G1.AddObject(type,
 					state.position, state.scale, state.orientation,
 					state.color,
-					Util::GetStringFromNetData(state.meshName, state.size[0]),
-					Util::GetStringFromNetData(state.textureNameD, state.size[1]),
-					Util::GetStringFromNetData(state.textureNameS, state.size[2]),
-					Util::GetStringFromNetData(state.textureNameN, state.size[3]),
-					Util::GetStringFromNetData(state.shaderName, state.size[4]),
+					ResourceManager::GetInstance().GetResourceByID("mesh",state.meshID),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_D),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_S),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_N),
+					ResourceManager::GetInstance().GetResourceByID("shader", state.shaderID),
 					state.mass, state.isEnemy, state.oriV3, objectID);
 			}
 		}

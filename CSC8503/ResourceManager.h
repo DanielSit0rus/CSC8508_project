@@ -29,6 +29,8 @@ namespace NCL {
 
             std::shared_ptr<MeshAnimation> GetMoveanim() const { return Moveanim; }
 
+            int GetResourceIdByString(const std::string& type, const std::string& target);
+            std::string GetResourceByID(const std::string& type, const int& id);
 
             private:
                 ResourceManager() = default; // Private constructor
@@ -47,6 +49,10 @@ namespace NCL {
                 std::unordered_map<std::string, Mesh*> meshes;
                 std::unordered_map<std::string, Texture*> textures;
                 std::unordered_map<std::string, Shader*> shaders;
+
+                vector<std::string> meshID;
+                vector<std::string> textureID;
+                vector<std::string> shaderID;
 		};
 	}
 }
