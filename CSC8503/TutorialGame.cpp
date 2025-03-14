@@ -90,7 +90,8 @@ void TutorialGame::UpdateGame(float dt) {
 		UpdateGameBody(dt);
 		break;
 	case CHOOSESERVER:
-		UpdateGameBody(dt);
+		UpdateUI(dt);
+		
 		break;
 	case MENU:
 		UpdateUI(dt);
