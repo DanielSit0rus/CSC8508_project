@@ -204,7 +204,6 @@ void UI::Update(float dt)
 		GameManager::GetInstance().GetGameState() == PAUSED ||
 		GameManager::GetInstance().GetGameState() == LOADING ||
 		GameManager::GetInstance().GetGameState() == SETTING ||
-		GameManager::GetInstance().GetGameState() == PLAYING ||
 		GameManager::GetInstance().GetGameState() == CHOOSESERVER) {
 		//Window::GetWindow()->ShowOSPointer(true);
 		//Window::GetWindow()->LockMouseToWindow(false);
@@ -217,6 +216,16 @@ void UI::Update(float dt)
 		//Window::GetWindow()->ShowOSPointer(false);
 		//Window::GetWindow()->LockMouseToWindow(true);
 	}
+	if (GameManager::GetInstance().GetGameState() == PLAYING) {
+		// 在PLAYING状态下，让游戏引擎处理鼠标输入
+		io.ConfigFlags |= ImGuiConfigFlags_NoMouse;
+		Window::GetWindow()->LockMouseToWindow(true);  
+	}
+	else {
+		Window::GetWindow()->LockMouseToWindow(false); // 在 UI 界面解锁鼠标
+	}
+	
+
 
 	if (GameManager::GetInstance().GetGameState() == LOADING) {
 		loadingstep += dt * 2;
@@ -248,7 +257,6 @@ void UI::Update(float dt)
 		DrawClientPlayingUI(dt);
 		break;
 	case SETTING:
-		
 		DrawSettingMenu(dt);
 		break;
 	case PAUSED:
