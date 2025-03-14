@@ -246,7 +246,7 @@ void Console::TestCommand(const std::string& s) {
                     G1.AddObject(GameObjectType::bullet,
                         Util::NCLToRP3d(camPos + G1.GetCameraFront() * 3.f), rp3d::Vector3(1, 1, 1),
                         rp3d::Quaternion().identity(),
-                        Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(G1.GetCameraFront()));
+                        Vector4(1, 1, 1, 1), "", "basic", "", "", "basic", 1, false, Util::NCLToRP3d(G1.GetCameraFront()));
 
                     std::this_thread::sleep_for(std::chrono::milliseconds(300));  // 限制输出频率，避免过快输出
                 }

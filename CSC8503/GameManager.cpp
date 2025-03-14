@@ -81,6 +81,7 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
     if (toRebuild != -1) {
         InitWorld(toRebuild);
         if (hasNetwork) {
+            //std::cout << "=================================================================================";
             json j = SLSystem::GetInstance().LoadData("save");
             if (j.contains("objs") && j["objs"].is_array()) {
                 for (const auto& obj : j["objs"]) {
@@ -301,47 +302,53 @@ void GameManager::InitWorld(int arg)
                     rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
                     rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                    obj["mesh"], obj["texture"], obj["shader"],
+                    obj["mesh"],
+                    obj["texture"][0], obj["texture"][1], obj["texture"][2],
+                    obj["shader"],
                     obj["mass"]);
             }
         }
     }
 
-
     toRebuild = -1;
 }
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-    Vector4 color, const string& meshName, const string& textureName, const string& shaderName,
+    Vector4 color, const string& meshName, const string& textureNameD,const string& textureNameS,const string& textureNameN, const string& shaderName,
     float mass, bool isEnemy, rp3d::Vector3 oriV3, int networkID)
 {
     PaintballGameObject* obj = nullptr;
     switch (type)
     {
-    case GameObjectType::cube:
-        //std::cout << "[GameManager::AddObject] cube." << std::endl;
+    case GameObjectType::cube: {
         obj = AddCube(position, dimensions * 0.5f, orientation, mass, color);
         break;
-
-    case GameObjectType::sphere:
-        //std::cout << "[GameManager::AddObject] cube." << std::endl;
+    }
+    case GameObjectType::sphere: {
         obj = AddSphere(position, dimensions, orientation, mass, color);
         break;
-    case GameObjectType::player:
+    }
+    case GameObjectType::player: {
         if (hasNetwork) return obj;
         else obj = AddPlayerClass(position);
         break;
-    case GameObjectType::bullet:
+    }
+    case GameObjectType::bullet: {
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
-    case GameObjectType::concave:
-        //std::cout << "[GameManager::AddObject] cube." << std::endl;
-        obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureName, shaderName, color);
+    }
+    case GameObjectType::concave1: {
+        obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, shaderName, color);
         break;
-
-    default:
+    }
+    case GameObjectType::concave2: {
+        obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, textureNameS, textureNameN, shaderName, color);
+        break;
+    }
+    default: {
         std::cout << "[GameManager::AddObject] Unsupported type : " << type << std::endl;
         return obj;
+    }
     }
 
     if (obj->GetNetworkObject() == nullptr) {   //freelist
@@ -548,7 +555,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(
 {
 
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave);
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
 
     concave->GetTransform()
         .SetPosition(position)
@@ -591,7 +598,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(
     Vector4 color
 ) {
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave);
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave2);
 
     concave->GetTransform()
         .SetPosition(position)
@@ -607,12 +614,10 @@ PaintballGameObject* GameManager::AddConcaveMesh(
 
     // Assign Specular and Normal Maps ONLY IF PROVIDED
     if (!specularTexture.empty()) {
-        Texture* specularTex = resources.GetTexture(specularTexture, false);
-        if (specularTex) renderObj->SetSpecularTexture(specularTex);
+        renderObj->SetSpecularTexture(specularTexture);
     }
     if (!normalTexture.empty()) {
-        Texture* normalTex = resources.GetTexture(normalTexture, false);
-        if (normalTex) renderObj->SetNormalTexture(normalTex);
+       renderObj->SetNormalTexture(normalTexture);
     }
 
     concave->GetRenderObject()->SetColour(color);

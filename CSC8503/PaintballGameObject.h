@@ -27,7 +27,8 @@ namespace NCL::CSC8503 {
         enemy,
         bullet,
 
-        concave,
+        concave1,
+        concave2,
 
         test_character,
         test_stateObj,

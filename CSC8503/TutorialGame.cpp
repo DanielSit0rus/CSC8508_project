@@ -313,7 +313,7 @@ void TutorialGame::UpdateKeys() {
 			GameManager::GetInstance().AddObject(GameObjectType::bullet,
 				Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
 				rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-				Vector4(1, 1, 1, 1), "", "basic", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+				Vector4(1, 1, 1, 1), "", "basic", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
 		}
 	}
 

@@ -289,8 +289,10 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 					state.position, state.scale, state.orientation,
 					state.color,
 					Util::GetStringFromNetData(state.meshName, state.size[0]),
-					Util::GetStringFromNetData(state.textureName, state.size[1]),
-					Util::GetStringFromNetData(state.shaderName, state.size[2]),
+					Util::GetStringFromNetData(state.textureNameD, state.size[1]),
+					Util::GetStringFromNetData(state.textureNameS, state.size[2]),
+					Util::GetStringFromNetData(state.textureNameN, state.size[3]),
+					Util::GetStringFromNetData(state.shaderName, state.size[4]),
 					state.mass, state.isEnemy, state.oriV3, objectID);
 			}
 		}

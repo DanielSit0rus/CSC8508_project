@@ -28,6 +28,18 @@ void PaintballRenderObject::SetDefaultTexture(const std::string& t)
     texture = ResourceManager::GetInstance().GetTexture(t);
 }
 
+void PaintballRenderObject::SetSpecularTexture(const std::string& t)
+{
+    specularTextureName = t;
+    specularTexture = ResourceManager::GetInstance().GetTexture(t);
+}
+
+void PaintballRenderObject::SetNormalTexture(const std::string& t)
+{
+    normalTextureName = t;
+    normalTexture = ResourceManager::GetInstance().GetTexture(t);
+}
+
 void PaintballRenderObject::UpdateAnimation(float dt) {
     if (!animation)
     {

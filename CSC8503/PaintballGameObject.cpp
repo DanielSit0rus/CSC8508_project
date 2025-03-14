@@ -77,7 +77,9 @@ void PaintballGameObject::SaveData(nlohmann::json& j) {
 	objData["color"].push_back(renderObject->GetColour().w);
 
 	objData["mesh"] = renderObject->GetMeshName();
-	objData["texture"] = renderObject->GetTextureName();
+	objData["texture"].push_back(renderObject->GetDefaultTextureName());
+	objData["texture"].push_back(renderObject->GetSpecularTextureName());
+	objData["texture"].push_back(renderObject->GetNormalTextureName());
 	objData["shader"] = renderObject->GetShaderName();
 
 	j["objs"].push_back(objData);

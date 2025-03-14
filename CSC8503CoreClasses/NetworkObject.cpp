@@ -128,10 +128,14 @@ bool NetworkObject::WriteFullPacket(GamePacket**p) {
 		fp->fullState.orientation = object.GetTransform().GetOrientation();	//GetWorldOrientation();
 		
 		fp->fullState.size[0] = (short)object.GetRenderObject()->GetMeshName().length();
-		fp->fullState.size[1] = (short)object.GetRenderObject()->GetTextureName().length();
-		fp->fullState.size[2] = (short)object.GetRenderObject()->GetShaderName().length();
+		fp->fullState.size[1] = (short)object.GetRenderObject()->GetDefaultTextureName().length();
+		fp->fullState.size[2] = (short)object.GetRenderObject()->GetSpecularTextureName().length();
+		fp->fullState.size[3] = (short)object.GetRenderObject()->GetNormalTextureName().length();
+		fp->fullState.size[4] = (short)object.GetRenderObject()->GetShaderName().length();
 		Util::StringToCharArray(object.GetRenderObject()->GetMeshName(), fp->fullState.meshName);
-		Util::StringToCharArray(object.GetRenderObject()->GetTextureName(), fp->fullState.textureName);
+		Util::StringToCharArray(object.GetRenderObject()->GetDefaultTextureName(), fp->fullState.textureNameD);
+		Util::StringToCharArray(object.GetRenderObject()->GetSpecularTextureName(), fp->fullState.textureNameS);
+		Util::StringToCharArray(object.GetRenderObject()->GetNormalTextureName(), fp->fullState.textureNameN);
 		Util::StringToCharArray(object.GetRenderObject()->GetShaderName(), fp->fullState.shaderName);
 
 		fp->fullState.color = object.GetRenderObject()->GetColour();

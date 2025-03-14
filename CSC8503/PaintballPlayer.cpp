@@ -162,14 +162,14 @@ void PaintballPlayer::Attack()
 
 	GameManager::GetInstance().AddObject(GameObjectType::bullet,
 		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-		bulletColor, "", "basic", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+		bulletColor, "", "basic", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
 }
 
 void PaintballPlayer::Attack(Vector3 front, Vector4 color)
 {
 	GameManager::GetInstance().AddObject(GameObjectType::bullet,
 		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-		color, "", "basic", "basic", 1, false, Util::NCLToRP3d(front));
+		color, "", "basic", "basic", "", "", 1, false, Util::NCLToRP3d(front));
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()

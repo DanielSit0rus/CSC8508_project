@@ -20,14 +20,15 @@ namespace NCL {
 			~PaintballRenderObject();
 
 			void SetDefaultTexture(const std::string& t);
+			void SetSpecularTexture(const std::string& t);
+			void SetNormalTexture(const std::string& t);
 
 			Texture* GetDefaultTexture() const {
 				return texture;
 			}
 
 			// New: Setters for specular and normal maps
-			void SetSpecularTexture(Texture* t) { specularTexture = t; }
-			void SetNormalTexture(Texture* t) { normalTexture = t; }
+
 			
 
 			// Getters for specular and normal maps
@@ -73,13 +74,17 @@ namespace NCL {
 			}
 
 			std::string GetMeshName() { return meshName; }
-			std::string GetTextureName() { return textureName; }
+			std::string GetDefaultTextureName() { return textureName; }
+			std::string GetSpecularTextureName() { return specularTextureName; }
+			std::string GetNormalTextureName() { return normalTextureName; }
 			std::string GetShaderName() { return shaderName; }
 
 		protected:
 
 			std::string meshName;
 			std::string textureName;
+			std::string specularTextureName;
+			std::string normalTextureName;
 			std::string shaderName;
 
 			Mesh* mesh;
