@@ -25,6 +25,19 @@ namespace NCL {
 				return texture;
 			}
 
+			// New: Setters for specular and normal maps
+			void SetSpecularTexture(Texture* t) { specularTexture = t; }
+			void SetNormalTexture(Texture* t) { normalTexture = t; }
+			
+
+			// Getters for specular and normal maps
+			Texture* GetSpecularTexture() const { return specularTexture; }
+			Texture* GetNormalTexture() const { return normalTexture; }
+
+
+			Texture* GetTexture() const { return texture; }  // Still returns the diffuse texture
+		
+
 			Mesh* GetMesh() const {
 				return mesh;
 			}
@@ -70,7 +83,9 @@ namespace NCL {
 			std::string shaderName;
 
 			Mesh* mesh;
-			Texture* texture;
+			Texture* texture; // diffuse
+			Texture* specularTexture = nullptr;
+			Texture* normalTexture = nullptr;
 			Shader* shader;
 			PaintballTransform* transform;
 			Vector4		colour;

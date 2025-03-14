@@ -50,12 +50,30 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
 
         textures["basic"] = renderer->LoadTexture("checkerboard.png");
         textures["floor"] = renderer->LoadTexture("6x6_base.png");
-        textures["mainwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
-        textures["doorway"] = renderer->LoadTexture("Texture_1_Specular.png");
-        textures["midwall"] = renderer->LoadTexture("Texture_3_Diffuse.png");
-        textures["openwall"] = renderer->LoadTexture("Texture_2_Specular.png");
-        textures["wall123"] = renderer->LoadTexture("Texture_4_Diffuse.png");
-        textures["wall4"] = renderer->LoadTexture("Texture_4_Specular.png");
+
+        textures["texture1_diffuse"] = renderer->LoadTexture("Texture_1_Diffuse.png");
+        textures["texture1_specular"] = renderer->LoadTexture("Texture_1_Specular.png");
+        textures["texture1_normal"] = renderer->LoadTexture("Texture_1_Normal.png");
+
+        textures["texture2_diffuse"] = renderer->LoadTexture("Texture_2_Diffuse.png");
+        textures["texture2_specular"] = renderer->LoadTexture("Texture_2_Specular.png");
+        textures["texture2_normal"] = renderer->LoadTexture("Texture_2_Normal.png");
+
+        textures["texture3_diffuse"] = renderer->LoadTexture("Texture_3_Diffuse.png");
+        textures["texture3_specular"] = renderer->LoadTexture("Texture_3_Specular.png");
+        textures["texture3_normal"] = renderer->LoadTexture("Texture_3_Normal.png");
+
+        textures["texture4_diffuse"] = renderer->LoadTexture("Texture_4_Diffuse.png");
+        textures["texture4_specular"] = renderer->LoadTexture("Texture_4_Specular.png");
+        textures["texture4_normal"] = renderer->LoadTexture("Texture_4_Normal.png");
+
+        textures["texture5_normal"] = renderer->LoadTexture("Texture_5_Normal.png");
+        textures["texture5_diffuse"] = renderer->LoadTexture("Texture_5_Diffuse.png");
+        textures["texture5_specular"] = renderer->LoadTexture("Texture_5_Specular.png");
+
+
+
+       
  
 
         shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
