@@ -72,7 +72,7 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         textures["texture5_specular"] = renderer->LoadTexture("Texture_5_Specular.png");
 
         //Map2
-        textures["texture6_base"] = renderer->LoadTexture("Texture_6_Albedo.png");  //GROUND 8
+        textures["texture6_base"] = renderer->LoadTexture("Texture_6_Base.png");  //GROUND 8
         textures["texture6_height"] = renderer->LoadTexture("Texture_6_Height.png");
         textures["texture6_metallic"] = renderer->LoadTexture("Texture_6_Metallic.png");
         textures["texture6_occlusion"] = renderer->LoadTexture("Texture_6_Occlusion.png");
@@ -96,8 +96,8 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         textures["texture9_height"] = renderer->LoadTexture("Texture_9_Height.png");
         textures["texture9_occlusion"] = renderer->LoadTexture("Texture_9_Occlusion.png");
         textures["texture9_maskmap"] = renderer->LoadTexture("Texture_9_MaskMap.png");
-        textures["texture9_roughness"] = renderer->LoadTexture("Texture_9_Normal.png");
-        textures["texture9_normal"] = renderer->LoadTexture("Texture_9_Roughness.png");
+        textures["texture9_roughness"] = renderer->LoadTexture("Texture_9_Roughness.png");
+        textures["texture9_normal"] = renderer->LoadTexture("Texture_9_Normal.png");
 
         textures["texture10_base"] = renderer->LoadTexture("Texture_10_Base.png");  //OW T15
         textures["texture10_height"] = renderer->LoadTexture("Texture_10_Height.png");
@@ -127,7 +127,7 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
         textures["texture14_base"] = renderer->LoadTexture("Texture_14_Base.png");   //WOOD
         textures["texture14_height"] = renderer->LoadTexture("Texture_14_Height.png");
         textures["texture14_metallic"] = renderer->LoadTexture("Texture_14_Metallic.png");
-        textures["texture14_occlusion"] = renderer->LoadTexture("wood_10_occlusion.png");
+        textures["texture14_occlusion"] = renderer->LoadTexture("Texture_14_Occlusion.png");
         textures["texture14_normal"] = renderer->LoadTexture("Texture_14_Normal.png");
 
         shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");

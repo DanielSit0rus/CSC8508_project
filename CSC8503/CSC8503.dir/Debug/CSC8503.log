@@ -226,10 +226,10 @@ E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(36,108): warning C4267: 
 E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(38,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(93,107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(95,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(361,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(362,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(685,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(686,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(374,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(375,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(698,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp(699,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
 E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
   (compiling source file 'GameManager.cpp')
       E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
