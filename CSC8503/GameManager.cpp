@@ -251,33 +251,46 @@ void GameManager::InitWorld() {
 
     //SECOND MAP
     AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "floor_2", "basic", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+        "floor_2", "texture6_base", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "mainWall_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "mainWall_2", "texture10_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "doorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "doorWay_2", "texture12_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "oppDoorWay_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "oppDoorWay_2", "texture12_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_1", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "wall_2_1", "texture7_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "wall_2_2", "texture7_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_3", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "wall_2_3", "texture11_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "columns_2", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "columns_2", "texture14_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "midTunnel", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "midTunnel", "texture13_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "elevation", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "elevation", "texture8_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bridge", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "bridge", "texture8_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "elevRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "elevRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "midRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "midRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
     AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bridgeRail", "basic", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+        "bridgeRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
 
     shoottest = AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
