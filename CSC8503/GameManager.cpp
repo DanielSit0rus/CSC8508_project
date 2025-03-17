@@ -1054,18 +1054,49 @@ PaintballGameObject* CSC8503::GameManager::AddTrigger(const rp3d::Vector3& posit
 
 PaintballGameObject* CSC8503::GameManager::AddTrap()
 {
-    PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    //PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    //PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
-    PaintballGameObject* trigger = AddTrigger(rp3d::Vector3(2, 15, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-    trigger->target = tripcube1;
-    // Anchor point on world-space
-    const rp3d::Vector3 anchorPoint(2.0, 4.0, 0.0);
+    //PaintballGameObject* trigger = AddTrigger(rp3d::Vector3(2, 15, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    //trigger->target = tripcube1;
+    //// Anchor point on world-space
+    //const rp3d::Vector3 anchorPoint(2.0, 4.0, 0.0);
 
-  
-    // Create the joint info object
-    reactphysics3d::BallAndSocketJointInfo jointInfo(&tripcube1->GetPhysicsObject()->GetRigidbody(), &tripcube2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
-    return nullptr;
+
+    //// Create the joint info object
+    //reactphysics3d::BallAndSocketJointInfo jointInfo(&tripcube1->GetPhysicsObject()->GetRigidbody(), &tripcube2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
+    //return nullptr;
+    // 创建陷阱方块
+    PaintballGameObject* tripcube1 = AddCube(rp3d::Vector3(2, 5, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion::identity(), 0.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+
+    // 创建一个机关（比如一个旋转的杆子）
+    PaintballGameObject* spinningTrap = AddCube(rp3d::Vector3(2, 13, -30), rp3d::Vector3(3, 4, 0.5), rp3d::Quaternion::identity(), 1.0f, Vector4(0.5f, 0.5f, 0.5f, 1.0f));
+
+    if (!tripcube1 || !spinningTrap) {
+        return nullptr;
+    }
+
+    // 关节的世界空间锚点
+    rp3d::Vector3 anchorPoint = spinningTrap->GetTransform().GetPosition();
+
+    // 创建旋转关节（Hinge Joint）
+    reactphysics3d::HingeJointInfo jointInfo(
+        &tripcube1->GetPhysicsObject()->GetRigidbody(),
+        &spinningTrap->GetPhysicsObject()->GetRigidbody(),
+        anchorPoint,
+        rp3d::Vector3(0, 1, 0) // 绕Y轴旋转
+    );
+
+    reactphysics3d::HingeJoint* hingeJoint = (reactphysics3d::HingeJoint*)RpWorld->createJoint(jointInfo);
+
+    if (hingeJoint) {
+        // 启用马达，让机关自动旋转
+        hingeJoint->enableMotor(true);
+        hingeJoint->setMotorSpeed(0.1f);  // 设置旋转速度
+        hingeJoint->setMaxMotorTorque(0.5f);  // 限制最大扭矩，防止过快
+    }
+
+    return spinningTrap;  // 返回旋转机关
 }
 
 Vector3 GameManager::GetCameraFront()
