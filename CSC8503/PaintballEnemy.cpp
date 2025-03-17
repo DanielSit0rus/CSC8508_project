@@ -178,3 +178,25 @@ void PaintballEnemy::CalculatePath(rp3d::Vector3 pos) {
 		}
 	}
 }
+
+void PaintballEnemy::InitBehaviorTree() {
+	BTSelector* root = new BTSelector();
+
+	BTSequence* attackSequence = new BTSequence();
+	attackSequence->AddChild(new ConditionCanSeePlayer(this));
+	attackSequence->AddChild(new ActionAttackPlayer(this));
+
+	BTSequence* chaseSequence = new BTSequence();
+	chaseSequence->AddChild(new ConditionCanSeePlayer(this));
+	chaseSequence->AddChild(new ActionMoveToPlayer(this));
+
+	root->AddChild(chaseSequence);
+	root->AddChild(attackSequence);
+	root->AddChild(new ActionPatrol(this));
+
+	behaviorTree = root;
+}
+
+void PaintballEnemy::SetTransform(const rp3d::Vector3& pos) {
+	this->GetTransform().SetPosition(pos);
+}
