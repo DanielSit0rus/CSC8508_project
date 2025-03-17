@@ -17,11 +17,14 @@ namespace NCL {
 
         private:
             void Patrol(float dt);
-            void AttackPlayer(float dt);
+            void Attack(Vector3 front, Vector4 color);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
             void CalculatePath(rp3d::Vector3 pos);
-
+            void SetNewPatrolTarget();
+            bool HasReachedTarget();
+            
+            rp3d::Vector3 patrolTarget;
             PaintballGameObject* player;
             NavigationMesh* navMesh;
             std::vector<Vector3> pathNodes;
