@@ -125,7 +125,6 @@ void GameManager::CleanWorld()
     //private
     gameObjects.clear();
     player = nullptr;
-    enemies.clear();
     objectsToDelete.clear();
     networkObjects.clear();
     networkPlayers.clear();
@@ -143,7 +142,7 @@ void GameManager::InitWorld() {
 
     playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
-    enemyObject = AddPlayerClass(rp3d::Vector3(5, 1, -1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(5, 1, -1));
 
     CharacterObject = AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
@@ -500,7 +499,7 @@ void GameManager::InitWorld(int arg)
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
                     obj["mesh"],
                     obj["texture"][0], obj["texture"][1], obj["texture"][2],
-                    obj["texture"][3], obj["texture"][4], obj["texture"][5],obj["texture"][6],obj["texture"][7],
+                    obj["texture"][3], obj["texture"][4], obj["texture"][5], obj["texture"][6], obj["texture"][7],
                     obj["shader"],
                     obj["mass"]);
             }
@@ -512,7 +511,7 @@ void GameManager::InitWorld(int arg)
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
     Vector4 color, const string& meshName,
-    const string& textureNameD,const string& textureNameS,const string& textureNameN,
+    const string& textureNameD, const string& textureNameS, const string& textureNameN,
     const string& textureNameH, const string& textureNameM, const string& textureNameO, const string& textureNameMM, const string& textureNameR,
     const string& shaderName,
     float mass, bool isEnemy, rp3d::Vector3 oriV3, int networkID)
@@ -701,6 +700,65 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     return player;
 }
 
+PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
+{
+
+
+    rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
+    rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
+    ResourceManager& resources = ResourceManager::GetInstance();
+    PaintballEnemy* enemy = new PaintballEnemy();
+
+    // Create the player object
+
+    enemy->GetTransform()
+        .SetPosition(position)
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(ratioRender)
+        .SetOffsetR(rp3d::Vector3(0, -dimensions.y * 0.5f * ratioRender.y, 0));
+
+    // Create render object with animation support
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &enemy->GetTransform(),
+        "role",
+        "basic",
+        "basic",
+        resources.GetIdleanim(),
+        resources.GetRolemat()
+    );
+
+    renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
+
+    // Attach the animated render object to the player
+    enemy->SetRenderObject(renderObj);
+
+    // Create a rigid body for physics
+    // Create rigid body at the player's position
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(enemy->GetTransform().GetRpTransform());
+
+    // Create collision shape
+    rp3d::CapsuleShape* shape = physicsCommon.createCapsuleShape(dimensions.x, dimensions.y);
+
+    // Offset the collider UP by half its height
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+
+    // Bind the shape to the rigid body with an offset
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+
+    // Attach physics object to player
+    enemy->SetPhysicsObject(new PaintballPhysicsObject(&enemy->GetTransform(), *cubeBody, *RpWorld));
+    enemy->GetPhysicsObject()->SetMass(1);
+    enemy->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
+
+    enemy->SetNavMesh(navMesh);     // Assign the navigation mesh
+    enemy->SetPlayer(player);       // Set the target player
+
+    // Add player to the game world
+    world->AddGameObject(enemy);
+
+    return enemy;
+}
+
 
 PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -823,7 +881,7 @@ PaintballGameObject* GameManager::AddConcaveMesh(
         renderObj->SetSpecularTexture(specularTexture);
     }
     if (!normalTexture.empty()) {
-       renderObj->SetNormalTexture(normalTexture);
+        renderObj->SetNormalTexture(normalTexture);
     }
 
     concave->GetRenderObject()->SetColour(color);
@@ -842,9 +900,9 @@ PaintballGameObject* GameManager::AddConcaveMesh(
     return concave;
 }
 
-PaintballGameObject* NCL::CSC8503::GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, 
+PaintballGameObject* NCL::CSC8503::GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
     const std::string& meshName, const std::string& diffuseTexture, const std::string& specularTexture, const std::string& normalTexture,
-    const std::string& heightTexture, const std::string& metallicTexture, const std::string& occlusionTexture, const std::string& maskMapTexture, 
+    const std::string& heightTexture, const std::string& metallicTexture, const std::string& occlusionTexture, const std::string& maskMapTexture,
     const std::string& roughnessTexture, const std::string& shaderName, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
@@ -1045,7 +1103,7 @@ PaintballGameObject* CSC8503::GameManager::AddTrigger(const rp3d::Vector3& posit
     //add rigid body to gameobject
     cube->SetPhysicsObject(new PaintballPhysicsObject(&cube->GetTransform(), *cubeBody, *RpWorld));
     cube->GetPhysicsObject()->SetMass(mass);
-   
+
     collider->setIsTrigger(true);
     world->AddGameObject(cube);
 
@@ -1073,8 +1131,8 @@ PaintballGameObject* CSC8503::GameManager::AddTrap()
     PaintballGameObject* spinningTrap = AddCube(rp3d::Vector3(2, 13, -30), rp3d::Vector3(3, 4, 0.5), rp3d::Quaternion::identity(), 1.0f, Vector4(0.5f, 0.5f, 0.5f, 1.0f));
 
     if (!tripcube1 || !spinningTrap) {
-        return nullptr;
-    }
+    return nullptr;
+}
 
     // 关节的世界空间锚点
     rp3d::Vector3 anchorPoint = spinningTrap->GetTransform().GetPosition();

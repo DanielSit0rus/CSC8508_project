@@ -1,3 +1,5 @@
+#pragma once
+
 #include "StateGameObject.h"
 #include "PaintballGameObject.h"
 #include "PaintballGameWorld.h"
@@ -12,7 +14,6 @@ namespace NCL {
 
             void Update(float dt) override;  // ÷ÿ–¥ update ∑Ω∑®
 
-            void SetTransform(const rp3d::Vector3& pos);
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
 
@@ -115,7 +116,7 @@ namespace NCL {
             private:
                 PaintballEnemy* bot;
             };
-            
+
             BTNode* behaviorTree;
             rp3d::Vector3 patrolTarget;
             PaintballGameObject* player;
@@ -123,6 +124,9 @@ namespace NCL {
             std::vector<Vector3> pathNodes;
 
             bool canSeeTest = false;
+
+            float totalCD = 2;
+            float leftCD = totalCD;
         };
 
     }

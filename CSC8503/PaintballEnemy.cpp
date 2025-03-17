@@ -22,7 +22,7 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 
 
 	State* attacking = new State([&](float dt) -> void {
-		Attack(Vector3(1, 1, 1), Vector4(1,0,0,1));
+		Attack(Vector3(1, 1, 1), Vector4(1, 0, 0, 1));
 		});
 
 
@@ -45,8 +45,12 @@ PaintballEnemy::~PaintballEnemy()
 
 void PaintballEnemy::Update(float dt)
 {
-	canSeeTest = CanSeePlayer();
 	StateGameObject::Update(dt);
+	leftCD -= dt;
+	canSeeTest = CanSeePlayer();
+
+	//Patrol(dt);
+
 	//std::cout << "PaintballEnemy::Update" << std::endl;
 }
 
@@ -63,7 +67,7 @@ void PaintballEnemy::Patrol(float dt) {
 		CalculatePath(player->GetTransform().GetPosition());
 		MoveEnemyAlongPath();
 	}
-	else if(distanceToPlayer >= patrolRange) {
+	else if (distanceToPlayer >= patrolRange) {
 		if (pathNodes.empty() || (this->GetTransform().GetPosition() - patrolTarget).length() < 1.0f) {
 			float randomX = (rand() % 40) - 20;
 			float randomZ = (rand() % 40) - 20;
@@ -98,23 +102,27 @@ void PaintballEnemy::Patrol(float dt) {
 
 void PaintballEnemy::Attack(Vector3 front, Vector4 color)
 {
-
-	GameManager::GetInstance().AddObject(GameObjectType::bullet,
-		transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-		color, "", "basic", "basic", "", "", 1, false, Util::NCLToRP3d(front));
+	if (leftCD < 0) {
+		GameManager::GetInstance().AddObject(GameObjectType::bullet,
+			transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
+			color, "basic", "basic", "", "", "", "", "", "", "", "basic", 1, false, Util::NCLToRP3d(front));
+		leftCD = totalCD;
+	}
 }
 
 bool PaintballEnemy::CanSeePlayer() {
 	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
 	rp3d::Vector3 playerPos = player->GetTransform().GetPosition();
 
-	//rp3d::Ray ray(enemyPos, playerPos);
-	rp3d::Vector3 direction = playerPos - enemyPos;
-	rp3d::Ray ray(enemyPos, direction);
+	rp3d::Ray ray(enemyPos, playerPos);
+	//rp3d::Vector3 direction = playerPos - enemyPos;
+	//rp3d::Ray ray(enemyPos, direction);
 	RaycastHitCallback callback;
 	GameManager::GetInstance().getRPworld()->raycast(ray, &callback);
 
 	if (callback.rb && callback.rb->getUserData()) {
+
+		//std::cout << ((PaintballGameObject*)callback.rb->getUserData() == player) << std::endl;
 		return (PaintballGameObject*)callback.rb->getUserData() == player;
 	}
 	return false;
@@ -195,8 +203,4 @@ void PaintballEnemy::InitBehaviorTree() {
 	root->AddChild(new ActionPatrol(this));
 
 	behaviorTree = root;
-}
-
-void PaintballEnemy::SetTransform(const rp3d::Vector3& pos) {
-	this->GetTransform().SetPosition(pos);
 }

@@ -8,6 +8,7 @@
 #include "NavigationMesh.h"
 #include "PaintballBullet.h"
 #include "PaintballPlayer.h"
+#include "PaintballEnemy.h"
 #include "BulletContactListener.h"
 #include "Camera.h"
 #include <unordered_set>
@@ -33,8 +34,8 @@ namespace NCL {
 
     namespace CSC8503 {
         class PaintballPlayer;
-        class PaintballBullet;
         class PaintballEnemy; //forward declaration
+        class PaintballBullet;
         class GameManager
         {
         public:
@@ -68,7 +69,7 @@ namespace NCL {
 
             PaintballGameObject* AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
                 Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f),
-                const string& meshName="",
+                const string& meshName = "",
                 const string& textureNameD = "", const string& textureNameS = "", const string& textureNameN = "",
                 const string& textureNameH = "", const string& textureNameM = "", const string& textureNameO = "", const string& textureNameMM = "", const string& textureNameR = "",
                 const string& shaderName = "basic",
@@ -81,8 +82,8 @@ namespace NCL {
             PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
                 const string& meshName, const string& textureName = "basic", const string& shaderName = "basic", Vector4 color = Vector4(1, 1, 1, 1));
 
-            PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, 
-                const string& meshName, const string& diffuseTexture, const string& specularTexture, const string& normalTexture, const string& shaderName, Vector4 color = Vector4(1,1,1,1));
+            PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
+                const string& meshName, const string& diffuseTexture, const string& specularTexture, const string& normalTexture, const string& shaderName, Vector4 color = Vector4(1, 1, 1, 1));
 
 
             PaintballGameObject* AddConcaveMesh(
@@ -100,13 +101,14 @@ namespace NCL {
                 const std::string& roughnessTexture,  // No default
                 const std::string& shaderName,
                 Vector4 color = Vector4(1, 1, 1, 1))
-            ;
+                ;
 
 
 
             PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
+            PaintballEnemy* AddEnemyClass(rp3d::Vector3 position);
 
             PaintballBullet* AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass = 10.0f);
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);
@@ -178,7 +180,6 @@ namespace NCL {
             //NEW
             std::vector<PaintballGameObject*> gameObjects;
             PaintballPlayer* player;
-            std::vector<PaintballGameObject*> enemies;
 
             GameTechRenderer* renderer;
 
