@@ -155,7 +155,7 @@ void GameManager::InitWorld() {
     renderer->AddLight(light2);
 
     //FMOD
-    speakerObj = AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+    speakerObj = AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
     speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
         AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
     //speakerObj->GetAudioObject()->Play(true);
@@ -500,6 +500,7 @@ void GameManager::InitWorld(int arg)
                     Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
                     obj["mesh"],
                     obj["texture"][0], obj["texture"][1], obj["texture"][2],
+                    obj["texture"][3], obj["texture"][4], obj["texture"][5],obj["texture"][6],obj["texture"][7],
                     obj["shader"],
                     obj["mass"]);
             }
@@ -510,7 +511,10 @@ void GameManager::InitWorld(int arg)
 }
 
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
-    Vector4 color, const string& meshName, const string& textureNameD,const string& textureNameS,const string& textureNameN, const string& shaderName,
+    Vector4 color, const string& meshName,
+    const string& textureNameD,const string& textureNameS,const string& textureNameN,
+    const string& textureNameH, const string& textureNameM, const string& textureNameO, const string& textureNameMM, const string& textureNameR,
+    const string& shaderName,
     float mass, bool isEnemy, rp3d::Vector3 oriV3, int networkID)
 {
     PaintballGameObject* obj = nullptr;
@@ -539,6 +543,12 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
     }
     case GameObjectType::concave2: {
         obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, textureNameS, textureNameN, shaderName, color);
+        break;
+    }
+    case GameObjectType::concave3: {
+        obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, textureNameS, textureNameN,
+            textureNameH, textureNameM, textureNameO, textureNameMM, textureNameR,
+            shaderName, color);
         break;
     }
     default: {
@@ -838,7 +848,7 @@ PaintballGameObject* NCL::CSC8503::GameManager::AddConcaveMesh(const rp3d::Vecto
     const std::string& roughnessTexture, const std::string& shaderName, Vector4 color)
 {
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave3);
 
     concave->GetTransform()
         .SetPosition(position)
@@ -1044,8 +1054,8 @@ PaintballGameObject* CSC8503::GameManager::AddTrigger(const rp3d::Vector3& posit
 
 PaintballGameObject* CSC8503::GameManager::AddTrap()
 {
-    PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
-    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* tripcube1 =  AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* tripcube2 = AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
     PaintballGameObject* trigger = AddTrigger(rp3d::Vector3(2, 15, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.0f, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
     trigger->target = tripcube1;

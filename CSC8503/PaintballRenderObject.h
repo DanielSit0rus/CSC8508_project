@@ -89,6 +89,14 @@ namespace NCL {
 			std::string GetDefaultTextureName() { return textureName; }
 			std::string GetSpecularTextureName() { return specularTextureName; }
 			std::string GetNormalTextureName() { return normalTextureName; }
+
+			std::string GetHeightTextureName() { return heightTextureName; }
+			std::string GetMetallicTextureName() { return metallicTextureName; }
+			std::string GetOcclusionTextureName() { return occlusionTextureName; }
+			std::string GetMaskMapTextureName() { return maskMapTextureName; }
+			std::string GetRoughnessTextureName() { return roughnessTextureName; }
+
+
 			std::string GetShaderName() { return shaderName; }
 
 		protected:

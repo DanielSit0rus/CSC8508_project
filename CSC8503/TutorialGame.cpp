@@ -25,6 +25,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	renderer = new GameTechRenderer(*world);
 #endif	
 	
+	std::cout << "=======================0===================" << std::endl;
 
 	world->GetMainCamera().SetController(controller);
 
@@ -34,15 +35,16 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 	controller.MapAxis(3, "XLook");
 	controller.MapAxis(4, "YLook");
-	ResourceManager::GetInstance().LoadAssets(renderer);
+
+	std::cout << "=======================1===================" << std::endl;
+	ResourceManager::GetInstance().LoadAssets(renderer);	//cost lot of time
+	std::cout << "=======================2===================" << std::endl;
+
 	G1.Init(world, renderer);
 
+	std::cout << "=======================3===================" << std::endl;
 
 	InitialiseAssets();
-
-
-	
-
 
 	G1.SetGameState(PaintballGameState::LOADING);
 }
@@ -314,7 +316,7 @@ void TutorialGame::UpdateKeys() {
 			GameManager::GetInstance().AddObject(GameObjectType::bullet,
 				Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
 				rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-				Vector4(1, 1, 1, 1), "", "basic", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+				Vector4(1, 1, 1, 1), "", "basic", "", "", "", "", "", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
 		}
 	}
 

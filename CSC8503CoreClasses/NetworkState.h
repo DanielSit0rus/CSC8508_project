@@ -19,6 +19,11 @@ namespace NCL {
 			int					textureID_D = -1;
 			int					textureID_S = -1;
 			int					textureID_N = -1;
+			int					textureID_H = -1;
+			int					textureID_M = -1;
+			int					textureID_O = -1;
+			int					textureID_MM = -1;
+			int					textureID_R= -1;
 			int					shaderID	= -1;
 
 			Vector4				color;

@@ -17,7 +17,7 @@
             ],
             "pos": [
                 1.0,
-                4.04909610748291,
+                4.046550273895264,
                 -21.0
             ],
             "scale": [
@@ -29,38 +29,10 @@
             "texture": [
                 "basic",
                 "",
-                ""
-            ],
-            "type": 3
-        },
-        {
-            "color": [
-                0.0,
-                0.0,
-                1.0,
-                1.0
-            ],
-            "mass": 1.0,
-            "mesh": "role",
-            "ori": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ],
-            "pos": [
-                -8.346956253051758,
-                -3.5099456310272217,
-                -15.731133460998535
-            ],
-            "scale": [
-                1.0,
-                2.0,
-                1.0
-            ],
-            "shader": "basic",
-            "texture": [
-                "basic",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -77,14 +49,14 @@
             "mesh": "role",
             "ori": [
                 0.0,
-                0.0018522866303101182,
                 0.0,
-                0.9999983310699463
+                0.0,
+                1.0
             ],
             "pos": [
-                -0.08759723603725433,
-                4.047699928283691,
-                -30.024892807006836
+                -8.368497848510742,
+                -3.3018276691436768,
+                -15.775647163391113
             ],
             "scale": [
                 1.0,
@@ -94,6 +66,49 @@
             "shader": "basic",
             "texture": [
                 "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 3
+        },
+        {
+            "color": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "role",
+            "ori": [
+                0.0,
+                0.0005929435137659311,
+                0.0,
+                0.9999998807907104
+            ],
+            "pos": [
+                -0.5768158435821533,
+                4.0493903160095215,
+                -30.104299545288086
+            ],
+            "scale": [
+                1.0,
+                2.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -109,15 +124,15 @@
             "mass": 1.0,
             "mesh": "sphere",
             "ori": [
-                -0.2670802175998688,
-                -0.0007957135094329715,
-                0.9607465267181396,
-                0.07505901157855988
+                0.1726263463497162,
+                -0.03031853772699833,
+                -0.9799363017082214,
+                -0.09489907324314117
             ],
             "pos": [
-                9.198204040527344,
-                3.0503265857696533,
-                -27.441455841064453
+                2.483764171600342,
+                3.049685478210449,
+                -29.4360294342041
             ],
             "scale": [
                 1.0,
@@ -127,6 +142,11 @@
             "shader": "basic",
             "texture": [
                 "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -161,7 +181,12 @@
             "texture": [
                 "texture5_diffuse",
                 "texture5_specular",
-                "texture5_normal"
+                "texture5_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -194,7 +219,12 @@
             "texture": [
                 "texture3_diffuse",
                 "texture3_specular",
-                "texture3_normal"
+                "texture3_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -227,7 +257,12 @@
             "texture": [
                 "texture1_diffuse",
                 "texture1_specular",
-                "texture1_normal"
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -260,7 +295,12 @@
             "texture": [
                 "texture1_diffuse",
                 "texture1_specular",
-                "texture1_normal"
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -293,7 +333,12 @@
             "texture": [
                 "texture1_diffuse",
                 "texture1_specular",
-                "texture1_normal"
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -326,7 +371,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -359,7 +409,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -392,7 +447,12 @@
             "texture": [
                 "texture2_diffuse",
                 "texture2_specular",
-                "texture2_normal"
+                "texture2_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -425,7 +485,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -458,7 +523,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -491,7 +561,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -524,7 +599,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -557,7 +637,12 @@
             "texture": [
                 "texture5_diffuse",
                 "texture5_specular",
-                "texture5_normal"
+                "texture5_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -590,7 +675,12 @@
             "texture": [
                 "texture4_diffuse",
                 "texture4_specular",
-                "texture4_normal"
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
             ],
             "type": 7
         },
@@ -621,17 +711,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture6_base",
+                "",
+                "texture6_normal",
+                "texture6_height",
+                "texture6_metallic",
+                "texture6_occlusion",
                 "",
                 ""
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -654,17 +749,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture10_base",
                 "",
-                ""
+                "texture10_normal",
+                "texture10_height",
+                "",
+                "texture10_occlusion",
+                "texture10_maskmap",
+                "texture10_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -687,17 +787,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture12_base",
+                "",
+                "texture12_normal",
+                "texture12_height",
+                "texture12_metallic",
+                "texture12_occlusion",
                 "",
                 ""
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -720,17 +825,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture12_base",
+                "",
+                "texture12_normal",
+                "texture12_height",
+                "texture12_metallic",
+                "texture12_occlusion",
                 "",
                 ""
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -753,17 +863,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture7_base",
                 "",
-                ""
+                "texture7_normal",
+                "texture7_height",
+                "",
+                "texture7_occlusion",
+                "texture7_maskmap",
+                "texture7_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -786,17 +901,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture7_base",
                 "",
-                ""
+                "texture7_normal",
+                "texture7_height",
+                "",
+                "texture7_occlusion",
+                "texture7_maskmap",
+                "texture7_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -819,17 +939,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture11_base",
                 "",
-                ""
+                "texture11_normal",
+                "texture11_height",
+                "texture11_metallic",
+                "texture11_occlusion",
+                "",
+                "texture11_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -852,17 +977,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture14_base",
+                "",
+                "texture14_normal",
+                "texture14_height",
+                "texture14_metallic",
+                "texture14_occlusion",
                 "",
                 ""
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -885,17 +1015,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture13_base",
+                "",
+                "texture13_normal",
+                "texture13_height",
+                "texture13_metallic",
+                "texture13_occlusion",
                 "",
                 ""
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -918,17 +1053,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture8_base",
                 "",
-                ""
+                "texture8_normal",
+                "texture8_height",
+                "",
+                "texture8_occlusion",
+                "texture8_maskmap",
+                "texture8_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -951,17 +1091,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture8_base",
                 "",
-                ""
+                "texture8_normal",
+                "texture8_height",
+                "",
+                "texture8_occlusion",
+                "texture8_maskmap",
+                "texture8_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -984,17 +1129,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture9_base",
                 "",
-                ""
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -1017,17 +1167,22 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture9_base",
                 "",
-                ""
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
                 1.0,
-                0.0,
-                0.0,
+                1.0,
+                1.0,
                 1.0
             ],
             "mass": 1.0,
@@ -1050,11 +1205,16 @@
             ],
             "shader": "basic",
             "texture": [
-                "basic",
+                "texture9_base",
                 "",
-                ""
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
             ],
-            "type": 6
+            "type": 8
         },
         {
             "color": [
@@ -1073,7 +1233,7 @@
             ],
             "pos": [
                 13.0,
-                4.041028022766113,
+                4.050124168395996,
                 10.0
             ],
             "scale": [
@@ -1084,6 +1244,11 @@
             "shader": "basic",
             "texture": [
                 "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -1099,15 +1264,15 @@
             "mass": 1.0,
             "mesh": "cube",
             "ori": [
-                -0.6946151852607727,
-                0.13299700617790222,
-                0.13332121074199677,
-                0.69429612159729
+                -0.06970164179801941,
+                0.06880263984203339,
+                -0.7036707401275635,
+                0.7037438750267029
             ],
             "pos": [
-                3.70688796043396,
-                3.0501272678375244,
-                -31.70384979248047
+                4.66376256942749,
+                3.0496437549591064,
+                -28.628999710083008
             ],
             "scale": [
                 2.0,
@@ -1117,6 +1282,11 @@
             "shader": "basic",
             "texture": [
                 "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -1132,15 +1302,15 @@
             "mass": 1.0,
             "mesh": "cube",
             "ori": [
-                -0.6155756115913391,
-                0.6153374314308167,
-                -0.34821072220802307,
-                0.3481033444404602
+                0.17731665074825287,
+                -0.17747418582439423,
+                -0.6845042705535889,
+                0.6844820380210876
             ],
             "pos": [
-                2.7046563625335693,
-                3.0499744415283203,
-                -37.78318405151367
+                3.278878927230835,
+                3.050682544708252,
+                -31.747650146484375
             ],
             "scale": [
                 2.0,
@@ -1150,6 +1320,11 @@
             "shader": "basic",
             "texture": [
                 "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -1184,9 +1359,14 @@
             "texture": [
                 "basic",
                 "",
+                "",
+                "",
+                "",
+                "",
+                "",
                 ""
             ],
-            "type": 11
+            "type": 13
         }
     ]
 }

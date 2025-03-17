@@ -50,11 +50,11 @@ namespace NCL {
 			{
 				if (mass == 0) {
 					rigidBody.setType(rp3d::BodyType::STATIC);
-					rigidBody.setMass(mass);
 				}
 				else {
 					rigidBody.setType(rp3d::BodyType::DYNAMIC);
 				}
+				rigidBody.setMass(mass);
 			}
 
 			float GetMass() const {

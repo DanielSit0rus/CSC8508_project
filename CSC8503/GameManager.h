@@ -70,6 +70,7 @@ namespace NCL {
                 Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f),
                 const string& meshName="",
                 const string& textureNameD = "", const string& textureNameS = "", const string& textureNameN = "",
+                const string& textureNameH = "", const string& textureNameM = "", const string& textureNameO = "", const string& textureNameMM = "", const string& textureNameR = "",
                 const string& shaderName = "basic",
                 float mass = 10.0f, bool isEnemy = false, rp3d::Vector3 oriV3 = rp3d::Vector3(),
                 int network = -1);

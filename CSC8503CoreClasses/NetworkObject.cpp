@@ -137,6 +137,18 @@ bool NetworkObject::WriteFullPacket(GamePacket** p) {
 			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetSpecularTextureName());
 		fp->fullState.textureID_N =
 			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetNormalTextureName());
+
+		fp->fullState.textureID_H =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetHeightTextureName());
+		fp->fullState.textureID_M =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetMetallicTextureName());
+		fp->fullState.textureID_O =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetOcclusionTextureName());
+		fp->fullState.textureID_MM =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetMaskMapTextureName());
+		fp->fullState.textureID_R =
+			Util::GetResourceIdByString("texture", object.GetRenderObject()->GetRoughnessTextureName());
+
 		fp->fullState.shaderID =
 			Util::GetResourceIdByString("shader", object.GetRenderObject()->GetShaderName());
 

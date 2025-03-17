@@ -293,6 +293,11 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_D),
 					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_S),
 					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_N),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_H),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_M),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_O),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_MM),
+					ResourceManager::GetInstance().GetResourceByID("texture", state.textureID_R),
 					ResourceManager::GetInstance().GetResourceByID("shader", state.shaderID),
 					state.mass, state.isEnemy, state.oriV3, objectID);
 			}
