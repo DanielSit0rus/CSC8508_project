@@ -22,6 +22,13 @@ namespace NCL {
 			void SetDefaultTexture(const std::string& t);
 			void SetSpecularTexture(const std::string& t);
 			void SetNormalTexture(const std::string& t);
+			void SetHeightTexture(const std::string& t);
+			void SetMetallicTexture(const std::string& t);
+			void SetOcclusionTexture(const std::string& t);
+			void SetMaskMapTexture(const std::string& t);
+			void SetRoughnessTexture(const std::string& t);
+
+
 
 			Texture* GetDefaultTexture() const {
 				return texture;
@@ -34,6 +41,11 @@ namespace NCL {
 			// Getters for specular and normal maps
 			Texture* GetSpecularTexture() const { return specularTexture; }
 			Texture* GetNormalTexture() const { return normalTexture; }
+			Texture* GetHeightTexture() const { return heightTexture; }
+			Texture* GetMetallicTexture() const { return metallicTexture; }
+			Texture* GetOcclusionTexture() const { return occlusionTexture; }
+			Texture* GetMaskMapTexture() const { return maskMapTexture; }
+			Texture* GetRoughnessTexture() const { return roughnessTexture; }
 
 
 			Texture* GetTexture() const { return texture; }  // Still returns the diffuse texture
@@ -85,12 +97,23 @@ namespace NCL {
 			std::string textureName;
 			std::string specularTextureName;
 			std::string normalTextureName;
+			std::string heightTextureName;
+			std::string metallicTextureName;
+			std::string occlusionTextureName;
+			std::string maskMapTextureName;
+			std::string roughnessTextureName;
 			std::string shaderName;
 
 			Mesh* mesh;
 			Texture* texture; // diffuse
 			Texture* specularTexture = nullptr;
 			Texture* normalTexture = nullptr;
+			Texture* heightTexture = nullptr;
+			Texture* metallicTexture = nullptr;
+			Texture* occlusionTexture = nullptr;
+			Texture* maskMapTexture = nullptr;
+			Texture* roughnessTexture = nullptr;
+
 			Shader* shader;
 			PaintballTransform* transform;
 			Vector4		colour;

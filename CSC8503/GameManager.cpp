@@ -250,47 +250,230 @@ void GameManager::InitWorld() {
 
 
     //SECOND MAP
-    AddConcaveMesh(rp3d::Vector3(-50, 0, 169), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "floor_2", "texture6_base", "basic", Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-50, 0, 169),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "floor_2",
+        "texture6_base",
+        "",                              // No Specular
+        "texture6_normal",
+        "texture6_height",
+        "texture6_metallic",
+        "texture6_occlusion",
+        "",                              // No MaskMap
+        "",                              // No Roughness
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-200, 4, 109), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "mainWall_2", "texture10_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
-    AddConcaveMesh(rp3d::Vector3(-353, -4, -77), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "doorWay_2", "texture12_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-200, 4, 109),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "mainWall_2",
+        "texture10_base",
+        "",
+        "texture10_normal",
+        "texture10_height",
+        "",                              // No Metallic
+        "texture10_occlusion",
+        "texture10_maskmap",
+        "texture10_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(60, 2, 290), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "oppDoorWay_2", "texture12_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-353, -4, -77),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "doorWay_2",
+        "texture12_base",
+        "",
+        "texture12_normal",
+        "texture12_height",
+        "texture12_metallic",
+        "texture12_occlusion",
+        "",                              // No MaskMap
+        "",                              // No Roughness
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-492, -154, -462), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_1", "texture7_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(60, 2, 290),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "oppDoorWay_2",
+        "texture12_base",
+        "",
+        "texture12_normal",
+        "texture12_height",
+        "texture12_metallic",
+        "texture12_occlusion",
+        "",                              // No MaskMap
+        "",                              // No Roughness
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-61, 2, 305), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_2", "texture7_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-492, -154, -462),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_1",
+        "texture7_base",
+        "",                              // No Specular
+        "texture7_normal",
+        "texture7_height",
+        "",                              // No Metallic
+        "texture7_occlusion",
+        "texture7_maskmap",
+        "texture7_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-328, 2, -193), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "wall_2_3", "texture11_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-61, 2, 305),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_2",
+        "texture7_base",
+        "",                              // No Specular
+        "texture7_normal",
+        "texture7_height",
+        "",                              // No Metallic
+        "texture7_occlusion",
+        "texture7_maskmap",
+        "texture7_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-285, 2, -250), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "columns_2", "texture14_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-328, 2, -193),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "wall_2_3",
+        "texture11_base",
+        "",
+        "texture11_normal",
+        "texture11_height",
+        "texture11_metallic",
+        "texture11_occlusion",
+        "",                              // No MaskMap
+        "texture11_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-253, 1, -350), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "midTunnel", "texture13_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-285, 2, -250),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "columns_2",
+        "texture14_base",
+        "",
+        "texture14_normal",
+        "texture14_height",
+        "texture14_metallic",
+        "texture14_occlusion",
+        "",                              // No MaskMap
+        "",                              // No Roughness
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-5, 2, 465), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "elevation", "texture8_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-253, 1, -350),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midTunnel",
+        "texture13_base",
+        "",
+        "texture13_normal",
+        "texture13_height",
+        "texture13_metallic",
+        "texture13_occlusion",
+        "",                              // No MaskMap
+        "",                              // No Roughness
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-22, 2, 248), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bridge", "texture8_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-5, 2, 465),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "elevation",
+        "texture8_base",
+        "",
+        "texture8_normal",
+        "texture8_height",
+        "",                              // No Metallic
+        "texture8_occlusion",
+        "texture8_maskmap",
+        "texture8_roughness",
+        "basic"
+    );
+    // Bridge (Texture 8) - Same as Elevation
+    AddConcaveMesh(
+        rp3d::Vector3(-22, 2, 248),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bridge",
+        "texture8_base",
+        "",
+        "texture8_normal",
+        "texture8_height",
+        "",                              // No Metallic
+        "texture8_occlusion",
+        "texture8_maskmap",
+        "texture8_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-37, 21, 384), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "elevRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-37, 21, 384),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "elevRail",
+        "texture9_base",
+        "",
+        "texture9_normal",
+        "texture9_height",
+        "",                              // No Metallic
+        "texture9_occlusion",
+        "texture9_maskmap",
+        "texture9_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-61.5, 26, 297.5), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "midRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-61.5, 26, 297.5),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "midRail",
+        "texture9_base",
+        "",
+        "texture9_normal",
+        "texture9_height",
+        "",                              // No Metallic
+        "texture9_occlusion",
+        "texture9_maskmap",
+        "texture9_roughness",
+        "basic"
+    );
 
-    AddConcaveMesh(rp3d::Vector3(-88, 22, 187), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
-        "bridgeRail", "texture9_base", "basic", Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    AddConcaveMesh(
+        rp3d::Vector3(-88, 22, 187),
+        rp3d::Vector3(5, 5, 5),
+        rp3d::Quaternion(0, 0, 0, 1.0f),
+        "bridgeRail",
+        "texture9_base",
+        "",
+        "texture9_normal",
+        "texture9_height",
+        "",                              // No Metallic
+        "texture9_occlusion",
+        "texture9_maskmap",
+        "texture9_roughness",
+        "basic"
+    );
 
 
     shoottest = AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
@@ -648,6 +831,107 @@ PaintballGameObject* GameManager::AddConcaveMesh(
     world->AddGameObject(concave);
     return concave;
 }
+
+PaintballGameObject* NCL::CSC8503::GameManager::AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, 
+    const std::string& meshName, const std::string& diffuseTexture, const std::string& specularTexture, const std::string& normalTexture,
+    const std::string& heightTexture, const std::string& metallicTexture, const std::string& occlusionTexture, const std::string& maskMapTexture, 
+    const std::string& roughnessTexture, const std::string& shaderName, Vector4 color)
+{
+    ResourceManager& resources = ResourceManager::GetInstance();
+    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
+
+    concave->GetTransform()
+        .SetPosition(position)
+        .SetOrientation(orientation)
+        .SetScale(dimensions)
+        .SetRatioR(dimensions);
+
+    // Create render object
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &concave->GetTransform(), meshName, diffuseTexture, shaderName
+    );
+    concave->SetRenderObject(renderObj);
+
+    // Assign additional textures only if they exist
+    if (!specularTexture.empty())  renderObj->SetSpecularTexture(specularTexture);
+    if (!normalTexture.empty())    renderObj->SetNormalTexture(normalTexture);
+    if (!heightTexture.empty())    renderObj->SetHeightTexture(heightTexture);
+    if (!metallicTexture.empty())  renderObj->SetMetallicTexture(metallicTexture);
+    if (!occlusionTexture.empty()) renderObj->SetOcclusionTexture(occlusionTexture);
+    if (!maskMapTexture.empty())   renderObj->SetMaskMapTexture(maskMapTexture);
+    if (!roughnessTexture.empty()) renderObj->SetRoughnessTexture(roughnessTexture);
+
+    concave->GetRenderObject()->SetColour(color);
+
+    // Physics setup
+    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
+    concaveBody->setType(rp3d::BodyType::STATIC);
+    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMesh(meshName));
+    shape->setScale(dimensions);
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
+
+    concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
+    world->AddGameObject(concave);
+    return concave;
+}
+
+
+//PaintballGameObject* GameManager::AddConcaveMesh(
+//    const rp3d::Vector3& position,
+//    rp3d::Vector3 dimensions,
+//    rp3d::Quaternion orientation,
+//    const std::string& meshName,
+//    const std::string& diffuseTexture,
+//    const std::string& specularTexture,
+//    const std::string& normalTexture,
+//    const std::string& heightTexture,
+//    const std::string& metallicTexture,
+//    const std::string& occlusionTexture,
+//    const std::string& maskMapTexture,
+//    const std::string& roughnessTexture,
+//    const std::string& shaderName,
+//    Vector4 color)
+//{
+//    ResourceManager& resources = ResourceManager::GetInstance();
+//    PaintballGameObject* concave = new PaintballGameObject(GameObjectType::concave1);
+//
+//    concave->GetTransform()
+//        .SetPosition(position)
+//        .SetOrientation(orientation)
+//        .SetScale(dimensions)
+//        .SetRatioR(dimensions);
+//
+//    // Create render object
+//    PaintballRenderObject* renderObj = new PaintballRenderObject(
+//        &concave->GetTransform(), meshName, diffuseTexture, shaderName
+//    );
+//    concave->SetRenderObject(renderObj);
+//
+//    // Assign additional textures only if they exist
+//    if (!specularTexture.empty())  renderObj->SetSpecularTexture(specularTexture);
+//    if (!normalTexture.empty())    renderObj->SetNormalTexture(normalTexture);
+//    if (!heightTexture.empty())    renderObj->SetHeightTexture(heightTexture);
+//    if (!metallicTexture.empty())  renderObj->SetMetallicTexture(metallicTexture);
+//    if (!occlusionTexture.empty()) renderObj->SetOcclusionTexture(occlusionTexture);
+//    if (!maskMapTexture.empty())   renderObj->SetMaskMapTexture(maskMapTexture);
+//    if (!roughnessTexture.empty()) renderObj->SetRoughnessTexture(roughnessTexture);
+//
+//    concave->GetRenderObject()->SetColour(color);
+//
+//    // Physics setup
+//    rp3d::RigidBody* concaveBody = RpWorld->createRigidBody(concave->GetTransform().GetRpTransform());
+//    concaveBody->setType(rp3d::BodyType::STATIC);
+//    rp3d::ConcaveMeshShape* shape = CreateConcaveMeshShape(resources.GetMesh(meshName));
+//    shape->setScale(dimensions);
+//    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+//    rp3d::Collider* collider = concaveBody->addCollider(shape, shapeTransform);
+//
+//    concave->SetPhysicsObject(new PaintballPhysicsObject(&concave->GetTransform(), *concaveBody, *RpWorld));
+//    world->AddGameObject(concave);
+//    return concave;
+//}
+
 
 PaintballBullet* CSC8503::GameManager::AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass)
 {

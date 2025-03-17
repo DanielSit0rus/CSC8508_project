@@ -83,6 +83,26 @@ namespace NCL {
             PaintballGameObject* AddConcaveMesh(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, 
                 const string& meshName, const string& diffuseTexture, const string& specularTexture, const string& normalTexture, const string& shaderName, Vector4 color = Vector4(1,1,1,1));
 
+
+            PaintballGameObject* AddConcaveMesh(
+                const rp3d::Vector3& position,
+                rp3d::Vector3 dimensions,
+                rp3d::Quaternion orientation,
+                const std::string& meshName,
+                const std::string& diffuseTexture,
+                const std::string& specularTexture,   // No default
+                const std::string& normalTexture,     // No default
+                const std::string& heightTexture,     // No default
+                const std::string& metallicTexture,   // No default
+                const std::string& occlusionTexture,  // No default
+                const std::string& maskMapTexture,    // No default
+                const std::string& roughnessTexture,  // No default
+                const std::string& shaderName,
+                Vector4 color = Vector4(1, 1, 1, 1))
+            ;
+
+
+
             PaintballGameObject* Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass = 10.0f, Vector4 color = Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);

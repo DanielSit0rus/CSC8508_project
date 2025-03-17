@@ -40,6 +40,37 @@ void PaintballRenderObject::SetNormalTexture(const std::string& t)
     normalTexture = ResourceManager::GetInstance().GetTexture(t);
 }
 
+void NCL::CSC8503::PaintballRenderObject::SetHeightTexture(const std::string& t)
+{
+    heightTextureName = t;
+    heightTexture = ResourceManager::GetInstance().GetTexture(t);
+}
+
+void NCL::CSC8503::PaintballRenderObject::SetMetallicTexture(const std::string& t)
+{
+    metallicTextureName = t;
+    metallicTexture = ResourceManager::GetInstance().GetTexture(t);
+}
+
+void NCL::CSC8503::PaintballRenderObject::SetOcclusionTexture(const std::string& t)
+{
+    occlusionTextureName = t;
+    occlusionTexture = ResourceManager::GetInstance().GetTexture(t);
+}
+
+void NCL::CSC8503::PaintballRenderObject::SetMaskMapTexture(const std::string& t)
+{
+    maskMapTextureName = t;
+    maskMapTexture = ResourceManager::GetInstance().GetTexture(t);
+
+}
+void NCL::CSC8503::PaintballRenderObject::SetRoughnessTexture(const std::string& t)
+{
+    roughnessTextureName = t;
+    roughnessTexture = ResourceManager::GetInstance().GetTexture(t);
+
+}
+
 void PaintballRenderObject::UpdateAnimation(float dt) {
     if (!animation)
     {

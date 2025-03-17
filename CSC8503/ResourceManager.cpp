@@ -73,62 +73,63 @@ void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
 
         //Map2
         textures["texture6_base"] = renderer->LoadTexture("Texture_6_Base.png");  //GROUND 8
+        textures["texture6_normal"] = renderer->LoadTexture("Texture_6_Normal.png");
         textures["texture6_height"] = renderer->LoadTexture("Texture_6_Height.png");
         textures["texture6_metallic"] = renderer->LoadTexture("Texture_6_Metallic.png");
-        textures["texture6_occlusion"] = renderer->LoadTexture("Texture_6_Occlusion.png");
-        textures["texture6_normal"] = renderer->LoadTexture("Texture_6_Normal.png");
+        textures["texture6_occlusion"] = renderer->LoadTexture("Texture_6_Occlusion.png"); // base, height, metallic, occlusion, normal (3)
 
         textures["texture7_base"] = renderer->LoadTexture("Texture_7_Base.png");  //OW T03
+        textures["texture7_normal"] = renderer->LoadTexture("Texture_7_Normal.png");
         textures["texture7_height"] = renderer->LoadTexture("Texture_7_Height.png");
         textures["texture7_occlusion"] = renderer->LoadTexture("Texture_7_Occlusion.png");
         textures["texture7_maskmap"] = renderer->LoadTexture("Texture_7_MaskMap.png");
-        textures["texture7_roughness"] = renderer->LoadTexture("Texture_7_Roughness.png");
-        textures["texture7_normal"] = renderer->LoadTexture("Texture_7_Normal.png");
+        textures["texture7_roughness"] = renderer->LoadTexture("Texture_7_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
+
 
         textures["texture8_base"] = renderer->LoadTexture("Texture_8_Base.png");   //OW T06
+        textures["texture8_normal"] = renderer->LoadTexture("Texture_8_Normal.png");
         textures["texture8_height"] = renderer->LoadTexture("Texture_8_Height.png");
         textures["texture8_occlusion"] = renderer->LoadTexture("Texture_8_Occlusion.png");
         textures["texture8_maskmap"] = renderer->LoadTexture("Texture_8_MaskMap.png");
-        textures["texture8_roughness"] = renderer->LoadTexture("Texture_8_Roughness.png");
-        textures["texture8_normal"] = renderer->LoadTexture("Texture_8_Normal.png");
+        textures["texture8_roughness"] = renderer->LoadTexture("Texture_8_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
 
         textures["texture9_base"] = renderer->LoadTexture("Texture_9_Base.png");   //OW T14
+        textures["texture9_normal"] = renderer->LoadTexture("Texture_9_Normal.png");
         textures["texture9_height"] = renderer->LoadTexture("Texture_9_Height.png");
         textures["texture9_occlusion"] = renderer->LoadTexture("Texture_9_Occlusion.png");
         textures["texture9_maskmap"] = renderer->LoadTexture("Texture_9_MaskMap.png");
-        textures["texture9_roughness"] = renderer->LoadTexture("Texture_9_Roughness.png");
-        textures["texture9_normal"] = renderer->LoadTexture("Texture_9_Normal.png");
+        textures["texture9_roughness"] = renderer->LoadTexture("Texture_9_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
 
         textures["texture10_base"] = renderer->LoadTexture("Texture_10_Base.png");  //OW T15
+        textures["texture10_normal"] = renderer->LoadTexture("Texture_10_Normal.png");
         textures["texture10_height"] = renderer->LoadTexture("Texture_10_Height.png");
         textures["texture10_occlusion"] = renderer->LoadTexture("Texture_10_Occlusion.png");
         textures["texture10_maskmap"] = renderer->LoadTexture("Texture_10_MaskMap.png");
-        textures["texture10_roughness"] = renderer->LoadTexture("Texture_10_Roughness.png");
-        textures["texture10_normal"] = renderer->LoadTexture("Texture_10_Normal.png");
+        textures["texture10_roughness"] = renderer->LoadTexture("Texture_10_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
 
         textures["texture11_base"] = renderer->LoadTexture("Texture_11_Base.png");  //WALL 2
         textures["texture11_height"] = renderer->LoadTexture("Texture_11_Height.png");
         textures["texture11_metallic"] = renderer->LoadTexture("Texture_11_Metallic.png");
         textures["texture11_occlusion"] = renderer->LoadTexture("Texture_11_Occlusion.png");
-        textures["texture11_normal"] = renderer->LoadTexture("Texture_11_Normal.png");
+        textures["texture11_normal"] = renderer->LoadTexture("Texture_11_Normal.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
         textures["texture12_base"] = renderer->LoadTexture("Texture_12_Base.png");   //WALL 5
+        textures["texture12_normal"] = renderer->LoadTexture("Texture_12_Normal.png");
         textures["texture12_height"] = renderer->LoadTexture("Texture_12_Height.png");
         textures["texture12_metallic"] = renderer->LoadTexture("Texture_12_Metallic.png");
-        textures["texture12_occlusion"] = renderer->LoadTexture("Texture_12_Occlusion.png");
-        textures["texture12_normal"] = renderer->LoadTexture("Texture_12_Normal.png");
+        textures["texture12_occlusion"] = renderer->LoadTexture("Texture_12_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
         textures["texture13_base"] = renderer->LoadTexture("Texture_13_Base.png");  //WALL 8
+        textures["texture13_normal"] = renderer->LoadTexture("Texture_13_Normal.png");
         textures["texture13_height"] = renderer->LoadTexture("Texture_13_Height.png");
         textures["texture13_metallic"] = renderer->LoadTexture("Texture_13_Metallic.png");
-        textures["texture13_occlusion"] = renderer->LoadTexture("Texture_13_Occlusion.png");
-        textures["texture13_normal"] = renderer->LoadTexture("Texture_13_Normal.png");
+        textures["texture13_occlusion"] = renderer->LoadTexture("Texture_13_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
         textures["texture14_base"] = renderer->LoadTexture("Texture_14_Base.png");   //WOOD
+        textures["texture14_normal"] = renderer->LoadTexture("Texture_14_Normal.png");
         textures["texture14_height"] = renderer->LoadTexture("Texture_14_Height.png");
         textures["texture14_metallic"] = renderer->LoadTexture("Texture_14_Metallic.png");
-        textures["texture14_occlusion"] = renderer->LoadTexture("Texture_14_Occlusion.png");
-        textures["texture14_normal"] = renderer->LoadTexture("Texture_14_Normal.png");
+        textures["texture14_occlusion"] = renderer->LoadTexture("Texture_14_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
         shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
 

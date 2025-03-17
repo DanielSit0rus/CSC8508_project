@@ -29,6 +29,9 @@ namespace NCL::CSC8503 {
 
         concave1,
         concave2,
+        concave3,
+        concave4,
+
 
         test_character,
         test_stateObj,

@@ -22,7 +22,9 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 	animShader = new OGLShader("anim.vert", "anim.frag");
 
 	Light light1(Vector3(-265.0f, 200.0f, -220.0f), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1000.0f, 1000.0f, LightType::Point);
+	Light light2(Vector3(-250.0f, 98.0f, 661.0f), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1000.0f, 1000.0f, LightType::Point);
 	AddLight(light1);
+	AddLight(light2);
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -285,6 +287,8 @@ void GameTechRenderer::RenderShadowMap() {
 
 
 
+
+
 void GameTechRenderer::AddLight(const Light& light) {
 	if (lights.size() < 8) { // Limit to 8 lights (defined in shader)
 		lights.push_back(light);
@@ -454,28 +458,83 @@ void GameTechRenderer::RenderCamera() {
 	int shadowLocation = 0, hasAnimLocation = 0, jointLocation = 0;
 	int numLightsLocation = 0;
 
-	// Bind shadow map to texture unit 1
+	
 	glActiveTexture(GL_TEXTURE0 + 1);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
 
-	// Loop over all objects to render
+	
 	for (auto& obj : activeObjects) {
 		OGLShader* shader = (OGLShader*)obj->GetShader();
 		UseShader(*shader);
 
-		// 1) Bind the diffuse texture to "mainTex" on texture unit 0
+		
 		if (obj->GetDefaultTexture()) {
 			BindTextureToShader(*(OGLTexture*)obj->GetDefaultTexture(), "mainTex", 0);
 		}
+		else {
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, 0); // Unbind to prevent carry-over
+		}
 
-		// 2) Bind the specular texture to "specularTex" on texture unit 2
+		
 		if (obj->GetSpecularTexture()) {
 			BindTextureToShader(*(OGLTexture*)obj->GetSpecularTexture(), "specularTex", 2);
 		}
+		else {
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, 0); // Unbind specular
+		}
 
-		// 3) Bind the normal texture to "normalTex" on texture unit 3
+		
 		if (obj->GetNormalTexture()) {
 			BindTextureToShader(*(OGLTexture*)obj->GetNormalTexture(), "normalTex", 3);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE3);
+			glBindTexture(GL_TEXTURE_2D, 0); // Unbind normal map
+		}
+
+		// Bind height texture
+		if (obj->GetHeightTexture()) {
+			BindTextureToShader(*(OGLTexture*)obj->GetHeightTexture(), "heightTex", 4);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE4);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		// Bind metallic texture
+		if (obj->GetMetallicTexture()) {
+			BindTextureToShader(*(OGLTexture*)obj->GetMetallicTexture(), "metallicTex", 5);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE5);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		// Bind occlusion texture
+		if (obj->GetOcclusionTexture()) {
+			BindTextureToShader(*(OGLTexture*)obj->GetOcclusionTexture(), "occlusionTex", 6);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE6);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		if (obj->GetMaskMapTexture()) {
+			BindTextureToShader(*(OGLTexture*)obj->GetMaskMapTexture(), "maskMapTex", 7);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE7);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		if (obj->GetRoughnessTexture()) {
+			BindTextureToShader(*(OGLTexture*)obj->GetRoughnessTexture(), "roughnessTex", 8);
+		}
+		else {
+			glActiveTexture(GL_TEXTURE8);
+			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		// If the shader changed, update uniform locations once
