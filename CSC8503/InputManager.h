@@ -20,7 +20,7 @@ namespace NCL {
             void Move(PaintballPhysicsObject* physicsObject, Vector3 direction, float forceMagnitude);
             void Jump(PaintballPhysicsObject* physicsObject, float forceMagnitude);
             void GoDown(PaintballPhysicsObject* physicsObject, float forceMagnitude);
-
+            void Getkeybord();
             Vector3 CalculateForward(PerspectiveCamera* camera);
             Vector3 CalculateRight(PerspectiveCamera* camera);
         };

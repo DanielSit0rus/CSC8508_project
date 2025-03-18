@@ -94,6 +94,38 @@ void InputManager::GoDown(PaintballPhysicsObject* physicsObject, float forceMagn
     physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
 }
 
+void NCL::CSC8503::InputManager::Getkeybord()
+{
+    if (IsKeyPressed(KeyCodes::W)) {
+        std::cout << "前进" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::A)) {
+        std::cout << "向左" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::S)) {
+        std::cout << "后退" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::D)) {
+        std::cout << "向右" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::SPACE)) {
+        std::cout << "跳跃" << std::endl;
+    }
+    if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
+        std::cout << "射击" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::NUM1)) {
+        std::cout << "切换武器颜色" << std::endl;
+
+    }
+    if (IsKeyPressed(KeyCodes::NUM2)) {
+        std::cout << "切换武器颜色" << std::endl;
+    }
+    if (IsKeyPressed(KeyCodes::NUM3)) {
+        std::cout << "切换武器颜色" << std::endl;
+    }
+}
+
 Vector3 InputManager::CalculateForward(PerspectiveCamera* camera) {
     const Matrix4& view = camera->BuildViewMatrix();
     const Matrix4& camWorld = Matrix::Inverse(view);
