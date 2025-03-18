@@ -170,6 +170,8 @@ namespace NCL {
             //test
             float		forceMagnitude;
 
+            bool isLoading = true;
+
         private:
             GameManager() = default;
 
