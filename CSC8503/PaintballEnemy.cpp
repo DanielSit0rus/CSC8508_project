@@ -22,10 +22,7 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 
 
 	State* attacking = new State([&](float dt) -> void {
-
-
-
-		Attack(Vector3(1, 0, 0), Vector4(1, 0, 0, 1));
+		Attack( Vector4(1, 0, 0, 1));
 		});
 
 
@@ -120,12 +117,12 @@ void PaintballEnemy::Patrol(float dt) {
 //	return distance < 1.0f;  // 1.0f 以内算到达目标
 //}
 
-void PaintballEnemy::Attack(Vector3 front, Vector4 color)
+void PaintballEnemy::Attack(Vector4 color)
 {
 	if (leftCD < 0) {
 		GameManager::GetInstance().AddObject(GameObjectType::bullet,
 			transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-			color, "basic", "basic", "", "", "", "", "", "", "", "basic", 1, false, Util::NCLToRP3d(front));
+			color, "basic", "basic", "", "", "", "", "", "", "", "basic", 1, false, player->GetTransform().GetPosition() - transform.GetPosition());
 		leftCD = totalCD;
 	}
 }
@@ -202,8 +199,12 @@ void PaintballEnemy::CalculatePath(rp3d::Vector3 pos) {
 
 	if (navMesh->FindPath(Util::RP3dToNCL(startPos), Util::RP3dToNCL(endPos), outPath)) {
 		Vector3 pos;
+		int count = 0;
 		while (outPath.PopWaypoint(pos)) {
-			pathNodes.push_back(pos);
+			if (count % 2 == 0) {
+				pathNodes.push_back(pos);
+			}
+			count++;
 		}
 	}
 }

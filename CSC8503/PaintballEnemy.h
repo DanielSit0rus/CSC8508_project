@@ -19,7 +19,7 @@ namespace NCL {
 
         private:
             void Patrol(float dt);
-            void Attack(Vector3 front, Vector4 color);
+            void Attack(Vector4 color);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
             void CalculatePath(rp3d::Vector3 pos);
@@ -111,7 +111,7 @@ namespace NCL {
                 ActionAttackPlayer(PaintballEnemy* bot) : bot(bot) {}
                 bool Execute() override {
                     std::cout << "ActionAttackPlayer\n";
-                    bot->Attack(Vector3(0, 4, 0), Vector4(1, 0, 0, 1)); return true;
+                    bot->Attack(Vector4(1, 0, 0, 1)); return true;
                 }
             private:
                 PaintballEnemy* bot;
