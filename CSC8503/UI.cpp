@@ -12,6 +12,8 @@
 #include "imgui_impl_opengl3.h"
 #include <Windows.h>
 
+#include "SLSystem.h"
+
 using namespace NCL;
 using namespace CSC8503;
 using namespace Win32Code;
@@ -148,7 +150,7 @@ UI::UI(PaintballGameWorld* world)
 	ImGui::CreateContext();
 	Win32Code::Win32Window* win32 = (Win32Code::Win32Window*)Window::GetWindow();
 	win32->SetExtraMsgFunc(ImguiProcessInput);
-	
+
 	// Initialize Platform/Renderer backends
 	ImGui_ImplWin32_Init(win32->GetHandle());
 	ImGui_ImplOpenGL3_Init("#version 130");
@@ -177,6 +179,12 @@ UI::UI(PaintballGameWorld* world)
 	AudioSystem::GetInstance().GetBusVolume("BGM", bgmVolume);
 	AudioSystem::GetInstance().GetBusVolume("Effect", effectVolume);
 	AudioSystem::GetInstance().GetBusVolume("Voice", voiceVolume);
+
+	const json& j = SLSystem::GetInstance().GetCurSave();
+	totalStep = j["resources"]["meshes"].size()
+		+ j["resources"]["textures"].size()
+		+ j["resources"]["shaders"].size();
+	totalStep = totalStep == 0 ? 1 : totalStep;
 }
 
 UI::~UI()
@@ -228,10 +236,10 @@ void UI::Update(float dt)
 
 
 	if (GameManager::GetInstance().GetGameState() == LOADING) {
-		loadingstep += dt * 2;
-		if (loadingstep >= 5) {
-			GameManager::GetInstance().SetGameState(MENU);
-		}
+		//loadingstep += dt * 2;
+		//if (loadingstep >= 5) {
+		//	GameManager::GetInstance().SetGameState(MENU);
+		//}
 	}
 
 	switch (GameManager::GetInstance().GetGameState())
@@ -289,13 +297,13 @@ void UI::DrawUI()
 
 void UI::SetLoadingStep(int step) {
 
-	std::cout << "[SetLoadingStep] Updating loading step to: " << step << std::endl;
-	loadingstep = step;
+	//std::cout << "[SetLoadingStep] Updating loading step to: " << step << std::endl;
+	loadingstep += step;
 }
 
 void UI::DrawLoading(float dt) {
 
-	std::cout << "[DrawLoading] loadingstep = " << loadingstep << ", : " << ((loadingstep + 1) * 20) << "%" << std::endl;
+	//std::cout << "[DrawLoading] loadingstep = " << loadingstep << ", : " << ((loadingstep + 1) * 20) << "%" << std::endl;
 	const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
 
 
@@ -317,7 +325,7 @@ void UI::DrawLoading(float dt) {
 	ImGui::SetNextWindowSize(ImVec2(350, 40));
 
 	if (ImGui::Begin("LoadingBar", NULL, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoSavedSettings)) {
-		float progress = (loadingstep + 1) * 20 / 100.0f;
+		float progress = (float)loadingstep / totalStep;
 		
 		ImGui::ProgressBar(progress, ImVec2(350, 40));
 		ImGui::End();

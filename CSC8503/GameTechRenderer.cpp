@@ -79,9 +79,12 @@ GameTechRenderer::GameTechRenderer(PaintballGameWorld& world) : OGLRenderer(*Win
 
 	SetDebugStringBufferSizes(10000);
 	SetDebugLineBufferSizes(1000);
+	
+	RegisterSL();
 }
 
 GameTechRenderer::~GameTechRenderer()	{
+	UnRegisterSL();
 
 	delete ui;
 	glDeleteTextures(1, &shadowTex);
@@ -645,6 +648,17 @@ void GameTechRenderer::LoadMesh(std::unordered_map<std::string, Mesh*>& meshMap,
 	mesh->SetPrimitiveType(GeometryPrimitive::Triangles);
 	mesh->UploadToGPU();
 	meshMap[key] = mesh;
+
+	json meshData;
+	meshData["name"] = key;
+	meshData["filename"] = filename;
+	tempSave["meshes"].push_back(meshData);
+
+	Update(1);
+	GetUI()->Update(1);
+	GetUI()->SetLoadingStep();
+	Render();
+	Debug::UpdateRenderables(1);
 }
 
 
@@ -790,6 +804,17 @@ void GameTechRenderer::LoadTexture(std::unordered_map<std::string, Texture*>& te
 	const std::string& key, const std::string& filename)
 {
 	textureMap[key] = OGLTexture::TextureFromFile(filename).release();
+
+	Update(1);
+	GetUI()->Update(1);
+	GetUI()->SetLoadingStep();
+	Render();
+	Debug::UpdateRenderables(1);
+
+	json textureData;
+	textureData["name"] = key;
+	textureData["filename"] = filename;
+	tempSave["textures"].push_back(textureData);
 }
 
 Shader* GameTechRenderer::LoadShader(const std::string& vertex, const std::string& fragment) {
@@ -800,6 +825,18 @@ void GameTechRenderer::LoadShader(std::unordered_map<std::string, Shader*>& shad
 	const std::string& key, const std::string& vertex, const std::string& fragment)
 {
 	shaderMap[key] = new OGLShader(vertex, fragment);
+
+	Update(1);
+	GetUI()->Update(1);
+	GetUI()->SetLoadingStep();
+	Render();
+	Debug::UpdateRenderables(1);
+
+	json shaderData;
+	shaderData["name"] = key;
+	shaderData["vertex"] = vertex;
+	shaderData["fragment"] = fragment;
+	tempSave["shaders"].push_back(shaderData);
 
 }
 void GameTechRenderer::SetDebugStringBufferSizes(size_t newVertCount) {
@@ -874,4 +911,14 @@ void GameTechRenderer::UpdateLight(int index, const Vector3& position, const Vec
 
 	lights[index].SetPosition(position);
 	lights[index].SetDirection(direction);
+}
+
+void GameTechRenderer::SaveData(json& j)
+{
+	j["resources"] = tempSave;
+}
+
+void GameTechRenderer::LoadData(json& j)
+{
+	;
 }

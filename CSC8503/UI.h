@@ -46,7 +46,7 @@ namespace NCL {
 			void DrawFinishMenu(float dt);
 			void DrawSettingMenu(float dt);
 
-			void SetLoadingStep(int step);
+			void SetLoadingStep(int step = 1);
 			void SetSuccess(bool s) { success = s; }
 			bool IsDebugMode() const { return debugMode; }
 
@@ -55,6 +55,7 @@ namespace NCL {
 			PaintballGameWorld* world;
 
 			int loadingstep = 0;
+			int totalStep = 1;
 
 			float bgmVolume;
 			float effectVolume;

@@ -144,7 +144,8 @@ int main() {
 		return -1;
 	}	
 
-	w->SetWindowPosition(5, 30);
+	w->SetWindowPosition(20, 40);
+	Console::GetInstance().Init(w);
 
 	NetworkedGame* g = new NetworkedGame();
 	//PushdownMachine machine(new GameScreen(g, w));
@@ -152,7 +153,6 @@ int main() {
 	//TestPathfinding();
 	//TestNetworking();
 	
-	Console::GetInstance().Init(w);
 	std::thread console([] {Console::GetInstance().ProcessInput(); });
 
 	while (w->UpdateWindow() && GameManager::GetInstance().GetGameState() != EXIT) {

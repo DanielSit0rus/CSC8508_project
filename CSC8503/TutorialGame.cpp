@@ -25,8 +25,6 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	renderer = new GameTechRenderer(*world);
 #endif	
 	
-	std::cout << "=======================0===================" << std::endl;
-
 	world->GetMainCamera().SetController(controller);
 
 	controller.MapAxis(0, "Sidestep");
@@ -36,17 +34,14 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 	controller.MapAxis(3, "XLook");
 	controller.MapAxis(4, "YLook");
 
-	std::cout << "=======================1===================" << std::endl;
+	G1.SetGameState(PaintballGameState::LOADING);
+
 	ResourceManager::GetInstance().LoadAssets(renderer);	//cost lot of time
-	std::cout << "=======================2===================" << std::endl;
 
 	G1.Init(world, renderer);
 
-	std::cout << "=======================3===================" << std::endl;
-
 	InitialiseAssets();
-
-	G1.SetGameState(PaintballGameState::LOADING);
+	G1.SetGameState(PaintballGameState::MENU);
 }
 
 /*
@@ -80,7 +75,7 @@ void TutorialGame::UpdateGame(float dt) {
 
 	switch (G1.GetGameState()) {
 	case LOADING:
-		UpdateLoading(dt);
+		//UpdateLoading(dt);	//loading is finished in AssetsLoading
 		break;
 	case PLAYING:
 		UpdateGameBody(dt);
@@ -212,12 +207,12 @@ void TutorialGame::AssetsLoading() {
 
 void TutorialGame::UpdateLoading(float dt)
 {
-	std::cout << "[UpdateLoading] assetsLoadedStep = " << assetsLoadedStep << std::endl;
-	if (assetsLoadedStep == 5) G1.SetGameState(MENU);
-	AssetsLoading();
+	//std::cout << "[UpdateLoading] assetsLoadedStep = " << assetsLoadedStep << std::endl;
+	//if (assetsLoadedStep == 5) G1.SetGameState(MENU);
+	//AssetsLoading();
 
 	UpdateUI(dt);
-	renderer->GetUI()->SetLoadingStep(assetsLoadedStep);
+	renderer->GetUI()->SetLoadingStep(1);
 }
 
 void TutorialGame::UpdateUI(float dt)

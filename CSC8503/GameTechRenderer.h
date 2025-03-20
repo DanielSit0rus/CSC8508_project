@@ -12,15 +12,15 @@ namespace NCL {
 	namespace CSC8503 {
 		class RenderObject;
 
-		class GameTechRenderer : public OGLRenderer	{
+		class GameTechRenderer : public OGLRenderer, ISaveable {
 		public:
 			GameTechRenderer(PaintballGameWorld& world);
 			~GameTechRenderer();
 			void AddLight(const Light& light);
 
-			Mesh*		LoadMesh(const std::string& name);
-			Texture*	LoadTexture(const std::string& name);
-			Shader*		LoadShader(const std::string& vertex, const std::string& fragment);
+			Mesh* LoadMesh(const std::string& name);
+			Texture* LoadTexture(const std::string& name);
+			Shader* LoadShader(const std::string& vertex, const std::string& fragment);
 
 			void		LoadMesh(std::unordered_map<std::string, Mesh*>& meshMap, const std::string& key, const std::string& filename);
 			void		LoadTexture(std::unordered_map<std::string, Texture*>& textureMap, const std::string& key, const std::string& filename);
@@ -29,6 +29,9 @@ namespace NCL {
 			void UpdateLight(int index, const Vector3& position, const Vector3& direction);
 
 			UI* GetUI() { return ui; };
+
+			void SaveData(json& j);
+			void LoadData(json& j);
 
 		protected:
 			void NewRenderLines();
@@ -39,16 +42,16 @@ namespace NCL {
 			void DebugShadowFrustum(const Matrix4& shadowProjMatrix, const Matrix4& shadowViewMatrix);
 
 
-			OGLShader*		defaultShader;
+			OGLShader* defaultShader;
 
-			PaintballGameWorld&	gameWorld;
+			PaintballGameWorld& gameWorld;
 			UI* ui;
 
 			void BuildObjectList();
 			void SortObjectList();
 			void RenderShadowMap();
 			void RenderShadowMap2();
-			void RenderCamera(); 
+			void RenderCamera();
 			void RenderSkybox();
 
 			void LoadSkybox();
@@ -58,15 +61,15 @@ namespace NCL {
 
 			vector<const PaintballRenderObject*> activeObjects;
 
-			OGLShader*  debugShader;
-			OGLShader*  skyboxShader;
+			OGLShader* debugShader;
+			OGLShader* skyboxShader;
 			OGLShader* animShader;
-			OGLMesh*	skyboxMesh;
-			OGLMesh*	debugTexMesh;
+			OGLMesh* skyboxMesh;
+			OGLMesh* debugTexMesh;
 			GLuint		skyboxTex;
 
 			//shadow mapping things
-			OGLShader*	shadowShader;
+			OGLShader* shadowShader;
 			GLuint		shadowTex;
 			GLuint		shadowFBO;
 			Matrix4     shadowMatrix;
@@ -81,7 +84,7 @@ namespace NCL {
 			vector<Vector3> debugTextPos;
 			vector<Vector4> debugTextColours;
 			vector<Vector2> debugTextUVs;
-			
+
 			std::vector<Light> lights;
 
 
@@ -94,7 +97,8 @@ namespace NCL {
 			GLuint textColourVBO;
 			GLuint textTexVBO;
 			size_t textCount;
-			
+
+			json tempSave;
 		};
 	}
 }
