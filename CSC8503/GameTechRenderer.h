@@ -21,6 +21,11 @@ namespace NCL {
 			Mesh*		LoadMesh(const std::string& name);
 			Texture*	LoadTexture(const std::string& name);
 			Shader*		LoadShader(const std::string& vertex, const std::string& fragment);
+
+			void		LoadMesh(std::unordered_map<std::string, Mesh*>& meshMap, const std::string& key, const std::string& filename);
+			void		LoadTexture(std::unordered_map<std::string, Texture*>& textureMap, const std::string& key, const std::string& filename);
+			void		LoadShader(std::unordered_map<std::string, Shader*>& shaderMap, const std::string& key, const std::string& vertex, const std::string& fragment);
+
 			void UpdateLight(int index, const Vector3& position, const Vector3& direction);
 
 			UI* GetUI() { return ui; };

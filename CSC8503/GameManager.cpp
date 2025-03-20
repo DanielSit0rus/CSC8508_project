@@ -27,7 +27,7 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, fl
 
     EventManager::Subscribe(EventType::Network_Connected, [&](int arg) {
         if (hasNetwork) {
-            json j = SLSystem::GetInstance().LoadData("save");
+            json j = SLSystem::GetInstance().GetCurSave();
             if (j.contains("objs") && j["objs"].is_array()) {
                 for (const auto& obj : j["objs"]) {
                     if (obj.contains("type") && obj["type"] == GameObjectType::player) {
@@ -82,7 +82,7 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
         InitWorld(toRebuild);
         if (hasNetwork) {
             //std::cout << "=================================================================================";
-            json j = SLSystem::GetInstance().LoadData("save");
+            json j = SLSystem::GetInstance().GetCurSave();
             if (j.contains("objs") && j["objs"].is_array()) {
                 for (const auto& obj : j["objs"]) {
                     if (obj.contains("type") && obj["type"] == GameObjectType::player) {
@@ -487,7 +487,7 @@ void GameManager::InitWorld(int arg)
 {
     CleanWorld();
 
-    json j = SLSystem::GetInstance().LoadData("save");
+    json j = SLSystem::GetInstance().GetCurSave();
 
     if (j.contains("objs") && j["objs"].is_array()) {
         for (const auto& obj : j["objs"]) {

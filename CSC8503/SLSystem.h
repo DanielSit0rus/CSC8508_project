@@ -21,6 +21,7 @@ namespace NCL {
 
 			void Init();
 
+			json GetCurSave() const { return curSave; }
 			json LoadData(std::string file = "save") const;
 
 			void JsonSaveTest();
@@ -42,6 +43,8 @@ namespace NCL {
 			std::string savePath = "../Assets/Json/";
 			std::list<ISaveable*> saveableList;
 			json jsonData;
+
+			json curSave;
 		};
 	}
 }

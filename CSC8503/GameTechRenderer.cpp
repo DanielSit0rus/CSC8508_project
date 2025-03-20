@@ -638,6 +638,16 @@ Mesh* GameTechRenderer::LoadMesh(const std::string& name) {
 	return mesh;
 }
 
+void GameTechRenderer::LoadMesh(std::unordered_map<std::string, Mesh*>& meshMap,
+	const std::string& key, const std::string& filename) {
+	OGLMesh* mesh = new OGLMesh();
+	MshLoader::LoadMesh(filename, *mesh);
+	mesh->SetPrimitiveType(GeometryPrimitive::Triangles);
+	mesh->UploadToGPU();
+	meshMap[key] = mesh;
+}
+
+
 void GameTechRenderer::NewRenderLines() {
 	const std::vector<Debug::DebugLineEntry>& lines = Debug::GetDebugLines();
 	if (lines.empty()) {
@@ -776,10 +786,22 @@ Texture* GameTechRenderer::LoadTexture(const std::string& name) {
 	return OGLTexture::TextureFromFile(name).release();
 }
 
+void GameTechRenderer::LoadTexture(std::unordered_map<std::string, Texture*>& textureMap,
+	const std::string& key, const std::string& filename)
+{
+	textureMap[key] = OGLTexture::TextureFromFile(filename).release();
+}
+
 Shader* GameTechRenderer::LoadShader(const std::string& vertex, const std::string& fragment) {
 	return new OGLShader(vertex, fragment);
 }
 
+void GameTechRenderer::LoadShader(std::unordered_map<std::string, Shader*>& shaderMap,
+	const std::string& key, const std::string& vertex, const std::string& fragment)
+{
+	shaderMap[key] = new OGLShader(vertex, fragment);
+
+}
 void GameTechRenderer::SetDebugStringBufferSizes(size_t newVertCount) {
 	if (newVertCount > textCount) {
 		textCount = newVertCount;

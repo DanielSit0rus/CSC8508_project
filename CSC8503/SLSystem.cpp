@@ -14,6 +14,8 @@ void SLSystem::Init()
 {
     EventManager::Subscribe(EventType::Data_Save, [this]() {SaveAll(); });
     EventManager::Subscribe(EventType::Data_Load, [this]() {LoadAll(); });
+
+    curSave = LoadData();
 }
 
 json SLSystem::LoadData(std::string file) const
@@ -50,7 +52,11 @@ void SLSystem::SaveAll() {
 }
 
 void SLSystem::LoadAll() {
-    std::cout << "[SLSystem] saveableList.size() = " << saveableList.size() <<std::endl;
+     std::cout << "[SLSystem] saveableList.size() = " << saveableList.size() <<std::endl;
+     
+     std::cout << "[SLSystem] LoadAll() is unavailable now." << std::endl;
+     return;
+
     for (const auto& item : saveableList) {
         item->LoadData(jsonData);
     }

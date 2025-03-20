@@ -3,136 +3,135 @@ using namespace NCL::CSC8503;
 
 void ResourceManager::LoadAssets(GameTechRenderer* renderer) {
     if (GetMesh("cube", false) == nullptr) { // Only load once
-        meshes["cube"] = renderer->LoadMesh("cube.msh");
-        meshes["sphere"] = renderer->LoadMesh("sphere.msh");
+        renderer->LoadMesh(meshes, "cube", "cube.msh");
+        renderer->LoadMesh(meshes, "sphere", "sphere.msh");
 
-        meshes["cat"] = renderer->LoadMesh("ORIGAMI_Chat.msh");
-        meshes["kitten"] = renderer->LoadMesh("Kitten.msh");
+        renderer->LoadMesh(meshes, "cat", "ORIGAMI_Chat.msh");
+        renderer->LoadMesh(meshes, "kitten", "Kitten.msh");
 
-        meshes["floor_1"] = renderer->LoadMesh("Map1Floor.msh");
-        meshes["mainWall_1"] = renderer->LoadMesh("MainWall.msh");
-        meshes["doorWay_1"] = renderer->LoadMesh("DoorWay.msh");
-        meshes["oppDoorWay_1"] = renderer->LoadMesh("OppDoorWay.msh");
-        meshes["midDoor"] = renderer->LoadMesh("MIdDoor.msh");
-        meshes["wall_1"] = renderer->LoadMesh("Walls.msh");
-        meshes["wall_2"] = renderer->LoadMesh("Walls2.msh");
-        meshes["openWall"] = renderer->LoadMesh("OpenWall.msh");
-        meshes["wall_3"] = renderer->LoadMesh("Wall3.msh");
-        meshes["wall_4"] = renderer->LoadMesh("Wall4.msh");
-        meshes["cylinder"] = renderer->LoadMesh("Cylinders.msh");
-        meshes["bigCylinder"] = renderer->LoadMesh("BigCylinder.msh");
-        meshes["target"] = renderer->LoadMesh("Targets.msh");
-        meshes["bigCube"] = renderer->LoadMesh("BigCube.msh");
-        meshes["floor_2"] = renderer->LoadMesh("FloorM2.msh");
-        meshes["mainWall_2"] = renderer->LoadMesh("MainWallM2.msh");
-        meshes["doorWay_2"] = renderer->LoadMesh("DoorWayM2.msh");
-        meshes["wall_2_1"] = renderer->LoadMesh("Wall1M2.msh");
-        meshes["oppDoorWay_2"] = renderer->LoadMesh("OppDoorWayM2.msh");
-        meshes["wall_2_2"] = renderer->LoadMesh("Wall2M2.msh");
-        meshes["wall_2_3"] = renderer->LoadMesh("Wall3M2.msh");
-        meshes["columns_2"] = renderer->LoadMesh("ColumnsM2.msh");
-        meshes["midTunnel"] = renderer->LoadMesh("MidTunnel.msh");
-        meshes["elevation"] = renderer->LoadMesh("Elevation.msh");
-        meshes["bridge"] = renderer->LoadMesh("Bridge.msh");
-        meshes["elevRail"] = renderer->LoadMesh("ElevRail.msh");
-        meshes["midRail"] = renderer->LoadMesh("MidRail.msh");
-        meshes["bridgeRail"] = renderer->LoadMesh("BridgeRail.msh");
+        renderer->LoadMesh(meshes, "floor_1", "Map1Floor.msh");
+        renderer->LoadMesh(meshes, "mainWall_1", "MainWall.msh");
+        renderer->LoadMesh(meshes, "doorWay_1", "DoorWay.msh");
+        renderer->LoadMesh(meshes, "oppDoorWay_1", "OppDoorWay.msh");
+        renderer->LoadMesh(meshes, "midDoor", "MIdDoor.msh");
+        renderer->LoadMesh(meshes, "wall_1", "Walls.msh");
+        renderer->LoadMesh(meshes, "wall_2", "Walls2.msh");
+        renderer->LoadMesh(meshes, "openWall", "OpenWall.msh");
+        renderer->LoadMesh(meshes, "wall_3", "Wall3.msh");
+        renderer->LoadMesh(meshes, "wall_4", "Wall4.msh");
+        renderer->LoadMesh(meshes, "cylinder", "Cylinders.msh");
+        renderer->LoadMesh(meshes, "bigCylinder", "BigCylinder.msh");
+        renderer->LoadMesh(meshes, "target", "Targets.msh");
+        renderer->LoadMesh(meshes, "bigCube", "BigCube.msh");
+        renderer->LoadMesh(meshes, "floor_2", "FloorM2.msh");
+        renderer->LoadMesh(meshes, "mainWall_2", "MainWallM2.msh");
+        renderer->LoadMesh(meshes, "doorWay_2", "DoorWayM2.msh");
+        renderer->LoadMesh(meshes, "wall_2_1", "Wall1M2.msh");
+        renderer->LoadMesh(meshes, "oppDoorWay_2", "OppDoorWayM2.msh");
+        renderer->LoadMesh(meshes, "wall_2_2", "Wall2M2.msh");
+        renderer->LoadMesh(meshes, "wall_2_3", "Wall3M2.msh");
+        renderer->LoadMesh(meshes, "columns_2", "ColumnsM2.msh");
+        renderer->LoadMesh(meshes, "midTunnel", "MidTunnel.msh");
+        renderer->LoadMesh(meshes, "elevation", "Elevation.msh");
+        renderer->LoadMesh(meshes, "bridge", "Bridge.msh");
+        renderer->LoadMesh(meshes, "elevRail", "ElevRail.msh");
+        renderer->LoadMesh(meshes, "midRail", "MidRail.msh");
+        renderer->LoadMesh(meshes, "bridgeRail", "BridgeRail.msh");
 
-        meshes["goose"] = renderer->LoadMesh("goose.msh");
-        meshes["enemy"] = renderer->LoadMesh("Keeper.msh");
-        meshes["bonus"] = renderer->LoadMesh("19463_Kitten_Head_v1.msh");
-        meshes["capsule"] = renderer->LoadMesh("capsule.msh");
+        renderer->LoadMesh(meshes, "goose", "goose.msh");
+        renderer->LoadMesh(meshes, "enemy", "Keeper.msh");
+        renderer->LoadMesh(meshes, "bonus", "19463_Kitten_Head_v1.msh");
+        renderer->LoadMesh(meshes, "capsule", "capsule.msh");
 
-        meshes["role"] = renderer->LoadMesh("Role_T.msh");
+        renderer->LoadMesh(meshes, "role", "Role_T.msh");
         Roleanim = std::make_shared<MeshAnimation>("Role_T_Idle.anm");
         Moveanim = std::make_shared<MeshAnimation>("Role_T.anm");
         Rolemat = std::make_shared<MeshMaterial>("Role_T.mat");
 
-        textures["basic"] = renderer->LoadTexture("checkerboard.png");
-        textures["floor"] = renderer->LoadTexture("6x6_base.png");
+        renderer->LoadTexture(textures, "basic", "checkerboard.png");
+        renderer->LoadTexture(textures, "floor", "6x6_base.png");
 
-        textures["texture1_diffuse"] = renderer->LoadTexture("Texture_1_Diffuse.png");
-        textures["texture1_specular"] = renderer->LoadTexture("Texture_1_Specular.png");
-        textures["texture1_normal"] = renderer->LoadTexture("Texture_1_Normal.png");
+        renderer->LoadTexture(textures, "texture1_diffuse", "Texture_1_Diffuse.png");
+        renderer->LoadTexture(textures, "texture1_specular", "Texture_1_Specular.png");
+        renderer->LoadTexture(textures, "texture1_normal", "Texture_1_Normal.png");
 
-        textures["texture2_diffuse"] = renderer->LoadTexture("Texture_2_Diffuse.png");
-        textures["texture2_specular"] = renderer->LoadTexture("Texture_2_Specular.png");
-        textures["texture2_normal"] = renderer->LoadTexture("Texture_2_Normal.png");
+        renderer->LoadTexture(textures, "texture2_diffuse", "Texture_2_Diffuse.png");
+        renderer->LoadTexture(textures, "texture2_specular", "Texture_2_Specular.png");
+        renderer->LoadTexture(textures, "texture2_normal", "Texture_2_Normal.png");
 
-        textures["texture3_diffuse"] = renderer->LoadTexture("Texture_3_Diffuse.png");
-        textures["texture3_specular"] = renderer->LoadTexture("Texture_3_Specular.png");
-        textures["texture3_normal"] = renderer->LoadTexture("Texture_3_Normal.png");
+        renderer->LoadTexture(textures, "texture3_diffuse", "Texture_3_Diffuse.png");
+        renderer->LoadTexture(textures, "texture3_specular", "Texture_3_Specular.png");
+        renderer->LoadTexture(textures, "texture3_normal", "Texture_3_Normal.png");
 
-        textures["texture4_diffuse"] = renderer->LoadTexture("Texture_4_Diffuse.png");
-        textures["texture4_specular"] = renderer->LoadTexture("Texture_4_Specular.png");
-        textures["texture4_normal"] = renderer->LoadTexture("Texture_4_Normal.png");
+        renderer->LoadTexture(textures, "texture4_diffuse", "Texture_4_Diffuse.png");
+        renderer->LoadTexture(textures, "texture4_specular", "Texture_4_Specular.png");
+        renderer->LoadTexture(textures, "texture4_normal", "Texture_4_Normal.png");
 
-        textures["texture5_normal"] = renderer->LoadTexture("Texture_5_Normal.png");
-        textures["texture5_diffuse"] = renderer->LoadTexture("Texture_5_Diffuse.png");
-        textures["texture5_specular"] = renderer->LoadTexture("Texture_5_Specular.png");
+        renderer->LoadTexture(textures, "texture5_normal", "Texture_5_Normal.png");
+        renderer->LoadTexture(textures, "texture5_diffuse", "Texture_5_Diffuse.png");
+        renderer->LoadTexture(textures, "texture5_specular", "Texture_5_Specular.png");
 
         //Map2
-        textures["texture6_base"] = renderer->LoadTexture("Texture_6_Base.png");  //GROUND 8
-        textures["texture6_normal"] = renderer->LoadTexture("Texture_6_Normal.png");
-        textures["texture6_height"] = renderer->LoadTexture("Texture_6_Height.png");
-        textures["texture6_metallic"] = renderer->LoadTexture("Texture_6_Metallic.png");
-        textures["texture6_occlusion"] = renderer->LoadTexture("Texture_6_Occlusion.png"); // base, height, metallic, occlusion, normal (3)
+        renderer->LoadTexture(textures, "texture6_base", "Texture_6_Base.png");  //GROUND 8
+        renderer->LoadTexture(textures, "texture6_normal", "Texture_6_Normal.png");
+        renderer->LoadTexture(textures, "texture6_height", "Texture_6_Height.png");
+        renderer->LoadTexture(textures, "texture6_metallic", "Texture_6_Metallic.png");
+        renderer->LoadTexture(textures, "texture6_occlusion", "Texture_6_Occlusion.png"); // base, height, metallic, occlusion, normal (3)
 
-        textures["texture7_base"] = renderer->LoadTexture("Texture_7_Base.png");  //OW T03
-        textures["texture7_normal"] = renderer->LoadTexture("Texture_7_Normal.png");
-        textures["texture7_height"] = renderer->LoadTexture("Texture_7_Height.png");
-        textures["texture7_occlusion"] = renderer->LoadTexture("Texture_7_Occlusion.png");
-        textures["texture7_maskmap"] = renderer->LoadTexture("Texture_7_MaskMap.png");
-        textures["texture7_roughness"] = renderer->LoadTexture("Texture_7_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
+        renderer->LoadTexture(textures, "texture7_base", "Texture_7_Base.png");  //OW T03
+        renderer->LoadTexture(textures, "texture7_normal", "Texture_7_Normal.png");
+        renderer->LoadTexture(textures, "texture7_height", "Texture_7_Height.png");
+        renderer->LoadTexture(textures, "texture7_occlusion", "Texture_7_Occlusion.png");
+        renderer->LoadTexture(textures, "texture7_maskmap", "Texture_7_MaskMap.png");
+        renderer->LoadTexture(textures, "texture7_roughness", "Texture_7_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
 
 
-        textures["texture8_base"] = renderer->LoadTexture("Texture_8_Base.png");   //OW T06
-        textures["texture8_normal"] = renderer->LoadTexture("Texture_8_Normal.png");
-        textures["texture8_height"] = renderer->LoadTexture("Texture_8_Height.png");
-        textures["texture8_occlusion"] = renderer->LoadTexture("Texture_8_Occlusion.png");
-        textures["texture8_maskmap"] = renderer->LoadTexture("Texture_8_MaskMap.png");
-        textures["texture8_roughness"] = renderer->LoadTexture("Texture_8_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
+        renderer->LoadTexture(textures, "texture8_base", "Texture_8_Base.png");   //OW T06
+        renderer->LoadTexture(textures, "texture8_normal", "Texture_8_Normal.png");
+        renderer->LoadTexture(textures, "texture8_height", "Texture_8_Height.png");
+        renderer->LoadTexture(textures, "texture8_occlusion", "Texture_8_Occlusion.png");
+        renderer->LoadTexture(textures, "texture8_maskmap", "Texture_8_MaskMap.png");
+        renderer->LoadTexture(textures, "texture8_roughness", "Texture_8_Roughness.png"); // base, height, metallic, occlusion, mask map, normal (4)
 
-        textures["texture9_base"] = renderer->LoadTexture("Texture_9_Base.png");   //OW T14
-        textures["texture9_normal"] = renderer->LoadTexture("Texture_9_Normal.png");
-        textures["texture9_height"] = renderer->LoadTexture("Texture_9_Height.png");
-        textures["texture9_occlusion"] = renderer->LoadTexture("Texture_9_Occlusion.png");
-        textures["texture9_maskmap"] = renderer->LoadTexture("Texture_9_MaskMap.png");
-        textures["texture9_roughness"] = renderer->LoadTexture("Texture_9_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
+        renderer->LoadTexture(textures, "texture9_base", "Texture_9_Base.png");   //OW T14
+        renderer->LoadTexture(textures, "texture9_normal", "Texture_9_Normal.png");
+        renderer->LoadTexture(textures, "texture9_height", "Texture_9_Height.png");
+        renderer->LoadTexture(textures, "texture9_occlusion", "Texture_9_Occlusion.png");
+        renderer->LoadTexture(textures, "texture9_maskmap", "Texture_9_MaskMap.png");
+        renderer->LoadTexture(textures, "texture9_roughness", "Texture_9_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
 
-        textures["texture10_base"] = renderer->LoadTexture("Texture_10_Base.png");  //OW T15
-        textures["texture10_normal"] = renderer->LoadTexture("Texture_10_Normal.png");
-        textures["texture10_height"] = renderer->LoadTexture("Texture_10_Height.png");
-        textures["texture10_occlusion"] = renderer->LoadTexture("Texture_10_Occlusion.png");
-        textures["texture10_maskmap"] = renderer->LoadTexture("Texture_10_MaskMap.png");
-        textures["texture10_roughness"] = renderer->LoadTexture("Texture_10_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
+        renderer->LoadTexture(textures, "texture10_base", "Texture_10_Base.png");  //OW T15
+        renderer->LoadTexture(textures, "texture10_normal", "Texture_10_Normal.png");
+        renderer->LoadTexture(textures, "texture10_height", "Texture_10_Height.png");
+        renderer->LoadTexture(textures, "texture10_occlusion", "Texture_10_Occlusion.png");
+        renderer->LoadTexture(textures, "texture10_maskmap", "Texture_10_MaskMap.png");
+        renderer->LoadTexture(textures, "texture10_roughness", "Texture_10_Roughness.png");// base, height, metallic, occlusion, mask map, normal (4)
 
-        textures["texture11_base"] = renderer->LoadTexture("Texture_11_Base.png");  //WALL 2
-        textures["texture11_height"] = renderer->LoadTexture("Texture_11_Height.png");
-        textures["texture11_metallic"] = renderer->LoadTexture("Texture_11_Metallic.png");
-        textures["texture11_occlusion"] = renderer->LoadTexture("Texture_11_Occlusion.png");
-        textures["texture11_normal"] = renderer->LoadTexture("Texture_11_Normal.png"); // base, height, metallic, occlusion, mask map, normal (3)
+        renderer->LoadTexture(textures, "texture11_base", "Texture_11_Base.png");  //WALL 2
+        renderer->LoadTexture(textures, "texture11_height", "Texture_11_Height.png");
+        renderer->LoadTexture(textures, "texture11_metallic", "Texture_11_Metallic.png");
+        renderer->LoadTexture(textures, "texture11_occlusion", "Texture_11_Occlusion.png");
+        renderer->LoadTexture(textures, "texture11_normal", "Texture_11_Normal.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
-        textures["texture12_base"] = renderer->LoadTexture("Texture_12_Base.png");   //WALL 5
-        textures["texture12_normal"] = renderer->LoadTexture("Texture_12_Normal.png");
-        textures["texture12_height"] = renderer->LoadTexture("Texture_12_Height.png");
-        textures["texture12_metallic"] = renderer->LoadTexture("Texture_12_Metallic.png");
-        textures["texture12_occlusion"] = renderer->LoadTexture("Texture_12_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
+        renderer->LoadTexture(textures, "texture12_base", "Texture_12_Base.png");   //WALL 5
+        renderer->LoadTexture(textures, "texture12_normal", "Texture_12_Normal.png");
+        renderer->LoadTexture(textures, "texture12_height", "Texture_12_Height.png");
+        renderer->LoadTexture(textures, "texture12_metallic", "Texture_12_Metallic.png");
+        renderer->LoadTexture(textures, "texture12_occlusion", "Texture_12_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
-        textures["texture13_base"] = renderer->LoadTexture("Texture_13_Base.png");  //WALL 8
-        textures["texture13_normal"] = renderer->LoadTexture("Texture_13_Normal.png");
-        textures["texture13_height"] = renderer->LoadTexture("Texture_13_Height.png");
-        textures["texture13_metallic"] = renderer->LoadTexture("Texture_13_Metallic.png");
-        textures["texture13_occlusion"] = renderer->LoadTexture("Texture_13_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
+        renderer->LoadTexture(textures, "texture13_base", "Texture_13_Base.png");  //WALL 8
+        renderer->LoadTexture(textures, "texture13_normal", "Texture_13_Normal.png");
+        renderer->LoadTexture(textures, "texture13_height", "Texture_13_Height.png");
+        renderer->LoadTexture(textures, "texture13_metallic", "Texture_13_Metallic.png");
+        renderer->LoadTexture(textures, "texture13_occlusion", "Texture_13_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
-        textures["texture14_base"] = renderer->LoadTexture("Texture_14_Base.png");   //WOOD
-        textures["texture14_normal"] = renderer->LoadTexture("Texture_14_Normal.png");
-        textures["texture14_height"] = renderer->LoadTexture("Texture_14_Height.png");
-        textures["texture14_metallic"] = renderer->LoadTexture("Texture_14_Metallic.png");
-        textures["texture14_occlusion"] = renderer->LoadTexture("Texture_14_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
+        renderer->LoadTexture(textures, "texture14_base", "Texture_14_Base.png");   //WOOD
+        renderer->LoadTexture(textures, "texture14_normal", "Texture_14_Normal.png");
+        renderer->LoadTexture(textures, "texture14_height", "Texture_14_Height.png");
+        renderer->LoadTexture(textures, "texture14_metallic", "Texture_14_Metallic.png");
+        renderer->LoadTexture(textures, "texture14_occlusion", "Texture_14_Occlusion.png"); // base, height, metallic, occlusion, mask map, normal (3)
 
-        shaders["basic"] = renderer->LoadShader("scene.vert", "scene.frag");
-
+        renderer->LoadShader(shaders, "basic", "scene.vert", "scene.frag");
 
         //build ID list at the end
         for (const auto& pair : meshes) {
