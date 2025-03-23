@@ -33,44 +33,40 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 	for (uint32_t i = 0; i < callbackData.getNbOverlappingPairs(); i++) {
 		const rp3d::OverlapCallback::OverlapPair& overlapPair = callbackData.getOverlappingPair(i);
 
-		rp3d::RigidBody* body1 = static_cast<rp3d::RigidBody*>(overlapPair.getBody1());
+			rp3d::RigidBody* body1 = static_cast<rp3d::RigidBody*>(overlapPair.getBody1());
 		rp3d::RigidBody* body2 = static_cast<rp3d::RigidBody*>(overlapPair.getBody2());
+
 		if (!body1->getUserData() || !body2->getUserData()) continue;
 
-		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet &&
-			((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::bullet) {
-			return;
+		PaintballGameObject* object1 = static_cast<PaintballGameObject*>(body1->getUserData());
+		PaintballGameObject* object2 = static_cast<PaintballGameObject*>(body2->getUserData());
+
+		// Make sure both objects have valid data and check if one is a bullet and the other is a player
+		if (object1->GetType() == GameObjectType::bullet && object2->GetType() == GameObjectType::player) {
+			PaintballPlayer* player = static_cast<PaintballPlayer*>(object2);
+			player->TakeDamage(10);  // Apply 10 damage to the player
+
+			player->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
+			// Destroy the bullet after impact
+			((PaintballBullet*)object1)->Destroy();
+		}
+		else if (object2->GetType() == GameObjectType::bullet && object1->GetType() == GameObjectType::player) {
+			PaintballPlayer* player = static_cast<PaintballPlayer*>(object1);
+			player->TakeDamage(10);  // Apply 10 damage to the player
+
+			player->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
+			// Destroy the bullet after impact
+			((PaintballBullet*)object2)->Destroy();
 		}
 
-		// 识别子弹和物体
-		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet) {
-			//std::cout << "子弹击中目标！" << std::endl;
-			((PaintballBullet*)body1->getUserData())->Destroy();
-			((PaintballGameObject*)body2->getUserData())->GetRenderObject()->SetColour(
-				((PaintballGameObject*)body1->getUserData())->GetRenderObject()->GetColour()
-			);
-
-			//((PaintballGameObject*)body2->getUserData())->SetActive(false);
-		}
-		if (((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::bullet) {
-			//std::cout << "子弹击中目标！" << std::endl;
-			((PaintballBullet*)body2->getUserData())->Destroy();
-			((PaintballGameObject*)body1->getUserData())->GetRenderObject()->SetColour(
-				((PaintballGameObject*)body2->getUserData())->GetRenderObject()->GetColour()
-			);
-
-			//((PaintballGameObject*)body1->getUserData())->SetActive(false);
-		}
-
-		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet&& ((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::trigger1) {
+		if (((PaintballGameObject*)body1->getUserData())->GetType() == GameObjectType::bullet && ((PaintballGameObject*)body2->getUserData())->GetType() == GameObjectType::trigger1) {
 			std::cout << "子弹击中ffffffff！" << std::endl;
 			((PaintballBullet*)body1->getUserData())->Destroy();
 			((PaintballGameObject*)body2->getUserData())->TriggerAction();
 
-			
 		}
 
-
-		
 	}
+
+
 }

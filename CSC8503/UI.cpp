@@ -233,7 +233,9 @@ void UI::Update(float dt)
 		Window::GetWindow()->LockMouseToWindow(false); // 在 UI 界面解锁鼠标
 	}
 	
-
+	if (GameManager::GetInstance().GetGameState() == FAILURE) {
+		DrawFailureMenu(dt);
+	}
 
 	if (GameManager::GetInstance().GetGameState() == LOADING) {
 		//loadingstep += dt * 2;

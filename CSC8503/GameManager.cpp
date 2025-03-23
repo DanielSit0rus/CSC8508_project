@@ -3,6 +3,7 @@
 #include "SLSystem.h"
 #include "EventManager.h"
 #include "GameObjectFreeList.h"
+#include "UI.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -142,7 +143,7 @@ void GameManager::InitWorld() {
 
     playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
-    enemyObject = AddEnemyClass(rp3d::Vector3(5, 1, -1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
 
     CharacterObject = AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
@@ -1165,6 +1166,18 @@ Vector3 GameManager::GetCameraFront()
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
 }
+
+
+void GameManager::ShowExitScreen() {
+    std::cout << "Game Over! Showing exit screen..." << std::endl;
+
+    // Step 1: Set game state to failure menu
+    SetGameState(FAILURE);
+
+    // Step 2: Ensure the UI manager will now render the failure menu
+}
+
+
 
 void GameManager::SetGameState(PaintballGameState state) {
     //std::cout << "curState = " << state << std::endl;

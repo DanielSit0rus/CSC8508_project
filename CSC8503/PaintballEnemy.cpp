@@ -2,6 +2,7 @@
 #include "StateTransition.h"
 #include "StateMachine.h"
 #include "State.h"
+#include <iostream>
 
 #include "GameManager.h"
 #include "EventManager.h"
@@ -14,6 +15,7 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 	navMesh = nullptr;
 	player = nullptr;
 	canSeeTest = false;
+
 
 	State* patrolling = new State([&](float dt) -> void {
 		Patrol(dt);
@@ -225,4 +227,17 @@ void PaintballEnemy::InitBehaviorTree() {
 	root->AddChild(new ActionPatrol(this));
 
 	behaviorTree = root;
+}
+
+
+void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage) {
+	health -= damage;
+
+	std::cout << "Enemy hit! Health: " << health << std::endl;
+
+
+	if (health <= 0) {
+		std::cout << "Enemy eliminated!" << std::endl;
+		this->SetActive(false);
+	}
 }

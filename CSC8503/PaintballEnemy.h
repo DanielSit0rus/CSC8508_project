@@ -16,12 +16,16 @@ namespace NCL {
 
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
+            void TakeDamage(int damage);
+
 
         private:
             void Patrol(float dt);
             void Attack(Vector4 color);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
+            int  health = 100;
+
             void CalculatePath(rp3d::Vector3 pos);
             //void SetNewPatrolTarget();
             //bool HasReachedTarget();

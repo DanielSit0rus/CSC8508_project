@@ -1,4 +1,4 @@
-﻿  Building Custom Rule F:/Gameprojects/CSC8508_project/CMakeLists.txt
+﻿  Building Custom Rule E:/GroupProject/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -19,9 +19,9 @@
   CollisionDispatch.cpp
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
-  正在生成代码...
-F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: “reactphysics3d::TriangleVertexArray::getVertex”: 不是所有的控件路径都返回值
-  正在编译...
+  Generating Code...
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+  Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
   NarrowPhaseInput.cpp
@@ -42,8 +42,8 @@ F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexA
   SphereShape.cpp
   TriangleShape.cpp
   BallAndSocketJointComponents.cpp
-  正在生成代码...
-  正在编译...
+  Generating Code...
+  Compiling...
   BodyComponents.cpp
   ColliderComponents.cpp
   Components.cpp
@@ -64,8 +64,8 @@ F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexA
   Island.cpp
   Material.cpp
   OverlappingPairs.cpp
-  正在生成代码...
-  正在编译...
+  Generating Code...
+  Compiling...
   PhysicsCommon.cpp
   PhysicsWorld.cpp
   Matrix2x2.cpp
@@ -86,8 +86,8 @@ F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexA
   DynamicsSystem.cpp
   SolveBallAndSocketJointSystem.cpp
   SolveFixedJointSystem.cpp
-  正在生成代码...
-  正在编译...
+  Generating Code...
+  Compiling...
   SolveHingeJointSystem.cpp
   SolveSliderJointSystem.cpp
   DebugRenderer.cpp
@@ -95,5 +95,5 @@ F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexA
   Profiler.cpp
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
-  正在生成代码...
-  ReactPhysics3D.vcxproj -> F:\Gameprojects\CSC8508_project\Debug\ReactPhysics3D.lib
+  Generating Code...
+  ReactPhysics3D.vcxproj -> E:\GroupProject\CSC8508_project\Debug\ReactPhysics3D.lib

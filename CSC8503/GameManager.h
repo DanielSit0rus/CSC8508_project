@@ -63,6 +63,8 @@ namespace NCL {
             bool GetNetwork() const { return hasNetwork; }
             void SetNet(bool arg) { hasNetwork = arg; }
 
+            void ShowExitScreen();
+
             void CleanWorld();
             void InitWorld();
             void InitWorld(int arg);
