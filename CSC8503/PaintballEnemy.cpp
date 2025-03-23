@@ -17,26 +17,40 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 
 	State* patrolling = new State([&](float dt) -> void {
 		Patrol(dt);
-		//Attack(Vector3(1, 1, 1), Vector4(1, 0, 0, 1));
 		});
 
+	State* chasing = new State([&](float dt) -> void {
+		Chase(dt);
+		});
 
 	State* attacking = new State([&](float dt) -> void {
 		Attack( Vector4(1, 0, 0, 1));
 		});
 
-
 	stateMachine->AddState(patrolling);
+	stateMachine->AddState(chasing);
 	stateMachine->AddState(attacking);
 
-	stateMachine->AddTransition(new StateTransition(patrolling, attacking, [&]() -> bool {
-		return canSeeTest;
+	stateMachine->AddTransition(new StateTransition(patrolling, chasing, [&]() -> bool {
+		return canSeeTest && (distanceToPlayer <= chaseRange);
 		}));
 
+	stateMachine->AddTransition(new StateTransition(chasing, attacking, [&]() -> bool {
+		return canSeeTest && (distanceToPlayer < attackRange);
+		}));
+
+	stateMachine->AddTransition(new StateTransition(attacking, chasing, [&]() -> bool {
+		return canSeeTest && (distanceToPlayer > attackRange);
+		}));
 
 	stateMachine->AddTransition(new StateTransition(attacking, patrolling, [&]() -> bool {
-		return !canSeeTest;
+		return !canSeeTest || (distanceToPlayer > stopchaseRange);
 		}));
+
+	stateMachine->AddTransition(new StateTransition(chasing, patrolling, [&]() -> bool {
+		return !canSeeTest || (distanceToPlayer > stopchaseRange);
+		}));
+
 }
 
 PaintballEnemy::~PaintballEnemy()
@@ -47,6 +61,7 @@ void PaintballEnemy::Update(float dt)
 {
 	StateGameObject::Update(dt);
 	canSeeTest = CanSeePlayer();
+	distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
 	Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
 	leftCD -= dt;
 
@@ -60,65 +75,41 @@ void PaintballEnemy::Update(float dt)
 		float angle = atan2(direction.x, direction.z);
 		rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0, angle, 0);
 		GetTransform().SetOrientation(newRotation);
-
-		//if (fireCooldown <= 0.0f) {
-		//	Attack(Vector3(direction.x, 0, direction.z), Vector4(1, 0, 0, 1));
-		//	fireCooldown = 1.0f;
-		//}
 	}
-	//Patrol(dt);
-
-	//std::cout << "PaintballEnemy::Update" << std::endl;
 }
 
-void PaintballEnemy::Patrol(float dt) {
+void PaintballEnemy::Chase(float dt) {
 	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
 	rp3d::Vector3 playerPos = player->GetTransform().GetPosition();
 
 	float distanceToPlayer = (playerPos - enemyPos).length();
 
-	const float chaseRange = 10.0f;
-	const float patrolRange = 15.0f;
-
 	if (distanceToPlayer <= chaseRange && CanSeePlayer()) {
 		CalculatePath(player->GetTransform().GetPosition());
-
 	}
-	else if (pathNodes.empty() || (enemyPos - patrolTarget).length() < 1.0f) {// (distanceToPlayer >= patrolRange) {
-		//if (pathNodes.empty() || (this->GetTransform().GetPosition() - patrolTarget).length() < 1.0f) {
-		float randomX = (rand() % 40) - 20;
-		float randomZ = (rand() % 40) - 20;
-
-		//patrolTarget = rp3d:: Vector3(randomX, this->GetTransform().GetPosition().y, randomZ);
-		patrolTarget = Util::NCLToRP3d(NCL::Maths::Vector3(randomX, this->GetTransform().GetPosition().y, randomZ));
-
-		CalculatePath(patrolTarget);
-		//}
-	}
-	//CalculatePath(player->GetTransform().GetPosition());
 	MoveEnemyAlongPath();
-	//std::cout << player->GetTransform().GetPosition().x << std::endl;
 }
 
-//void PaintballEnemy::SetNewPatrolTarget() {
-//	// 选择随机巡逻点（范围在 -20 到 20 之间）
-//	float randomX = (rand() % 40) - 20;
-//	float randomZ = (rand() % 40) - 20;
-//
-//	patrolTarget = Vector3(randomX, this->GetTransform().GetPosition().y, randomZ);
-//
-//	Debug::Print("New patrol target: " + std::to_string(randomX) + ", " + std::to_string(randomZ), Vector2(10, 130), Debug::WHITE);
-//
-//	CalculatePath(patrolTarget);
-//}
-//
-//bool PaintballEnemy::HasReachedTarget() {
-//	float distance = (this->GetTransform().GetPosition() - patrolTarget).Length();
-//	return distance < 1.0f;  // 1.0f 以内算到达目标
-//}
+void PaintballEnemy::Patrol(float dt) {
+	if (canSeeTest) return;
+	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
+
+	if (pathNodes.empty() || (enemyPos - patrolTarget).length() < 1.0f) {
+		float randomX = (rand() % 40) - 20;
+		float randomZ = (rand() % 40) - 20;
+		patrolTarget = Util::NCLToRP3d(NCL::Maths::Vector3(randomX, enemyPos.y, randomZ));
+
+		Debug::Print("New Patrol Target: " + std::to_string(randomX) + ", " + std::to_string(randomZ), Vector2(10, 150), Debug::WHITE);
+
+		CalculatePath(patrolTarget);
+	}
+
+	MoveEnemyAlongPath();
+}
 
 void PaintballEnemy::Attack(Vector4 color)
 {
+	const float attackRange = 55.0f;
 	if (leftCD < 0) {
 		GameManager::GetInstance().AddObject(GameObjectType::bullet,
 			transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
@@ -131,15 +122,17 @@ bool PaintballEnemy::CanSeePlayer() {
 	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
 	rp3d::Vector3 playerPos = player->GetTransform().GetPosition();
 
+	float distanceToPlayer = (playerPos - enemyPos).length();
+	if (distanceToPlayer > stopchaseRange) {
+		return false;
+	}
+
 	rp3d::Ray ray(enemyPos, playerPos);
-	//rp3d::Vector3 direction = playerPos - enemyPos;
-	//rp3d::Ray ray(enemyPos, direction);
 	RaycastHitCallback callback;
 	GameManager::GetInstance().getRPworld()->raycast(ray, &callback);
 
 	if (callback.rb && callback.rb->getUserData()) {
 
-		//std::cout << ((PaintballGameObject*)callback.rb->getUserData() == player) << std::endl;
 		return (PaintballGameObject*)callback.rb->getUserData() == player;
 	}
 	return false;
@@ -151,10 +144,8 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 		return;
 	}
 
-	// Get current position and the next target position
 	rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
 	rp3d::Vector3 targetPos = Util::NCLToRP3d(pathNodes.front());
-	//rp3d::Vector3 targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2]): Util::NCLToRP3d(pathNodes.back());
 	targetPos.y = currentPos.y; // Keep enemy on the same Y level
 
 	// Compute direction and distance to the target node
@@ -174,7 +165,6 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 		}
 		// Update the target position to the new front of the path
 		targetPos = Util::NCLToRP3d(pathNodes.front());
-		//targetPos = pathNodes.size() > 1 ? Util::NCLToRP3d(pathNodes[pathNodes.size() - 2]): Util::NCLToRP3d(pathNodes.back());
 		targetPos.y = currentPos.y;
 		direction = targetPos - currentPos;
 	}

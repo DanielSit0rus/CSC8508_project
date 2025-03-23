@@ -1,4 +1,4 @@
-﻿  Building Custom Rule F:/Gameprojects/CSC8508_project/CMakeLists.txt
+﻿  Building Custom Rule E:/game project/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -20,7 +20,7 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   正在生成代码...
-F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: “reactphysics3d::TriangleVertexArray::getVertex”: 不是所有的控件路径都返回值
+E:\game project\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: “reactphysics3d::TriangleVertexArray::getVertex”: 不是所有的控件路径都返回值
   正在编译...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -96,4 +96,4 @@ F:\Gameprojects\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexA
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   正在生成代码...
-  ReactPhysics3D.vcxproj -> F:\Gameprojects\CSC8508_project\Debug\ReactPhysics3D.lib
+  ReactPhysics3D.vcxproj -> E:\game project\CSC8508_project\Debug\ReactPhysics3D.lib

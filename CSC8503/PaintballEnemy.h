@@ -20,6 +20,7 @@ namespace NCL {
         private:
             void Patrol(float dt);
             void Attack(Vector4 color);
+            void Chase(float dt);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
             void CalculatePath(rp3d::Vector3 pos);
@@ -127,6 +128,10 @@ namespace NCL {
 
             float totalCD = 2;
             float leftCD = totalCD;
+            float chaseRange = 50.0f;
+            float stopchaseRange = 80.0f;
+            float attackRange = 55.0f;
+            float distanceToPlayer = 0.0f;
         };
 
     }

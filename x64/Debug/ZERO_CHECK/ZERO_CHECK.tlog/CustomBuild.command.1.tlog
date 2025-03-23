@@ -1,6 +1,6 @@
-^F:\GAMEPROJECTS\CSC8508_PROJECT\CMAKEFILES\122107B772231114E075E27E492524C9\GENERATE.STAMP.RULE
+^E:\GAME PROJECT\CSC8508_PROJECT\CMAKEFILES\285D3F15FC1FDF1FBB653576247B0699\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SF:/Gameprojects/CSC8508_project -BF:/Gameprojects/CSC8508_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/Gameprojects/CSC8508_project/CSC8503.sln
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/game project/CSC8508_project" "-BE:/game project/CSC8508_project" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/game project/CSC8508_project/CSC8503.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

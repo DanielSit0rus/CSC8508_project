@@ -1,6 +1,6 @@
-^F:\GAMEPROJECTS\CSC8508_PROJECT\CMAKELISTS.TXT
+^E:\GAME PROJECT\CSC8508_PROJECT\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SF:/Gameprojects/CSC8508_project -BF:/Gameprojects/CSC8508_project --check-stamp-file F:/Gameprojects/CSC8508_project/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/game project/CSC8508_project" "-BE:/game project/CSC8508_project" --check-stamp-file "E:/game project/CSC8508_project/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

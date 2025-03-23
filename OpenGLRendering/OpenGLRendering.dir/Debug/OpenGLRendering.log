@@ -1,24 +1,24 @@
-﻿  Building Custom Rule F:/Gameprojects/CSC8508_project/OpenGLRendering/CMakeLists.txt
+﻿  Building Custom Rule E:/game project/CSC8508_project/OpenGLRendering/CMakeLists.txt
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
   OGLRenderer.h
-F:\Gameprojects\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\game project\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“OGLRenderer.h”)
   
   OGLMesh.h
   OGLComputeShader.h
   OGLTexture.cpp
-F:\Gameprojects\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\game project\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“OGLTexture.cpp”)
   
   OGLShader.cpp
   OGLRenderer.cpp
-F:\Gameprojects\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\game project\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“OGLRenderer.cpp”)
   
   OGLMesh.cpp
   OGLComputeShader.cpp
   gl.h
   gl.c
-  OpenGLRendering.vcxproj -> F:\Gameprojects\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+  OpenGLRendering.vcxproj -> E:\game project\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
