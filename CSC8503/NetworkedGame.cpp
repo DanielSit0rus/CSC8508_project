@@ -124,6 +124,9 @@ void NetworkedGame::UpdateGame(float dt) {
 	}
 
 	TutorialGame::UpdateGame(dt);
+	for (const auto& pair : canfronts) {
+		if(G1.GetNetworkPlayers()[pair.first]) G1.GetNetworkPlayers()[pair.first]->UpdatePlayerRotation(pair.second);
+	}
 }
 
 void NetworkedGame::UpdateAsServer(float dt) {
@@ -330,7 +333,8 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		{
 			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, Vector4(1, 1, 1, 1));
 		}
-		G1.GetNetworkPlayers()[source]->UpdatePlayerRotation(clientPacket->camFront);
+		canfronts[source] = clientPacket->camFront;
+		//G1.GetNetworkPlayers()[source]->UpdatePlayerRotation(clientPacket->camFront);
 
 		break;
 	}

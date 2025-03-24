@@ -50,6 +50,9 @@ namespace NCL {
 			void SendPacketTest(std::string s);
 
 			int toStart = -1;	//0 for server, 1 for client
+
+			std::map<int, Vector3> canfronts;
+
 		};
 	}
 }
