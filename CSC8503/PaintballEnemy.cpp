@@ -45,6 +45,18 @@ PaintballEnemy::~PaintballEnemy()
 {
 }
 
+void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage) {
+	health -= damage;
+
+	std::cout << "Enemy hit! Health: " << health << std::endl;
+
+
+	if (health <= 0) {
+		std::cout << "Enemy eliminated!" << std::endl;
+		this->SetActive(false);
+	}
+}
+
 void PaintballEnemy::Update(float dt)
 {
 	StateGameObject::Update(dt);
@@ -229,15 +241,3 @@ void PaintballEnemy::InitBehaviorTree() {
 	behaviorTree = root;
 }
 
-
-void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage) {
-	health -= damage;
-
-	std::cout << "Enemy hit! Health: " << health << std::endl;
-
-
-	if (health <= 0) {
-		std::cout << "Enemy eliminated!" << std::endl;
-		this->SetActive(false);
-	}
-}
