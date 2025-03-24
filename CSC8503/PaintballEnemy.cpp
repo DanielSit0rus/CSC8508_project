@@ -3,13 +3,14 @@
 #include "StateMachine.h"
 #include "State.h"
 #include <iostream>
-
+#include "PaintballGameObject.h"
+#include "StateGameObject.h"
 #include "GameManager.h"
 #include "EventManager.h"
 
 using namespace NCL::CSC8503;
 
-PaintballEnemy::PaintballEnemy() :StateGameObject()
+PaintballEnemy::PaintballEnemy(const std::string& name) : enemyObject(type = GameObjectType::enemy, name)
 {
 	stateMachine = new StateMachine();
 	navMesh = nullptr;

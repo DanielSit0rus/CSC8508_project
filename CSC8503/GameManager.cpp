@@ -144,6 +144,7 @@ void GameManager::InitWorld() {
     playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(6, 5, 1));
 
     CharacterObject = AddPlayerClass(rp3d::Vector3(0, 8, -30));
 
@@ -708,7 +709,7 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
     rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballEnemy* enemy = new PaintballEnemy();
+    PaintballEnemy* enemy = new PaintballEnemy("Enemy1");
 
     // Create the player object
 

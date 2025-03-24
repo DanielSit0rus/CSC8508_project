@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Statemachine.h"
 #include "StateGameObject.h"
 #include "PaintballGameObject.h"
 #include "PaintballGameWorld.h"
@@ -9,7 +10,7 @@ namespace NCL {
     namespace CSC8503 {
         class PaintballEnemy : public StateGameObject {
         public:
-            PaintballEnemy();
+            PaintballEnemy(const std::string& name);
             ~PaintballEnemy();
 
             void Update(float dt) override;  // ÷ÿ–¥ update ∑Ω∑®
@@ -126,7 +127,7 @@ namespace NCL {
             PaintballGameObject* player;
             NavigationMesh* navMesh;
             std::vector<Vector3> pathNodes;
-
+            PaintballGameObject enemyObject;
             bool canSeeTest = false;
 
             float totalCD = 2;
