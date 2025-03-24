@@ -50,10 +50,12 @@ namespace NCL::CSC8503 {
 
 		
 
-		void Move(float forceMagnitude);
+		void Move(rp3d::Vector3 dir, float forceMagnitude);
+		void Move(rp3d::Vector3 dir, float forceMagnitude, Vector3 camFront);
 		void Attack();
 		void Attack(Vector3 front, Vector4 color);
 		void UpdatePlayerRotation();
+		void UpdatePlayerRotation(Vector3 camFront);
 		void Update(float dt) override;
 
 		bool Ismove = false;

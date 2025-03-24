@@ -140,6 +140,38 @@ void NCL::CSC8503::PaintballPlayer::SwitchState(PlayerState newState)
 
 
 
+void PaintballPlayer::Move(rp3d::Vector3 dir, float forceMagnitude)
+{
+	const Matrix4& view = camera->BuildViewMatrix();
+	const Matrix4& camWorld = Matrix::Inverse(view);
+	const Vector3& rightAxis = Vector3(camWorld.GetColumn(0));
+	Vector3 fwdAxis = Vector::Cross(Vector3(0, 1, 0), rightAxis);
+	fwdAxis.y = 0.0f;
+	fwdAxis = Vector::Normalise(fwdAxis);
+
+	physicsObject->AddForce(Util::NCLToRP3d(fwdAxis * dir[0] + rightAxis * dir[1]) * forceMagnitude);
+
+	if (dir[2] > 0) physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.03f, 0));
+	else if (dir[2] < 0) physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
+
+	if (dir[0] != 0 || dir[1] != 0) Ismove = true;
+	else Ismove = false;
+}
+
+void PaintballPlayer::Move(rp3d::Vector3 dir, float forceMagnitude, Vector3 camFront)
+{
+	Vector3  fwdAxis = Vector::Normalise(camFront);
+	Vector3 rightAxis = Vector::Cross(fwdAxis, Vector3(0, 1, 0));
+
+	physicsObject->AddForce(Util::NCLToRP3d(fwdAxis * dir[0] + rightAxis * dir[1]) * forceMagnitude);
+
+	if (dir[2] > 0) physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.03f, 0));
+	else if (dir[2] < 0) physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
+
+	if (dir[0] != 0 || dir[1] != 0) Ismove = true;
+	else Ismove = false;
+}
+
 void PaintballPlayer::Attack()
 {
 	Vector4 bulletColor;
@@ -178,6 +210,15 @@ void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation()
 	float yaw = DegreesToRadians(camera->GetYaw()+180.f); 
 	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, yaw, 0.0f); // ֻ ޸  Y     ת
 	this->GetTransform().SetOrientation(newRotation);
+	//std::cout << "yaw1: " << yaw << ",peer = "<<GameManager::GetInstance().GetThisPeer() << std::endl;
+}
+
+void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation(Vector3 camFront)
+{ 
+	float yaw = DegreesToRadians(RadiansToDegrees(atan2(-camFront.x, -camFront.z)) + 180.f);
+	rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0.0f, yaw, 0.0f); // ֻ ޸  Y     ת
+	this->GetTransform().SetOrientation(newRotation);
+	//std::cout << "yaw2: " << yaw << std::endl;
 }
 
 void NCL::CSC8503::PaintballPlayer::Update(float dt)
@@ -194,7 +235,7 @@ void NCL::CSC8503::PaintballPlayer::Update(float dt)
 	}
 	stateMachine->Update(dt);
 
-	if (isControl)
+	if (isControl && GameManager::GetInstance().isPhysEnabled())
 	{
 		UpdatePlayerRotation();
 		//Move(10.0f); //      

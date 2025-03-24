@@ -1,4 +1,4 @@
-# Install script for directory: E:/game project/CSC8508_project/CSC8503CoreClasses
+# Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

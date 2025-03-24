@@ -23,9 +23,15 @@ void InputManager::HandleMainMenuInput() {
 void InputManager::HandleGameInput() {
     bool isDebug = false;
 
-    PaintballPlayer* player = GameManager::GetInstance().GetPlayer();
+    if (!GameManager::GetInstance().isPhysEnabled())return;
+    PaintballPlayer* player;
+    if (GameManager::GetInstance().GetNetwork())
+        player = GameManager::GetInstance().GetNetworkPlayers()[-1];
+    else
+        player = GameManager::GetInstance().GetPlayer();
+
     if (!player) {
-        if(isDebug) std::cout << " No player to control!" << std::endl;
+        if (isDebug) std::cout << " No player to control!" << std::endl;
         return;
     }
 
@@ -41,89 +47,20 @@ void InputManager::HandleGameInput() {
         return;
     }
 
-    float moveForce = 10.0f; 
+    //float moveForce = 10.0f;
 
-    Vector3 moveDirection(0, 0, 0);
+    rp3d::Vector3 moveDirection(GameManager::GetInstance().GetController()->GetAxis(2),
+        GameManager::GetInstance().GetController()->GetAxis(0),
+        GameManager::GetInstance().GetController()->GetAxis(1));
 
-    if (IsKeyPressed(KeyCodes::UP)) {
-        moveDirection += CalculateForward(camera);
-    }
-    if (IsKeyPressed(KeyCodes::DOWN)) {
-        moveDirection -= CalculateForward(camera);
-    }
-    if (IsKeyPressed(KeyCodes::LEFT)) {
-        moveDirection -= CalculateRight(camera);
-    }
-    if (IsKeyPressed(KeyCodes::RIGHT)) {
-        moveDirection += CalculateRight(camera);
-    }
-
-    if (Vector::LengthSquared(moveDirection) > 0) {
-        player->Ismove = true;
-        moveDirection = Vector::Normalise(moveDirection);
-        Move(physicsObject, moveDirection, moveForce);
-    }
-    else {
-
-        player->Ismove = false;
-    }
-
-    if (IsKeyPressed(KeyCodes::SPACE)) {
-        Jump(physicsObject, moveForce);
-    }
-    if (IsKeyPressed(KeyCodes::SHIFT)) {
-        GoDown(physicsObject, moveForce);
-    }
+    player->Move(moveDirection, GameManager::GetInstance().forceMagnitude);
 }
+void InputManager::HandleGameInput(rp3d::Vector3 dir, int playerID, Vector3 camFront) {
 
-bool InputManager::IsKeyPressed(KeyCodes::Type key) {
-    return Window::GetKeyboard()->KeyDown(key);
-}
 
-void InputManager::Move(PaintballPhysicsObject* physicsObject, Vector3 direction, float forceMagnitude) {
-    physicsObject->AddForce(Util::NCLToRP3d(direction * forceMagnitude));
-}
+    PaintballPlayer* player = GameManager::GetInstance().GetNetworkPlayers()[playerID];
 
-void InputManager::Jump(PaintballPhysicsObject* physicsObject, float forceMagnitude) {
-    if (physicsObject->isStand()) {
-        physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.025f, 0));
-    }
-}
-
-void InputManager::GoDown(PaintballPhysicsObject* physicsObject, float forceMagnitude) {
-    physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
-}
-
-void NCL::CSC8503::InputManager::Getkeybord()
-{
-    if (IsKeyPressed(KeyCodes::W)) {
-        std::cout << "前进" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::A)) {
-        std::cout << "向左" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::S)) {
-        std::cout << "后退" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::D)) {
-        std::cout << "向右" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::SPACE)) {
-        std::cout << "跳跃" << std::endl;
-    }
-    if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
-        std::cout << "射击" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::NUM1)) {
-        std::cout << "切换武器颜色" << std::endl;
-
-    }
-    if (IsKeyPressed(KeyCodes::NUM2)) {
-        std::cout << "切换武器颜色" << std::endl;
-    }
-    if (IsKeyPressed(KeyCodes::NUM3)) {
-        std::cout << "切换武器颜色" << std::endl;
-    }
+    player->Move(dir, GameManager::GetInstance().forceMagnitude, camFront);
 }
 
 Vector3 InputManager::CalculateForward(PerspectiveCamera* camera) {

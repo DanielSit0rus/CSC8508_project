@@ -1,40 +1,40 @@
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.pch
-e:\game project\csc8508_project\nclcoreclasses\debug\nclcoreclasses.pdb
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\window.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mouse.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboard.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\gametimer.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\camera.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texture.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\shader.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\rendererbase.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshmaterial.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mshloader.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mesh.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshanimation.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\quaternion.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\frustum.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\plane.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\maths.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\simplefont.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texturewriter.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\textureloader.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\assets.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32window.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32mouse.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32keyboard.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboardmousecontroller.obj
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\controller.obj
-e:\game project\csc8508_project\nclcoreclasses\cmakefiles\generate.stamp
-e:\game project\csc8508_project\nclcoreclasses\debug\nclcoreclasses.lib
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.command.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.items.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.read.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.write.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.command.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.read.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.write.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.read.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.write.1.tlog
-e:\game project\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.pch
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\debug\nclcoreclasses.pdb
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\window.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mouse.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboard.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\gametimer.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\camera.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texture.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\shader.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\rendererbase.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshmaterial.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mshloader.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mesh.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshanimation.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\quaternion.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\frustum.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\plane.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\maths.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\simplefont.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texturewriter.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\textureloader.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\assets.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32window.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32mouse.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32keyboard.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboardmousecontroller.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\controller.obj
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\cmakefiles\generate.stamp
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\debug\nclcoreclasses.lib
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.items.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.command.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.read.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.write.1.tlog
+d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib.command.1.tlog

@@ -51,7 +51,7 @@ namespace NCL {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
             };
 
-            void Init(PaintballGameWorld* world, GameTechRenderer* renderer, float gameTime = 120);
+            void Init(PaintballGameWorld* world, GameTechRenderer* renderer, Controller* c, float gameTime = 120);
             void Update(float dt);
             void PostCleanUp();
 
@@ -138,7 +138,7 @@ namespace NCL {
                 return world->GetMainCamera();
             }
             Vector3 GetCameraFront();
-
+			Controller* GetController() { return controller; }
 
             PaintballGameWorld* GetWorld() { return world; }
 
@@ -178,6 +178,8 @@ namespace NCL {
             float totalTime;
             float leftTime;
             bool hasNetwork = false;
+
+			Controller* controller;
 
             //NEW
             std::vector<PaintballGameObject*> gameObjects;

@@ -38,7 +38,7 @@ TutorialGame::TutorialGame() : controller(*Window::GetWindow()->GetKeyboard(), *
 
 	ResourceManager::GetInstance().LoadAssets(renderer);	//cost lot of time
 
-	G1.Init(world, renderer);
+	G1.Init(world, renderer, &controller);
 
 	InitialiseAssets();
 	G1.SetGameState(PaintballGameState::MENU);
@@ -52,10 +52,6 @@ for this module, even in the coursework, but you can add it if you like!
 
 */
 void TutorialGame::InitialiseAssets() {
-
-	
-	G1.navMesh = new NavigationMesh("Map1Navmesh","SecondMapMesh");
-
 	InitWorld();
 	InitCamera();
 	
@@ -72,6 +68,7 @@ void TutorialGame::UpdateGame(float dt) {
 	//	renderer->Render();
 	//	return;
 	//}	
+	inputManager.Update();
 
 	switch (G1.GetGameState()) {
 	case LOADING:
@@ -117,7 +114,6 @@ void TutorialGame::UpdateGame(float dt) {
 void TutorialGame::UpdateGameBody(float dt)
 {
 	const Camera& camera = world->GetMainCamera();
-	inputManager.Update();
 	GameManager::GetInstance().Update(dt);
 	UpdateKeys();
 
@@ -137,7 +133,7 @@ void TutorialGame::UpdateGameBody(float dt)
 
 	G1.getRPworld()->update(dt);	//rp3d
 
-	G1.navMesh->DrawNavMesh();
+	if(G1.navMesh) G1.navMesh->DrawNavMesh();
 	if (G1.lockedObject) {
 		Vector3 lockedScale = Util::RP3dToNCL(G1.lockedObject->GetTransform().GetScale());
 		LockedObjectMovement();
@@ -346,26 +342,22 @@ void TutorialGame::LockedObjectMovement() {
 	
 	if (G1.shoottest) G1.shoottest->isControl = G1.lockedObject == G1.shoottest;
 
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::W)) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::UP)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(fwdAxis * G1.forceMagnitude));
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::S)) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::DOWN)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-fwdAxis * G1.forceMagnitude));
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::A)) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::LEFT)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(-rightAxis * G1.forceMagnitude));
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::D)) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::RIGHT)) {
 		target->GetPhysicsObject()->AddForce(Util::NCLToRP3d(rightAxis * G1.forceMagnitude));
 	}
-
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) && target->GetPhysicsObject()->isStand()) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::N) && target->GetPhysicsObject()->isStand()) {
 		target->GetPhysicsObject()->ApplyLinearImpulse(rp3d::Vector3(0, G1.forceMagnitude * 0.025f, 0));
 	}
-	if (Window::GetKeyboard()->KeyDown(KeyCodes::SHIFT)) {
+	if (Window::GetKeyboard()->KeyDown(KeyCodes::M)) {
 		target->GetPhysicsObject()->AddForce(rp3d::Vector3(0, -G1.forceMagnitude, 0));
 	}
 }

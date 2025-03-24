@@ -7,10 +7,11 @@
 using namespace NCL;
 using namespace CSC8503;
 
-void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, float gameTime)
+void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, Controller* c, float gameTime)
 {
     this->world = world;
     this->renderer = renderer;
+    controller = c;
 
     RpWorld = physicsCommon.createPhysicsWorld(RpSettings);
     if (RpWorld == nullptr) {
@@ -110,6 +111,9 @@ void GameManager::CleanWorld()
     selectionObject = nullptr;
     world->ClearAndErase();
 
+	delete navMesh;
+	navMesh = nullptr;
+
     //Pointers - to be private later
     playerObject = nullptr;
     selectionObject = nullptr;
@@ -131,14 +135,10 @@ void GameManager::CleanWorld()
 }
 
 void GameManager::InitWorld() {
-    leftTime = totalTime;
-    lockedObject = nullptr;
-    selectionObject = nullptr;
-    networkObjects.clear();
-    networkPlayers.clear();
-    world->ClearAndErase();
+    CleanWorld();
 
     //ResourceManager::GetInstance().ReloadAnimations();
+    navMesh = new NavigationMesh("Map1Navmesh", "SecondMapMesh");
 
     playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
 
@@ -486,6 +486,7 @@ void GameManager::InitWorld() {
 void GameManager::InitWorld(int arg)
 {
     CleanWorld();
+    navMesh = new NavigationMesh("Map1Navmesh", "SecondMapMesh");
 
     json j = SLSystem::GetInstance().GetCurSave();
 

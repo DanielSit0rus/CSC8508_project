@@ -315,20 +315,22 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (isDebug) std::cout << "Received Received packet from source: " << source << std::endl;
 		ClientPacket* clientPacket = (ClientPacket*)payload;
 
-		/*
-		if (clientPacket->buttonstates[0] == 1)std::cout << "W" << std::endl;;
-		if (clientPacket->buttonstates[1] == 1)std::cout << "A" << std::endl;
-		if (clientPacket->buttonstates[2] == 1)std::cout << "S" << std::endl;
-		if (clientPacket->buttonstates[3] == 1)std::cout << "D" << std::endl;
-		if (clientPacket->buttonstates[4] == 1)std::cout << "SPACE" << std::endl;
+		rp3d::Vector3 dir(0, 0, 0);
 
-		std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
-		*/
+		if (clientPacket->buttonstates[0] == 1) dir[0] += 1;	//W
+		if (clientPacket->buttonstates[1] == 1) dir[1] -= 1;	//A
+		if (clientPacket->buttonstates[2] == 1) dir[0] -= 1;	//S	
+		if (clientPacket->buttonstates[3] == 1) dir[1] += 1;	//D
+		if (clientPacket->buttonstates[4] == 1)	dir[2] += 1;	//SPACE
+
+		inputManager.HandleGameInput(dir, source, clientPacket->camFront);
+		//std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
 
 		if (clientPacket->buttonstates[5] == 1)
 		{
 			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, Vector4(1, 1, 1, 1));
 		}
+		G1.GetNetworkPlayers()[source]->UpdatePlayerRotation(clientPacket->camFront);
 
 		break;
 	}
