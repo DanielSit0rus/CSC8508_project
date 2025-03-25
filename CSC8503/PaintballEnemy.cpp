@@ -94,7 +94,7 @@ void PaintballEnemy::Update(float dt)
 {
 	StateGameObject::Update(dt);
 	canSeeTest = CanSeePlayer();
-	distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
+	if(player) distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
 	Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
 	leftCD -= dt;
 
@@ -152,6 +152,8 @@ void PaintballEnemy::Attack(Vector4 color)
 }
 
 bool PaintballEnemy::CanSeePlayer() {
+	if (player == nullptr) return false;
+
 	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
 	rp3d::Vector3 playerPos = player->GetTransform().GetPosition();
 

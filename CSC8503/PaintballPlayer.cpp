@@ -153,7 +153,7 @@ void PaintballPlayer::Move(rp3d::Vector3 dir, float forceMagnitude)
 
 	physicsObject->AddForce(Util::NCLToRP3d(fwdAxis * dir[0] + rightAxis * dir[1]) * forceMagnitude);
 
-	if (dir[2] > 0) physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.03f, 0));
+	if (dir[2] > 0 && physicsObject->isStand()) physicsObject->ApplyLinearImpulse(rp3d::Vector3(0, forceMagnitude * 0.3f, 0));
 	else if (dir[2] < 0) physicsObject->AddForce(rp3d::Vector3(0, -forceMagnitude, 0));
 
 	if (dir[0] != 0 || dir[1] != 0) Ismove = true;
