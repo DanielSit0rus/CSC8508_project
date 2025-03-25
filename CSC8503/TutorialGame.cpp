@@ -233,7 +233,7 @@ void TutorialGame::InitCamera() {
 
 void TutorialGame::InitWorld() {
 	
-	if (true) {
+	if (false) {
 		G1.InitWorld(1);	//for data-driven
 	}
 	else {

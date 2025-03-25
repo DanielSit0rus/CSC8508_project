@@ -141,12 +141,17 @@ void GameManager::InitWorld() {
     //ResourceManager::GetInstance().ReloadAnimations();
     navMesh = new NavigationMesh("Map1Navmesh", "SecondMapMesh");
 
-    playerObject = AddPlayerClass(rp3d::Vector3(24, 10, 330));
+    shoottest = AddPlayerClass(rp3d::Vector3(-30, 5, -22));
+    playerObject = shoottest;
+    //AddTrap();
+    SetPlayer(shoottest);
 
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
     enemyObject = AddEnemyClass(rp3d::Vector3(6, 5, 1));
 
-    CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
+    //playerObject = AddPlayerClass(rp3d::Vector3(5, 5, 10));
+
+    //CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
 
     forceMagnitude = 60.0f;
 
@@ -174,7 +179,7 @@ void GameManager::InitWorld() {
 
 
     //FIRST MAP
-    /*AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
+   /* AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "floor_1", "texture5_diffuse", "basic");
     AddConcaveMesh(rp3d::Vector3(-117, 1, -119), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "mainWall_1", "texture3_diffuse", "basic");
@@ -203,7 +208,7 @@ void GameManager::InitWorld() {
     AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "bigCube", "texture4_diffuse", "basic");*/
 
-   /*     // FIRST MAP
+        // FIRST MAP
     AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "floor_1", "texture5_diffuse", "texture5_specular", "texture5_normal", "basic");
 
@@ -246,7 +251,7 @@ void GameManager::InitWorld() {
     AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "bigCube", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
 
-        */
+        
 
 
 
@@ -477,9 +482,7 @@ void GameManager::InitWorld() {
     );
 
 
-    shoottest = AddPlayerClass(rp3d::Vector3(25, 10, 370));
-    //AddTrap();
-    SetPlayer(shoottest);
+
     //InitDefaultFloor();
 }
 
