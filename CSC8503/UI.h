@@ -1,11 +1,11 @@
-#pragma once
+﻿#pragma once
 #include "Win32Window.h"
 #include"window.h"
 #include"imgui.h"
 #include"imgui_impl_win32.h"
 #include"imgui_impl_opengl3.h"
 #include"Assets.h"
-#include"GameWorld.h"
+
 #include<string>
 #include "PaintballGameWorld.h"
 #include"stb_image_aug.h"
@@ -28,6 +28,18 @@ namespace NCL {
 			int img_height;
 			unsigned int img_texture;
 		};
+		//struct ButtonRect {
+		//	float relX;     // ��������ӿ� WorkPos �� x ����
+		//	float relY;     // ��������ӿ� WorkPos �� y ����
+		//	float width;    // ��ť����
+		//	float height;   // ��ť�߶�
+		//};
+
+		struct UIButton {
+			ImVec2 relativePos;                // The relative coordinates of the button within the menu window (relative to the main viewport WorkPos)
+			ImVec2 size;
+			std::function<void()> onClick;
+		};
 		class UI
 		{
 		public:
@@ -45,19 +57,23 @@ namespace NCL {
 			void DrawFailureMenu(float dt);
 			void DrawFinishMenu(float dt);
 			void DrawSettingMenu(float dt);
+			void ClickTest(float x, float y);
 
-			void SetShowGameOverMenu(bool show) { showGameOver = show; }
 
-			void SetLoadingStep(int step = 1);
+			void SetLoadingStep(int step);
 			void SetSuccess(bool s) { success = s; }
 			bool IsDebugMode() const { return debugMode; }
 
 			float GetPlayTime() { return playtime; };
+
+			void ProcessClickEvent(float x, float y);
+
 		protected:
+
+			/*ButtonRect mainMenuButtons[4];*/
 			PaintballGameWorld* world;
 
 			int loadingstep = 0;
-			int totalStep = 1;
 
 			float bgmVolume;
 			float effectVolume;
@@ -77,10 +93,25 @@ namespace NCL {
 			UI_Image menu;
 			UI_Image play;
 			UI_Image assassin;
+			std::vector<UIButton> mainMenuButtons;
+			std::vector<UIButton> settingMenuButtons;
+			std::vector<UIButton> pauseMenuButtons;
+			std::vector<UIButton> chooseServerMenuButtons;
+			std::vector<UIButton> FinishButtons;
+			std::vector<UIButton> FailureButtons;
+
+
+			void InitializeMainMenuButtons();
+			void InitializeSettingMenuButtons();
+			void InitializePauseMenuButtons();
+			void InitializeChooseServerMenuButtons();
+			void InitializeFinishButtons();
+			void InitializeFailureButtons();
+
+			void ProcessKeyboard(char s[128]);
 
 			bool success = false;
 			bool debugMode = true;
-			bool showGameOver = false;
 
 			float playtime;
 			int fflag = 1;
@@ -97,7 +128,7 @@ namespace NCL {
 				bool favorite;
 			};
 			std::vector<ServerInfo> availableServers;
-			
+
 			void LoadServerList() {
 				std::ifstream file("servers.txt");
 				if (file.is_open()) {
@@ -123,6 +154,16 @@ namespace NCL {
 					file.close();
 				}
 			}
+
+			// 新增函数声明
+			void HandleSettingMenuClick(float x, float y);
+			void HandleChooseServerClick(float x, float y);
+			void AddCharToServerIP(char c);
+
+			// 新增变量
+			bool isServerIPInputActive = false;
+			bool serverIPFocused = false;  // 新增：记录IP输入框是否需要获得焦点
+			static char serverIP[128];     // 改为静态成员变量以便在整个类中共享
 		};
 	}
 }
