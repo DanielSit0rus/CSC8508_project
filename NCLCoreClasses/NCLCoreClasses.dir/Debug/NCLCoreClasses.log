@@ -13,10 +13,10 @@
   MshLoader.cpp
   MeshMaterial.cpp
   RendererBase.cpp
+  Shader.cpp
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
   (compiling source file 'RendererBase.cpp')
   
-  Shader.cpp
   Texture.cpp
   Camera.cpp
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss

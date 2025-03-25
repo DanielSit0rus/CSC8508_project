@@ -1207,6 +1207,7 @@ void GameManager::SetGameState(PaintballGameState state) {
     switch (state)
     {
     case LOADING:
+        EventManager::Trigger(EventType::Loading_Start);
         break;
     case PLAYING:
         if (leftTime == totalTime) {
@@ -1228,6 +1229,7 @@ void GameManager::SetGameState(PaintballGameState state) {
     case FINISH:
         break;
     case MENU:
+        EventManager::Trigger(EventType::MainMenu_Start);
         if (lastState == PLAYING || lastState == PAUSED) {
             InitWorld();
             EventManager::Trigger(EventType::Game_End);

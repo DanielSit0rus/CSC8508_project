@@ -303,6 +303,7 @@ void UI::SetLoadingStep(int step) {
 
 	//std::cout << "[SetLoadingStep] Updating loading step to: " << step << std::endl;
 	loadingstep += step;
+	AudioSystem::GetInstance().Update();
 }
 
 void UI::DrawLoading(float dt) {

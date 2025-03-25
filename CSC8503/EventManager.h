@@ -7,6 +7,8 @@
 namespace NCL {
     namespace CSC8503 {
         enum class EventType {
+			Loading_Start,
+
             MainMenu_Start,
             MainMenu_Quit,
 

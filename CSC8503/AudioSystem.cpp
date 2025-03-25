@@ -38,17 +38,21 @@ bool AudioSystem::Init()
     LoadBus("Voice");
     LoadBus("Effect");
 
-    SetBusVolume("BGM", 0);
-    SetBusVolume("Voice", 0);
-    SetBusVolume("Effect", 0);
+    SetBusVolume("BGM", 1);
+    SetBusVolume("Voice", 1);
+    SetBusVolume("Effect", 1);
 
     RegisterSL();
 
     listenerAttributes = new FMOD_3D_ATTRIBUTES();
     triggerAttributes = new FMOD_3D_ATTRIBUTES();
 
-    
-    EventManager::Subscribe(EventType::Game_Start, [this]() {PlayEvent("event:/BGM/BGM2"); });
+	EventManager::Subscribe(EventType::Loading_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
+	EventManager::Subscribe(EventType::MainMenu_Start, [this]() {PlayEvent("event:/BGM/BGM1"); });
+    EventManager::Subscribe(EventType::Game_Start, [this]() {
+        PlayEvent("event:/BGM/BGM2"); 
+        PauseEvent("event:/BGM/BGM1");
+        });
     EventManager::Subscribe(EventType::Game_End, [this]() {StopEvent("event:/BGM/BGM2"); });
     EventManager::Subscribe(EventType::Game_Pause, [this]() {PauseEvent("event:/BGM/BGM2"); });
     EventManager::Subscribe(EventType::Game_Resume, [this]() {ResumeEvent("event:/BGM/BGM2"); });
@@ -81,14 +85,16 @@ void AudioSystem::Update()
 
     //std::cout << activeEvents["event:/Effect/GunShoot"].size() << ", " << eventPool["event:/Effect/GunShoot"].size() << std::endl;
 
-    Matrix4 view = GameManager::GetInstance().GetMainCamera().BuildViewMatrix();;
-    Vector3 forward = Vector::Normalise(-Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
-    Vector3 up = Vector::Normalise(-Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
-    Vector3 pos = GameManager::GetInstance().GetMainCamera().GetPosition();
-    listenerAttributes->position = { pos.x, pos.y, pos.z };
-    listenerAttributes->forward = { forward.x,forward.y,forward.z };
-    listenerAttributes->up = { up.x,up.y,up.z };
-    AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
+    if (GameManager::GetInstance().GetGameState() != PaintballGameState::LOADING) {
+        Matrix4 view = GameManager::GetInstance().GetMainCamera().BuildViewMatrix();;
+        Vector3 forward = Vector::Normalise(-Vector3(view.array[0][2], view.array[1][2], view.array[2][2]));
+        Vector3 up = Vector::Normalise(-Vector3(view.array[0][1], view.array[1][1], view.array[2][1]));
+        Vector3 pos = GameManager::GetInstance().GetMainCamera().GetPosition();
+        listenerAttributes->position = { pos.x, pos.y, pos.z };
+        listenerAttributes->forward = { forward.x,forward.y,forward.z };
+        listenerAttributes->up = { up.x,up.y,up.z };
+        AudioSystem::GetInstance().studioSystem->setListenerAttributes(0, listenerAttributes);
+    }
 
     studioSystem->update();
 }
@@ -154,7 +160,7 @@ void AudioSystem::SetBusVolume(const std::string& busName, float v) {
         if (volTemp == v) return;
 
         buses[busName]->setVolume(v);
-        std::cout << "[Audio] Set bus(" << busName << ") volume to [" << v << "] successfully." << std::endl;
+        //std::cout << "[Audio] Set bus(" << busName << ") volume to [" << v << "] successfully." << std::endl;
     }
     else
     {
@@ -236,7 +242,7 @@ bool AudioSystem::TriggerEvent(const std::string& eventName) {
     return true;
 }
 
-bool AudioSystem::PlayEvent(const std::string& eventName) {
+bool AudioSystem::PlayEvent(const std::string& eventName, bool isReplay) {
     auto it = events.find(eventName);
     if (it != events.end()) {
 
@@ -245,7 +251,11 @@ bool AudioSystem::PlayEvent(const std::string& eventName) {
         if (state == true) {
             it->second->setPaused(false);
         }
-
+        else
+        {
+            if (!isReplay) return true;
+        }
+        
         it->second->start();
         return true;
     }

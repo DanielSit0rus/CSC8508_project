@@ -32,7 +32,7 @@ namespace NCL {
 			bool TriggerEvent(const std::string& eventName,rp3d::Vector3 pos);
 			bool TriggerEvent(const std::string& eventName);
 
-			bool PlayEvent(const std::string& eventName);
+			bool PlayEvent(const std::string& eventName, bool isReplay = false);
 			void StopEvent(const std::string& eventName);
 			void PauseEvent(const std::string& eventName);
 			void ResumeEvent(const std::string& eventName);
