@@ -185,6 +185,9 @@ UI::UI(PaintballGameWorld* world)
 		+ j["resources"]["textures"].size()
 		+ j["resources"]["shaders"].size();
 	totalStep = totalStep == 0 ? 1 : totalStep;
+
+	
+	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {PrintMousePos(a, b); });
 }
 
 UI::~UI()

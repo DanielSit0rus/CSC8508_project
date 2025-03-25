@@ -123,6 +123,10 @@ namespace NCL {
 					file.close();
 				}
 			}
+
+			void PrintMousePos(float a,float b) {
+				std::cout << "Mouse Pos: " << a << ", " << b << std::endl;
+			}
 		};
 	}
 }
