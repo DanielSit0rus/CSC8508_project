@@ -2,25 +2,35 @@
     "Version": "1.2",
     "Data": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\modules\\std.ixx",
 =======
         "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\modules\\std.ixx",
 >>>>>>> LevelManager
+=======
+        "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\modules\\std.ixx",
+>>>>>>> GameOverScreen
         "ProvidedModule": "std",
         "Includes": [
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\assert.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt.h",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> GameOverScreen
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\vcruntime.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\sal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\concurrencysal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\vadefs.h",
+<<<<<<< HEAD
 =======
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\vcruntime.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\sal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\concurrencysal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\vadefs.h",
 >>>>>>> LevelManager
+=======
+>>>>>>> GameOverScreen
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\ctype.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_wctype.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\errno.h",
@@ -28,6 +38,9 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\float.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\inttypes.h",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> GameOverScreen
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\stdint.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\limits.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\locale.h",
@@ -36,6 +49,7 @@
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\setjmp.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\signal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\stdarg.h",
+<<<<<<< HEAD
 =======
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\stdint.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\limits.h",
@@ -46,6 +60,8 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\signal.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\stdarg.h",
 >>>>>>> LevelManager
+=======
+>>>>>>> GameOverScreen
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\stddef.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\stdio.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_wstdio.h",
@@ -58,10 +74,14 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_memory.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_memcpy_s.h",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\vcruntime_string.h",
 =======
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\vcruntime_string.h",
 >>>>>>> LevelManager
+=======
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\vcruntime_string.h",
+>>>>>>> GameOverScreen
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_wstring.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\time.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\corecrt_wtime.h",
@@ -76,6 +96,9 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\sys\\types.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\wctype.h",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> GameOverScreen
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\intrin.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\intrin0.inl.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\immintrin.h",
@@ -268,6 +291,7 @@
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\cstdarg",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\cuchar",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\include\\cwctype"
+<<<<<<< HEAD
 =======
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\intrin.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\intrin0.inl.h",
@@ -460,6 +484,8 @@
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\cuchar",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\cwctype"
 >>>>>>> LevelManager
+=======
+>>>>>>> GameOverScreen
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

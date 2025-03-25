@@ -1,4 +1,6 @@
 #include "PaintballPlayer.h"
+#include "GameManager.h"
+#include <iostream>
 #include "GameObjectFreeList.h"
 
 using namespace NCL::CSC8503;
@@ -221,6 +223,43 @@ void NCL::CSC8503::PaintballPlayer::UpdatePlayerRotation(Vector3 camFront)
 	//std::cout << "yaw2: " << yaw << std::endl;
 }
 
+void NCL::CSC8503::PaintballPlayer::TakeDamage(int damage) {
+	health -= damage;
+	std::cout << "Player hit! Health: " << health << std::endl;
+
+	if (health <= 0) {
+		std::cout << "Player eliminated! " << std::endl;
+
+
+		// Notify GameManager to remove player and handle game exit
+		GameManager::GetInstance().ShowExitScreen();
+	}
+	UpdateHealthBar();
+}
+
+
+
+
+void NCL::CSC8503::PaintballPlayer::UpdateHealthBar() {
+	DrawHealthBar();
+}
+
+void NCL::CSC8503::PaintballPlayer::DrawHealthBar() {
+	float healthPercentage = (float)health / 100.0f;
+	int barLength = 20;
+	int healthBarFilled = (int)(healthPercentage * barLength);
+
+	std::cout << "Health: [";
+	for (int i = 0; i < healthBarFilled; ++i) {
+		std::cout << "#";
+	}
+	for (int i = healthBarFilled; i < barLength; ++i) {
+		std::cout << "-";
+	}
+	std::cout << "] " << healthPercentage * 100 << "%" << std::endl;
+}
+
+
 void NCL::CSC8503::PaintballPlayer::Update(float dt)
 {
 	PaintballGameObject::Update(dt);
@@ -242,3 +281,5 @@ void NCL::CSC8503::PaintballPlayer::Update(float dt)
 	}
 	UpdateWeaponSelection();
 }
+
+

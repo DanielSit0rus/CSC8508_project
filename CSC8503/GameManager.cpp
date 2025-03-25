@@ -3,6 +3,7 @@
 #include "SLSystem.h"
 #include "EventManager.h"
 #include "GameObjectFreeList.h"
+#include "UI.h"
 
 using namespace NCL;
 using namespace CSC8503;
@@ -142,7 +143,12 @@ void GameManager::InitWorld() {
 
     playerObject = AddPlayerClass(rp3d::Vector3(24, 10, 330));
 
+<<<<<<< HEAD
     enemyObject = AddEnemyClass(rp3d::Vector3(25, 10, 366));
+=======
+    enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(6, 5, 1));
+>>>>>>> GameOverScreen
 
     CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
 
@@ -718,7 +724,10 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
     rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballEnemy* enemy = new PaintballEnemy();
+
+    Vector4 enemyColor = (rand() % 2 == 0) ? Vector4(1, 0, 0, 1) : Vector4(0, 0, 1, 1);
+
+    PaintballEnemy* enemy = new PaintballEnemy("Enemy1", enemyColor);
 
     // Create the player object
 
@@ -738,7 +747,7 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
         resources.GetRolemat()
     );
 
-    renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
+    renderObj->SetColour(enemyColor); // Set player color (blue for example)
 
     // Attach the animated render object to the player
     enemy->SetRenderObject(renderObj);
@@ -1176,6 +1185,18 @@ Vector3 GameManager::GetCameraFront()
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
 }
+
+
+void GameManager::ShowExitScreen() {
+    std::cout << "Game Over! Showing exit screen..." << std::endl;
+
+    // Step 1: Set game state to failure menu
+    SetGameState(FAILURE);
+
+    // Step 2: Ensure the UI manager will now render the failure menu
+}
+
+
 
 void GameManager::SetGameState(PaintballGameState state) {
     //std::cout << "curState = " << state << std::endl;

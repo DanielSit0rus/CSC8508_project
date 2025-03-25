@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Statemachine.h"
 #include "StateGameObject.h"
 #include "PaintballGameObject.h"
 #include "PaintballGameWorld.h"
@@ -9,13 +10,16 @@ namespace NCL {
     namespace CSC8503 {
         class PaintballEnemy : public StateGameObject {
         public:
-            PaintballEnemy();
+            PaintballEnemy(const std::string& name, Vector4 color);
             ~PaintballEnemy();
 
             void Update(float dt) override;  // ÷ÿ–¥ update ∑Ω∑®
 
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
+            void TakeDamage(int damage, Vector4 bulletColor);
+
+            bool IsOppositeColor(const Vector4& bulletColor);
 
         private:
             void Patrol(float dt);
@@ -23,6 +27,8 @@ namespace NCL {
             void Chase(float dt);
             bool CanSeePlayer();
             void MoveEnemyAlongPath();
+            int  health = 100;
+
             void CalculatePath(rp3d::Vector3 pos);
             //void SetNewPatrolTarget();
             //bool HasReachedTarget();
@@ -123,8 +129,9 @@ namespace NCL {
             PaintballGameObject* player;
             NavigationMesh* navMesh;
             std::vector<Vector3> pathNodes;
-
+            PaintballGameObject enemyObject;
             bool canSeeTest = false;
+            Vector4 enemyColor;
 
             float totalCD = 2;
             float leftCD = totalCD;

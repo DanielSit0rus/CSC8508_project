@@ -2,10 +2,14 @@
     "Version": "1.1",
     "Data": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\modules\\std.ixx",
 =======
         "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\modules\\std.ixx",
 >>>>>>> LevelManager
+=======
+        "Source": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.42.34433\\modules\\std.ixx",
+>>>>>>> GameOverScreen
         "ProvidedModule": "std",
         "ImportedModules": [],
         "ImportedHeaderUnits": []

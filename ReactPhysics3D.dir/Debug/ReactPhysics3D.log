@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeLists.txt
+=======
+﻿  Building Custom Rule E:/GroupProject/CSC8508_project/CMakeLists.txt
+>>>>>>> GameOverScreen
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -21,7 +25,11 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   Generating Code...
+<<<<<<< HEAD
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+=======
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+>>>>>>> GameOverScreen
   Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -97,7 +105,11 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   Generating Code...
+<<<<<<< HEAD
   ReactPhysics3D.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\Debug\ReactPhysics3D.lib
 =======
 ﻿  ReactPhysics3D.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\Debug\ReactPhysics3D.lib
 >>>>>>> LevelManager
+=======
+  ReactPhysics3D.vcxproj -> E:\GroupProject\CSC8508_project\Debug\ReactPhysics3D.lib
+>>>>>>> GameOverScreen

@@ -46,6 +46,8 @@ namespace NCL {
 			void DrawFinishMenu(float dt);
 			void DrawSettingMenu(float dt);
 
+			void SetShowGameOverMenu(bool show) { showGameOver = show; }
+
 			void SetLoadingStep(int step = 1);
 			void SetSuccess(bool s) { success = s; }
 			bool IsDebugMode() const { return debugMode; }
@@ -78,6 +80,7 @@ namespace NCL {
 
 			bool success = false;
 			bool debugMode = true;
+			bool showGameOver = false;
 
 			float playtime;
 			int fflag = 1;

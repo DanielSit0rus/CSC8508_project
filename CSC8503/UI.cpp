@@ -212,6 +212,7 @@ void UI::Update(float dt)
 		GameManager::GetInstance().GetGameState() == PAUSED ||
 		GameManager::GetInstance().GetGameState() == LOADING ||
 		GameManager::GetInstance().GetGameState() == SETTING ||
+		GameManager::GetInstance().GetGameState() == FAILURE ||
 		GameManager::GetInstance().GetGameState() == CHOOSESERVER) {
 		//Window::GetWindow()->ShowOSPointer(true);
 		//Window::GetWindow()->LockMouseToWindow(false);
@@ -219,6 +220,7 @@ void UI::Update(float dt)
 		// Enable mouse input
 		io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+		Window::GetWindow()->LockMouseToWindow(false);
 	}
 	else {
 		//Window::GetWindow()->ShowOSPointer(false);
@@ -233,7 +235,9 @@ void UI::Update(float dt)
 		Window::GetWindow()->LockMouseToWindow(false); // 在 UI 界面解锁鼠标
 	}
 	
-
+	if (GameManager::GetInstance().GetGameState() == FAILURE) {
+		DrawFailureMenu(dt);
+	}
 
 	if (GameManager::GetInstance().GetGameState() == LOADING) {
 		//loadingstep += dt * 2;

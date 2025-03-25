@@ -31,6 +31,12 @@ namespace NCL::CSC8503 {
 		void SwitchWeapon(WeaponType newWeapon);
 		void UpdateWeaponSelection();
 
+		void TakeDamage(int damage);
+		int GetHealth() const { return health; }
+		int GetMaxHealth() const { return maxHealth; }
+		void UpdateHealthBar();
+		void DrawHealthBar();
+
 		void SwitchState(PlayerState newState);
 		// Called by InputManager
 		/*void MoveForward(float force);
@@ -68,6 +74,9 @@ namespace NCL::CSC8503 {
 		WeaponType currentWeapon = WeaponType::RedGun; // ?      
 		PlayerState  currentState;
 		StateMachine* stateMachine;
+
+		int health = 100;
+		int maxHealth = 100;
 
 		void SetupStateMachine();
 	};

@@ -2,19 +2,23 @@
 #include "StateTransition.h"
 #include "StateMachine.h"
 #include "State.h"
-
+#include <iostream>
+#include <cmath>
+#include "PaintballGameObject.h"
+#include "StateGameObject.h"
 #include "GameManager.h"
 #include "EventManager.h"
 
 using namespace NCL::CSC8503;
 
-PaintballEnemy::PaintballEnemy() :StateGameObject()
+PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyObject(type = GameObjectType::enemy, name), enemyColor(color)
 {
 	stateMachine = new StateMachine();
 	navMesh = nullptr;
 	player = nullptr;
 	canSeeTest = false;
 	type = GameObjectType::enemy;
+
 
 	State* patrolling = new State([&](float dt) -> void {
 		Patrol(dt);
@@ -57,6 +61,34 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 PaintballEnemy::~PaintballEnemy()
 {
 }
+
+void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
+	if (IsOppositeColor(bulletColor)) {
+		health -= damage;
+
+		std::cout << "Enemy hit! Health: " << health << std::endl;
+	}
+
+	if (health <= 0) {
+		std::cout << "Enemy eliminated!" << std::endl;
+		this->SetActive(false);
+	}
+}
+
+bool PaintballEnemy::IsOppositeColor(const Vector4& bulletColor) {
+	// Check if the colors are opposites
+	if ((enemyColor.x == 1 && enemyColor.y == 0 && enemyColor.z == 0 &&
+		bulletColor.x == 0 && bulletColor.y == 0 && bulletColor.z == 1) || // Red vs Blue
+
+		(enemyColor.x == 0 && enemyColor.y == 0 && enemyColor.z == 1 &&
+			bulletColor.x == 1 && bulletColor.y == 0 && bulletColor.z == 0))   // Blue vs Red
+	{
+		return true;
+	}
+	return false;
+}
+
+
 
 void PaintballEnemy::Update(float dt)
 {
@@ -217,3 +249,4 @@ void PaintballEnemy::InitBehaviorTree() {
 
 	behaviorTree = root;
 }
+

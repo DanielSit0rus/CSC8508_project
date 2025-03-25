@@ -1,9 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/CMakeLists.txt
+=======
+﻿  Building Custom Rule E:/GroupProject/CSC8508_project/OpenGLRendering/CMakeLists.txt
+>>>>>>> GameOverScreen
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
   OGLRenderer.h
+<<<<<<< HEAD
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
   (compiling source file 'OGLRenderer.h')
   
@@ -18,11 +23,22 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
   (compiling source file 'OGLRenderer.cpp')
   
+=======
+  OGLMesh.h
+  OGLComputeShader.h
+  OGLTexture.cpp
+  OGLShader.cpp
+  OGLRenderer.cpp
+>>>>>>> GameOverScreen
   OGLMesh.cpp
   OGLComputeShader.cpp
   gl.h
   gl.c
+<<<<<<< HEAD
   OpenGLRendering.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
 =======
 ﻿  OpenGLRendering.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
 >>>>>>> LevelManager
+=======
+  OpenGLRendering.vcxproj -> E:\GroupProject\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+>>>>>>> GameOverScreen

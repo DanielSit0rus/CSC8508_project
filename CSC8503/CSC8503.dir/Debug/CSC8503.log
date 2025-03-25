@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   AudioSystem.cpp
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
@@ -96,42 +97,101 @@ D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\include\reactph
       the template instantiation context (the oldest one first) is
           D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
 >>>>>>> LevelManager
+=======
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  PaintballEnemy.cpp
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,124): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(248,54): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,128): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\OverlappingPairs.h(279,58): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\ConvexMesh.h(138,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(146,26): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\collision\TriangleMesh.h(151,30): warning C4244: 'return': conversion from 'reactphysics3d::uint64' to 'reactphysics3d::uint32', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\CSC8503\PaintballGameWorld.h(46,47): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+  
+E:\GroupProject\CSC8508_project\CSC8503\PaintballEnemy.cpp(121,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+E:\GroupProject\CSC8508_project\CSC8503\PaintballEnemy.cpp(122,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+      E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
+      the template instantiation context (the oldest one first) is
+          E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\components\RigidBodyComponents.h(862,57):
+          see reference to class template instantiation 'reactphysics3d::Array<reactphysics3d::uint>' being compiled
+          E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(250,14):
+          while compiling class template member function 'void reactphysics3d::Array<reactphysics3d::uint>::reserve(reactphysics3d::uint64)'
+              E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\engine\Islands.h(134,44):
+              see the first reference to 'reactphysics3d::Array<reactphysics3d::uint>::reserve' in 'reactphysics3d::Islands::reserveMemory'
+  
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
+  (compiling source file 'PaintballEnemy.cpp')
+      E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(283,90):
+      the template instantiation context (the oldest one first) is
+          E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(109,26):
+>>>>>>> GameOverScreen
           see reference to class template instantiation 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>' being compiled
           with
           [
               V=int
           ]
 <<<<<<< HEAD
+<<<<<<< HEAD
           D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
 =======
           D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
 >>>>>>> LevelManager
+=======
+          E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(260,14):
+>>>>>>> GameOverScreen
           while compiling class template member function 'void reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve(reactphysics3d::uint64)'
           with
           [
               V=int
           ]
 <<<<<<< HEAD
+<<<<<<< HEAD
               D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
 =======
               D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
 >>>>>>> LevelManager
+=======
+              E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Map.h(401,24):
+>>>>>>> GameOverScreen
               see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::reserve' in 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add'
           with
           [
               V=int
           ]
 <<<<<<< HEAD
+<<<<<<< HEAD
               D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
 =======
               D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
 >>>>>>> LevelManager
+=======
+              E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\systems\CollisionDetectionSystem.h(425,41):
+>>>>>>> GameOverScreen
               see the first reference to 'reactphysics3d::Map<int,reactphysics3d::Entity,std::hash<int>,std::equal_to<V>>::add' in 'reactphysics3d::CollisionDetectionSystem::addCollider'
           with
           [
               V=int
           ]
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   Main.cpp
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
@@ -780,3 +840,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\include\reactp
   Generating Code...
   CSC8503.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\CSC8503.exe
 >>>>>>> LevelManager
+=======
+  CSC8503.vcxproj -> E:\GroupProject\CSC8508_project\x64\Debug\CSC8503.exe
+>>>>>>> GameOverScreen

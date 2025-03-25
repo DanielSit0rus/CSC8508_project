@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Install script for directory: D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses
 =======
 # Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses
 >>>>>>> LevelManager
+=======
+# Install script for directory: E:/GroupProject/CSC8508_project/CSC8503CoreClasses
+>>>>>>> GameOverScreen
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
