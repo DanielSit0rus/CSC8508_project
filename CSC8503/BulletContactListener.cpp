@@ -63,7 +63,10 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		}
 		else if (object1->GetType() == GameObjectType::bullet && object2->GetType() == GameObjectType::enemy) {
 			PaintballEnemy* enemy = static_cast<PaintballEnemy*>(object2);
-			enemy->TakeDamage(25);  // Apply 10 damage to the enemy
+
+			Vector4 bulletColor = object1->GetRenderObject()->GetColour();
+			enemy->TakeDamage(25, bulletColor);  // Apply 10 damage to the enemy
+			
 
 			enemy->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
 			// Destroy the bullet after impact
@@ -71,7 +74,10 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		}
 		else if (object2->GetType() == GameObjectType::bullet && object1->GetType() == GameObjectType::enemy) {
 			PaintballEnemy* enemy = static_cast<PaintballEnemy*>(object1);
-			enemy->TakeDamage(25);  // Apply 10 damage to the enemy
+
+			Vector4 bulletColor = object2->GetRenderObject()->GetColour();
+			enemy->TakeDamage(25, bulletColor);  // Apply 10 damage to the enemy
+			
 
 			enemy->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
 			// Destroy the bullet after impact

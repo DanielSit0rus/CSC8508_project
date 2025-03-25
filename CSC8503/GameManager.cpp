@@ -709,7 +709,10 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
     rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
     ResourceManager& resources = ResourceManager::GetInstance();
-    PaintballEnemy* enemy = new PaintballEnemy("Enemy1");
+
+    Vector4 enemyColor = (rand() % 2 == 0) ? Vector4(1, 0, 0, 1) : Vector4(0, 0, 1, 1);
+
+    PaintballEnemy* enemy = new PaintballEnemy("Enemy1", enemyColor);
 
     // Create the player object
 
@@ -729,7 +732,7 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
         resources.GetRolemat()
     );
 
-    renderObj->SetColour(Vector4(0, 0, 1, 1)); // Set player color (blue for example)
+    renderObj->SetColour(enemyColor); // Set player color (blue for example)
 
     // Attach the animated render object to the player
     enemy->SetRenderObject(renderObj);

@@ -10,15 +10,16 @@ namespace NCL {
     namespace CSC8503 {
         class PaintballEnemy : public StateGameObject {
         public:
-            PaintballEnemy(const std::string& name);
+            PaintballEnemy(const std::string& name, Vector4 color);
             ~PaintballEnemy();
 
             void Update(float dt) override;  // ÷ÿ–¥ update ∑Ω∑®
 
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
-            void TakeDamage(int damage);
+            void TakeDamage(int damage, Vector4 bulletColor);
 
+            bool IsOppositeColor(const Vector4& bulletColor);
 
         private:
             void Patrol(float dt);
@@ -129,6 +130,7 @@ namespace NCL {
             std::vector<Vector3> pathNodes;
             PaintballGameObject enemyObject;
             bool canSeeTest = false;
+            Vector4 enemyColor;
 
             float totalCD = 2;
             float leftCD = totalCD;
