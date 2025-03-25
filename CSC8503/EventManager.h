@@ -17,6 +17,8 @@ namespace NCL {
             Game_Resume,
             Game_End,
 
+
+
             Data_Save,
             Data_Load,
 

@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/TeamProject/NewRep/CSC8508_project/NCLCoreClasses/CMakeLists.txt
+﻿  Building Custom Rule E:/GroupProject/CSC8508_project/NCLCoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Assets.cpp
   TextureLoader.cpp
@@ -28,4 +28,4 @@
   Win32Mouse.cpp
   Win32Window.cpp
   Generating Code...
-  NCLCoreClasses.vcxproj -> C:\TeamProject\NewRep\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+  NCLCoreClasses.vcxproj -> E:\GroupProject\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib

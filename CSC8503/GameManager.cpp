@@ -148,6 +148,7 @@ void GameManager::InitWorld() {
 
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
     enemyObject = AddEnemyClass(rp3d::Vector3(6, 5, 1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
 
     //playerObject = AddPlayerClass(rp3d::Vector3(5, 5, 10));
 
@@ -729,7 +730,7 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
     ResourceManager& resources = ResourceManager::GetInstance();
 
-    Vector4 enemyColor = (rand() % 2 == 0) ? Vector4(1, 0, 0, 1) : Vector4(0, 0, 1, 1);
+    Vector4 enemyColor = (rand() % 3 == 0) ? Vector4(1, 0, 0, 1) : (rand() % 2 == 0) ? Vector4(0, 0, 1, 1) : Vector4(0, 1, 0, 1);
 
     PaintballEnemy* enemy = new PaintballEnemy("Enemy1", enemyColor);
 
@@ -1196,7 +1197,7 @@ void GameManager::ShowExitScreen() {
 
     // Step 1: Set game state to failure menu
     SetGameState(FAILURE);
-
+    EventManager::Trigger(EventType::Game_End);
     // Step 2: Ensure the UI manager will now render the failure menu
 }
 

@@ -77,11 +77,14 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 
 bool PaintballEnemy::IsOppositeColor(const Vector4& bulletColor) {
 	// Check if the colors are opposites
-	if ((enemyColor.x == 1 && enemyColor.y == 0 && enemyColor.z == 0 &&
-		bulletColor.x == 0 && bulletColor.y == 0 && bulletColor.z == 1) || // Red vs Blue
+	if ((enemyColor.x == 1 && enemyColor.y == 0 && enemyColor.z == 0 && // Red
+		bulletColor.x == 0 && bulletColor.y == 1 && bulletColor.z == 0) || // Green vs Red
 
-		(enemyColor.x == 0 && enemyColor.y == 0 && enemyColor.z == 1 &&
-			bulletColor.x == 1 && bulletColor.y == 0 && bulletColor.z == 0))   // Blue vs Red
+		(enemyColor.x == 0 && enemyColor.y == 1 && enemyColor.z == 0 && // Green
+			bulletColor.x == 0 && bulletColor.y == 0 && bulletColor.z == 1) || // Blue vs Green
+
+		(enemyColor.x == 0 && enemyColor.y == 0 && enemyColor.z == 1 && // Blue
+			bulletColor.x == 1 && bulletColor.y == 0 && bulletColor.z == 0)) // Red vs Blue
 	{
 		return true;
 	}

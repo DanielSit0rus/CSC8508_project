@@ -31,6 +31,7 @@ void Console::Init(Window* win) {
         });
     
     EventManager::Subscribe(EventType::Game_Pause, [this]() { ShowMouse(true); });
+    EventManager::Subscribe(EventType::Game_End, [this]() { ShowMouse(true); });
     EventManager::Subscribe(EventType::Game_Resume, [this]() { ShowMouse(false); });
     
     EventManager::Subscribe(EventType::MainMenu_Quit, [this]() {ShowConsole(true); });
