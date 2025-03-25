@@ -70,6 +70,10 @@ void TutorialGame::UpdateGame(float dt) {
 	//}	
 	inputManager.Update();
 
+	Vector2 mousePos = Window::GetMouse()->GetAbsolutePosition();
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left))
+		EventManager::Trigger(EventType::MouseLeftClick, mousePos.x, mousePos.y);
+
 	switch (G1.GetGameState()) {
 	case LOADING:
 		//UpdateLoading(dt);	//loading is finished in AssetsLoading

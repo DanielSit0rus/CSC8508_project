@@ -123,6 +123,28 @@ namespace NCL {
 					file.close();
 				}
 			}
+
+			void PrintMousePos(float a,float b) {
+				std::cout << "Mouse Pos: " << a << ", " << b << std::endl;
+			}
+
+			void ProcessKeyboardInput(std::string& s) {
+				//s.c_str()
+
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM1)) s += "1";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM2)) s += "2";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM3)) s += "3";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM4)) s += "4";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM5)) s += "5";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM6)) s += "6";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM7)) s += "7";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM8)) s += "8";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM9)) s += "9";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM0)) s += "0";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::SPACE)) s += " ";
+				//if (Window::GetKeyboard()->KeyPressed(KeyCodes::PERIOD)) s += ".";
+				if (Window::GetKeyboard()->KeyPressed(KeyCodes::BACK) && s != "")s.pop_back();
+			}
 		};
 	}
 }
