@@ -7,7 +7,7 @@ PaintballBullet::PaintballBullet(const std::string& objectName)
 	:PaintballGameObject(type = GameObjectType::bullet, name)
 {
 	name = objectName;
-	speed = 300.0f;
+	speed = 100.0f;
 	lifeTime = 0.3f;
 
 	startTime = std::chrono::high_resolution_clock::now();

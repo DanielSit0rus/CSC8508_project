@@ -139,6 +139,16 @@ void NetworkedGame::UpdateAsServer(float dt) {
 	//	BroadcastSnapshot(true);
 	//}
 
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM1)) {
+		G1.GetNetworkPlayers()[-1]->SwitchWeapon(WeaponType::RedGun);
+	}
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM2)) {
+		G1.GetNetworkPlayers()[-1]->SwitchWeapon(WeaponType::GreenGun);
+	}
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM3)) {
+		G1.GetNetworkPlayers()[-1]->SwitchWeapon(WeaponType::BlueGun);
+	}
+
 	BroadcastSnapshot(false);
 
 	this->thisServer->UpdateServer();
@@ -153,7 +163,11 @@ void NetworkedGame::UpdateAsClient(float dt) {
 	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
 	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
 	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
-	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyPressed(KeyCodes::Q) ? 1 : 0;
+	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyDown(KeyCodes::Q) ? 1 : 0;
+	newPacket.buttonstates[6] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM1) ? 1 : 0;
+	newPacket.buttonstates[7] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM2) ? 1 : 0;
+	newPacket.buttonstates[8] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM3) ? 1 : 0;
+
 
 	newPacket.camFront= GameManager::GetInstance().GetCameraFront();
 	newPacket.camPos = GameManager::GetInstance().GetMainCamera().GetPosition();
@@ -215,7 +229,7 @@ void NetworkedGame::UpdateMinimumState() {
 }
 
 void NetworkedGame::StartLevel() {
-	if (thisServer) G1.RequestRebuildWorld(1);
+	if (thisServer) G1.RequestRebuildWorld(192);
 	else if (thisClient) G1.CleanWorld();
 
 	/*
@@ -326,12 +340,17 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		if (clientPacket->buttonstates[3] == 1) dir[1] += 1;	//D
 		if (clientPacket->buttonstates[4] == 1)	dir[2] += 1;	//SPACE
 
+		if (clientPacket->buttonstates[6] == 1) G1.GetNetworkPlayers()[source]->SwitchWeapon(WeaponType::RedGun);
+		if (clientPacket->buttonstates[7] == 1) G1.GetNetworkPlayers()[source]->SwitchWeapon(WeaponType::GreenGun);
+		if (clientPacket->buttonstates[8] == 1) G1.GetNetworkPlayers()[source]->SwitchWeapon(WeaponType::BlueGun);
+
 		inputManager.HandleGameInput(dir, source, clientPacket->camFront);
 		//std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
 
 		if (clientPacket->buttonstates[5] == 1)
 		{
-			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, Vector4(1, 1, 1, 1));
+			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, 
+				G1.GetNetworkPlayers()[source]->GetCurrentWeaponColor());
 		}
 		canfronts[source] = clientPacket->camFront;
 		//G1.GetNetworkPlayers()[source]->UpdatePlayerRotation(clientPacket->camFront);

@@ -10,8 +10,8 @@
 namespace NCL::CSC8503 {
 	enum class WeaponType {
 		RedGun,
+		GreenGun,
 		BlueGun,
-		GreenGun
 	};
 	enum class PlayerState {
 		IdleState,
@@ -30,6 +30,17 @@ namespace NCL::CSC8503 {
 
 		void SwitchWeapon(WeaponType newWeapon);
 		void UpdateWeaponSelection();
+		Vector4 GetCurrentWeaponColor() const {
+			switch (currentWeapon) {
+			case WeaponType::RedGun:
+				return Vector4(1, 0, 0, 1);
+			case WeaponType::GreenGun:
+				return Vector4(0, 1, 0, 1);
+			case WeaponType::BlueGun:
+				return Vector4(0, 0, 1, 1);
+			}
+			return Vector4(1, 1, 1, 1);
+		}
 
 		void TakeDamage(int damage);
 		int GetHealth() const { return health; }
