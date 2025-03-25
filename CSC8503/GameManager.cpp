@@ -551,7 +551,7 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         
         obj = AddEnemyClass(position);
         //enemyObject = obj;
-
+        break;
     }
     case GameObjectType::bullet: {
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
