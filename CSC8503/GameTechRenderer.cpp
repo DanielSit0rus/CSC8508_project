@@ -656,7 +656,7 @@ void GameTechRenderer::LoadMesh(std::unordered_map<std::string, Mesh*>& meshMap,
 
 	Update(1);
 	GetUI()->Update(1);
-	GetUI()->SetLoadingStep();
+	GetUI()->SetLoadingStep(1);
 	Render();
 	Debug::UpdateRenderables(1);
 }

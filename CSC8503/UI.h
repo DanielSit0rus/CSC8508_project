@@ -60,7 +60,7 @@ namespace NCL {
 			void ClickTest(float x, float y);
 
 
-			void SetLoadingStep(int step);
+			void SetLoadingStep(int step = 1);
 			void SetSuccess(bool s) { success = s; }
 			bool IsDebugMode() const { return debugMode; }
 
@@ -74,6 +74,7 @@ namespace NCL {
 			PaintballGameWorld* world;
 
 			int loadingstep = 0;
+			int totalStep;
 
 			float bgmVolume;
 			float effectVolume;
