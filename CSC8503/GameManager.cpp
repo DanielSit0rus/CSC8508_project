@@ -143,12 +143,8 @@ void GameManager::InitWorld() {
 
     playerObject = AddPlayerClass(rp3d::Vector3(24, 10, 330));
 
-<<<<<<< HEAD
-    enemyObject = AddEnemyClass(rp3d::Vector3(25, 10, 366));
-=======
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
     enemyObject = AddEnemyClass(rp3d::Vector3(6, 5, 1));
->>>>>>> GameOverScreen
 
     CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
 

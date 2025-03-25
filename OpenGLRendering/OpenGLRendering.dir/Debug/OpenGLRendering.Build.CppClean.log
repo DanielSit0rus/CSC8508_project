@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.dir\debug\cmake_pch.pch
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\debug\openglrendering.pdb
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.dir\debug\cmake_pch.obj
@@ -27,34 +25,3 @@ d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.d
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib-link.read.1.tlog
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib-link.write.1.tlog
 d:\d_project\cpp\danielsit0rus\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib.command.1.tlog
-=======
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\cmake_pch.pch
-d:\team project csc\main repo\csc8508_project\openglrendering\debug\openglrendering.pdb
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\cmake_pch.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\ogltexture.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglshader.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglrenderer.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglmesh.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglcomputeshader.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\ogltexture.cpp.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglshader.cpp.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglrenderer.cpp.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglmesh.cpp.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\oglcomputeshader.cpp.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\glad\gl.h.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\glad\gl.c.obj
-d:\team project csc\main repo\csc8508_project\openglrendering\cmakefiles\generate.stamp
-d:\team project csc\main repo\csc8508_project\openglrendering\debug\openglrendering.lib
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\cl.command.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\cl.items.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\cl.read.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\cl.write.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\custombuild.command.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\custombuild.read.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\custombuild.write.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib-link.read.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib-link.write.1.tlog
-d:\team project csc\main repo\csc8508_project\openglrendering\openglrendering.dir\debug\openglrendering.tlog\lib.command.1.tlog
->>>>>>> LevelManager
-=======
->>>>>>> GameOverScreen

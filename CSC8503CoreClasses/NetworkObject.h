@@ -30,7 +30,7 @@ namespace NCL::CSC8503 {
 
 	struct ClientPacket : public GamePacket {
 		int		lastID;
-		char	buttonstates[8];
+		char	buttonstates[16];
 		Vector3 camFront;
 		Vector3 camPos;
 

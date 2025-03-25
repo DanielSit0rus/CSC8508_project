@@ -2,24 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <FullPath>D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503.exe</FullPath>
-=======
-      <FullPath>D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
-    </ProjectOutput>
-    <ProjectOutput>
-      <FullPath>D:\Team Project CSC\Main repo\CSC8508_project\x64\Debug\CSC8503.exe</FullPath>
->>>>>>> LevelManager
-=======
-      <FullPath>E:\GroupProject\CSC8508_project\x64\Debug\ZERO_CHECK</FullPath>
-    </ProjectOutput>
-    <ProjectOutput>
-      <FullPath>E:\GroupProject\CSC8508_project\x64\Debug\CSC8503.exe</FullPath>
->>>>>>> GameOverScreen
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

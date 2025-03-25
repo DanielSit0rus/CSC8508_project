@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.pch
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\debug\nclcoreclasses.pdb
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.obj
@@ -40,47 +38,3 @@ d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.read.1.tlog
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.write.1.tlog
 d:\d_project\cpp\danielsit0rus\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib.command.1.tlog
-=======
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.pch
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\debug\nclcoreclasses.pdb
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\cmake_pch.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\window.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mouse.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboard.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\gametimer.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\camera.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texture.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\shader.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\rendererbase.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshmaterial.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mshloader.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\mesh.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\meshanimation.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\quaternion.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\frustum.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\plane.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\maths.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\simplefont.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\texturewriter.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\textureloader.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\assets.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32window.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32mouse.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\win32keyboard.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\keyboardmousecontroller.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\controller.obj
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\cmakefiles\generate.stamp
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\debug\nclcoreclasses.lib
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.command.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.items.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.read.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\cl.write.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.command.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.read.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\custombuild.write.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.read.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib-link.write.1.tlog
-d:\team project csc\main repo\csc8508_project\nclcoreclasses\nclcoreclasses.dir\debug\nclcoreclasses.tlog\lib.command.1.tlog
->>>>>>> LevelManager
-=======
->>>>>>> GameOverScreen

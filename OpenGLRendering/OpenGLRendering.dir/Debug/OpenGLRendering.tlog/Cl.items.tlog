@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\CMakeFiles\OpenGLRendering.dir\cmake_pch.cxx;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\cmake_pch.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLTexture.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLShader.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.h.obj
@@ -13,33 +11,3 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLMesh.cpp;D:\D_
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OGLComputeShader.cpp;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.cpp.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\glad\gl.h;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.h.obj
 D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\glad\gl.c;D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.c.obj
-=======
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\CMakeFiles\OpenGLRendering.dir\cmake_pch.cxx;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\cmake_pch.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLTexture.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLShader.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLRenderer.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLMesh.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLComputeShader.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLTexture.cpp;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLShader.cpp;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLRenderer.cpp;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLMesh.cpp;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OGLComputeShader.cpp;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.cpp.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\glad\gl.h;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.h.obj
-D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\glad\gl.c;D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.c.obj
->>>>>>> LevelManager
-=======
-E:\GroupProject\CSC8508_project\OpenGLRendering\CMakeFiles\OpenGLRendering.dir\cmake_pch.cxx;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\cmake_pch.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLTexture.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLShader.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLRenderer.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLMesh.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLComputeShader.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLTexture.cpp;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLTexture.cpp.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLShader.cpp;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLShader.cpp.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLRenderer.cpp;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLRenderer.cpp.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLMesh.cpp;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLMesh.cpp.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\OGLComputeShader.cpp;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\OGLComputeShader.cpp.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\glad\gl.h;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.h.obj
-E:\GroupProject\CSC8508_project\OpenGLRendering\glad\gl.c;E:\GroupProject\CSC8508_project\OpenGLRendering\OpenGLRendering.dir\Debug\glad\gl.c.obj
->>>>>>> GameOverScreen
