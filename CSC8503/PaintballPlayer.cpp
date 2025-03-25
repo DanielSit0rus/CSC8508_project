@@ -65,27 +65,27 @@ void PaintballPlayer::SetColor()
 void NCL::CSC8503::PaintballPlayer::SwitchWeapon(WeaponType newWeapon)
 {
 	currentWeapon = newWeapon;
-	std::cout << "Switched to weapon: " << static_cast<int>(newWeapon) << std::endl;
+	//std::cout << "Switched to weapon: " << static_cast<int>(newWeapon) << std::endl;
 }
 
 void NCL::CSC8503::PaintballPlayer::UpdateWeaponSelection()
 {
-
+	if (GameManager::GetInstance().GetNetwork()) return;
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM1)) {
 		SwitchWeapon(WeaponType::RedGun);
 	}
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM2)) {
-		SwitchWeapon(WeaponType::BlueGun);
+		SwitchWeapon(WeaponType::GreenGun);
 	}
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::NUM3)) {
-		SwitchWeapon(WeaponType::GreenGun);
+		SwitchWeapon(WeaponType::BlueGun);
 	}
 }
 
 void NCL::CSC8503::PaintballPlayer::SwitchState(PlayerState newState)
 {
 	currentState = newState;
-	std::cout << "Switched to State: " << static_cast<int>(newState) << std::endl;
+	//std::cout << "Switched to State: " << static_cast<int>(newState) << std::endl;
 }
 
 

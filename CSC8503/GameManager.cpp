@@ -488,7 +488,12 @@ void GameManager::InitWorld(int arg)
     CleanWorld();
     navMesh = new NavigationMesh("Map1Navmesh", "SecondMapMesh");
 
-    json j = SLSystem::GetInstance().GetCurSave();
+    json j;
+
+    if (arg == 192)
+        j = SLSystem::GetInstance().LoadData("save");
+    else
+        j = SLSystem::GetInstance().GetCurSave();
 
     if (j.contains("objs") && j["objs"].is_array()) {
         for (const auto& obj : j["objs"]) {
