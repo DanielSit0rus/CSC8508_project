@@ -28,12 +28,7 @@ namespace NCL {
 			int img_height;
 			unsigned int img_texture;
 		};
-		//struct ButtonRect {
-		//	float relX;     // ��������ӿ� WorkPos �� x ����
-		//	float relY;     // ��������ӿ� WorkPos �� y ����
-		//	float width;    // ��ť����
-		//	float height;   // ��ť�߶�
-		//};
+		
 
 		struct UIButton {
 			ImVec2 relativePos;                // The relative coordinates of the button within the menu window (relative to the main viewport WorkPos)
@@ -70,7 +65,7 @@ namespace NCL {
 
 		protected:
 
-			/*ButtonRect mainMenuButtons[4];*/
+			
 			PaintballGameWorld* world;
 
 			int loadingstep = 0;

@@ -214,9 +214,9 @@ LRESULT CALLBACK Win32Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam,
 	Win32Window* thisWindow = (Win32Window*)window;
 
 	bool applyResize = false;
-	if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam)) {
+	/*if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam)) {
 		return true;
-	}
+	}*/
 
     switch(message)	 {
         case(WM_DESTROY):	{

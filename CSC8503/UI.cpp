@@ -196,6 +196,8 @@ UI::UI(PaintballGameWorld* world)
 
 	
 	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {PrintMousePos(a, b); });
+	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {ProcessClickEvent(a, b); });
+
 }
 
 UI::~UI()
@@ -492,7 +494,7 @@ void UI::DrawPlayingUI(float dt) {
 		ImGui::PushFont(infofont);
 		ImGui::Text("Score: %d", 0); // Replace 0 with actual score
 		ImGui::Text("Time: %.1f", GameManager::GetInstance().GetLeftTime()); // Replace with actual time
-		ImGui::Text("Health: 100"); // Replace with actual health
+		ImGui::Text("Health: %d / %d", GameManager::GetInstance().GetPlayer()->GetHealth(), GameManager::GetInstance().GetPlayer()->GetMaxHealth());// Replace with actual health
 		ImGui::PopFont();
 
 		ImGui::End();
