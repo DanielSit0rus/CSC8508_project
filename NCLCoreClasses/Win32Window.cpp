@@ -12,15 +12,15 @@ using namespace Win32Code;
 #define WINDOWCLASS "WindowClass"
 
 Win32Window::Win32Window(const WindowInitialisation& winInitInfo) {
-	forceQuit		= false;
-	init			= false;
-	mouseLeftWindow	= false;
-	lockMouse		= false;
-	showMouse		= true;
-	active			= true;
+	forceQuit = false;
+	init = false;
+	mouseLeftWindow = false;
+	lockMouse = false;
+	showMouse = true;
+	active = true;
 
 	windowTitle = winInitInfo.windowTitle;
-	fullScreen	= winInitInfo.fullScreen;
+	fullScreen = winInitInfo.fullScreen;
 
 	size = Vector2i(winInitInfo.width, winInitInfo.height);
 	defaultSize = size;
@@ -33,33 +33,33 @@ Win32Window::Win32Window(const WindowInitialisation& winInitInfo) {
 	WNDCLASSEX windowClass;
 	ZeroMemory(&windowClass, sizeof(WNDCLASSEX));
 
-	if (!GetClassInfoEx(windowInstance, WINDOWCLASS, &windowClass))	{
-		windowClass.cbSize		= sizeof(WNDCLASSEX);
-	    windowClass.style		= CS_HREDRAW | CS_VREDRAW;
-		windowClass.lpfnWndProc	= (WNDPROC)WindowProc;
-		windowClass.hInstance	= windowInstance;
-		windowClass.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	if (!GetClassInfoEx(windowInstance, WINDOWCLASS, &windowClass)) {
+		windowClass.cbSize = sizeof(WNDCLASSEX);
+		windowClass.style = CS_HREDRAW | CS_VREDRAW;
+		windowClass.lpfnWndProc = (WNDPROC)WindowProc;
+		windowClass.hInstance = windowInstance;
+		windowClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		windowClass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 		windowClass.lpszClassName = WINDOWCLASS;
 
-		if(!RegisterClassEx(&windowClass)) {
+		if (!RegisterClassEx(&windowClass)) {
 			std::cout << __FUNCTION__ << " Failed to register class!\n";
 			return;
 		}
 	}
 
-	if(fullScreen) {
+	if (fullScreen) {
 		DEVMODE dmScreenSettings;								// Device Mode
-		memset(&dmScreenSettings,0,sizeof(dmScreenSettings));	// Makes Sure Memory's Cleared
+		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));	// Makes Sure Memory's Cleared
 
-		dmScreenSettings.dmSize=sizeof(dmScreenSettings);		// Size Of The Devmode Structure
-		dmScreenSettings.dmPelsWidth		= winInitInfo.width;// Selected Screen Width
-		dmScreenSettings.dmPelsHeight		= winInitInfo.height;// Selected Screen Height
-		dmScreenSettings.dmBitsPerPel		= 32;				// Selected Bits Per Pixel
+		dmScreenSettings.dmSize = sizeof(dmScreenSettings);		// Size Of The Devmode Structure
+		dmScreenSettings.dmPelsWidth = winInitInfo.width;// Selected Screen Width
+		dmScreenSettings.dmPelsHeight = winInitInfo.height;// Selected Screen Height
+		dmScreenSettings.dmBitsPerPel = 32;				// Selected Bits Per Pixel
 		dmScreenSettings.dmDisplayFrequency = winInitInfo.refreshRate;
 		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFREQUENCY;
 
-		if(ChangeDisplaySettings(&dmScreenSettings,CDS_FULLSCREEN)!=DISP_CHANGE_SUCCESSFUL)	{
+		if (ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL) {
 			std::cout << __FUNCTION__ << " Failed to switch to fullscreen!\n";
 			return;
 		}
@@ -68,26 +68,27 @@ Win32Window::Win32Window(const WindowInitialisation& winInitInfo) {
 	windowHandle = CreateWindowEx(fullScreen ? WS_EX_TOPMOST : NULL,
 		WINDOWCLASS,							// name of the window class
 		winInitInfo.windowTitle.c_str(),		// title of the window
-		fullScreen ? WS_POPUP|WS_VISIBLE : WS_OVERLAPPEDWINDOW|WS_POPUP|WS_VISIBLE|WS_SYSMENU|WS_MAXIMIZEBOX|WS_MINIMIZEBOX,    // window style
+		fullScreen ? WS_POPUP | WS_VISIBLE : (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_VISIBLE),    // window style
+		//fullScreen ? WS_POPUP|WS_VISIBLE : WS_OVERLAPPEDWINDOW|WS_POPUP|WS_VISIBLE|WS_SYSMENU|WS_MAXIMIZEBOX|WS_MINIMIZEBOX,    // window style
 		winInitInfo.windowPositionX,			// x-position of the window
 		winInitInfo.windowPositionY,			// y-position of the window
 		winInitInfo.width,				// width of the window
 		winInitInfo.height,				// height of the window
-        NULL,				// No parent window!
-        NULL,				// No Menus!
+		NULL,				// No parent window!
+		NULL,				// No Menus!
 		windowInstance,		// application handle
-        NULL);				// No multiple windows!
+		NULL);				// No multiple windows!
 
- 	if(!windowHandle) {
+	if (!windowHandle) {
 		std::cout << __FUNCTION__ << " Failed to create window!\n";
 		return;
 	}
 
-	winMouse	= new Win32Mouse(windowHandle);
+	winMouse = new Win32Mouse(windowHandle);
 	winKeyboard = new Win32Keyboard(windowHandle);
 
-	keyboard	= winKeyboard;
-	mouse		= winMouse;
+	keyboard = winKeyboard;
+	mouse = winMouse;
 	winMouse->SetAbsolutePositionBounds(size);
 
 	winMouse->Wake();
@@ -98,9 +99,9 @@ Win32Window::Win32Window(const WindowInitialisation& winInitInfo) {
 
 	SetConsolePosition(winInitInfo.consolePositionX, winInitInfo.consolePositionY);
 
-	init		= true;
-	maximised	= false;
-	minimised	= false;
+	init = true;
+	maximised = false;
+	minimised = false;
 }
 
 Win32Window::~Win32Window(void)	{
