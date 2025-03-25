@@ -1,0 +1,1797 @@
+{
+    "objs": [
+        {
+            "color": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "role",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                1.0,
+                4.047998905181885,
+                -21.0
+            ],
+            "scale": [
+                1.0,
+                2.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 3
+        },
+        {
+            "color": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "role",
+            "ori": [
+                0.0,
+                0.8632876873016357,
+                0.0,
+                0.5047121644020081
+            ],
+            "pos": [
+                -8.355940818786621,
+                4.050564289093018,
+                -15.733466148376465
+            ],
+            "scale": [
+                1.0,
+                2.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 4
+        },
+        {
+            "color": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "role",
+            "ori": [
+                0.0,
+                1.2950678906825577e-14,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                1.9364652104059132e-08,
+                4.046501159667969,
+                -30.0
+            ],
+            "scale": [
+                1.0,
+                2.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 3
+        },
+        {
+            "color": [
+                0.0,
+                1.0,
+                0.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "sphere",
+            "ori": [
+                -0.6240004301071167,
+                0.3387281596660614,
+                -0.5334936380386353,
+                -0.4596427083015442
+            ],
+            "pos": [
+                -13.801874160766602,
+                3.048997163772583,
+                -17.21471405029297
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 2
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "floor_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -80.0,
+                -4.0,
+                -32.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture5_diffuse",
+                "texture5_specular",
+                "texture5_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "mainWall_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -117.0,
+                1.0,
+                -119.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture3_diffuse",
+                "texture3_specular",
+                "texture3_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "doorWay_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -215.0,
+                1.0,
+                -25.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture1_diffuse",
+                "texture1_specular",
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "oppDoorWay_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -5.0,
+                0.0,
+                -55.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture1_diffuse",
+                "texture1_specular",
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "midDoor",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -121.0,
+                2.0,
+                -55.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture1_diffuse",
+                "texture1_specular",
+                "texture1_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -62.0,
+                7.0,
+                -78.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -94.0,
+                2.0,
+                -78.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "openWall",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -150.0,
+                2.0,
+                -78.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture2_diffuse",
+                "texture2_specular",
+                "texture2_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_3",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -153.0,
+                2.0,
+                88.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_4",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -31.0,
+                -2.0,
+                -38.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "cylinder",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -41.0,
+                1.0,
+                53.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "bigCylinder",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -173.0,
+                2.0,
+                -19.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "target",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -194.0,
+                2.0,
+                123.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture5_diffuse",
+                "texture5_specular",
+                "texture5_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "bigCube",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -96.0,
+                1.0,
+                70.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture4_diffuse",
+                "texture4_specular",
+                "texture4_normal",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 7
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "floor_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -50.0,
+                0.0,
+                169.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture6_base",
+                "",
+                "texture6_normal",
+                "texture6_height",
+                "texture6_metallic",
+                "texture6_occlusion",
+                "",
+                ""
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "mainWall_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -200.0,
+                4.0,
+                109.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture10_base",
+                "",
+                "texture10_normal",
+                "texture10_height",
+                "",
+                "texture10_occlusion",
+                "texture10_maskmap",
+                "texture10_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "doorWay_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -353.0,
+                -4.0,
+                -77.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture12_base",
+                "",
+                "texture12_normal",
+                "texture12_height",
+                "texture12_metallic",
+                "texture12_occlusion",
+                "",
+                ""
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "oppDoorWay_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                60.0,
+                2.0,
+                290.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture12_base",
+                "",
+                "texture12_normal",
+                "texture12_height",
+                "texture12_metallic",
+                "texture12_occlusion",
+                "",
+                ""
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_2_1",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                0.0,
+                20.0,
+                0.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture7_base",
+                "",
+                "texture7_normal",
+                "texture7_height",
+                "",
+                "texture7_occlusion",
+                "texture7_maskmap",
+                "texture7_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_2_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -61.0,
+                2.0,
+                305.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture7_base",
+                "",
+                "texture7_normal",
+                "texture7_height",
+                "",
+                "texture7_occlusion",
+                "texture7_maskmap",
+                "texture7_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "wall_2_3",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -328.0,
+                2.0,
+                -193.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture11_base",
+                "",
+                "texture11_normal",
+                "texture11_height",
+                "texture11_metallic",
+                "texture11_occlusion",
+                "",
+                "texture11_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "columns_2",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -285.0,
+                2.0,
+                -250.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture14_base",
+                "",
+                "texture14_normal",
+                "texture14_height",
+                "texture14_metallic",
+                "texture14_occlusion",
+                "",
+                ""
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "midTunnel",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -253.0,
+                1.0,
+                -350.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture13_base",
+                "",
+                "texture13_normal",
+                "texture13_height",
+                "texture13_metallic",
+                "texture13_occlusion",
+                "",
+                ""
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "elevation",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -5.0,
+                2.0,
+                465.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture8_base",
+                "",
+                "texture8_normal",
+                "texture8_height",
+                "",
+                "texture8_occlusion",
+                "texture8_maskmap",
+                "texture8_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "bridge",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -22.0,
+                2.0,
+                248.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture8_base",
+                "",
+                "texture8_normal",
+                "texture8_height",
+                "",
+                "texture8_occlusion",
+                "texture8_maskmap",
+                "texture8_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "elevRail",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -37.0,
+                21.0,
+                384.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture9_base",
+                "",
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "midRail",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -61.5,
+                26.0,
+                297.5
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture9_base",
+                "",
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "bridgeRail",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                -88.0,
+                22.0,
+                187.0
+            ],
+            "scale": [
+                5.0,
+                5.0,
+                5.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "texture9_base",
+                "",
+                "texture9_normal",
+                "texture9_height",
+                "",
+                "texture9_occlusion",
+                "texture9_maskmap",
+                "texture9_roughness"
+            ],
+            "type": 8
+        },
+        {
+            "color": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "role",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                13.0,
+                4.04850959777832,
+                10.0
+            ],
+            "scale": [
+                1.0,
+                2.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 3
+        },
+        {
+            "color": [
+                1.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "mass": 0.0,
+            "mesh": "cube",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                2.0,
+                5.0,
+                -30.0
+            ],
+            "scale": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 1
+        },
+        {
+            "color": [
+                0.5,
+                0.5,
+                0.5,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "cube",
+            "ori": [
+                0.0,
+                0.36559614539146423,
+                0.0,
+                -0.9307736158370972
+            ],
+            "pos": [
+                2.0,
+                13.0,
+                -30.0
+            ],
+            "scale": [
+                6.0,
+                8.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 1
+        },
+        {
+            "color": [
+                1.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "mass": 1.0,
+            "mesh": "sphere",
+            "ori": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "pos": [
+                15.430183410644531,
+                7.999737739562988,
+                -29.122865676879883
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "shader": "basic",
+            "texture": [
+                "basic",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "type": 5
+        }
+    ],
+    "resources": {
+        "meshes": [
+            {
+                "filename": "cube.msh",
+                "name": "cube"
+            },
+            {
+                "filename": "sphere.msh",
+                "name": "sphere"
+            },
+            {
+                "filename": "ORIGAMI_Chat.msh",
+                "name": "cat"
+            },
+            {
+                "filename": "Kitten.msh",
+                "name": "kitten"
+            },
+            {
+                "filename": "Map1Floor.msh",
+                "name": "floor_1"
+            },
+            {
+                "filename": "MainWall.msh",
+                "name": "mainWall_1"
+            },
+            {
+                "filename": "DoorWay.msh",
+                "name": "doorWay_1"
+            },
+            {
+                "filename": "OppDoorWay.msh",
+                "name": "oppDoorWay_1"
+            },
+            {
+                "filename": "MIdDoor.msh",
+                "name": "midDoor"
+            },
+            {
+                "filename": "Walls.msh",
+                "name": "wall_1"
+            },
+            {
+                "filename": "Walls2.msh",
+                "name": "wall_2"
+            },
+            {
+                "filename": "OpenWall.msh",
+                "name": "openWall"
+            },
+            {
+                "filename": "Wall3.msh",
+                "name": "wall_3"
+            },
+            {
+                "filename": "Wall4.msh",
+                "name": "wall_4"
+            },
+            {
+                "filename": "Cylinders.msh",
+                "name": "cylinder"
+            },
+            {
+                "filename": "BigCylinder.msh",
+                "name": "bigCylinder"
+            },
+            {
+                "filename": "Targets.msh",
+                "name": "target"
+            },
+            {
+                "filename": "BigCube.msh",
+                "name": "bigCube"
+            },
+            {
+                "filename": "FloorM2.msh",
+                "name": "floor_2"
+            },
+            {
+                "filename": "MainWallM2.msh",
+                "name": "mainWall_2"
+            },
+            {
+                "filename": "DoorWayM2.msh",
+                "name": "doorWay_2"
+            },
+            {
+                "filename": "Wall1M2.msh",
+                "name": "wall_2_1"
+            },
+            {
+                "filename": "OppDoorWayM2.msh",
+                "name": "oppDoorWay_2"
+            },
+            {
+                "filename": "Wall2M2.msh",
+                "name": "wall_2_2"
+            },
+            {
+                "filename": "Wall3M2.msh",
+                "name": "wall_2_3"
+            },
+            {
+                "filename": "ColumnsM2.msh",
+                "name": "columns_2"
+            },
+            {
+                "filename": "MidTunnel.msh",
+                "name": "midTunnel"
+            },
+            {
+                "filename": "Elevation.msh",
+                "name": "elevation"
+            },
+            {
+                "filename": "Bridge.msh",
+                "name": "bridge"
+            },
+            {
+                "filename": "ElevRail.msh",
+                "name": "elevRail"
+            },
+            {
+                "filename": "MidRail.msh",
+                "name": "midRail"
+            },
+            {
+                "filename": "BridgeRail.msh",
+                "name": "bridgeRail"
+            },
+            {
+                "filename": "goose.msh",
+                "name": "goose"
+            },
+            {
+                "filename": "Keeper.msh",
+                "name": "enemy"
+            },
+            {
+                "filename": "19463_Kitten_Head_v1.msh",
+                "name": "bonus"
+            },
+            {
+                "filename": "capsule.msh",
+                "name": "capsule"
+            },
+            {
+                "filename": "Role_T.msh",
+                "name": "role"
+            }
+        ],
+        "shaders": [
+            {
+                "fragment": "scene.frag",
+                "name": "basic",
+                "vertex": "scene.vert"
+            }
+        ],
+        "textures": [
+            {
+                "filename": "checkerboard.png",
+                "name": "basic"
+            },
+            {
+                "filename": "6x6_base.png",
+                "name": "floor"
+            },
+            {
+                "filename": "Texture_1_Diffuse.png",
+                "name": "texture1_diffuse"
+            },
+            {
+                "filename": "Texture_1_Specular.png",
+                "name": "texture1_specular"
+            },
+            {
+                "filename": "Texture_1_Normal.png",
+                "name": "texture1_normal"
+            },
+            {
+                "filename": "Texture_2_Diffuse.png",
+                "name": "texture2_diffuse"
+            },
+            {
+                "filename": "Texture_2_Specular.png",
+                "name": "texture2_specular"
+            },
+            {
+                "filename": "Texture_2_Normal.png",
+                "name": "texture2_normal"
+            },
+            {
+                "filename": "Texture_3_Diffuse.png",
+                "name": "texture3_diffuse"
+            },
+            {
+                "filename": "Texture_3_Specular.png",
+                "name": "texture3_specular"
+            },
+            {
+                "filename": "Texture_3_Normal.png",
+                "name": "texture3_normal"
+            },
+            {
+                "filename": "Texture_4_Diffuse.png",
+                "name": "texture4_diffuse"
+            },
+            {
+                "filename": "Texture_4_Specular.png",
+                "name": "texture4_specular"
+            },
+            {
+                "filename": "Texture_4_Normal.png",
+                "name": "texture4_normal"
+            },
+            {
+                "filename": "Texture_5_Normal.png",
+                "name": "texture5_normal"
+            },
+            {
+                "filename": "Texture_5_Diffuse.png",
+                "name": "texture5_diffuse"
+            },
+            {
+                "filename": "Texture_5_Specular.png",
+                "name": "texture5_specular"
+            },
+            {
+                "filename": "Texture_6_Base.png",
+                "name": "texture6_base"
+            },
+            {
+                "filename": "Texture_6_Normal.png",
+                "name": "texture6_normal"
+            },
+            {
+                "filename": "Texture_6_Height.png",
+                "name": "texture6_height"
+            },
+            {
+                "filename": "Texture_6_Metallic.png",
+                "name": "texture6_metallic"
+            },
+            {
+                "filename": "Texture_6_Occlusion.png",
+                "name": "texture6_occlusion"
+            },
+            {
+                "filename": "Texture_7_Base.png",
+                "name": "texture7_base"
+            },
+            {
+                "filename": "Texture_7_Normal.png",
+                "name": "texture7_normal"
+            },
+            {
+                "filename": "Texture_7_Height.png",
+                "name": "texture7_height"
+            },
+            {
+                "filename": "Texture_7_Occlusion.png",
+                "name": "texture7_occlusion"
+            },
+            {
+                "filename": "Texture_7_MaskMap.png",
+                "name": "texture7_maskmap"
+            },
+            {
+                "filename": "Texture_7_Roughness.png",
+                "name": "texture7_roughness"
+            },
+            {
+                "filename": "Texture_8_Base.png",
+                "name": "texture8_base"
+            },
+            {
+                "filename": "Texture_8_Normal.png",
+                "name": "texture8_normal"
+            },
+            {
+                "filename": "Texture_8_Height.png",
+                "name": "texture8_height"
+            },
+            {
+                "filename": "Texture_8_Occlusion.png",
+                "name": "texture8_occlusion"
+            },
+            {
+                "filename": "Texture_8_MaskMap.png",
+                "name": "texture8_maskmap"
+            },
+            {
+                "filename": "Texture_8_Roughness.png",
+                "name": "texture8_roughness"
+            },
+            {
+                "filename": "Texture_9_Base.png",
+                "name": "texture9_base"
+            },
+            {
+                "filename": "Texture_9_Normal.png",
+                "name": "texture9_normal"
+            },
+            {
+                "filename": "Texture_9_Height.png",
+                "name": "texture9_height"
+            },
+            {
+                "filename": "Texture_9_Occlusion.png",
+                "name": "texture9_occlusion"
+            },
+            {
+                "filename": "Texture_9_MaskMap.png",
+                "name": "texture9_maskmap"
+            },
+            {
+                "filename": "Texture_9_Roughness.png",
+                "name": "texture9_roughness"
+            },
+            {
+                "filename": "Texture_10_Base.png",
+                "name": "texture10_base"
+            },
+            {
+                "filename": "Texture_10_Normal.png",
+                "name": "texture10_normal"
+            },
+            {
+                "filename": "Texture_10_Height.png",
+                "name": "texture10_height"
+            },
+            {
+                "filename": "Texture_10_Occlusion.png",
+                "name": "texture10_occlusion"
+            },
+            {
+                "filename": "Texture_10_MaskMap.png",
+                "name": "texture10_maskmap"
+            },
+            {
+                "filename": "Texture_10_Roughness.png",
+                "name": "texture10_roughness"
+            },
+            {
+                "filename": "Texture_11_Base.png",
+                "name": "texture11_base"
+            },
+            {
+                "filename": "Texture_11_Height.png",
+                "name": "texture11_height"
+            },
+            {
+                "filename": "Texture_11_Metallic.png",
+                "name": "texture11_metallic"
+            },
+            {
+                "filename": "Texture_11_Occlusion.png",
+                "name": "texture11_occlusion"
+            },
+            {
+                "filename": "Texture_11_Normal.png",
+                "name": "texture11_normal"
+            },
+            {
+                "filename": "Texture_12_Base.png",
+                "name": "texture12_base"
+            },
+            {
+                "filename": "Texture_12_Normal.png",
+                "name": "texture12_normal"
+            },
+            {
+                "filename": "Texture_12_Height.png",
+                "name": "texture12_height"
+            },
+            {
+                "filename": "Texture_12_Metallic.png",
+                "name": "texture12_metallic"
+            },
+            {
+                "filename": "Texture_12_Occlusion.png",
+                "name": "texture12_occlusion"
+            },
+            {
+                "filename": "Texture_13_Base.png",
+                "name": "texture13_base"
+            },
+            {
+                "filename": "Texture_13_Normal.png",
+                "name": "texture13_normal"
+            },
+            {
+                "filename": "Texture_13_Height.png",
+                "name": "texture13_height"
+            },
+            {
+                "filename": "Texture_13_Metallic.png",
+                "name": "texture13_metallic"
+            },
+            {
+                "filename": "Texture_13_Occlusion.png",
+                "name": "texture13_occlusion"
+            },
+            {
+                "filename": "Texture_14_Base.png",
+                "name": "texture14_base"
+            },
+            {
+                "filename": "Texture_14_Normal.png",
+                "name": "texture14_normal"
+            },
+            {
+                "filename": "Texture_14_Height.png",
+                "name": "texture14_height"
+            },
+            {
+                "filename": "Texture_14_Metallic.png",
+                "name": "texture14_metallic"
+            },
+            {
+                "filename": "Texture_14_Occlusion.png",
+                "name": "texture14_occlusion"
+            }
+        ]
+    }
+}

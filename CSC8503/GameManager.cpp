@@ -140,11 +140,11 @@ void GameManager::InitWorld() {
     //ResourceManager::GetInstance().ReloadAnimations();
     navMesh = new NavigationMesh("Map1Navmesh", "SecondMapMesh");
 
-    playerObject = AddPlayerClass(rp3d::Vector3(1, 52, -21));
+    playerObject = AddPlayerClass(rp3d::Vector3(24, 10, 330));
 
-    enemyObject = AddEnemyClass(rp3d::Vector3(5, 1, -1));
+    enemyObject = AddEnemyClass(rp3d::Vector3(25, 10, 366));
 
-    CharacterObject = AddPlayerClass(rp3d::Vector3(0, 8, -30));
+    CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
 
     forceMagnitude = 60.0f;
 
@@ -154,14 +154,14 @@ void GameManager::InitWorld() {
     renderer->AddLight(light2);
 
     //FMOD
-    speakerObj = AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
-    speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
-        AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
+   // speakerObj = AddSphere(rp3d::Vector3(0, 25, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 1, Vector4(0.0f, 1.0f, 0.0f, 1.0f));
+   // speakerObj->SetAudioObject(new PaintballAudioObject(&speakerObj->GetTransform(),
+       // AudioSystem::GetInstance().GetEvent("event:/Congzheng/BGM2_3D")));
     //speakerObj->GetAudioObject()->Play(true);
 
     //rp3d
-    float angleInRadians = 10.0f * PI / 180.0f;
-    rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
+   // float angleInRadians = 10.0f * PI / 180.0f;
+   // rp3d::Quaternion rotation = rp3d::Quaternion::fromEulerAngles(angleInRadians, 0.0f, angleInRadians);
     /*AddCube(rp3d::Vector3(0, 25, -30), rp3d::Vector3(10, 1, 10), rp3d::Quaternion(0, 0, 0, 1.0f), 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
     AddCube(rp3d::Vector3(1, 30, -30), rp3d::Vector3(5, 1, 5), rotation, 0, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
     AddCube(rp3d::Vector3(2, 35, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion(0, 0, 0, 1.0f), 0.01f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -201,7 +201,7 @@ void GameManager::InitWorld() {
     AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "bigCube", "texture4_diffuse", "basic");*/
 
-        // FIRST MAP
+   /*     // FIRST MAP
     AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "floor_1", "texture5_diffuse", "texture5_specular", "texture5_normal", "basic");
 
@@ -244,7 +244,7 @@ void GameManager::InitWorld() {
     AddConcaveMesh(rp3d::Vector3(-96, 1, 70), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
         "bigCube", "texture4_diffuse", "texture4_specular", "texture4_normal", "basic");
 
-
+        */
 
 
 
@@ -475,8 +475,8 @@ void GameManager::InitWorld() {
     );
 
 
-    shoottest = AddPlayerClass(rp3d::Vector3(13, 5, 10.f));
-    AddTrap();
+    shoottest = AddPlayerClass(rp3d::Vector3(25, 10, 370));
+    //AddTrap();
     SetPlayer(shoottest);
     //InitDefaultFloor();
 }
@@ -530,13 +530,23 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
     }
     case GameObjectType::player: {
         if (hasNetwork) return obj;
-        else obj = AddPlayerClass(position);
+        else
+        {
+            obj = AddPlayerClass(position);
+        }
         break;
+    }
+    case GameObjectType::enemy: {
+        
+        obj = AddEnemyClass(position);
+        //enemyObject = obj;
+
     }
     case GameObjectType::bullet: {
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
     }
+   
     case GameObjectType::concave1: {
         obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, shaderName, color);
         break;

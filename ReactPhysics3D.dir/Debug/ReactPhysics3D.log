@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
@@ -97,3 +98,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\SDK\ReactPhysics3D\src\collision\
   QuickHull.cpp
   Generating Code...
   ReactPhysics3D.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\Debug\ReactPhysics3D.lib
+=======
+﻿  ReactPhysics3D.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\Debug\ReactPhysics3D.lib
+>>>>>>> LevelManager

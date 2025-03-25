@@ -22,7 +22,7 @@ namespace NCL {
 			void Init();
 
 			json GetCurSave() const { return curSave; }
-			json LoadData(std::string file = "save") const;
+			json LoadData(std::string file = "Lvl2") const;
 
 			void JsonSaveTest();
 			void JsonLoadTest() const;

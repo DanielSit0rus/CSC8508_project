@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/OpenGLRendering/CMakeLists.txt
   cmake_pch.cxx
   OGLTexture.h
@@ -22,3 +23,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   gl.h
   gl.c
   OpenGLRendering.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+=======
+﻿  OpenGLRendering.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
+>>>>>>> LevelManager

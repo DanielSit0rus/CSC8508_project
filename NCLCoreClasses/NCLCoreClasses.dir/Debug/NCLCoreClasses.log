@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/NCLCoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Assets.cpp
@@ -53,3 +54,6 @@ D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Keyboard.h(1,1): w
   
   Generating Code...
   NCLCoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+=======
+﻿  NCLCoreClasses.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\NCLCoreClasses\Debug\NCLCoreClasses.lib
+>>>>>>> LevelManager

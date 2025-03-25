@@ -14,6 +14,7 @@ PaintballEnemy::PaintballEnemy() :StateGameObject()
 	navMesh = nullptr;
 	player = nullptr;
 	canSeeTest = false;
+	type = GameObjectType::enemy;
 
 	State* patrolling = new State([&](float dt) -> void {
 		Patrol(dt);

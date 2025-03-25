@@ -222,7 +222,7 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetFarPlane(500.0f);
 
 	// Set initial top-down position and orientation
-	world->GetMainCamera().SetPosition(Vector3(0, 20, 0)); // Initial position
+	world->GetMainCamera().SetPosition(Vector3(0,20,0)); // Initial position
 	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
 	world->GetMainCamera().SetYaw(0.0f);
 
@@ -232,7 +232,8 @@ void TutorialGame::InitCamera() {
 }
 
 void TutorialGame::InitWorld() {
-	if (false) {
+	
+	if (true) {
 		G1.InitWorld(1);	//for data-driven
 	}
 	else {
