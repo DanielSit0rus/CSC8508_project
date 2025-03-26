@@ -64,10 +64,6 @@ TutorialGame::~TutorialGame()	{
 
 void TutorialGame::UpdateGame(float dt) {
 
-	//if (!gameStarted) {  // ��Ϸδ��ʼʱ����ͣ�߼�
-	//	renderer->Render();
-	//	return;
-	//}	
 	inputManager.Update();
 
 	Vector2 mousePos = Window::GetMouse()->GetAbsolutePosition();
@@ -121,9 +117,7 @@ void TutorialGame::UpdateGameBody(float dt)
 	GameManager::GetInstance().Update(dt);
 	UpdateKeys();
 
-	/*Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 
-	Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));*/
 	if (renderer->GetUI()->IsDebugMode()) {
 		Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 		Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));
@@ -135,7 +129,7 @@ void TutorialGame::UpdateGameBody(float dt)
 
 	UpdateUI(dt);
 
-	G1.getRPworld()->update(dt);	//rp3d
+	G1.getRPworld()->update(dt);	
 
 	if(G1.navMesh) G1.navMesh->DrawNavMesh();
 	if (G1.lockedObject) {
@@ -159,23 +153,7 @@ void TutorialGame::UpdateGameBody(float dt)
 		Debug::Print("Pos = " + posString, Vector2(5, 95), Debug::BLUE);
 	}
 
-	/*
-	if (false) {
-		Vector3 camPos = camera.GetPosition();
-		float yaw = DegreesToRadians(camera.GetYaw());
-		float pitch = DegreesToRadians(-camera.GetPitch());
-		Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
-		front = -Vector::Normalise(front);
-		Vector3 target = camPos + front * 20.0f;
-		Debug::DrawLine(target, target + Vector3(1, 0, 0), Debug::RED);
-		Debug::DrawLine(target, target + Vector3(0, 1, 0), Debug::GREEN);
-		Debug::DrawLine(target, target + Vector3(0, 0, 1), Debug::BLUE);
-	}
-	else
-	{
-		Debug::Print("+", Vector2(49, 51));
-	}
-	*/
+
 
 	if (G1.shoottest) { // If the player exists
 		Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
@@ -192,9 +170,9 @@ void TutorialGame::UpdateGameBody(float dt)
 	}
 
 
-	CalculatePathToPlayer();
+	/*CalculatePathToPlayer();
 	DisplayPath();
-	MoveEnemyAlongPath();
+	MoveEnemyAlongPath();*/
 }
 
 void TutorialGame::AssetsLoading() {
@@ -225,9 +203,8 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera().SetNearPlane(0.1f);
 	world->GetMainCamera().SetFarPlane(500.0f);
 
-	// Set initial top-down position and orientation
-	world->GetMainCamera().SetPosition(Vector3(0,20,0)); // Initial position
-	world->GetMainCamera().SetPitch(0.0f);               // Look straight down
+	world->GetMainCamera().SetPosition(Vector3(0,20,0)); 
+	world->GetMainCamera().SetPitch(0.0f);               
 	world->GetMainCamera().SetYaw(0.0f);
 
 	G1.lockedObject = nullptr;
@@ -317,11 +294,11 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
-		InitWorld(); //We can reset the simulation at any time with F1
+		InitWorld(); 
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {
-		InitCamera(); //F2 will reset the camera to a specific default place
+		InitCamera(); 
 	}
 
 }
@@ -382,10 +359,9 @@ physics worlds. You'll probably need another function for the creation of OBB cu
 */
 
 
-
 void TutorialGame::InitDefaultFloor() {
 	G1.AddFloorToWorld(rp3d::Vector3(0, -2, 0));
-	//test
+	
 }
 
 

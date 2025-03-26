@@ -61,6 +61,11 @@ void Console::ShowMouse(bool isShow)
 {
     w->ShowOSPointer(isShow);
     w->LockMouseToWindow(!isShow);
+    if (isShow)
+    {
+        Vector2i screenSize = Window::GetWindow()->GetScreenSize();
+        SetCursorPos(screenSize.x * 0.5f, screenSize.y * 0.6f);
+    }
 }
 
 

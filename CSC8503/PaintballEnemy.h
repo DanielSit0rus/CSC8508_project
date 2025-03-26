@@ -21,6 +21,14 @@ namespace NCL {
 
             bool IsOppositeColor(const Vector4& bulletColor);
 
+            PaintballGameObject* indicatorSphere = nullptr;
+
+            void SetIndicatorSphere(PaintballGameObject* obj) {
+                indicatorSphere = obj;
+            }
+
+
+
         private:
             void Patrol(float dt);
             void Attack(Vector4 color);
@@ -139,6 +147,9 @@ namespace NCL {
             float stopchaseRange = 80.0f;
             float attackRange = 55.0f;
             float distanceToPlayer = 0.0f;
+
+            Vector4 currentColor;
+
         };
 
     }
