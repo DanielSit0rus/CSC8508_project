@@ -29,7 +29,7 @@ namespace NCL {
 			void SetBusVolume(const std::string& busName, float v);
 			void GetBusVolume(const std::string& busName, float& v);
 
-			bool TriggerEvent(const std::string& eventName,rp3d::Vector3 pos);
+			bool TriggerEvent(const std::string& eventName, rp3d::Vector3 pos);
 			bool TriggerEvent(const std::string& eventName);
 
 			bool PlayEvent(const std::string& eventName, bool isReplay = false);
@@ -41,6 +41,7 @@ namespace NCL {
 			void ResumeEvent(EventInstance* event);
 
 			EventInstance* GetEvent(const std::string& eventName);
+			EventDescription* GetEventDescription(const std::string& eventName);
 
 		private:
 

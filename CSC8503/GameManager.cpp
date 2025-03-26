@@ -714,6 +714,10 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     // Attach the animated render object to the player
     player->SetRenderObject(renderObj);
 
+    player->SetAudioObject(new PaintballAudioObject(&player->GetTransform()));
+    player->GetAudioObject()->AddEvent("event:/Effect/FootStep");
+
+
     // Create a rigid body for physics
     // Create rigid body at the player's position
     rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(player->GetTransform().GetRpTransform());
@@ -817,6 +821,9 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     indicator->GetPhysicsObject()->GetRigidbody().setType(rp3d::BodyType::STATIC);
 
     enemy->SetIndicatorSphere(indicator);  
+
+    enemy->SetAudioObject(new PaintballAudioObject(&enemy->GetTransform()));
+    enemy->GetAudioObject()->AddEvent("event:/Effect/FootStep");
 
 
     world->AddGameObject(enemy);

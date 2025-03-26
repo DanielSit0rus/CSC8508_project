@@ -129,6 +129,12 @@ void PaintballEnemy::Update(float dt)
 		indicatorSphere->GetTransform().SetPosition(enemyPos + rp3d::Vector3(0, 4, 0));
 	}
 
+	if (audioObject) {
+		float speed = physicsObject->GetRigidbody().getLinearVelocity().length();
+		float clampedSpeed = Maths::Clamp(speed * 0.06f, 0.f, 1.f);
+		audioObject->PlayEvent("event:/Effect/FootStep", clampedSpeed);
+		//std::cout << "speed: " << speed << ", clampedSpeed: " << clampedSpeed << std::endl;
+	}
 }
 
 void PaintballEnemy::Chase(float dt) {

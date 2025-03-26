@@ -9,7 +9,7 @@ namespace NCL::CSC8503 {
 	class PaintballAudioObject
 	{
 	public:
-		PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* ins, bool isAuto = false);
+		PaintballAudioObject(PaintballTransform* parentTransform);
 		~PaintballAudioObject();
 
 		void Update();
@@ -18,13 +18,15 @@ namespace NCL::CSC8503 {
 			return transform;
 		}
 
-		void Play(bool isPlay);
+		void AddEvent(const std::string& eventName);
+		
+		void PlayEvent(const std::string& eventName, float p = NULL);
 
 	private:
 		PaintballTransform* transform;
-
-		EventInstance* event;
 		FMOD_3D_ATTRIBUTES* sourceAttributes;
+
+		std::unordered_map<std::string, EventInstance*> events;
 	};
 }
 

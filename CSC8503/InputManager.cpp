@@ -23,7 +23,9 @@ void InputManager::HandleMainMenuInput() {
 void InputManager::HandleGameInput() {
     bool isDebug = false;
 
-    if (!GameManager::GetInstance().isPhysEnabled())return;
+    if (!GameManager::GetInstance().isPhysEnabled() ||
+        (GameManager::GetInstance().lockedObject != GameManager::GetInstance().GetPlayer()))return;
+
     PaintballPlayer* player;
     if (GameManager::GetInstance().GetNetwork())
         player = GameManager::GetInstance().GetNetworkPlayers()[-1];
