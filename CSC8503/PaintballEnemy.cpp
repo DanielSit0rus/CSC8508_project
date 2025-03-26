@@ -21,14 +21,17 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyOb
 
 
 	State* patrolling = new State([&](float dt) -> void {
+		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
 		Patrol(dt);
 		});
 
 	State* chasing = new State([&](float dt) -> void {
+		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
 		Chase(dt);
 		});
 
 	State* attacking = new State([&](float dt) -> void {
+		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
 		Attack( Vector4(1, 0, 0, 1));
 		});
 
@@ -235,7 +238,7 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 	float distanceToTarget = direction.length();
 
 	// Movement parameters
-	float moveSpeed = 10.0f;
+	float moveSpeed = 5.0f;
 	float arrivalThreshold = 0.3f; // Distance at which a node is considered reached
 
 	if (distanceToTarget < arrivalThreshold) {
@@ -250,6 +253,13 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 		targetPos.y = currentPos.y;
 		direction = targetPos - currentPos;
 	}
+	if (direction.length() > 0.01f) {
+		direction.normalize();
+		float angle = atan2(direction.x, direction.z); 
+		rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0, angle, 0);
+		GetTransform().SetOrientation(newRotation);
+	}
+
 
 	// Normalize direction and apply speed
 	direction.normalize();
