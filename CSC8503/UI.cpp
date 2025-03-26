@@ -14,6 +14,7 @@
 
 #include "EventManager.h"
 #include "SLSystem.h"
+#include <regex>
 
 using namespace NCL;
 using namespace CSC8503;
@@ -692,39 +693,8 @@ void UI::DrawChooseServer(float dt) {
 	float buttonSpacing = 20.0f;
 	float centerX = (main_viewport->Size.x - inputWidth) * 0.5f;
 
-	// 创建一个新的窗口用于输入框
-	ImGui::SetNextWindowPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
-	ImGui::SetNextWindowSize(ImVec2(inputWidth, 40));
-	ImGui::SetNextWindowBgAlpha(0.0f);
-
-	static char serverIP[128] = "127.0.0.1";
-
-	if (ImGui::Begin("##ServerIPInput", nullptr,
-		ImGuiWindowFlags_NoTitleBar |
-		ImGuiWindowFlags_NoResize |
-		ImGuiWindowFlags_NoMove |
-		ImGuiWindowFlags_NoScrollbar)) {
-
-		ImGui::PushItemWidth(inputWidth);
-
-		// 如果需要获得焦点，设置焦点
-		if (serverIPFocused) {
-			ImGui::SetKeyboardFocusHere();
-			serverIPFocused = false;  // 重置标志，避免重复设置焦点
-		}
-
-		// 使用InputText来处理输入
-		if (ImGui::InputText("##IP", serverIP, IM_ARRAYSIZE(serverIP),
-			ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue)) {
-			// 当按下回车时连接服务器
-			GameManager::GetInstance().SetGameState(PLAYING);
-		}
-		ProcessKeyboard(serverIP);
-
-
-		ImGui::PopItemWidth();
-	}
-	ImGui::End();
+	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
+	ImGui::Text("Your IP");
 
 	// Connect 按钮
 	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y + 30));
@@ -1028,10 +998,19 @@ void UI::InitializeChooseServerMenuButtons() {
 	// Connect 按钮
 	btn.relativePos = ImVec2(centerX, posY);
 	btn.size = ImVec2(buttonWidth, buttonHeight);
-	btn.onClick = []() {
+	btn.onClick = [&]() {
 		// TODO：在这里可以增加使用输入框中 serverIP 的逻辑，目前直接切换状态为 CLIENTPLAYING
 		std::cout << "ChooseServer: Connect button clicked" << std::endl;
 		GameManager::GetInstance().SetGameState(PLAYING);
+
+		//如果是服务器端（没有输入ip），在SetGameState(PLAYING); 之后调用这个方法
+		EventManager::Trigger(EventType::Network_StartAsServer);
+
+		//如果是客户端，在SetGameState(PLAYING); 之后调用这个方法，ip改为输入的ip
+		//ip格式要求：4个数字（0~255）用空格隔开，如 "192 168 1 1"
+		//		if (isValidIPAddress(ip) == true) EventManager::Trigger(EventType::Network_StartAsClient, ip);
+		//		else std::cout << "Invalid IP address" << std::endl;
+
 		};
 	chooseServerMenuButtons.push_back(btn);
 
@@ -1227,6 +1206,13 @@ void UI::ProcessClickEvent(float x, float y) {
 			return;
 		}
 	}
+}
+
+bool UI::isValidIPAddress(const std::string& ip)
+{
+	// 正则表达式匹配 IPv4 地址（确保 0-255 范围）
+	const std::regex ipRegex(R"(^((25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)$)");
+	return  std::regex_match(ip, ipRegex);
 }
 
 // 处理设置菜单的点击事件

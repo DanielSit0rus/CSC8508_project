@@ -173,6 +173,8 @@ namespace NCL {
 				if (Window::GetKeyboard()->KeyPressed(KeyCodes::BACK) && s != "")s.pop_back();
 			}
 
+			bool isValidIPAddress(const std::string& ip);
+
 			// 新增函数声明
 			void HandleSettingMenuClick(float x, float y);
 			void HandleChooseServerClick(float x, float y);
