@@ -280,6 +280,13 @@ void NCL::CSC8503::PaintballPlayer::Update(float dt)
 		//Move(10.0f); //      
 	}
 	UpdateWeaponSelection();
+
+	if (audioObject && currentState == PlayerState::RunState) {
+		float speed = physicsObject->GetRigidbody().getLinearVelocity().length();
+		float clampedSpeed = Maths::Clamp(speed * 0.06f, 0.f, 1.f);
+		audioObject->PlayEvent("event:/Effect/FootStep", clampedSpeed);
+		//std::cout << "speed: " << speed <<", clampedSpeed: " << clampedSpeed << std::endl;
+	}
 }
 
 

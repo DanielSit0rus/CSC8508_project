@@ -166,6 +166,7 @@ void AudioSystem::SetBusVolume(const std::string& busName, float v) {
     {
         std::cerr << "[Audio] Cannot find the bus £º" << busName << std::endl;
     }
+    if (busName == "Effect") TriggerEvent("event:/Effect/GunShoot");
 }
 
 void AudioSystem::GetBusVolume(const std::string& busName, float& v)
@@ -347,4 +348,18 @@ EventInstance* AudioSystem::GetEvent(const std::string& eventName)
         return nullptr;
     }
     return eventInstance;
+}
+
+EventDescription* NCL::CSC8503::AudioSystem::GetEventDescription(const std::string& eventName)
+{
+    auto descIt = eventDescriptions.find(eventName);
+    if (descIt == eventDescriptions.end()) {
+        EventDescription* eventDesc = nullptr;
+        if (studioSystem->getEvent(eventName.c_str(), &eventDesc) != FMOD_OK || !eventDesc) {
+            std::cerr << "[Audio] Cannot find the event: " << eventName << std::endl;
+            return nullptr;
+        }
+        eventDescriptions[eventName] = eventDesc;
+    }
+    return eventDescriptions[eventName];
 }

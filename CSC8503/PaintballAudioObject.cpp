@@ -1,51 +1,55 @@
 #include "PaintballAudioObject.h"
 #include "EventManager.h"
+#include "AudioSystem.h"
 
 using namespace NCL::CSC8503;
 
-PaintballAudioObject::PaintballAudioObject(PaintballTransform* parentTransform, EventInstance* instance, bool isAuto)
-	: event(instance)
+PaintballAudioObject::PaintballAudioObject(PaintballTransform* parentTransform)
 {
 	transform = parentTransform;
 	sourceAttributes = new FMOD_3D_ATTRIBUTES;
-
-	if (isAuto) {
-		EventManager::Subscribe(EventType::Game_Start, [this]() {Play(true); });
-		EventManager::Subscribe(EventType::Game_End, [this]() {Play(false); });
-		EventManager::Subscribe(EventType::Game_Resume, [this]() {Play(true); });
-		EventManager::Subscribe(EventType::Game_Pause, [this]() {Play(false); });
-	}
 }
 
 PaintballAudioObject::~PaintballAudioObject()
 {
-	event->stop(FMOD_STUDIO_STOP_IMMEDIATE);
-	event->release();
+	for (auto& [_, event] : events) {
+		event->release();
+	}
+
+	events.clear();
+
 	delete sourceAttributes;
 }
 
 void PaintballAudioObject::Update()
 {
-	event->get3DAttributes(sourceAttributes);
-	rp3d::Vector3 pos = transform->GetPosition();
-	sourceAttributes->position = { pos.x, pos.y, pos.z };
-	event->set3DAttributes(sourceAttributes);
+	for (auto it = events.begin(); it != events.end(); ++it) {
+		events[it->first]->set3DAttributes(sourceAttributes);
+		rp3d::Vector3 pos = transform->GetPosition();
+		sourceAttributes->position = { pos.x, pos.y, pos.z };
+		events[it->first]->set3DAttributes(sourceAttributes);
+	}
 }
 
-void PaintballAudioObject::Play(bool isPlay) {
-	//std::cout << "PaintballAudioObject::Play = " << isPlay << std::endl;
-	if (isPlay) {
-		FMOD_STUDIO_PLAYBACK_STATE state;
-		event->getPlaybackState(&state);
+void PaintballAudioObject::AddEvent(const std::string& eventName)
+{
+	EventInstance* eventInstance = AudioSystem::GetInstance().GetEvent(eventName);
+	if (eventInstance) {
+		events[eventName] = eventInstance;
+	}
+}
 
-		if (state == FMOD_STUDIO_PLAYBACK_STOPPED) {
-			event->start();
+void PaintballAudioObject::PlayEvent(const std::string& eventName, float p) {
+	auto it = events.find(eventName);
+	if (it != events.end()) {
+		FMOD_STUDIO_PLAYBACK_STATE state;
+		it->second->getPlaybackState(&state);
+		if (state == FMOD_STUDIO_PLAYBACK_PLAYING) {
+			return;
 		}
-		else {
-			event->setPaused(false);
-		}
+		if (p != NULL) it->second->setParameterByName("Speed", p);
+		it->second->start();
+		return;
 	}
-	else {
-		event->setPaused(true);
-	}
+	std::cerr << "[Audio] Cannot find the event £º" << eventName << std::endl;
 }
