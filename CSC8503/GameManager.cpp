@@ -144,7 +144,7 @@ void GameManager::InitWorld() {
 
     shoottest = AddPlayerClass(rp3d::Vector3(-30, 5, -22));
     playerObject = shoottest;
-    //AddTrap();
+    AddTrap();
     SetPlayer(shoottest);
 
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
@@ -1197,10 +1197,10 @@ PaintballGameObject* CSC8503::GameManager::AddTrap()
     //reactphysics3d::BallAndSocketJointInfo jointInfo(&tripcube1->GetPhysicsObject()->GetRigidbody(), &tripcube2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
     //return nullptr;
     // ´´½¨ÏÝÚå·½¿é
-    PaintballGameObject* tripcube1 = AddCube(rp3d::Vector3(2, 5, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion::identity(), 0.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
+    PaintballGameObject* tripcube1 = AddCube(rp3d::Vector3(-37, 29, -46), rp3d::Vector3(5, 1, 5), rp3d::Quaternion::identity(), 0.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
     // ´´½¨Ò»¸ö»ú¹Ø£¨±ÈÈçÒ»¸öÐý×ªµÄ¸Ë×Ó£©
-    PaintballGameObject* spinningTrap = AddCube(rp3d::Vector3(2, 13, -30), rp3d::Vector3(3, 4, 0.5), rp3d::Quaternion::identity(), 1.0f, Vector4(0.5f, 0.5f, 0.5f, 1.0f));
+    PaintballGameObject* spinningTrap = AddCube(rp3d::Vector3(-37, 12, -46), rp3d::Vector3(8, 16, 0.5), rp3d::Quaternion::identity(), 1.0f, Vector4(0.5f, 0.5f, 0.5f, 1.0f));
 
     if (!tripcube1 || !spinningTrap) {
     return nullptr;
@@ -1216,6 +1216,8 @@ PaintballGameObject* CSC8503::GameManager::AddTrap()
         anchorPoint,
         rp3d::Vector3(0, 1, 0) // ÈÆYÖáÐý×ª
     );
+
+    spinningTrap->GetPhysicsObject()->GetRigidbody().setAngularDamping(0.3f);
 
     reactphysics3d::HingeJoint* hingeJoint = (reactphysics3d::HingeJoint*)RpWorld->createJoint(jointInfo);
 
