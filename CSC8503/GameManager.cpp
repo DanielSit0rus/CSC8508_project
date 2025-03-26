@@ -155,6 +155,9 @@ void GameManager::InitWorld() {
     enemyObject = AddEnemyClass(rp3d::Vector3(-215, 5, -160));
     enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
 
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(38, 30, 352));
+
     //playerObject = AddPlayerClass(rp3d::Vector3(5, 5, 10));
 
     //CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));

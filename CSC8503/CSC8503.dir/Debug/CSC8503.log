@@ -28,10 +28,10 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC850
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(44,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(98,107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(100,59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(613,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(614,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(1125,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(1126,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(616,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(617,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(1128,28): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\CSC8503\GameManager.cpp(1129,33): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70): warning C4244: '=': conversion from 'float' to 'reactphysics3d::uint64', possible loss of data
   (compiling source file 'GameManager.cpp')
       C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\SDK\ReactPhysics3D\include\reactphysics3d\containers\Array.h(255,70):
