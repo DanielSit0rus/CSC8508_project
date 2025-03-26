@@ -109,7 +109,7 @@ void PaintballEnemy::Update(float dt)
 	StateGameObject::Update(dt);
 	canSeeTest = CanSeePlayer();
 	if(player) distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
-	Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
+	//Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
 	leftCD -= dt;
 
 	if (canSeeTest) {

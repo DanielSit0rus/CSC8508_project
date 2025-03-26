@@ -39,7 +39,6 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, Co
                         netObj->SetPlayerID(arg);
                         networkObjects[networkObjects.size()] = netObj;
                         networkPlayers[arg]->SetNetworkObject(netObj);
-
                         break;
                     }
                 }
@@ -49,7 +48,7 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, Co
 }
 
 void GameManager::Update(float dt) {
-    leftTime -= dt;
+    if (hasPhys) leftTime -= dt;
 
     //Debug::Print("Left time: " + std::to_string(GameManager::GetInstance().GetLeftTime()), Vector2(5, 15));
 
@@ -96,6 +95,7 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
                         netObj->SetPlayerID(-1);
                         networkObjects[networkObjects.size()] = netObj;
                         networkPlayers[-1]->SetNetworkObject(netObj);
+                        SetPlayer(networkPlayers[-1]);
 
                         break;
                     }
@@ -155,7 +155,7 @@ void GameManager::InitWorld() {
 
     //CharacterObject = AddPlayerClass(rp3d::Vector3(21, 40, 350));
 
-    forceMagnitude = 60.0f;
+    forceMagnitude = 35.0f;
 
 
 

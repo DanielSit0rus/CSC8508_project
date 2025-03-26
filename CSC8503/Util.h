@@ -2,7 +2,6 @@
 #include <reactphysics3d/reactphysics3d.h>
 #include <Vector.h>
 #include "../NCLCoreClasses/Quaternion.h"
-
 using namespace NCL::Maths;
 
 namespace NCL {
@@ -53,6 +52,7 @@ namespace NCL {
             static int GetResourceIdByString(const std::string& type, const std::string& target);
             static std::string GetResourceByID(const std::string& type, const int& id);
 
+            static float GetLeftTime();
         };
 
     }

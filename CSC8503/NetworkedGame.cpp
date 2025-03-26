@@ -276,7 +276,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		rp3d::Vector3 position = fullPacket->fullState.position;
 		rp3d::Quaternion orientation = fullPacket->fullState.orientation;
 		int stateID = fullPacket->fullState.stateID;
-		*/
+		*/	
 
 		auto it = G1.GetNetworkObjects().find(objectID);
 		if (it != G1.GetNetworkObjects().end()) {
@@ -319,7 +319,7 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 					state.mass, state.isEnemy, state.oriV3, objectID);
 			}
 		}
-
+		G1.SetLeftTime(fullPacket->fullState.leftTime);
 		break;
 	}
 	case String_Message: {

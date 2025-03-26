@@ -42,6 +42,25 @@ namespace NCL::CSC8503 {
 			return Vector4(1, 1, 1, 1);
 		}
 
+		const char* GetCurrentWeaponString() const {
+			const char* c = "";
+			switch (currentWeapon) {
+			case WeaponType::RedGun:
+				c = "Weapon : Red";
+				break;
+			case WeaponType::GreenGun:
+				c = "Weapon : Green";
+				break;
+			case WeaponType::BlueGun:
+				c = "Weapon : Blue";
+				break;
+			default:
+				c = "Weapon : Unknown";
+				break;
+			}
+			return c;
+		}
+
 		void TakeDamage(int damage);
 		int GetHealth() const { return health; }
 		int GetMaxHealth() const { return maxHealth; }

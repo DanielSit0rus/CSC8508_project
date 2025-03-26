@@ -5,6 +5,8 @@ using namespace CSC8503;
 PaintballPhysicsObject::PaintballPhysicsObject(PaintballTransform* parentTransform, rp3d::RigidBody& rigidbody, rp3d::PhysicsWorld& world)
 	:physicsWorld(world), rigidBody(rigidbody) {
 	transform = parentTransform;
+
+	rigidBody.setIsDebugEnabled(true);
 }
 
 PaintballPhysicsObject::~PaintballPhysicsObject() {

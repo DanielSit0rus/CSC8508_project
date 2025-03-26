@@ -38,6 +38,7 @@ namespace NCL {
 			bool				isActive = true;
 
 			int					playerID;
+			float				leftTime;
 		};
 	}
 }

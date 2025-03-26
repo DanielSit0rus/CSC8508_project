@@ -146,6 +146,7 @@ namespace NCL {
 
             PaintballGameWorld* GetWorld() { return world; }
 
+            void SetLeftTime(float t) { leftTime = t; }
             float GetLeftTime() const { return leftTime; }
 
             std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }

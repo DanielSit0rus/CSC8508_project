@@ -513,7 +513,7 @@ void UI::DrawPlayingUI(float dt) {
 		ImGuiWindowFlags_NoTitleBar)) {
 
 		ImGui::PushFont(infofont);
-		ImGui::Text("Weapon: Paintball Gun");
+		ImGui::Text(GameManager::GetInstance().GetPlayer()->GetCurrentWeaponString());
 		ImGui::Text("Ammo: %d / %d", 30, 90); // Replace with actual ammo counts
 		ImGui::Text("Power: 100%%");
 		ImGui::PopFont();

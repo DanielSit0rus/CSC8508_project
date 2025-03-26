@@ -1,7 +1,6 @@
 #include "NetworkObject.h"
 #include "./enet/enet.h"
 
-
 using namespace NCL;
 using namespace CSC8503;
 
@@ -159,6 +158,8 @@ bool NetworkObject::WriteFullPacket(GamePacket** p) {
 		fp->fullState.isActive = object.IsActive();
 
 		fp->fullState.playerID = playerId;
+
+		fp->fullState.leftTime = Util::GetLeftTime();
 	}
 	*p = fp;
 

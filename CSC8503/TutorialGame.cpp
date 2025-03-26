@@ -218,7 +218,7 @@ void TutorialGame::InitCamera() {
 
 	G1.lockedObject = nullptr;
 	G1.selectionObject = nullptr;
-	G1.forceMagnitude = 60.0f;
+	G1.forceMagnitude = 35.0f;
 }
 
 void TutorialGame::InitWorld() {
