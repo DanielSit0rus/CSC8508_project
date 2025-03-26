@@ -178,10 +178,6 @@ void TutorialGame::UpdateGameBody(float dt)
 		renderer->UpdateLight(2, lightPos, lightDir);
 	}
 
-
-	/*CalculatePathToPlayer();
-	DisplayPath();
-	MoveEnemyAlongPath();*/
 }
 
 void TutorialGame::AssetsLoading() {
@@ -194,9 +190,6 @@ void TutorialGame::AssetsLoading() {
 
 void TutorialGame::UpdateLoading(float dt)
 {
-	//std::cout << "[UpdateLoading] assetsLoadedStep = " << assetsLoadedStep << std::endl;
-	//if (assetsLoadedStep == 5) G1.SetGameState(MENU);
-	//AssetsLoading();
 
 	UpdateUI(dt);
 	renderer->GetUI()->SetLoadingStep(1);

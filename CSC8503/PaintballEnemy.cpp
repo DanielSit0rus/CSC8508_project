@@ -151,20 +151,35 @@ void PaintballEnemy::Chase(float dt) {
 
 void PaintballEnemy::Patrol(float dt) {
 	if (canSeeTest) return;
+
 	rp3d::Vector3 enemyPos = GetTransform().GetPosition();
 
 	if (pathNodes.empty() || (enemyPos - patrolTarget).length() < 1.0f) {
-		float randomX = (rand() % 40) - 20;
-		float randomZ = (rand() % 40) - 20;
-		patrolTarget = Util::NCLToRP3d(NCL::Maths::Vector3(randomX, enemyPos.y, randomZ));
+		bool foundValidTarget = false;
 
-		Debug::Print("New Patrol Target: " + std::to_string(randomX) + ", " + std::to_string(randomZ), Vector2(10, 150), Debug::WHITE);
+		for (int i = 0; i < 5; ++i) { 
+			float randomX = (rand() % 40) - 20;
+			float randomZ = (rand() % 40) - 20;
 
-		CalculatePath(patrolTarget);
+			rp3d::Vector3 candidate = enemyPos + rp3d::Vector3(randomX, 0, randomZ);
+
+	
+			rp3d::Ray ray(enemyPos, candidate);
+			RaycastHitCallback callback;
+
+			GameManager::GetInstance().getRPworld()->raycast(ray, &callback);
+
+			if (!callback.rb) {
+				patrolTarget = candidate;
+				CalculatePath(patrolTarget);
+				foundValidTarget = true;
+				break;
+			}
+		}
 	}
-
 	MoveEnemyAlongPath();
 }
+
 
 void PaintballEnemy::Attack(Vector4 color)
 {
