@@ -64,22 +64,68 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 		else if (object1->GetType() == GameObjectType::bullet && object2->GetType() == GameObjectType::enemy) {
 			PaintballEnemy* enemy = static_cast<PaintballEnemy*>(object2);
 
+			//Vector4 bulletColor = object1->GetRenderObject()->GetColour();
+
+
+
+			Vector4 currentColor = enemy->GetRenderObject()->GetColour();
 			Vector4 bulletColor = object1->GetRenderObject()->GetColour();
+
+			// Blend 25% toward bullet color per hit
+			float blendAmount = 0.25f;
+
+			Vector4 newColor = Vector4(
+				currentColor.x + (bulletColor.x - currentColor.x) * blendAmount,
+				currentColor.y + (bulletColor.y - currentColor.y) * blendAmount,
+				currentColor.z + (bulletColor.z - currentColor.z) * blendAmount,
+				1.0f // keep alpha at 1
+			);
+
+			
+
+
+
+
 			enemy->TakeDamage(25, bulletColor);  // Apply 10 damage to the enemy
 			
 
-			enemy->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
+			//enemy->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
+			
+
+			enemy->GetRenderObject()->SetColour(newColor);
+
 			// Destroy the bullet after impact
 			((PaintballBullet*)object1)->Destroy();
 		}
 		else if (object2->GetType() == GameObjectType::bullet && object1->GetType() == GameObjectType::enemy) {
 			PaintballEnemy* enemy = static_cast<PaintballEnemy*>(object1);
 
+			//Vector4 bulletColor = object2->GetRenderObject()->GetColour();
+
+			Vector4 currentColor = enemy->GetRenderObject()->GetColour();
 			Vector4 bulletColor = object2->GetRenderObject()->GetColour();
+
+			// Blend 25% toward bullet color per hit
+			float blendAmount = 0.50f;
+
+			Vector4 newColor = Vector4(
+				currentColor.x + (bulletColor.x - currentColor.x) * blendAmount,
+				currentColor.y + (bulletColor.y - currentColor.y) * blendAmount,
+				currentColor.z + (bulletColor.z - currentColor.z) * blendAmount,
+				1.0f // keep alpha at 1
+			);
+
+			
+
+				
 			enemy->TakeDamage(25, bulletColor);  // Apply 10 damage to the enemy
 			
 
-			enemy->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
+			//enemy->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
+
+
+			enemy->GetRenderObject()->SetColour(newColor);
+
 			// Destroy the bullet after impact
 			((PaintballBullet*)object2)->Destroy();
 

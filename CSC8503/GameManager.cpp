@@ -1,4 +1,4 @@
-#include "GameManager.h"
+ï»¿#include "GameManager.h"
 #include "AudioSystem.h"
 #include "SLSystem.h"
 #include "EventManager.h"
@@ -121,6 +121,7 @@ void GameManager::CleanWorld()
     lockedObject = nullptr;
     enemyObject = nullptr;
     CharacterObject = nullptr;
+    
     pathNodes.clear();
     //FMOD
     speakerObj = nullptr;
@@ -521,6 +522,27 @@ void GameManager::InitWorld(int arg)
     toRebuild = -1;
 }
 
+Vector4 NCL::CSC8503::GameManager::GetRequiredBulletColor(const Vector4& enemyColor)
+{
+    const float epsilon = 0.001f;
+
+    auto equals = [&](float a, float b) {
+        return fabs(a - b) < epsilon;
+        };
+
+    if (equals(enemyColor.x, 1) && equals(enemyColor.y, 0) && equals(enemyColor.z, 0)) {
+        return Vector4(0, 1, 0, 1); // Red â†’ Green
+    }
+    if (equals(enemyColor.x, 0) && equals(enemyColor.y, 1) && equals(enemyColor.z, 0)) {
+        return Vector4(0, 0, 1, 1); // Green â†’ Blue
+    }
+    if (equals(enemyColor.x, 0) && equals(enemyColor.y, 0) && equals(enemyColor.z, 1)) {
+        return Vector4(1, 0, 0, 1); // Blue â†’ Red
+    }
+
+    return Vector4(1, 1, 1, 1); // Fallback: white
+}
+
 PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
     Vector4 color, const string& meshName,
     const string& textureNameD, const string& textureNameS, const string& textureNameN,
@@ -722,6 +744,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     return player;
 }
 
+
+
 PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
 {
 
@@ -731,6 +755,8 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     ResourceManager& resources = ResourceManager::GetInstance();
 
     Vector4 enemyColor = (rand() % 3 == 0) ? Vector4(1, 0, 0, 1) : (rand() % 2 == 0) ? Vector4(0, 0, 1, 1) : Vector4(0, 1, 0, 1);
+
+
 
     PaintballEnemy* enemy = new PaintballEnemy("Enemy1", enemyColor);
 
@@ -778,7 +804,21 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     enemy->SetNavMesh(navMesh);     // Assign the navigation mesh
     enemy->SetPlayer(player);       // Set the target player
 
-    // Add player to the game world
+    Vector4 indicatorColor = GetRequiredBulletColor(enemyColor);
+
+    // Create a small sphere above the enemy's head
+    rp3d::Vector3 indicatorPos = position + rp3d::Vector3(0, 3.5f, 0); 
+    rp3d::Vector3 indicatorSize = rp3d::Vector3(0.3f, 0.3f, 0.3f);
+
+    
+    PaintballGameObject* indicator = AddSphere(indicatorPos, indicatorSize, rp3d::Quaternion::identity(), 0.0f, indicatorColor);
+
+    
+    indicator->GetPhysicsObject()->GetRigidbody().setType(rp3d::BodyType::STATIC);
+
+    enemy->SetIndicatorSphere(indicator);  
+
+
     world->AddGameObject(enemy);
 
     return enemy;
@@ -1149,37 +1189,37 @@ PaintballGameObject* CSC8503::GameManager::AddTrap()
     //// Create the joint info object
     //reactphysics3d::BallAndSocketJointInfo jointInfo(&tripcube1->GetPhysicsObject()->GetRigidbody(), &tripcube2->GetPhysicsObject()->GetRigidbody(), anchorPoint);
     //return nullptr;
-    // ´´½¨ÏİÚå·½¿é
+    // Â´Â´Â½Â¨ÃÃÃšÃ¥Â·Â½Â¿Ã©
     PaintballGameObject* tripcube1 = AddCube(rp3d::Vector3(2, 5, -30), rp3d::Vector3(1, 1, 1), rp3d::Quaternion::identity(), 0.0f, Vector4(1.0f, 0.0f, 0.0f, 1.0f));
 
-    // ´´½¨Ò»¸ö»ú¹Ø£¨±ÈÈçÒ»¸öĞı×ªµÄ¸Ë×Ó£©
+    // Â´Â´Â½Â¨Ã’Â»Â¸Ã¶Â»ÃºÂ¹Ã˜Â£Â¨Â±ÃˆÃˆÃ§Ã’Â»Â¸Ã¶ÃÃ½Ã—ÂªÂµÃ„Â¸Ã‹Ã—Ã“Â£Â©
     PaintballGameObject* spinningTrap = AddCube(rp3d::Vector3(2, 13, -30), rp3d::Vector3(3, 4, 0.5), rp3d::Quaternion::identity(), 1.0f, Vector4(0.5f, 0.5f, 0.5f, 1.0f));
 
     if (!tripcube1 || !spinningTrap) {
     return nullptr;
 }
 
-    // ¹Ø½ÚµÄÊÀ½ç¿Õ¼äÃªµã
+    // Â¹Ã˜Â½ÃšÂµÃ„ÃŠÃ€Â½Ã§Â¿Ã•Â¼Ã¤ÃƒÂªÂµÃ£
     rp3d::Vector3 anchorPoint = spinningTrap->GetTransform().GetPosition();
 
-    // ´´½¨Ğı×ª¹Ø½Ú£¨Hinge Joint£©
+    // Â´Â´Â½Â¨ÃÃ½Ã—ÂªÂ¹Ã˜Â½ÃšÂ£Â¨Hinge JointÂ£Â©
     reactphysics3d::HingeJointInfo jointInfo(
         &tripcube1->GetPhysicsObject()->GetRigidbody(),
         &spinningTrap->GetPhysicsObject()->GetRigidbody(),
         anchorPoint,
-        rp3d::Vector3(0, 1, 0) // ÈÆYÖáĞı×ª
+        rp3d::Vector3(0, 1, 0) // ÃˆÃ†YÃ–Ã¡ÃÃ½Ã—Âª
     );
 
     reactphysics3d::HingeJoint* hingeJoint = (reactphysics3d::HingeJoint*)RpWorld->createJoint(jointInfo);
 
     if (hingeJoint) {
-        // ÆôÓÃÂí´ï£¬ÈÃ»ú¹Ø×Ô¶¯Ğı×ª
+        // Ã†Ã´Ã“ÃƒÃ‚Ã­Â´Ã¯Â£Â¬ÃˆÃƒÂ»ÃºÂ¹Ã˜Ã—Ã”Â¶Â¯ÃÃ½Ã—Âª
         hingeJoint->enableMotor(true);
-        hingeJoint->setMotorSpeed(0.1f);  // ÉèÖÃĞı×ªËÙ¶È
-        hingeJoint->setMaxMotorTorque(0.5f);  // ÏŞÖÆ×î´óÅ¤¾Ø£¬·ÀÖ¹¹ı¿ì
+        hingeJoint->setMotorSpeed(0.1f);  // Ã‰Ã¨Ã–ÃƒÃÃ½Ã—ÂªÃ‹Ã™Â¶Ãˆ
+        hingeJoint->setMaxMotorTorque(0.5f);  // ÃÃÃ–Ã†Ã—Ã®Â´Ã³Ã…Â¤Â¾Ã˜Â£Â¬Â·Ã€Ã–Â¹Â¹Ã½Â¿Ã¬
     }
 
-    return spinningTrap;  // ·µ»ØĞı×ª»ú¹Ø
+    return spinningTrap;  // Â·ÂµÂ»Ã˜ÃÃ½Ã—ÂªÂ»ÃºÂ¹Ã˜
 }
 
 Vector3 GameManager::GetCameraFront()
@@ -1249,3 +1289,5 @@ void GameManager::SetGameState(PaintballGameState state) {
         break;
     }
 }
+
+

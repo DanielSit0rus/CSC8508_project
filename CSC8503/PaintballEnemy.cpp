@@ -71,6 +71,13 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 
 	if (health <= 0) {
 		std::cout << "Enemy eliminated!" << std::endl;
+
+		
+		if (indicatorSphere) {
+			GameManager::GetInstance().DeleteObject(indicatorSphere);
+			indicatorSphere = nullptr;
+		}
+
 		this->SetActive(false);
 	}
 }
@@ -95,6 +102,10 @@ bool PaintballEnemy::IsOppositeColor(const Vector4& bulletColor) {
 
 void PaintballEnemy::Update(float dt)
 {
+	if (!IsActive()) {
+		return;
+	}
+
 	StateGameObject::Update(dt);
 	canSeeTest = CanSeePlayer();
 	if(player) distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
@@ -112,6 +123,12 @@ void PaintballEnemy::Update(float dt)
 		rp3d::Quaternion newRotation = rp3d::Quaternion::fromEulerAngles(0, angle, 0);
 		GetTransform().SetOrientation(newRotation);
 	}
+
+	if (indicatorSphere) {
+		rp3d::Vector3 enemyPos = GetTransform().GetPosition();
+		indicatorSphere->GetTransform().SetPosition(enemyPos + rp3d::Vector3(0, 4, 0));
+	}
+
 }
 
 void PaintballEnemy::Chase(float dt) {
@@ -146,6 +163,12 @@ void PaintballEnemy::Patrol(float dt) {
 void PaintballEnemy::Attack(Vector4 color)
 {
 	const float attackRange = 55.0f;
+
+	
+	if (!player || !player->IsActive()) {
+		return;
+	}
+
 	if (leftCD < 0) {
 		GameManager::GetInstance().AddObject(GameObjectType::bullet,
 			transform.GetPosition() + rp3d::Vector3(0, 4, 0), rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
