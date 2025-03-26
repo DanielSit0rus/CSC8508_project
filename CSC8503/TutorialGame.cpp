@@ -136,9 +136,18 @@ void TutorialGame::UpdateGameBody(float dt)
 		Vector3 lockedScale = Util::RP3dToNCL(G1.lockedObject->GetTransform().GetScale());
 		LockedObjectMovement();
 
-		world->GetMainCamera().UpdateCameraView3(
-			Util::RP3dToNCL(G1.lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
-			rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 10.0f);
+		if (G1.isView3) {
+			world->GetMainCamera().UpdateCameraView3(
+				Util::RP3dToNCL(G1.lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
+				rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 10.0f);
+		}
+		else
+		{
+			world->GetMainCamera().UpdateCameraView3(
+				Util::RP3dToNCL(G1.lockedObject->GetTransform().GetPosition()) + Vector3(0, 1, 0),
+				-rp3d::max3(lockedScale.x, lockedScale.y, lockedScale.z) * 1.1f + 2.0f);
+		}
+
 	}
 	else
 	{

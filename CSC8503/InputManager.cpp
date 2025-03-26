@@ -23,6 +23,8 @@ void InputManager::HandleMainMenuInput() {
 void InputManager::HandleGameInput() {
     bool isDebug = false;
 
+	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F5))GameManager::GetInstance().isView3 = !GameManager::GetInstance().isView3;
+
     if (!GameManager::GetInstance().isPhysEnabled() ||
         (GameManager::GetInstance().lockedObject != GameManager::GetInstance().GetPlayer()))return;
 

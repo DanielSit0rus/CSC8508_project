@@ -176,6 +176,8 @@ namespace NCL {
 
             bool isLoading = true;
 
+            bool isView3 = false;
+
         private:
             GameManager() = default;
 

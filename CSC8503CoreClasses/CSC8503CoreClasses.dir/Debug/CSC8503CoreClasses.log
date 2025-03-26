@@ -1,4 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (CSC8503CoreClasses.dir\Debug\) contains files shared from another project (CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj, CSC8503CoreClasses.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Building Custom Rule D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503CoreClasses/CMakeLists.txt
   cmake_pch.cxx
   Debug.h
   GameObject.h
@@ -13,26 +14,26 @@
   BehaviourAction.h
   BehaviourNode.h
   BehaviourNodeWithChildren.h
-  Constraint.h
-  NavigationMap.h
-  NavigationPath.h
   State.h
   StateTransition.h
+  NavigationMap.h
+  NavigationPath.h
+  Constraint.h
   callbacks.c
-  compress.c
   enet.h
-  host.c
-  packet.c
-  peer.c
   time.h
   types.h
   utility.h
-  imgui_impl_opengl3_loader.h
+  compress.c
+  host.c
+  packet.c
+  peer.c
   imconfig.h
   imgui_demo.cpp
+  imgui_draw.cpp
   Generating Code...
   Compiling...
-  imgui_draw.cpp
+  imgui_impl_opengl3_loader.h
   imgui_internal.h
   imgui_tables.cpp
   imgui_widgets.cpp
@@ -82,4 +83,4 @@
   imgui_impl_opengl3.cpp
   imgui_impl_win32.h
   imgui_impl_win32.cpp
-  CSC8503CoreClasses.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
+  CSC8503CoreClasses.vcxproj -> D:\D_Project\cpp\DanielSit0rus\CSC8508_project\x64\Debug\CSC8503CoreClasses.lib
