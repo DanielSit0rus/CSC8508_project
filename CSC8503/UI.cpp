@@ -662,55 +662,85 @@ void UI::DrawChooseServer(float dt) {
 	if (ImGui::Begin("Choose Server", NULL, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoBringToFrontOnFocus)) {
 		ImGui::SetCursorPos(ImVec2(0, 0));
 		ImGui::Image((ImTextureID)(uintptr_t)menu.img_texture, main_viewport->Size, ImVec2(0, 0), ImVec2(1, 1));
+	}
 
-		// 绘制标题
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.1f, 0.1f, 0.1f, 1.0f));
-		ImGui::PushFont(bigfont);
-		ImGui::SetCursorPos(ImVec2(
-			main_viewport->GetCenter().x - ImGui::CalcTextSize("Enter Server IP").x * 0.5f,
-			main_viewport->GetCenter().y - 150
-		));
-		ImGui::Text("Enter Server IP");
-		ImGui::PopFont();
-		ImGui::PopStyleColor();
+	// 绘制标题
+	ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.1f, 0.1f, 0.1f, 1.0f));
+	ImGui::PushFont(bigfont);
+	ImGui::SetCursorPos(ImVec2(
+		main_viewport->GetCenter().x - ImGui::CalcTextSize("Enter Server IP").x * 0.5f,
+		main_viewport->GetCenter().y - 150
+	));
+	ImGui::Text("Enter Server IP");
+	ImGui::PopFont();
+	ImGui::PopStyleColor();
 
-		// 设置按钮和输入框的样式
-		ImGui::PushFont(menufont);
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.2f, 0.2f, 0.2f, 1.0f));
-		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.8f, 0.8f, 0.7f));
-		ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.9f, 0.9f, 0.9f, 0.9f));
-		ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
-		ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.8f, 0.8f, 0.8f, 0.7f));
-		ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, ImVec4(0.9f, 0.9f, 0.9f, 0.9f));
-		ImGui::PushStyleColor(ImGuiCol_FrameBgActive, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+	// 设置按钮和输入框的样式
+	ImGui::PushFont(menufont);
+	ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.2f, 0.2f, 0.2f, 1.0f));
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.8f, 0.8f, 0.7f));
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.9f, 0.9f, 0.9f, 0.9f));
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+	ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.8f, 0.8f, 0.8f, 0.7f));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, ImVec4(0.9f, 0.9f, 0.9f, 0.9f));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgActive, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
 
-		// 定义输入框和按钮的尺寸及位置
-		float inputWidth = 350.0f;
-		float buttonWidth = 180.0f;
-		float buttonHeight = 40.0f;
-		float buttonSpacing = 20.0f;
-		float centerX = (main_viewport->Size.x - inputWidth) * 0.5f;
+	// 定义输入框和按钮的尺寸及位置
+	float inputWidth = 350.0f;
+	float buttonWidth = 180.0f;
+	float buttonHeight = 40.0f;
+	float buttonSpacing = 20.0f;
+	float centerX = (main_viewport->Size.x - inputWidth) * 0.5f;
 
-		// 显示文本
-		ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
-		ImGui::Text("'-'Your IP:");
+	// 创建一个新的窗口用于输入框
+	ImGui::SetNextWindowPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
+	ImGui::SetNextWindowSize(ImVec2(inputWidth, 40));
+	ImGui::SetNextWindowBgAlpha(0.0f);
 
-		// Connect 按钮
-		ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y + 30));
-		if (ImGui::Button("Connect", ImVec2(buttonWidth, buttonHeight))) {
+	static char serverIP[128] = "127.0.0.1";
+
+	if (ImGui::Begin("##ServerIPInput", nullptr,
+		ImGuiWindowFlags_NoTitleBar |
+		ImGuiWindowFlags_NoResize |
+		ImGuiWindowFlags_NoMove |
+		ImGuiWindowFlags_NoScrollbar)) {
+
+		ImGui::PushItemWidth(inputWidth);
+
+		// 如果需要获得焦点，设置焦点
+		if (serverIPFocused) {
+			ImGui::SetKeyboardFocusHere();
+			serverIPFocused = false;  // 重置标志，避免重复设置焦点
+		}
+
+		// 使用InputText来处理输入
+		if (ImGui::InputText("##IP", serverIP, IM_ARRAYSIZE(serverIP),
+			ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue)) {
+			// 当按下回车时连接服务器
 			GameManager::GetInstance().SetGameState(PLAYING);
 		}
+		ProcessKeyboard(serverIP);
 
-		// Back 按钮
-		ImGui::SameLine(0, buttonSpacing);
-		if (ImGui::Button("Back", ImVec2(buttonWidth, buttonHeight))) {
-			GameManager::GetInstance().SetGameState(MENU);
-		}
 
-		ImGui::PopStyleColor(7);
-		ImGui::PopFont();
-		ImGui::End();
+		ImGui::PopItemWidth();
 	}
+	ImGui::End();
+
+	// Connect 按钮
+	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y + 30));
+	if (ImGui::Button("Connect", ImVec2(buttonWidth, buttonHeight))) {
+		GameManager::GetInstance().SetGameState(PLAYING);
+	}
+
+	// Back 按钮
+	ImGui::SameLine(0, buttonSpacing);
+	if (ImGui::Button("Back", ImVec2(buttonWidth, buttonHeight))) {
+		GameManager::GetInstance().SetGameState(MENU);
+	}
+
+	ImGui::PopStyleColor(7);
+	ImGui::PopFont();
+	ImGui::End();
 }
 
 void UI::DrawPausedMenu(float dt) {
