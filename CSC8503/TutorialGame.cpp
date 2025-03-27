@@ -52,7 +52,7 @@ for this module, even in the coursework, but you can add it if you like!
 
 */
 void TutorialGame::InitialiseAssets() {
-	InitWorld();
+	InitWorld(1);
 	InitCamera();
 	
 }
@@ -212,13 +212,13 @@ void TutorialGame::InitCamera() {
 	G1.forceMagnitude = 60.0f;
 }
 
-void TutorialGame::InitWorld() {
+void TutorialGame::InitWorld(int mapID) {
 	
 	if (false) {
-		G1.InitWorld(1);	//for data-driven
+		G1.InitWorld(mapID);	//for data-driven
 	}
 	else {
-		G1.InitWorld();		//add objs manually
+		G1.InitWorld(mapID);		//add objs manually
 	}
 }
 
@@ -294,7 +294,7 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
-		InitWorld(); 
+		InitWorld(1); 
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {
