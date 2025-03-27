@@ -53,6 +53,8 @@ namespace NCL {
 
 			std::map<int, Vector3> canfronts;
 
+			std::map<int, float> timers;
+			float attackCD = 1.0f;
 		};
 	}
 }

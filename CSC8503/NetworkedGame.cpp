@@ -149,6 +149,9 @@ void NetworkedGame::UpdateAsServer(float dt) {
 		G1.GetNetworkPlayers()[-1]->SwitchWeapon(WeaponType::BlueGun);
 	}
 
+	for (auto it = timers.begin(); it != timers.end(); ++it) {
+		it->second -= dt;
+	}
 	BroadcastSnapshot(false);
 
 	this->thisServer->UpdateServer();
@@ -347,10 +350,11 @@ void NetworkedGame::ReceivePacket(int type, GamePacket* payload, int source) {
 		inputManager.HandleGameInput(dir, source, clientPacket->camFront);
 		//std::cout << "camFront = " << clientPacket->camFront[0] << ", " << clientPacket->camFront[1] << ", " << clientPacket->camFront[2] << std::endl;
 
-		if (clientPacket->buttonstates[5] == 1)
+		if (clientPacket->buttonstates[5] == 1 && timers[source] < 0)
 		{
-			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront, 
+			G1.GetNetworkPlayers()[source]->Attack(clientPacket->camFront,
 				G1.GetNetworkPlayers()[source]->GetCurrentWeaponColor());
+			timers[source] = attackCD;
 		}
 		canfronts[source] = clientPacket->camFront;
 		//G1.GetNetworkPlayers()[source]->UpdatePlayerRotation(clientPacket->camFront);
