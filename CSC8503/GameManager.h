@@ -66,8 +66,9 @@ namespace NCL {
             void ShowExitScreen();
 
             void CleanWorld();
-            void InitWorld();
             void InitWorld(int arg);
+            void InitWorld_Map1();
+            void InitWorld_Map2();
 
             Vector4 GetRequiredBulletColor(const Vector4& enemyColor);
 
