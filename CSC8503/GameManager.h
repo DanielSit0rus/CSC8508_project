@@ -67,6 +67,7 @@ namespace NCL {
 
             void CleanWorld();
             void InitWorld(int arg);
+            void ContinueLevelFlow(bool isNext = false);
             void InitWorld_Map1();
             void InitWorld_Map2();
 
@@ -224,6 +225,8 @@ namespace NCL {
             Window* w = nullptr;
             PaintballGameState curState;
             PaintballGameState lastState = LOADING;
+
+            int curLevel = 1;
         };
     }
 }
