@@ -1,4 +1,4 @@
-#include "PaintballEnemy.h"
+﻿#include "PaintballEnemy.h"
 #include "StateTransition.h"
 #include "StateMachine.h"
 #include "State.h"
@@ -59,6 +59,7 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyOb
 		return !canSeeTest || (distanceToPlayer > stopchaseRange);
 		}));
 
+	GameManager::GetInstance().IncreaseEnemyCount(); 
 }
 
 PaintballEnemy::~PaintballEnemy()
@@ -80,6 +81,9 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 			GameManager::GetInstance().DeleteObject(indicatorSphere);
 			indicatorSphere = nullptr;
 		}
+
+		GameManager::GetInstance().DecreaseEnemyCount(); // 🔥 Decrease count when enemy dies
+		std::cout << "Enemies Left: " << GameManager::GetInstance().GetEnemyCount() << std::endl;
 
 		this->SetActive(false);
 	}

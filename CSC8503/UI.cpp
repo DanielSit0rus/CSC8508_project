@@ -493,7 +493,7 @@ void UI::DrawPlayingUI(float dt) {
 		ImGuiWindowFlags_NoTitleBar)) {
 
 		ImGui::PushFont(infofont);
-		ImGui::Text("Score: %d", 0); // Replace 0 with actual score
+		ImGui::Text("Enemies : %d", GameManager::GetInstance().GetEnemyCount()); // Replace 0 with actual score
 		ImGui::Text("Time: %.1f", GameManager::GetInstance().GetLeftTime()); // Replace with actual time
 		ImGui::Text("Health: %d / %d", GameManager::GetInstance().GetPlayer()->GetHealth(), GameManager::GetInstance().GetPlayer()->GetMaxHealth());// Replace with actual health
 		ImGui::PopFont();

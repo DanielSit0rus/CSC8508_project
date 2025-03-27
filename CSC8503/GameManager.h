@@ -70,6 +70,10 @@ namespace NCL {
             void InitWorld_Map1();
             void InitWorld_Map2();
 
+            void IncreaseEnemyCount() { enemyCount++; }
+            void DecreaseEnemyCount() { enemyCount--; }
+            int GetEnemyCount() const;
+
             Vector4 GetRequiredBulletColor(const Vector4& enemyColor);
 
             PaintballGameObject* AddObject(GameObjectType type, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation,
@@ -204,7 +208,7 @@ namespace NCL {
 
             std::unordered_set<PaintballGameObject*> objectsToDelete;
 
-
+            int enemyCount = 0;
 
             //NavigationMesh* navMesh;
 
