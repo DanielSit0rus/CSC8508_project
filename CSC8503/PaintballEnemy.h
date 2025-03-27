@@ -29,6 +29,11 @@ namespace NCL {
 
             bool isDead = false;
 
+            State* patrolling;
+            State* chasing;
+            State* attacking;
+            State* currentState = nullptr;
+
         private:
             void Patrol(float dt);
             void Attack(Vector4 color);
@@ -146,6 +151,13 @@ namespace NCL {
             float stopchaseRange = 80.0f;
             float attackRange = 55.0f;
             float distanceToPlayer = 0.0f;
+
+            rp3d::Vector3 lastPos;
+            float stuckTimer = 0.0f;
+            const float stuckThreshold = 0.2f; // how little movement is considered "stuck"
+            const float maxStuckTime = 2.0f;   // how long before we reset
+
+           
 
             Vector4 currentColor;
 

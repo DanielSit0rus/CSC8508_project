@@ -15,6 +15,7 @@ namespace NCL {
 					func(dt);
 				}
 			}
+
 		protected:
 			StateUpdateFunction func;
 		};

@@ -375,7 +375,7 @@ line - after the third, they'll be able to twist under torque aswell.
 
 void TutorialGame::CalculatePathToPlayer() {
 	if (!G1.playerObject || !G1.enemyObject) {
-		Debug::Print("Player or Enemy object is not initialized!", Vector2(10, 20), Debug::RED);
+	
 		return;
 	}
 

@@ -263,7 +263,7 @@ void GameTechRenderer::RenderShadowMap() {
 			const Matrix4* frameData = i->GetAnimation()->GetJointData(i->GetCurrentFrame());
 
 			if (!frameData) {
-				std::cout << "Error: Frame data is NULL!" << std::endl;
+			//	std::cout << "Error: Frame data is NULL!" << std::endl;
 				continue;
 			}
 
@@ -578,7 +578,7 @@ void GameTechRenderer::RenderCamera() {
 			const Matrix4* frameData = obj->GetAnimation()->GetJointData(obj->GetCurrentFrame());
 
 			if (!frameData) {
-				std::cout << "Error: Frame data is NULL!\n";
+				//std::cout << "Error: Frame data is NULL!\n";
 				continue;
 			}
 			for (unsigned int j = 0; j < obj->GetMesh()->GetJointCount(); ++j) {

@@ -22,9 +22,12 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 	type = GameObjectType::enemy;
 
 
-	State* patrolling = new State([&](float dt) -> void {
+	
+
+	patrolling = new State([&](float dt) -> void {
 		if (health > 0)
 		{
+			currentState = patrolling;
 			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
 			Patrol(dt);
 		}
@@ -34,7 +37,8 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 		}
 		});
 
-	State* chasing = new State([&](float dt) -> void {
+	chasing = new State([&](float dt) -> void {
+		currentState = chasing;
 		if (health > 0)
 		{
 			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
@@ -46,7 +50,8 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 		}
 		});
 
-	State* attacking = new State([&](float dt) -> void {
+	attacking = new State([&](float dt) -> void {
+		currentState = attacking;
 		if (health > 0)
 		{
 			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
@@ -63,7 +68,7 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 	stateMachine->AddState(attacking);
 
 	stateMachine->AddTransition(new StateTransition(patrolling, chasing, [&]() -> bool {
-		return canSeeTest && (distanceToPlayer <= chaseRange);
+		return canSeeTest && (distanceToPlayer <= stopchaseRange);
 		}));
 
 	stateMachine->AddTransition(new StateTransition(chasing, attacking, [&]() -> bool {
@@ -92,23 +97,13 @@ PaintballEnemy::~PaintballEnemy()
 void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 	if (IsOppositeColor(bulletColor)) {
 		health -= damage;
-
-		std::cout << "Enemy hit! Health: " << health << std::endl;
 	}
 
 	if (health <= 0) {
-		std::cout << "Enemy eliminated!" << std::endl;
-
-		
 		if (indicatorSphere) {
 			GameManager::GetInstance().DeleteObject(indicatorSphere);
 			indicatorSphere = nullptr;
 		}
-
-		 // Decrease count when enemy dies
-		//std::cout << "Enemies Left: " << GameManager::GetInstance().GetEnemyCount() << std::endl;
-
-		//this->SetActive(false);
 	}
 }
 
@@ -163,7 +158,6 @@ void PaintballEnemy::Update(float dt)
 		float speed = physicsObject->GetRigidbody().getLinearVelocity().length();
 		float clampedSpeed = Maths::Clamp(speed * 0.06f, 0.f, 1.f);
 		audioObject->PlayEvent("event:/Effect/FootStep", clampedSpeed);
-		//std::cout << "speed: " << speed << ", clampedSpeed: " << clampedSpeed << std::endl;
 	}
 
 
@@ -173,8 +167,6 @@ void PaintballEnemy::Update(float dt)
 		rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
 
 		this->GetPhysicsObject()->AddForce(reactphysics3d::Vector3(0, 30, 0));
-
-		// Check if it reached the height of 5
 		if (currentPos.y >= 10.0f&&!isDead) {
 			GameManager::GetInstance().DecreaseEnemyCount();
 			isDead = true;
@@ -182,6 +174,32 @@ void PaintballEnemy::Update(float dt)
 			GameManager::GetInstance().DeleteObject(this);
 		}
 	}
+
+
+	// --- Stuck detection ---
+	rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
+	float movedDistance = (currentPos - lastPos).length();
+
+	if (movedDistance < stuckThreshold) {
+		stuckTimer += dt;
+	}
+	else {
+		stuckTimer = 0.0f; // reset if we moved enough
+	}
+
+	lastPos = currentPos;
+
+	if (stuckTimer > maxStuckTime && currentState != attacking) {
+		std::cout << "Enemy stuck! Resetting path..." << std::endl;
+		pathNodes.clear();
+		stuckTimer = 0.0f;
+
+		// Optional: immediately go back to patrol
+		canSeeTest = false;
+	}
+
+
+
 
 }
 
@@ -192,8 +210,20 @@ void PaintballEnemy::Chase(float dt) {
 	float distanceToPlayer = (playerPos - enemyPos).length();
 
 	if (distanceToPlayer <= chaseRange && CanSeePlayer()) {
-		CalculatePath(player->GetTransform().GetPosition());
+		NavigationPath newPath;
+		if (navMesh->FindPath(Util::RP3dToNCL(enemyPos), Util::RP3dToNCL(playerPos), newPath)) {
+			pathNodes.clear();
+			Vector3 pos;
+			int count = 0;
+			while (newPath.PopWaypoint(pos)) {
+				if (count % 2 == 0) {
+					pathNodes.push_back(pos);
+				}
+				count++;
+			}
+		}
 	}
+
 	MoveEnemyAlongPath();
 }
 
@@ -313,11 +343,11 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 	// Set linear velocity
 	this->GetPhysicsObject()->SetLinearVelocity(velocity);
 
-	// Debug draw path
+
 	for (size_t i = 1; i < pathNodes.size(); ++i) {
 		const Vector3& from = pathNodes[i - 1];
 		const Vector3& to = pathNodes[i];
-		Debug::DrawLine(from, to, Vector4(1, 1, 0, 1), 0.01f); // Yellow lines for enemy path
+		Debug::DrawLine(from, to, Vector4(1, 1, 0, 1), 0.01f); 
 	}
 
 
