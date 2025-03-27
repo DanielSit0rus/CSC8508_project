@@ -139,7 +139,7 @@ void PaintballEnemy::Update(float dt)
 	StateGameObject::Update(dt);
 	canSeeTest = CanSeePlayer();
 	if(player) distanceToPlayer = (player->GetTransform().GetPosition() - GetTransform().GetPosition()).length();
-	//Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
+	Debug::Print("canSeeTest: " + std::to_string(canSeeTest), Vector2(10, 90), Debug::WHITE);
 	leftCD -= dt;
 
 	if (canSeeTest) {
@@ -177,7 +177,9 @@ void PaintballEnemy::Update(float dt)
 		// Check if it reached the height of 5
 		if (currentPos.y >= 10.0f) {
 			GameManager::GetInstance().DecreaseEnemyCount();
-			SetActive(false); // Deactivate the object
+
+			//SetActive(false); // Deactivate the object
+			GameManager::GetInstance().DeleteObject(this);
 		}
 	}
 

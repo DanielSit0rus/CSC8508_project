@@ -51,6 +51,8 @@ void PaintballGameObject::Delete()
 }
 
 void PaintballGameObject::SaveData(nlohmann::json& j) {
+	if (type == bullet || type == indicator) return;
+
 	//std::cout << "[obj] Saved" << std::endl;
 	nlohmann::json objData;
 

@@ -37,8 +37,10 @@ namespace NCL::CSC8503 {
         test_stateObj,
         test_networkPlayer,
 
-        //If u want to add a new type, please put it below
         trigger1,
+        indicator,
+        //If u want to add a new type, please put it below
+
     };
 
     class PaintballGameObject : public ISaveable
@@ -120,6 +122,8 @@ namespace NCL::CSC8503 {
 
         PaintballGameObject* target = nullptr;
 
+        void SetType(GameObjectType t) { type = t; }
+        GameObjectType GetType() { return type; }
 
     protected:
         void SaveData(nlohmann::json& j);

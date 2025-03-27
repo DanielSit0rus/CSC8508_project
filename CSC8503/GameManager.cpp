@@ -884,6 +884,10 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
     PaintballGameObject* obj = nullptr;
     switch (type)
     {
+    case GameObjectType::indicator: {
+        //no need to add
+        return obj;
+    }
     case GameObjectType::cube: {
         obj = AddCube(position, dimensions * 0.5f, orientation, mass, color);
         break;
@@ -901,7 +905,7 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         break;
     }
     case GameObjectType::enemy: {
-        
+
         obj = AddEnemyClass(position);
         //enemyObject = obj;
         break;
@@ -910,7 +914,7 @@ PaintballGameObject* GameManager::AddObject(GameObjectType type, const rp3d::Vec
         obj = GameObjectFreeList::GetInstance().GetBullet(oriV3, isEnemy, position, dimensions, orientation, color, mass);
         break;
     }
-   
+
     case GameObjectType::concave1: {
         obj = AddConcaveMesh(position, dimensions, orientation, meshName, textureNameD, shaderName, color);
         break;
@@ -1149,10 +1153,8 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
 
     
     PaintballGameObject* indicator = AddSphere(indicatorPos, indicatorSize, rp3d::Quaternion::identity(), 0.0f, indicatorColor);
-
-    
-    indicator->GetPhysicsObject()->GetRigidbody().setType(rp3d::BodyType::STATIC);
-
+    indicator->SetType(GameObjectType::indicator);
+   
     enemy->SetIndicatorSphere(indicator);  
 
     enemy->SetAudioObject(new PaintballAudioObject(&enemy->GetTransform()));

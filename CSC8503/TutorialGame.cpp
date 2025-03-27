@@ -249,7 +249,7 @@ void TutorialGame::UpdateKeys() {
 
 	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Middle)) {
 		if (G1.selectionObject) {
-			if(true)
+			if(false)
 				G1.selectionObject->SetActive(false);
 			else {
 				G1.DeleteObject(G1.selectionObject);
