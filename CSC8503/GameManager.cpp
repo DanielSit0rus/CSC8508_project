@@ -71,6 +71,7 @@ void GameManager::Update(float dt) {
     if (hasNetwork) {
         shoottest = networkPlayers[thisPeer];
         lockedObject = shoottest;
+        if (hasPhys) SetPlayer((PaintballPlayer*)lockedObject);
     }
 
     if (enemyCount == 0) {
@@ -864,6 +865,7 @@ void GameManager::ContinueLevelFlow(bool isNext) {
 
     shoottest = player;
     lockedObject = shoottest;
+    forceMagnitude = 35;
 }
 
 Vector4 NCL::CSC8503::GameManager::GetRequiredBulletColor(const Vector4& enemyColor)

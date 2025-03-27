@@ -1029,12 +1029,14 @@ void UI::InitializeChooseServerMenuButtons() {
 		//GameManager::GetInstance().SetGameState(PLAYING);
 
 		if (serverIP == "") {
+			EventManager::Trigger(EventType::Game_Start);
 			GameManager::GetInstance().SetGameState(PLAYING);
 			EventManager::Trigger(EventType::Network_StartAsServer);
 		}
 		else {
 
 			if (isValidIPAddress(serverIP)) {
+				EventManager::Trigger(EventType::Game_Start);
 				GameManager::GetInstance().SetGameState(PLAYING);
 				EventManager::Trigger(EventType::Network_StartAsClient, serverIP);
 			}
