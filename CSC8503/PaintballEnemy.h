@@ -137,7 +137,6 @@ namespace NCL {
             PaintballGameObject* player;
             NavigationMesh* navMesh;
             std::vector<Vector3> pathNodes;
-            PaintballGameObject enemyObject;
             bool canSeeTest = false;
             Vector4 enemyColor;
 

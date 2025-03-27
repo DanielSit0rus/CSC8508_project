@@ -842,6 +842,8 @@ void GameManager::InitWorld(int arg)
             }
         }
     }
+    navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
+
     toRebuild = -1;
 }
 

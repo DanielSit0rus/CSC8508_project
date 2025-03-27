@@ -11,8 +11,10 @@
 
 using namespace NCL::CSC8503;
 
-PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyObject(type = GameObjectType::enemy, name), enemyColor(color)
+PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyColor(color)
 {
+	type = GameObjectType::enemy;
+
 	stateMachine = new StateMachine();
 	navMesh = nullptr;
 	player = nullptr;
