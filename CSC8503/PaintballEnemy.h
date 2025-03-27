@@ -13,7 +13,7 @@ namespace NCL {
             PaintballEnemy(const std::string& name, Vector4 color);
             ~PaintballEnemy();
 
-            void Update(float dt) override;  // ÷ÿ–¥ update ∑Ω∑®
+            void Update(float dt) override;
 
             void SetPlayer(PaintballGameObject* playerObj) { player = playerObj; }
             void SetNavMesh(NavigationMesh* mesh) { navMesh = mesh; }
@@ -29,7 +29,7 @@ namespace NCL {
 
             bool isDead = false;
 
-        private:
+        protected:
             void Patrol(float dt);
             void Attack(Vector4 color);
             void Chase(float dt);

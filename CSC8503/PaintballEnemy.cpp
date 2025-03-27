@@ -90,6 +90,8 @@ PaintballEnemy::~PaintballEnemy()
 }
 
 void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
+	if (isDead) return;
+	
 	if (IsOppositeColor(bulletColor)) {
 		health -= damage;
 
