@@ -28,7 +28,7 @@ namespace NCL {
 			int img_height;
 			unsigned int img_texture;
 		};
-		
+
 
 		struct UIButton {
 			ImVec2 relativePos;                // The relative coordinates of the button within the menu window (relative to the main viewport WorkPos)
@@ -65,7 +65,7 @@ namespace NCL {
 
 		protected:
 
-			
+
 			PaintballGameWorld* world;
 
 			int loadingstep = 0;
@@ -80,6 +80,7 @@ namespace NCL {
 			ImFont* infofont;
 			ImFont* normalfont;
 			ImFont* bigfont;
+			ImFont* loadfont;
 
 			UI_Image loading_bg;
 			UI_Image bucket_empty;
@@ -116,6 +117,8 @@ namespace NCL {
 
 			std::string dist;
 			std::string time;
+			std::string serverIP = "127 0 0 1";
+			float ipPopupTimer = 0.0f;
 
 			// Server management
 			struct ServerInfo {
@@ -177,13 +180,14 @@ namespace NCL {
 
 			// 新增函数声明
 			void HandleSettingMenuClick(float x, float y);
-			void HandleChooseServerClick(float x, float y);
+
 			void AddCharToServerIP(char c);
 
 			// 新增变量
+			bool showInvalidIPPopup = false;
 			bool isServerIPInputActive = false;
 			bool serverIPFocused = false;  // 新增：记录IP输入框是否需要获得焦点
-			static char serverIP[128];     // 改为静态成员变量以便在整个类中共享
+
 		};
 	}
 }

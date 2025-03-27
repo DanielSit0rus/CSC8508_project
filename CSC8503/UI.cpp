@@ -168,7 +168,7 @@ UI::UI(PaintballGameWorld* world)
 	infofont = io.Fonts->AddFontFromFileTTF((Assets::FONTSSDIR + "TreeBold.ttf").c_str(), 30);
 	normalfont = io.Fonts->AddFontFromFileTTF((Assets::FONTSSDIR + "KarlaRegular.ttf").c_str(), 30);
 	bigfont = io.Fonts->AddFontFromFileTTF((Assets::FONTSSDIR + "ProggyTiny.ttf").c_str(), 45);
-
+	loadfont = io.Fonts->AddFontFromFileTTF((Assets::FONTSSDIR + "TreeBold.ttf").c_str(), 45);
 	IM_ASSERT(LoadTextureFromFile((Assets::UIDIR + "landscape.png").c_str(), &loading.img_texture, &loading.img_width, &loading.img_height));
 	IM_ASSERT(LoadTextureFromFile((Assets::UIDIR + "menu.png").c_str(), &menu.img_texture, &menu.img_width, &menu.img_height));
 
@@ -183,7 +183,7 @@ UI::UI(PaintballGameWorld* world)
 	InitializePauseMenuButtons();
 	InitializeChooseServerMenuButtons();
 	InitializeFinishButtons();
-    InitializeFailureButtons();
+	InitializeFailureButtons();
 
 	AudioSystem::GetInstance().GetBusVolume("BGM", bgmVolume);
 	AudioSystem::GetInstance().GetBusVolume("Effect", effectVolume);
@@ -195,7 +195,7 @@ UI::UI(PaintballGameWorld* world)
 		+ j["resources"]["shaders"].size();
 	totalStep = totalStep == 0 ? 1 : totalStep;
 
-	
+
 	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {PrintMousePos(a, b); });
 	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {ProcessClickEvent(a, b); });
 
@@ -368,16 +368,16 @@ void UI::DrawLoading(float dt) {
 	ImGui::SetNextWindowSize(ImVec2(350, 100));
 
 	if (ImGui::Begin("LoadingText", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoSavedSettings)) {
-		ImGui::PushFont(titlefont);
-		ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 0, 255));
+		ImGui::PushFont(loadfont);
+		ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 0, 0, 255));
 		ImGui::SetCursorPos(ImVec2(100, 10));
 		ImGui::Text("Game Loading...");
 		ImGui::PopFont();
 		ImGui::PopStyleColor();
 
-		ImGui::PushFont(normalfont);
+		ImGui::PushFont(infofont);
 		ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 0, 0, 255));
-		ImGui::SetCursorPos(ImVec2(100, 50));
+		ImGui::SetCursorPos(ImVec2(160, 60));
 		ImGui::Text("Team 7");
 		ImGui::PopFont();
 		ImGui::PopStyleColor();
@@ -495,7 +495,9 @@ void UI::DrawPlayingUI(float dt) {
 		ImGui::PushFont(infofont);
 		ImGui::Text("Enemies : %d", GameManager::GetInstance().GetEnemyCount()); // Replace 0 with actual score
 		ImGui::Text("Time: %.1f", GameManager::GetInstance().GetLeftTime()); // Replace with actual time
-		ImGui::Text("Health: %d / %d", GameManager::GetInstance().GetPlayer()->GetHealth(), GameManager::GetInstance().GetPlayer()->GetMaxHealth());// Replace with actual health
+		int health = GameManager::GetInstance().GetPlayer() ? GameManager::GetInstance().GetPlayer()->GetHealth() : 0;
+		int maxHealth = GameManager::GetInstance().GetPlayer() ? GameManager::GetInstance().GetPlayer()->GetMaxHealth() : 0;
+		ImGui::Text("Health: %d / %d", health, maxHealth); // Replace with actual health
 		ImGui::PopFont();
 
 		ImGui::End();
@@ -513,7 +515,8 @@ void UI::DrawPlayingUI(float dt) {
 		ImGuiWindowFlags_NoTitleBar)) {
 
 		ImGui::PushFont(infofont);
-		ImGui::Text(GameManager::GetInstance().GetPlayer()->GetCurrentWeaponString());
+
+		ImGui::Text(GameManager::GetInstance().GetPlayer() ? GameManager::GetInstance().GetPlayer()->GetCurrentWeaponString() : "Weapon : Unknown");
 		ImGui::Text("Ammo: %d / %d", 30, 90); // Replace with actual ammo counts
 		ImGui::Text("Power: 100%%");
 		ImGui::PopFont();
@@ -694,13 +697,18 @@ void UI::DrawChooseServer(float dt) {
 	float centerX = (main_viewport->Size.x - inputWidth) * 0.5f;
 
 	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
-	ImGui::Text("Your IP");
+	ImGui::Text("\'3'/ IP:");
+	ImGui::SameLine();
+	ImGui::Text(serverIP.c_str());
+	ProcessKeyboardInput(serverIP);
 
 	// Connect 按钮
 	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y + 30));
 	if (ImGui::Button("Connect", ImVec2(buttonWidth, buttonHeight))) {
-		GameManager::GetInstance().SetGameState(PLAYING);
+
+		//GameManager::GetInstance().SetGameState(PLAYING);
 	}
+
 
 	// Back 按钮
 	ImGui::SameLine(0, buttonSpacing);
@@ -711,6 +719,21 @@ void UI::DrawChooseServer(float dt) {
 	ImGui::PopStyleColor(7);
 	ImGui::PopFont();
 	ImGui::End();
+	if (showInvalidIPPopup)
+		ImGui::OpenPopup("Invalid IP Popup");
+
+	if (ImGui::BeginPopupModal("Invalid IP Popup", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text(" IP address is invalid.Please check it and try again");
+
+		ipPopupTimer += dt;
+		if (ipPopupTimer > 1.5f) {
+			ImGui::CloseCurrentPopup();
+			showInvalidIPPopup = false;
+			ipPopupTimer = 0.0f;
+		}
+		ImGui::EndPopup();
+	}
 }
 
 void UI::DrawPausedMenu(float dt) {
@@ -984,14 +1007,14 @@ void UI::InitializeChooseServerMenuButtons() {
 	const ImGuiViewport* viewport = ImGui::GetMainViewport();
 
 	// 定义 DrawChooseServer() 中使用的尺寸参数
-	float inputWidth = 350.0f;   // 输入框宽度（用于水平居中计算）
+	float inputWidth = 350.0f;
 	float buttonWidth = 180.0f;
 	float buttonHeight = 40.0f;
 	float buttonSpacing = 20.0f;
 
-	// 根据 DrawChooseServer() 中的代码，输入框水平居中使用：
+
 	float centerX = (viewport->Size.x - inputWidth) * 0.5f;
-	// Connect 按钮放在屏幕垂直中心偏下 30 个像素处
+
 	float posY = (viewport->Size.y * 0.5f) + 30.0f;
 
 	UIButton btn;
@@ -999,17 +1022,31 @@ void UI::InitializeChooseServerMenuButtons() {
 	btn.relativePos = ImVec2(centerX, posY);
 	btn.size = ImVec2(buttonWidth, buttonHeight);
 	btn.onClick = [&]() {
-		// TODO：在这里可以增加使用输入框中 serverIP 的逻辑，目前直接切换状态为 CLIENTPLAYING
-		std::cout << "ChooseServer: Connect button clicked" << std::endl;
-		GameManager::GetInstance().SetGameState(PLAYING);
 
-		//如果是服务器端（没有输入ip），在SetGameState(PLAYING); 之后调用这个方法
-		EventManager::Trigger(EventType::Network_StartAsServer);
+		std::cout << "ChooseServer: Connect button clicked" << std::endl;
+		//GameManager::GetInstance().SetGameState(PLAYING);
+
+		if (serverIP == "") {
+			GameManager::GetInstance().SetGameState(PLAYING);
+			EventManager::Trigger(EventType::Network_StartAsServer);
+		}
+		else {
+
+			if (isValidIPAddress(serverIP)) {
+				GameManager::GetInstance().SetGameState(PLAYING);
+				EventManager::Trigger(EventType::Network_StartAsClient, serverIP);
+			}
+			else {
+
+				showInvalidIPPopup = true;
+				GameManager::GetInstance().SetGameState(CHOOSESERVER);
+			}
+		}
 
 		//如果是客户端，在SetGameState(PLAYING); 之后调用这个方法，ip改为输入的ip
 		//ip格式要求：4个数字（0~255）用空格隔开，如 "192 168 1 1"
-		//		if (isValidIPAddress(ip) == true) EventManager::Trigger(EventType::Network_StartAsClient, ip);
-		//		else std::cout << "Invalid IP address" << std::endl;
+		/*if (isValidIPAddress(ip) == true) EventManager::Trigger(EventType::Network_StartAsClient, ip);
+		else std::cout << "Invalid IP address" << std::endl;*/
 
 		};
 	chooseServerMenuButtons.push_back(btn);
@@ -1186,7 +1223,7 @@ void UI::ProcessClickEvent(float x, float y) {
 	case CHOOSESERVER:
 		activeButtons = &chooseServerMenuButtons;
 		// 处理服务器选择菜单的输入框
-		HandleChooseServerClick(x, y);
+
 		break;
 	}
 
@@ -1211,7 +1248,7 @@ void UI::ProcessClickEvent(float x, float y) {
 bool UI::isValidIPAddress(const std::string& ip)
 {
 	// 正则表达式匹配 IPv4 地址（确保 0-255 范围）
-	const std::regex ipRegex(R"(^((25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)$)");
+	const std::regex ipRegex(R"(^(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\s(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\s(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\s(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)$)");
 	return  std::regex_match(ip, ipRegex);
 }
 
@@ -1272,27 +1309,3 @@ void UI::HandleSettingMenuClick(float x, float y) {
 	}
 }
 
-// 处理服务器选择菜单的点击事件
-void UI::HandleChooseServerClick(float x, float y) {
-	const ImGuiViewport* viewport = ImGui::GetMainViewport();
-	float winX = viewport->WorkPos.x;
-	float winY = viewport->WorkPos.y;
-
-	// 定义输入框的位置参数
-	float inputWidth = 350.0f;
-	float centerX = (viewport->Size.x - inputWidth) * 0.5f;
-	float inputY = viewport->Size.y * 0.5f - 50;
-
-	// 检查是否点击了输入框区域
-	if (y >= inputY && y <= inputY + 40) {
-		if (x >= centerX && x <= centerX + inputWidth) {
-			serverIPFocused = true;  // 设置焦点状态
-			isServerIPInputActive = true;
-		}
-	}
-	else {
-		// 如果点击在输入框外部，取消焦点
-		serverIPFocused = false;
-		isServerIPInputActive = false;
-	}
-}
