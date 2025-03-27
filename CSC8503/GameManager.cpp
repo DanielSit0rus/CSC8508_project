@@ -1575,6 +1575,9 @@ void GameManager::ShowExitScreen() {
     // Step 2: Ensure the UI manager will now render the failure menu
 }
 
+int GameManager::GetEnemyCount() const {
+    return enemyCount;
+}
 
 
 void GameManager::SetGameState(PaintballGameState state) {
