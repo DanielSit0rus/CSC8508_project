@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/TeamProject/NewRep/CSC8508_project/CMakeLists.txt
+﻿  Building Custom Rule E:/GroupProject/CSC8508_project/CMakeLists.txt
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -20,7 +20,7 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   Generating Code...
-C:\TeamProject\NewRep\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+E:\GroupProject\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
   Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -96,4 +96,4 @@ C:\TeamProject\NewRep\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleV
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   Generating Code...
-  ReactPhysics3D.vcxproj -> C:\TeamProject\NewRep\CSC8508_project\Debug\ReactPhysics3D.lib
+  ReactPhysics3D.vcxproj -> E:\GroupProject\CSC8508_project\Debug\ReactPhysics3D.lib

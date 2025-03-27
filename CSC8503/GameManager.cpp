@@ -64,6 +64,10 @@ void GameManager::Update(float dt) {
         canStart_FMOD = false;
     }
 
+    if (leftTime <= 0) {
+        leftTime = 0;
+        GameManager::GetInstance().ShowExitScreen();
+    }
     if (hasNetwork) {
         shoottest = networkPlayers[thisPeer];
         lockedObject = shoottest;
@@ -841,8 +845,10 @@ void GameManager::InitWorld(int arg)
                 }
             }
         }
+        navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
+
     }
-    navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
+
 
     toRebuild = -1;
 }
