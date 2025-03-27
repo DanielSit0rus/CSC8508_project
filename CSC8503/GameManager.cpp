@@ -506,6 +506,7 @@ void GameManager::InitWorld_Map1() {
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
     enemyObject = AddEnemyClass(rp3d::Vector3(20, 5, 16));
     enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
+    PaintballCoward* cowardEnemy = AddCowardEnemyClass(rp3d::Vector3(-150, 5, -50));
 
     forceMagnitude = 60.0f;
 
@@ -1158,6 +1159,64 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
     return enemy;
 }
 
+PaintballCoward* GameManager::AddCowardEnemyClass(rp3d::Vector3 position)
+{
+    rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
+    rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
+    ResourceManager& resources = ResourceManager::GetInstance();
+
+    Vector4 enemyColor = (rand() % 3 == 0) ? Vector4(1, 0, 0, 1) : (rand() % 2 == 0) ? Vector4(0, 0, 1, 1) : Vector4(0, 1, 0, 1);
+
+    PaintballCoward* cowardEnemy = new PaintballCoward("CowardEnemy", enemyColor);
+
+    cowardEnemy->GetTransform()
+        .SetPosition(position)
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(ratioRender)
+        .SetOffsetR(rp3d::Vector3(0, -dimensions.y * 0.5f * ratioRender.y, 0));
+
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &cowardEnemy->GetTransform(),
+        "role",
+        "basic",
+        "basic",
+        resources.GetIdleanim(),
+        resources.GetRolemat()
+    );
+
+    renderObj->SetColour(enemyColor);
+
+    cowardEnemy->SetRenderObject(renderObj);
+
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(cowardEnemy->GetTransform().GetRpTransform());
+
+    rp3d::CapsuleShape* shape = physicsCommon.createCapsuleShape(dimensions.x, dimensions.y);
+
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+
+    cowardEnemy->SetPhysicsObject(new PaintballPhysicsObject(&cowardEnemy->GetTransform(), *cubeBody, *RpWorld));
+    cowardEnemy->GetPhysicsObject()->SetMass(1);
+    cowardEnemy->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
+
+    cowardEnemy->SetNavMesh(navMesh);
+    cowardEnemy->SetPlayer(player);
+
+    Vector4 indicatorColor = GetRequiredBulletColor(enemyColor);
+
+    rp3d::Vector3 indicatorPos = position + rp3d::Vector3(0, 3.5f, 0);
+    rp3d::Vector3 indicatorSize = rp3d::Vector3(0.3f, 0.3f, 0.3f);
+
+    PaintballGameObject* indicator = AddSphere(indicatorPos, indicatorSize, rp3d::Quaternion::identity(), 0.0f, indicatorColor);
+    cowardEnemy->SetIndicatorSphere(indicator);
+
+    cowardEnemy->SetAudioObject(new PaintballAudioObject(&cowardEnemy->GetTransform()));
+    cowardEnemy->GetAudioObject()->AddEvent("event:/Effect/FootStep");
+
+    world->AddGameObject(cowardEnemy);
+    return cowardEnemy;
+}
 
 PaintballGameObject* GameManager::Addcharacter(const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, float mass, Vector4 color) {
     ResourceManager& resources = ResourceManager::GetInstance();

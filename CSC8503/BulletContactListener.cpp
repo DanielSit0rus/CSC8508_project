@@ -33,7 +33,7 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 	for (uint32_t i = 0; i < callbackData.getNbOverlappingPairs(); i++) {
 		const rp3d::OverlapCallback::OverlapPair& overlapPair = callbackData.getOverlappingPair(i);
 
-			rp3d::RigidBody* body1 = static_cast<rp3d::RigidBody*>(overlapPair.getBody1());
+		rp3d::RigidBody* body1 = static_cast<rp3d::RigidBody*>(overlapPair.getBody1());
 		rp3d::RigidBody* body2 = static_cast<rp3d::RigidBody*>(overlapPair.getBody2());
 		rp3d::RigidBody* body3 = static_cast<rp3d::RigidBody*>(overlapPair.getBody1());
 

@@ -29,7 +29,7 @@ namespace NCL {
 
 
 
-        private:
+        protected:
             void Patrol(float dt);
             void Attack(Vector4 color);
             void Chase(float dt);
