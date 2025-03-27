@@ -1,6 +1,6 @@
-^C:\TEAMPROJECT\NEWREP\CSC8508_PROJECT\CMAKEFILES\6FEF1C65CA640C7DB9404C7CDC2DCED1\GENERATE.STAMP.RULE
+^C:\USERS\ALIENWARE\ONEDRIVE\DESKTOP\NEWCASTLE\GAME TEAM PROJECT\PAINTBALL\CSC8508_PROJECT\CMAKEFILES\35C0BB05E44FD5555F275DF6C393B24C\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/TeamProject/NewRep/CSC8508_project -BC:/TeamProject/NewRep/CSC8508_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/TeamProject/NewRep/CSC8508_project/CSC8503.sln
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project" "-BC:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

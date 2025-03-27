@@ -63,7 +63,7 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 	stateMachine->AddState(attacking);
 
 	stateMachine->AddTransition(new StateTransition(patrolling, chasing, [&]() -> bool {
-		return canSeeTest && (distanceToPlayer <= chaseRange);
+		return canSeeTest && (distanceToPlayer <= stopchaseRange);
 		}));
 
 	stateMachine->AddTransition(new StateTransition(chasing, attacking, [&]() -> bool {
