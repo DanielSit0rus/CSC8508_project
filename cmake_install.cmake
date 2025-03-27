@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # Install script for directory: E:/GroupProject/CSC8508_project
+=======
+# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,22 +38,38 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< Updated upstream
   include("E:/GroupProject/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
+=======
+  include("D:/Team Project CSC/Main repo/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
+>>>>>>> Stashed changes
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< Updated upstream
   include("E:/GroupProject/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
+=======
+  include("D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
+>>>>>>> Stashed changes
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< Updated upstream
   include("E:/GroupProject/CSC8508_project/OpenGLRendering/cmake_install.cmake")
+=======
+  include("D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering/cmake_install.cmake")
+>>>>>>> Stashed changes
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< Updated upstream
   include("E:/GroupProject/CSC8508_project/CSC8503/cmake_install.cmake")
+=======
+  include("D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/cmake_install.cmake")
+>>>>>>> Stashed changes
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +80,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< Updated upstream
 file(WRITE "E:/GroupProject/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "D:/Team Project CSC/Main repo/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> Stashed changes
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

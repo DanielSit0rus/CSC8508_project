@@ -21,18 +21,41 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyOb
 
 
 	State* patrolling = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
-		Patrol(dt);
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
+			Patrol(dt);
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
+		
 		});
 
 	State* chasing = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
-		Chase(dt);
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
+			Chase(dt);
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
 		});
 
 	State* attacking = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
-		Attack( Vector4(1, 0, 0, 1));
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
+			Attack(Vector4(1, 0, 0, 1));
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
+			
 		});
 
 	stateMachine->AddState(patrolling);
@@ -40,7 +63,7 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyOb
 	stateMachine->AddState(attacking);
 
 	stateMachine->AddTransition(new StateTransition(patrolling, chasing, [&]() -> bool {
-		return canSeeTest && (distanceToPlayer <= chaseRange);
+		return canSeeTest && (distanceToPlayer <= chaseRange) ;
 		}));
 
 	stateMachine->AddTransition(new StateTransition(chasing, attacking, [&]() -> bool {
@@ -48,15 +71,15 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyOb
 		}));
 
 	stateMachine->AddTransition(new StateTransition(attacking, chasing, [&]() -> bool {
-		return canSeeTest && (distanceToPlayer > attackRange);
+		return (canSeeTest && (distanceToPlayer > attackRange) );
 		}));
 
 	stateMachine->AddTransition(new StateTransition(attacking, patrolling, [&]() -> bool {
-		return !canSeeTest || (distanceToPlayer > stopchaseRange);
+		return (!canSeeTest || (distanceToPlayer > stopchaseRange) ) ;
 		}));
 
 	stateMachine->AddTransition(new StateTransition(chasing, patrolling, [&]() -> bool {
-		return !canSeeTest || (distanceToPlayer > stopchaseRange);
+		return !canSeeTest || (distanceToPlayer > stopchaseRange) ;
 		}));
 
 }
@@ -81,7 +104,8 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 			indicatorSphere = nullptr;
 		}
 
-		this->SetActive(false);
+		//this->GetRenderObject()->SetAnimation(nullptr);
+		//this->SetActive(false);
 	}
 }
 
@@ -137,6 +161,18 @@ void PaintballEnemy::Update(float dt)
 		float clampedSpeed = Maths::Clamp(speed * 0.06f, 0.f, 1.f);
 		audioObject->PlayEvent("event:/Effect/FootStep", clampedSpeed);
 		//std::cout << "speed: " << speed << ", clampedSpeed: " << clampedSpeed << std::endl;
+	}
+
+	if (health <= 0)
+	{
+		rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
+
+		this->GetPhysicsObject()->AddForce(reactphysics3d::Vector3(0, 30, 0));
+
+		// Check if it reached the height of 5
+		if (currentPos.y >= 10.0f) {
+			SetActive(false); // Deactivate the object
+		}
 	}
 }
 

@@ -1016,6 +1016,8 @@ PaintballPlayer* GameManager::AddPlayerClass(rp3d::Vector3 position) {
     // Create the player object
     player = new PaintballPlayer();
 
+    
+
     player->GetTransform()
         .SetPosition(position)
         .SetScale(dimensions * 1.0f)
