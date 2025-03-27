@@ -23,18 +23,39 @@ PaintballEnemy::PaintballEnemy(const std::string& name, Vector4 color) : enemyCo
 
 
 	State* patrolling = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
-		Patrol(dt);
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
+			Patrol(dt);
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
 		});
 
 	State* chasing = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
-		Chase(dt);
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetMoveanim());
+			Chase(dt);
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
 		});
 
 	State* attacking = new State([&](float dt) -> void {
-		this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
-		Attack( Vector4(1, 0, 0, 1));
+		if (health > 0)
+		{
+			this->GetRenderObject()->SetAnimation(ResourceManager::GetInstance().GetIdleanim());
+			Attack(Vector4(1, 0, 0, 1));
+		}
+		else
+		{
+			this->GetRenderObject()->SetAnimation(nullptr);
+		}
 		});
 
 	stateMachine->AddState(patrolling);
@@ -84,10 +105,10 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 			indicatorSphere = nullptr;
 		}
 
-		GameManager::GetInstance().DecreaseEnemyCount(); // 🔥 Decrease count when enemy dies
+		 // Decrease count when enemy dies
 		std::cout << "Enemies Left: " << GameManager::GetInstance().GetEnemyCount() << std::endl;
 
-		this->SetActive(false);
+		//this->SetActive(false);
 	}
 }
 
@@ -144,6 +165,22 @@ void PaintballEnemy::Update(float dt)
 		audioObject->PlayEvent("event:/Effect/FootStep", clampedSpeed);
 		//std::cout << "speed: " << speed << ", clampedSpeed: " << clampedSpeed << std::endl;
 	}
+
+
+	if (health <= 0)
+	{
+		
+		rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
+
+		this->GetPhysicsObject()->AddForce(reactphysics3d::Vector3(0, 30, 0));
+
+		// Check if it reached the height of 5
+		if (currentPos.y >= 10.0f) {
+			GameManager::GetInstance().DecreaseEnemyCount();
+			SetActive(false); // Deactivate the object
+		}
+	}
+
 }
 
 void PaintballEnemy::Chase(float dt) {
