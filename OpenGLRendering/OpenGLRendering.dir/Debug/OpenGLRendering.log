@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-﻿  Building Custom Rule E:/GroupProject/CSC8508_project/OpenGLRendering/CMakeLists.txt
-=======
 ﻿  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
@@ -16,8 +12,4 @@
   OGLComputeShader.cpp
   gl.h
   gl.c
-<<<<<<< Updated upstream
-  OpenGLRendering.vcxproj -> E:\GroupProject\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
-=======
   OpenGLRendering.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes

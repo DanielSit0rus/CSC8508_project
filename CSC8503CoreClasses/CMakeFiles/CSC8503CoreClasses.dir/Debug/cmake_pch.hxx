@@ -12,17 +12,9 @@
 #include <functional>
 #include <iostream>
 #include <set>
-<<<<<<< Updated upstream
-#include "E:/GroupProject/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
-#include "E:/GroupProject/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
-#include "E:/GroupProject/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
-#include "E:/GroupProject/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
-#include "E:/GroupProject/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
-=======
 #include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Vector.h"
 #include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Quaternion.h"
 #include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Plane.h"
 #include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/Matrix.h"
 #include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/../NCLCoreClasses/GameTimer.h"
->>>>>>> Stashed changes
 #endif // __cplusplus

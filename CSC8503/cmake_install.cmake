@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-# Install script for directory: E:/GroupProject/CSC8508_project/CSC8503
-=======
 # Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/CSC8503
->>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

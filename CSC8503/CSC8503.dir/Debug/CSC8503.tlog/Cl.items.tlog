@@ -1,35 +1,3 @@
-<<<<<<< Updated upstream
-E:\GroupProject\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
-E:\GroupProject\CSC8508_project\CSC8503\AudioSystem.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\AudioSystem.obj
-E:\GroupProject\CSC8508_project\CSC8503\BulletContactListener.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\BulletContactListener.obj
-E:\GroupProject\CSC8508_project\CSC8503\CharacterController.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\CharacterController.obj
-E:\GroupProject\CSC8508_project\CSC8503\Console.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\Console.obj
-E:\GroupProject\CSC8508_project\CSC8503\EventManager.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\EventManager.obj
-E:\GroupProject\CSC8508_project\CSC8503\GameManager.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameManager.obj
-E:\GroupProject\CSC8508_project\CSC8503\GameObjectFreeList.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameObjectFreeList.obj
-E:\GroupProject\CSC8508_project\CSC8503\GameTechRenderer.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\GameTechRenderer.obj
-E:\GroupProject\CSC8508_project\CSC8503\ISaveable.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\ISaveable.obj
-E:\GroupProject\CSC8508_project\CSC8503\InputManager.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\InputManager.obj
-E:\GroupProject\CSC8508_project\CSC8503\Light.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\Light.obj
-E:\GroupProject\CSC8508_project\CSC8503\Main.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\Main.obj
-E:\GroupProject\CSC8508_project\CSC8503\NetworkPlayer.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkPlayer.obj
-E:\GroupProject\CSC8508_project\CSC8503\NetworkedGame.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\NetworkedGame.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballAudioObject.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballAudioObject.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballBullet.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballBullet.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballEnemy.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballEnemy.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballGameObject.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballGameObject.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballGameWorld.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballGameWorld.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballPhysicsObject.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballPhysicsObject.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballPlayer.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballPlayer.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballRenderObject.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballRenderObject.obj
-E:\GroupProject\CSC8508_project\CSC8503\PaintballTransform.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\PaintballTransform.obj
-E:\GroupProject\CSC8508_project\CSC8503\ResourceManager.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\ResourceManager.obj
-E:\GroupProject\CSC8508_project\CSC8503\SLSystem.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\SLSystem.obj
-E:\GroupProject\CSC8508_project\CSC8503\StateGameObject.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\StateGameObject.obj
-E:\GroupProject\CSC8508_project\CSC8503\TutorialGame.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
-E:\GroupProject\CSC8508_project\CSC8503\UI.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\UI.obj
-E:\GroupProject\CSC8508_project\CSC8503\Util.cpp;E:\GroupProject\CSC8508_project\CSC8503\CSC8503.dir\Debug\Util.obj
-=======
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CMakeFiles\CSC8503.dir\cmake_pch.cxx;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\cmake_pch.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\AudioSystem.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\AudioSystem.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\BulletContactListener.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\BulletContactListener.obj
@@ -60,4 +28,3 @@ D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\StateGameObject.cpp;D:\Tea
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\TutorialGame.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\TutorialGame.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\UI.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\UI.obj
 D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\Util.cpp;D:\Team Project CSC\Main repo\CSC8508_project\CSC8503\CSC8503.dir\Debug\Util.obj
->>>>>>> Stashed changes

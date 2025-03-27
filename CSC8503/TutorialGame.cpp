@@ -214,20 +214,13 @@ void TutorialGame::InitCamera() {
 	G1.forceMagnitude = 35.0f;
 }
 
-<<<<<<< Updated upstream
 void TutorialGame::InitWorld(int mapID) {
 
 	if (false) {
-		G1.InitWorld(mapID);	//for data-driven
-=======
-void TutorialGame::InitWorld() {
-	
-	if (true) {
-		G1.InitWorld(1);	//for data-driven
->>>>>>> Stashed changes
+		G1.InitWorld_Map1();	
 	}
 	else {
-		G1.InitWorld(mapID);		//add objs manually
+		G1.InitWorld(mapID);		
 	}
 }
 
