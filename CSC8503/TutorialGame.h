@@ -39,7 +39,6 @@ namespace NCL {
 			void ShowMenuPage();
 
 			//place here for Dev
-			void InitWorld(int mapID);
 			void InitCamera();
 
 		protected:

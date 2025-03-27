@@ -53,6 +53,7 @@ namespace NCL {
             static std::string GetResourceByID(const std::string& type, const int& id);
 
             static float GetLeftTime();
+            static void ContinueLevelFlow(bool isNext = true);
         };
 
     }

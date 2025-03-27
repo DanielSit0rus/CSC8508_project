@@ -18,3 +18,8 @@ float Util::GetLeftTime()
 {
 	return GameManager::GetInstance().GetLeftTime();
 }
+
+void NCL::CSC8503::Util::ContinueLevelFlow(bool isNext)
+{
+	GameManager::GetInstance().ContinueLevelFlow(isNext);
+}

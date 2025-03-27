@@ -72,6 +72,11 @@ void GameManager::Update(float dt) {
         shoottest = networkPlayers[thisPeer];
         lockedObject = shoottest;
     }
+
+    if (enemyCount == 0) {
+        SetGameState(FINISH);
+        EventManager::Trigger(EventType::Game_End);
+    }
 }
 
 void GameManager::PostCleanUp() // after (20Hz) server/client update
@@ -516,6 +521,7 @@ void GameManager::InitWorld_Map1() {
 
     Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
     renderer->AddLight(light2);
+    AddTrap();
 
     // FIRST MAP
     AddConcaveMesh(rp3d::Vector3(-80, -4, -32), rp3d::Vector3(5, 5, 5), rp3d::Quaternion(0, 0, 0, 1.0f),
@@ -810,7 +816,6 @@ void GameManager::InitWorld_Map2() {
     //InitDefaultFloor();
 }
 
-
 void GameManager::InitWorld(int arg)
 {
     CleanWorld();
@@ -851,6 +856,14 @@ void GameManager::InitWorld(int arg)
 
 
     toRebuild = -1;
+}
+
+void GameManager::ContinueLevelFlow(bool isNext) {
+    if (isNext)curLevel++;
+    InitWorld(curLevel);
+
+    shoottest = player;
+    lockedObject = shoottest;
 }
 
 Vector4 NCL::CSC8503::GameManager::GetRequiredBulletColor(const Vector4& enemyColor)
@@ -1618,11 +1631,12 @@ void GameManager::SetGameState(PaintballGameState state) {
     case FAILURE:
         break;
     case FINISH:
+        curLevel++;
         break;
     case MENU:
         EventManager::Trigger(EventType::MainMenu_Start);
-        if (lastState == PLAYING || lastState == PAUSED) {
-            InitWorld_Map1();
+        if (lastState == PLAYING || lastState == PAUSED|| lastState == FAILURE || lastState == FINISH) {
+            ContinueLevelFlow(false);
             EventManager::Trigger(EventType::Game_End);
         }
         break;

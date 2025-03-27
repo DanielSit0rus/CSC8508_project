@@ -52,9 +52,8 @@ for this module, even in the coursework, but you can add it if you like!
 
 */
 void TutorialGame::InitialiseAssets() {
-	InitWorld(2);
 	InitCamera();
-	
+	G1.ContinueLevelFlow(false);	
 }
 
 TutorialGame::~TutorialGame()	{
@@ -214,16 +213,6 @@ void TutorialGame::InitCamera() {
 	G1.forceMagnitude = 35.0f;
 }
 
-void TutorialGame::InitWorld(int mapID) {
-
-	if (false) {
-		G1.InitWorld_Map1();	
-	}
-	else {
-		G1.InitWorld(mapID);		
-	}
-}
-
 void TutorialGame::UpdateKeys() {
 	if (!G1.isPhysEnabled())return;
 
@@ -296,7 +285,7 @@ void TutorialGame::UpdateKeys() {
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {
-		InitWorld(1);
+		G1.ContinueLevelFlow(false);
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F2)) {

@@ -106,7 +106,7 @@ void NCL::CSC8503::PaintballEnemy::TakeDamage(int damage, Vector4 bulletColor) {
 		}
 
 		 // Decrease count when enemy dies
-		std::cout << "Enemies Left: " << GameManager::GetInstance().GetEnemyCount() << std::endl;
+		//std::cout << "Enemies Left: " << GameManager::GetInstance().GetEnemyCount() << std::endl;
 
 		//this->SetActive(false);
 	}
@@ -169,15 +169,15 @@ void PaintballEnemy::Update(float dt)
 
 	if (health <= 0)
 	{
-		
+
 		rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
 
 		this->GetPhysicsObject()->AddForce(reactphysics3d::Vector3(0, 30, 0));
 
 		// Check if it reached the height of 5
-		if (currentPos.y >= 10.0f) {
+		if (currentPos.y >= 10.0f&&!isDead) {
 			GameManager::GetInstance().DecreaseEnemyCount();
-
+			isDead = true;
 			//SetActive(false); // Deactivate the object
 			GameManager::GetInstance().DeleteObject(this);
 		}

@@ -27,7 +27,7 @@ namespace NCL {
                 indicatorSphere = obj;
             }
 
-
+            bool isDead = false;
 
         private:
             void Patrol(float dt);

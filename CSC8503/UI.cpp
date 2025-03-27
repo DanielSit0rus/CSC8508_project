@@ -853,6 +853,7 @@ void UI::DrawFailureMenu(float dt) {
 		ImGui::SetCursorPosY(120.0f);
 		if (ImGui::Button("Retry", ImVec2(buttonWidth, buttonHeight))) {
 			GameManager::GetInstance().SetGameState(PLAYING);
+			Util::ContinueLevelFlow(false);
 		}
 
 		// Main Menu 按钮
@@ -918,8 +919,9 @@ void UI::DrawFinishMenu(float dt) {
 		// Resume 按钮
 		ImGui::SetCursorPosX((windowWidth - buttonWidth) * 0.5f);
 		ImGui::SetCursorPosY(120.0f);
-		if (ImGui::Button("Retry", ImVec2(buttonWidth, buttonHeight))) {
+		if (ImGui::Button("Next Level", ImVec2(buttonWidth, buttonHeight))) {
 			GameManager::GetInstance().SetGameState(PLAYING);
+			Util::ContinueLevelFlow(true);
 		}
 
 		// Main Menu 按钮
@@ -1090,6 +1092,7 @@ void UI::InitializeFinishButtons() {
 	retryBtn.size = ImVec2(buttonWidth, buttonHeight);
 	retryBtn.onClick = []() {
 		GameManager::GetInstance().SetGameState(PLAYING);
+		Util::ContinueLevelFlow(true);
 		};
 	FinishButtons.push_back(retryBtn);
 
@@ -1131,6 +1134,7 @@ void UI::InitializeFailureButtons() {
 	retryBtn.size = ImVec2(buttonWidth, buttonHeight);
 	retryBtn.onClick = []() {
 		GameManager::GetInstance().SetGameState(PLAYING);
+		Util::ContinueLevelFlow(false);
 		};
 	FailureButtons.push_back(retryBtn);
 
