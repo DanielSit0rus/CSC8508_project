@@ -304,6 +304,14 @@ void PaintballEnemy::MoveEnemyAlongPath() {
 	// Set linear velocity
 	this->GetPhysicsObject()->SetLinearVelocity(velocity);
 
+	// Debug draw path
+	for (size_t i = 1; i < pathNodes.size(); ++i) {
+		const Vector3& from = pathNodes[i - 1];
+		const Vector3& to = pathNodes[i];
+		Debug::DrawLine(from, to, Vector4(1, 1, 0, 1), 0.01f); // Yellow lines for enemy path
+	}
+
+
 }
 
 void PaintballEnemy::CalculatePath(rp3d::Vector3 pos) {
