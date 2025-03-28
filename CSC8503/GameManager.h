@@ -197,6 +197,8 @@ namespace NCL {
 
             bool isView3 = false;
 
+            bool isPVP = false;
+
         private:
             GameManager() = default;
 
@@ -240,7 +242,7 @@ namespace NCL {
             Vector3 dyingEnemyPosition;
             bool hasDyingEnemy;
 
-            int curLevel = 1;
+            int curLevel = 3;
         };
     }
 }

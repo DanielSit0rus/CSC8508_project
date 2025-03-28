@@ -45,6 +45,7 @@ namespace NCL {
             void AddObjCommand(const std::string& args) const;
             void AudioCommand(const std::string& args) const;
             void TestCommand(const std::string& args);
+            void GameCommand(const std::string& s);
 #pragma endregion
             bool running = true;
             bool testing = false;

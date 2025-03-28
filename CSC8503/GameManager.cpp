@@ -111,6 +111,7 @@ void GameManager::PostCleanUp() // after (20Hz) server/client update
                         networkObjects[networkObjects.size()] = netObj;
                         networkPlayers[-1]->SetNetworkObject(netObj);
                         SetPlayer(networkPlayers[-1]);
+                        shoottest = player;
 
                         break;
                     }
@@ -851,24 +852,41 @@ void GameManager::InitWorld(int arg)
         else
             j = SLSystem::GetInstance().GetCurSave();
 
+        std::stack<PaintballEnemy*> enemylists;
+        navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
+
         if (j.contains("objs") && j["objs"].is_array()) {
             for (const auto& obj : j["objs"]) {
                 if (obj.contains("type")) {
-                    AddObject(obj["type"],
-                        rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
-                        rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
-                        rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
-                        Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
-                        obj["mesh"],
-                        obj["texture"][0], obj["texture"][1], obj["texture"][2],
-                        obj["texture"][3], obj["texture"][4], obj["texture"][5], obj["texture"][6], obj["texture"][7],
-                        obj["shader"],
-                        obj["mass"]);
+                    if (obj["type"] == GameObjectType::player && (player || !hasPhys)) continue;
+                    PaintballGameObject* gameobj =
+                        AddObject(obj["type"],
+                            rp3d::Vector3(obj["pos"][0], obj["pos"][1], obj["pos"][2]),
+                            rp3d::Vector3(obj["scale"][0], obj["scale"][1], obj["scale"][2]),
+                            rp3d::Quaternion(obj["ori"][0], obj["ori"][1], obj["ori"][2], obj["ori"][3]),
+                            Vector4(obj["color"][0], obj["color"][1], obj["color"][2], obj["color"][3]),
+                            obj["mesh"],
+                            obj["texture"][0], obj["texture"][1], obj["texture"][2],
+                            obj["texture"][3], obj["texture"][4], obj["texture"][5], obj["texture"][6], obj["texture"][7],
+                            obj["shader"],
+                            obj["mass"]);
+                    if (obj["type"] == GameObjectType::player) {
+                        shoottest = (PaintballPlayer*)gameobj;
+                        playerObject = shoottest;
+                        SetPlayer(shoottest);
+                    }
+                    if (obj["type"] == GameObjectType::enemy) {
+                        enemylists.push((PaintballEnemy*)gameobj);
+                    }
                 }
             }
-        }
-        navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
+            while (!enemylists.empty())
+            {
+                enemylists.top()->SetPlayer(player);
+                enemylists.pop();
+            }
 
+        }
     }
 
 
@@ -879,8 +897,7 @@ void GameManager::ContinueLevelFlow(bool isNext) {
     if (isNext)curLevel++;
     InitWorld(curLevel);
 
-    shoottest = player;
-    lockedObject = shoottest;
+    lockedObject = player;
     forceMagnitude = 35;
 }
 
