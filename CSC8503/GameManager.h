@@ -62,7 +62,7 @@ namespace NCL {
 
             void ClearDyingEnemy() { hasDyingEnemy = false; }
 
-            void Init(PaintballGameWorld* world, GameTechRenderer* renderer, Controller* c, float gameTime = 120);
+            void Init(PaintballGameWorld* world, GameTechRenderer* renderer, Controller* c, float gameTime = 300);
             void Update(float dt);
             void PostCleanUp();
 
@@ -165,7 +165,12 @@ namespace NCL {
             PaintballGameWorld* GetWorld() { return world; }
 
             void SetLeftTime(float t) { leftTime = t; }
+            void SetTotalTime(float t) {
+                totalTime = t;
+                leftTime = t;
+            }
             float GetLeftTime() const { return leftTime; }
+            float GetTotalTime() const { return totalTime; }
 
             std::map<int, NetworkObject*>& GetNetworkObjects() { return networkObjects; }
             std::map<int, PaintballPlayer*>& GetNetworkPlayers() { return networkPlayers; }
@@ -197,7 +202,7 @@ namespace NCL {
 
             bool isView3 = false;
 
-            bool isPVP = false;
+            bool isPVP = true;
 
         private:
             GameManager() = default;
@@ -242,7 +247,7 @@ namespace NCL {
             Vector3 dyingEnemyPosition;
             bool hasDyingEnemy;
 
-            int curLevel = 3;
+            int curLevel = 1;
         };
     }
 }

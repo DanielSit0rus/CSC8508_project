@@ -31,6 +31,8 @@ namespace NCL {
 
             void ShowMouse(bool isShow);
 
+            void Tips() { std::cout << "\nInput commnad (Type help to list all commands) :\n> "; }
+
         private:
 
             Console() = default;

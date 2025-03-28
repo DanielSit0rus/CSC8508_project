@@ -1273,7 +1273,7 @@ void GameManager::ResetEnemyCount() {
 
 
 void GameManager::ShowExitScreen() {
-    std::cout << "Game Over! Showing exit screen..." << std::endl;
+    //std::cout << "Game Over! Showing exit screen..." << std::endl;
 
     // Step 1: Set game state to failure menu
     SetGameState(FAILURE);

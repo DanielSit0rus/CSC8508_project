@@ -131,9 +131,8 @@ void TutorialGame::UpdateGameBody(float dt)
 		Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 		Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));
 		Debug::Print("Avg FPS: " + std::to_string((int)avgFPS), Vector2(5, 85), Debug::GREEN);
+		G1.forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 	}
-
-	G1.forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
 
 	world->UpdateWorld(dt);
 
@@ -235,7 +234,20 @@ void TutorialGame::InitCamera() {
 void TutorialGame::UpdateKeys() {
 	if (!G1.isPhysEnabled())return;
 
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left) && renderer->GetUI()->IsDebugMode()) {
+	//shoot test
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
+		if (G1.shoottest) G1.shoottest->Attack();
+		//else {
+		//	GameManager::GetInstance().AddObject(GameObjectType::bullet,
+		//		Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
+		//		rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
+		//		Vector4(1, 1, 1, 1), "", "basic", "", "", "", "", "", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
+		//}
+	}
+
+	if (renderer->GetUI()->IsDebugMode()) return;
+
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
 		if (G1.selectionObject) {	//set colour to deselected;
 			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
 			G1.selectionObject = nullptr;
@@ -266,7 +278,7 @@ void TutorialGame::UpdateKeys() {
 		}
 	}
 
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right) && renderer->GetUI()->IsDebugMode() ) {
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
 		if (!G1.selectionObject) return;
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
@@ -279,7 +291,7 @@ void TutorialGame::UpdateKeys() {
 				callback.rb->applyWorldForceAtWorldPosition(dir * G1.forceMagnitude * 100, callback.hitpoint);
 		}
 	}
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L) && renderer->GetUI()->IsDebugMode()) {
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
 		if (G1.selectionObject) {
 			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
 			if (G1.lockedObject == G1.selectionObject) {
@@ -290,17 +302,6 @@ void TutorialGame::UpdateKeys() {
 			}
 		}
 		else G1.lockedObject = nullptr;
-	}
-
-	//shoot test
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::Q)) {
-		if(G1.shoottest) G1.shoottest->Attack();
-		else {
-			GameManager::GetInstance().AddObject(GameObjectType::bullet,
-				Util::NCLToRP3d(GameManager::GetInstance().GetMainCamera().GetPosition() + GameManager::GetInstance().GetCameraFront() * 3.f),
-				rp3d::Vector3(1, 1, 1), rp3d::Quaternion().identity(),
-				Vector4(1, 1, 1, 1), "", "basic", "", "", "", "", "", "", "", "basic", 1, false, Util::NCLToRP3d(GameManager::GetInstance().GetCameraFront()));
-		}
 	}
 
 	if (Window::GetKeyboard()->KeyPressed(KeyCodes::F1)) {

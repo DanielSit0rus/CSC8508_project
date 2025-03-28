@@ -36,8 +36,6 @@ void Console::Init(Window* win) {
     EventManager::Subscribe(EventType::Game_Resume, [this]() { ShowMouse(false); });
     
     EventManager::Subscribe(EventType::MainMenu_Quit, [this]() {ShowConsole(true); });
-
-    std::cout << "\nInput commnad (Type help to list all commands) :\n> ";
 }
 
 void Console::Release()
@@ -287,6 +285,17 @@ void Console::GameCommand(const std::string& s) {
             GameManager::GetInstance().isPVP = false;
             std::cout << "PVP : disabled" << std::endl;
         }
+    }
+    else if(target == "time" || target == "t")
+    {
+        float value;
+        stream >> value;
+        if (value < 1) {
+            std::cout << "Invalid time: " << value << std::endl;
+            return;
+        }
+        GameManager::GetInstance().SetLeftTime(value);
+        std::cout << "Left time = " << value << std::endl;
     }
     else {
         std::cout << "Unknown argument: " << s << std::endl;

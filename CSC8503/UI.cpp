@@ -196,8 +196,11 @@ UI::UI(PaintballGameWorld* world)
 	totalStep = totalStep == 0 ? 1 : totalStep;
 
 
-	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {PrintMousePos(a, b); });
-	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {ProcessClickEvent(a, b); });
+	//EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {PrintMousePos(a, b); });
+	EventManager::Subscribe(EventType::MouseLeftClick, [this](float a, float b) {
+		if (GameManager::GetInstance().GetGameState() == PaintballGameState::PLAYING) return;
+		ProcessClickEvent(a, b); 
+		});
 
 }
 
@@ -517,8 +520,8 @@ void UI::DrawPlayingUI(float dt) {
 		ImGui::PushFont(infofont);
 
 		ImGui::Text(GameManager::GetInstance().GetPlayer() ? GameManager::GetInstance().GetPlayer()->GetCurrentWeaponString() : "Weapon : Unknown");
-		ImGui::Text("Ammo: %d / %d", 30, 90); // Replace with actual ammo counts
-		ImGui::Text("Power: 100%%");
+		ImGui::Text("Change color by"); // Replace with actual ammo counts
+		ImGui::Text("1-R     2-G     3-B");
 		ImGui::PopFont();
 
 		ImGui::End();
@@ -697,7 +700,7 @@ void UI::DrawChooseServer(float dt) {
 	float centerX = (main_viewport->Size.x - inputWidth) * 0.5f;
 
 	ImGui::SetCursorPos(ImVec2(centerX, main_viewport->GetCenter().y - 50));
-	ImGui::Text("\'3'/ IP:");
+	ImGui::Text("    IP:");
 	ImGui::SameLine();
 	ImGui::Text(serverIP.c_str());
 	ProcessKeyboardInput(serverIP);
@@ -1041,7 +1044,6 @@ void UI::InitializeChooseServerMenuButtons() {
 				EventManager::Trigger(EventType::Network_StartAsClient, serverIP);
 			}
 			else {
-
 				showInvalidIPPopup = true;
 				GameManager::GetInstance().SetGameState(CHOOSESERVER);
 			}

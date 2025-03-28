@@ -1,6 +1,6 @@
-^C:\PROJECT\GROUP\CSC8508_PROJECT\CMAKEFILES\E070AD3707F287E261CD6EDDF1533DBB\GENERATE.STAMP.RULE
+^D:\D_PROJECT\CPP\DANIELSIT0RUS\CSC8508_PROJECT\CMAKEFILES\1B190F13187F9DB8AF5EA76DFEDA478A\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Project/Group/CSC8508_project -BC:/Project/Group/CSC8508_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Project/Group/CSC8508_project/CSC8503.sln
+D:\CMake\bin\cmake.exe -SD:/D_Project/cpp/DanielSit0rus/CSC8508_project -BD:/D_Project/cpp/DanielSit0rus/CSC8508_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/D_Project/cpp/DanielSit0rus/CSC8508_project/CSC8503.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

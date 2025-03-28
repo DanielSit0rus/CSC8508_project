@@ -166,7 +166,7 @@ void NetworkedGame::UpdateAsClient(float dt) {
 	newPacket.buttonstates[2] = Window::GetKeyboard()->KeyDown(KeyCodes::S) ? 1 : 0;
 	newPacket.buttonstates[3] = Window::GetKeyboard()->KeyDown(KeyCodes::D) ? 1 : 0;
 	newPacket.buttonstates[4] = Window::GetKeyboard()->KeyDown(KeyCodes::SPACE) ? 1 : 0;
-	newPacket.buttonstates[5] = Window::GetKeyboard()->KeyDown(KeyCodes::Q) ? 1 : 0;
+	newPacket.buttonstates[5] = Window::GetMouse()->ButtonDown(NCL::MouseButtons::Left) ? 1 : 0;
 	newPacket.buttonstates[6] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM1) ? 1 : 0;
 	newPacket.buttonstates[7] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM2) ? 1 : 0;
 	newPacket.buttonstates[8] = Window::GetKeyboard()->KeyDown(KeyCodes::NUM3) ? 1 : 0;

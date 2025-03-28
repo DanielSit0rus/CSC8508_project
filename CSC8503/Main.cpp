@@ -30,7 +30,7 @@ int main() {
 	//TestNetworking();
 	
 	std::thread console([] {Console::GetInstance().ProcessInput(); });
-
+	Console::GetInstance().Tips();
 	while (w->UpdateWindow() && GameManager::GetInstance().GetGameState() != EXIT) {
 		//std::cout << "[DrawMenu] State = " << (int)GameManager::GetInstance().GetGameState() << std::endl;
 
