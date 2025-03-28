@@ -191,11 +191,9 @@ void PaintballEnemy::Update(float dt)
 	lastPos = currentPos;
 
 	if (stuckTimer > maxStuckTime && currentState != attacking) {
-		std::cout << "Enemy stuck! Resetting path..." << std::endl;
 		pathNodes.clear();
 		stuckTimer = 0.0f;
 
-		// Optional: immediately go back to patrol
 		canSeeTest = false;
 	}
 
@@ -211,20 +209,8 @@ void PaintballEnemy::Chase(float dt) {
 	float distanceToPlayer = (playerPos - enemyPos).length();
 
 	if (distanceToPlayer <= chaseRange && CanSeePlayer()) {
-		NavigationPath newPath;
-		if (navMesh->FindPath(Util::RP3dToNCL(enemyPos), Util::RP3dToNCL(playerPos), newPath)) {
-			pathNodes.clear();
-			Vector3 pos;
-			int count = 0;
-			while (newPath.PopWaypoint(pos)) {
-				if (count % 2 == 0) {
-					pathNodes.push_back(pos);
-				}
-				count++;
-			}
-		}
+		CalculatePath(player->GetTransform().GetPosition());
 	}
-
 	MoveEnemyAlongPath();
 }
 

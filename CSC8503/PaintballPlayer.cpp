@@ -195,14 +195,14 @@ void NCL::CSC8503::PaintballPlayer::DrawHealthBar() {
 	int barLength = 20;
 	int healthBarFilled = (int)(healthPercentage * barLength);
 
-	std::cout << "Health: [";
-	for (int i = 0; i < healthBarFilled; ++i) {
-		std::cout << "#";
-	}
-	for (int i = healthBarFilled; i < barLength; ++i) {
-		std::cout << "-";
-	}
-	std::cout << "] " << healthPercentage * 100 << "%" << std::endl;
+	//std::cout << "Health: [";
+	//for (int i = 0; i < healthBarFilled; ++i) {
+	//	std::cout << "#";
+	//}
+	//for (int i = healthBarFilled; i < barLength; ++i) {
+	//	std::cout << "-";
+	//}
+	//std::cout << "] " << healthPercentage * 100 << "%" << std::endl;
 }
 
 

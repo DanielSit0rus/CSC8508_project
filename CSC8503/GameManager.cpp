@@ -515,14 +515,27 @@ void GameManager::InitWorld_Map1() {
     SetPlayer(shoottest);
 
     enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, -1));
-    enemyObject = AddEnemyClass(rp3d::Vector3(20, 5, 16));
+    
     enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-100, 5, 70));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-8, 5, -178));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-200, 5, 8));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-185, 5, -144));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-40, 5, -79));
+
+    enemyObject = AddEnemyClass(rp3d::Vector3(-112, 5, -121));
+
 
     forceMagnitude = 60.0f;
 
 
-    Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
-    renderer->AddLight(light2);
+   // Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
+    //renderer->AddLight(light2);
     AddTrap();
 
     // FIRST MAP
@@ -579,7 +592,7 @@ void GameManager::InitWorld_Map2() {
     playerObject = shoottest;
     SetPlayer(shoottest);
 
-    enemyObject = AddEnemyClass(rp3d::Vector3(-20, 5, 0));
+    //enemyObject = AddEnemyClass(rp3d::Vector3(-20, 5, 0));
     //enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, 5));
 
     forceMagnitude = 60.0f;

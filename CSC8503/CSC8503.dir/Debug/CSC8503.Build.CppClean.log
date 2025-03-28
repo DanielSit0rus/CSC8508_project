@@ -1,40 +1,39 @@
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.pch
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\vc143.pdb
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballphysicsobject.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballgameworld.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballgameobject.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballenemy.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballbullet.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballaudioobject.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\networkedgame.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\networkplayer.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\main.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\light.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\inputmanager.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\isaveable.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\gametechrenderer.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\gameobjectfreelist.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\gamemanager.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\eventmanager.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\console.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\charactercontroller.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\bulletcontactlistener.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\audiosystem.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\util.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\ui.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\tutorialgame.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\stategameobject.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\slsystem.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\resourcemanager.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballtransform.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballrenderobject.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\paintballplayer.obj
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\cmakefiles\generate.stamp
-d:\d_project\cpp\danielsit0rus\csc8508_project\x64\debug\csc8503.exe
-d:\d_project\cpp\danielsit0rus\csc8508_project\x64\debug\csc8503.pdb
-d:\d_project\cpp\danielsit0rus\csc8508_project\csc8503\csc8503.dir\debug\csc8503.ilk
-<<<<<<< Updated upstream
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.pch
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\vc143.pdb
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballphysicsobject.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballgameworld.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballgameobject.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballenemy.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballbullet.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballaudioobject.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\networkedgame.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\networkplayer.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\main.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\light.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\inputmanager.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\isaveable.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\gametechrenderer.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\gameobjectfreelist.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\gamemanager.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\eventmanager.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\console.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\charactercontroller.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\bulletcontactlistener.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\audiosystem.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\util.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\ui.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\tutorialgame.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\stategameobject.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\slsystem.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\resourcemanager.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballtransform.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballrenderobject.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\paintballplayer.obj
+d:\team project csc\newrepo\csc8508_project\csc8503\cmakefiles\generate.stamp
+d:\team project csc\newrepo\csc8508_project\x64\debug\csc8503.exe
+d:\team project csc\newrepo\csc8508_project\x64\debug\csc8503.pdb
+d:\team project csc\newrepo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.ilk
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\audiosystem.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\bulletcontactlistener.obj
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\charactercontroller.obj
@@ -81,51 +80,3 @@ c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc850
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.read.1.tlog
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.secondary.1.tlog
 c:\users\alienware\onedrive\desktop\newcastle\game team project\paintball\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.write.1.tlog
-=======
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\audiosystem.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\bulletcontactlistener.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\charactercontroller.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\console.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\eventmanager.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\gamemanager.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\gameobjectfreelist.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\gametechrenderer.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\inputmanager.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\isaveable.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\light.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\main.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\networkedgame.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\networkplayer.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballaudioobject.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballbullet.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballenemy.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballgameobject.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballgameworld.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballphysicsobject.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballplayer.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballrenderobject.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\paintballtransform.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\resourcemanager.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\slsystem.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\stategameobject.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\tutorialgame.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\ui.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\util.obj
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.ilk
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\cmake_pch.pch
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\vc143.pdb
-d:\team project csc\main repo\csc8508_project\x64\debug\csc8503.pdb
-d:\team project csc\main repo\csc8508_project\x64\debug\csc8503.exe
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\cl.command.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\cl.items.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\cl.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\cl.write.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\custombuild.command.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\custombuild.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\custombuild.write.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.command.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.read.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.secondary.1.tlog
-d:\team project csc\main repo\csc8508_project\csc8503\csc8503.dir\debug\csc8503.tlog\link.write.1.tlog
->>>>>>> Stashed changes

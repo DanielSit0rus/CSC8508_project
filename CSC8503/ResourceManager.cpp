@@ -162,7 +162,6 @@ NCL::Rendering::Texture* ResourceManager::GetTexture(const std::string& name, bo
     if (it != textures.end()) {
         return it->second;
     }
-    if (debug) std::cerr << "[ResourceManager] Cannot find texture [" << name << "]" << std::endl;
     return nullptr;
 }
 
