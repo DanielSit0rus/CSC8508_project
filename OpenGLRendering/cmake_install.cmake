@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-# Install script for directory: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/OpenGLRendering
-=======
-# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering
->>>>>>> Stashed changes
+# Install script for directory: D:/Team Project CSC/NewRepo/CSC8508_project/OpenGLRendering
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

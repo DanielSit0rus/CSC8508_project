@@ -14,17 +14,9 @@
 #include <iostream>
 #include <chrono>
 #include <sstream>
-<<<<<<< Updated upstream
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
-#include "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
-=======
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
-#include "D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
->>>>>>> Stashed changes
+#include "D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/../NCLCoreClasses/Vector.h"
+#include "D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/../NCLCoreClasses/Quaternion.h"
+#include "D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/../NCLCoreClasses/Plane.h"
+#include "D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/../NCLCoreClasses/Matrix.h"
+#include "D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/../NCLCoreClasses/GameTimer.h"
 #endif // __cplusplus

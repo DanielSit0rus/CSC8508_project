@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/OpenGLRendering/CMakeLists.txt
-=======
-﻿  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering/CMakeLists.txt
->>>>>>> Stashed changes
+﻿  Building Custom Rule D:/Team Project CSC/NewRepo/CSC8508_project/OpenGLRendering/CMakeLists.txt
   cmake_pch.cxx
   OGLTexture.h
   OGLShader.h
@@ -16,8 +12,4 @@
   OGLComputeShader.cpp
   gl.h
   gl.c
-<<<<<<< Updated upstream
-  OpenGLRendering.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
-=======
-  OpenGLRendering.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib
->>>>>>> Stashed changes
+  OpenGLRendering.vcxproj -> D:\Team Project CSC\NewRepo\CSC8508_project\OpenGLRendering\Debug\OpenGLRendering.lib

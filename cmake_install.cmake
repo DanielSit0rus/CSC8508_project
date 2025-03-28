@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-# Install script for directory: C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project
-=======
-# Install script for directory: D:/Team Project CSC/Main repo/CSC8508_project
->>>>>>> Stashed changes
+# Install script for directory: D:/Team Project CSC/NewRepo/CSC8508_project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,38 +34,22 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-<<<<<<< Updated upstream
-  include("C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
-=======
-  include("D:/Team Project CSC/Main repo/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
->>>>>>> Stashed changes
+  include("D:/Team Project CSC/NewRepo/CSC8508_project/NCLCoreClasses/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-<<<<<<< Updated upstream
-  include("C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
-=======
-  include("D:/Team Project CSC/Main repo/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
->>>>>>> Stashed changes
+  include("D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503CoreClasses/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-<<<<<<< Updated upstream
-  include("C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/OpenGLRendering/cmake_install.cmake")
-=======
-  include("D:/Team Project CSC/Main repo/CSC8508_project/OpenGLRendering/cmake_install.cmake")
->>>>>>> Stashed changes
+  include("D:/Team Project CSC/NewRepo/CSC8508_project/OpenGLRendering/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-<<<<<<< Updated upstream
-  include("C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CSC8503/cmake_install.cmake")
-=======
-  include("D:/Team Project CSC/Main repo/CSC8508_project/CSC8503/cmake_install.cmake")
->>>>>>> Stashed changes
+  include("D:/Team Project CSC/NewRepo/CSC8508_project/CSC8503/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -80,9 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< Updated upstream
-file(WRITE "C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
-=======
-file(WRITE "D:/Team Project CSC/Main repo/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> Stashed changes
+file(WRITE "D:/Team Project CSC/NewRepo/CSC8508_project/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

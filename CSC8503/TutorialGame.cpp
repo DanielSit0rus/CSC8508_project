@@ -116,10 +116,21 @@ void TutorialGame::UpdateGameBody(float dt)
 	GameManager::GetInstance().Update(dt);
 	UpdateKeys();
 
+	fpsAccumulator += dt;
+	frameCount++;
+
+	
+	if (fpsAccumulator >= 1.0f) {
+		avgFPS = frameCount / fpsAccumulator;
+		frameCount = 0;
+		fpsAccumulator = 0.0f;
+	}
+
 
 	if (renderer->GetUI()->IsDebugMode()) {
 		Debug::DrawLine(Vector3(), Vector3(0, 100, 0), Vector4(1, 0, 0, 1));
 		Debug::Print("Force/Speed:" + std::to_string((int)G1.forceMagnitude), Vector2(5, 80));
+		Debug::Print("Avg FPS: " + std::to_string((int)avgFPS), Vector2(5, 85), Debug::GREEN);
 	}
 
 	G1.forceMagnitude += Window::GetMouse()->GetWheelMovement() * 25.0f;
