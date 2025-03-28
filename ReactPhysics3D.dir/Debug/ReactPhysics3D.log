@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 ﻿  Building Custom Rule C:/Users/ALIENWARE/OneDrive/Desktop/Newcastle/Game team project/Paintball/CSC8508_project/CMakeLists.txt
+=======
+﻿  Building Custom Rule D:/Team Project CSC/Main repo/CSC8508_project/CMakeLists.txt
+>>>>>>> Stashed changes
   Body.cpp
   RigidBody.cpp
   Collider.cpp
@@ -20,7 +24,11 @@
   ConvexPolyhedronVsConvexPolyhedronAlgorithm.cpp
   GJKAlgorithm.cpp
   Generating Code...
+<<<<<<< Updated upstream
 C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+=======
+D:\Team Project CSC\Main repo\CSC8508_project\SDK\ReactPhysics3D\src\collision\TriangleVertexArray.cpp(163,1): warning C4715: 'reactphysics3d::TriangleVertexArray::getVertex': not all control paths return a value
+>>>>>>> Stashed changes
   Compiling...
   VoronoiSimplex.cpp
   NarrowPhaseInfoBatch.cpp
@@ -96,4 +104,8 @@ C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC850
   QHHalfEdgeStructure.cpp
   QuickHull.cpp
   Generating Code...
+<<<<<<< Updated upstream
   ReactPhysics3D.vcxproj -> C:\Users\ALIENWARE\OneDrive\Desktop\Newcastle\Game team project\Paintball\CSC8508_project\Debug\ReactPhysics3D.lib
+=======
+  ReactPhysics3D.vcxproj -> D:\Team Project CSC\Main repo\CSC8508_project\Debug\ReactPhysics3D.lib
+>>>>>>> Stashed changes

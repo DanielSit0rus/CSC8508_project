@@ -51,6 +51,17 @@ namespace NCL {
                 physicsCommon.destroyPhysicsWorld(RpWorld);
             };
 
+
+            void SetDyingEnemyPosition(const Vector3& pos) {
+                dyingEnemyPosition = pos;
+                hasDyingEnemy = true;
+            }
+            
+            bool HasDyingEnemy() const { return hasDyingEnemy; }
+            const Vector3& GetDyingEnemyPosition() const { return dyingEnemyPosition; }
+
+            void ClearDyingEnemy() { hasDyingEnemy = false; }
+
             void Init(PaintballGameWorld* world, GameTechRenderer* renderer, Controller* c, float gameTime = 120);
             void Update(float dt);
             void PostCleanUp();
@@ -225,6 +236,8 @@ namespace NCL {
             Window* w = nullptr;
             PaintballGameState curState;
             PaintballGameState lastState = LOADING;
+            Vector3 dyingEnemyPosition;
+            bool hasDyingEnemy;
 
             int curLevel = 1;
         };

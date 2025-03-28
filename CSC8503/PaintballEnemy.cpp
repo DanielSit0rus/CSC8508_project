@@ -165,6 +165,7 @@ void PaintballEnemy::Update(float dt)
 	{
 
 		rp3d::Vector3 currentPos = this->GetTransform().GetPosition();
+		GameManager::GetInstance().SetDyingEnemyPosition(Util::RP3dToNCL(currentPos));
 
 		this->GetPhysicsObject()->AddForce(reactphysics3d::Vector3(0, 30, 0));
 		if (currentPos.y >= 10.0f&&!isDead) {

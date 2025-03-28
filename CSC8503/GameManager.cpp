@@ -19,7 +19,8 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, Co
         std::cerr << "Error: Failed to create Physics World!" << std::endl;
         throw std::runtime_error("Physics World creation failed!");
     }
-
+    
+    hasDyingEnemy = false;
     totalTime = gameTime;
     leftTime = totalTime;
 
@@ -27,7 +28,7 @@ void GameManager::Init(PaintballGameWorld* world, GameTechRenderer* renderer, Co
 
     RpWorld->setEventListener(&bulletlistener);
 
-    Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(1.0f, 0.95f, 0.8f, 1.0f), 1.0f, 45.0f, LightType::Spot);
+    Light light2(Vector3(12, 10, -5), Vector3(0, -1, 0), Vector4(4.0f, 4.0f, 0, 1.0f), 1.0f, 45.0f, LightType::Spot);
     renderer->AddLight(light2);
 
 

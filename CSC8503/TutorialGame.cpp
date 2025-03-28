@@ -163,17 +163,38 @@ void TutorialGame::UpdateGameBody(float dt)
 
 
 
-	if (G1.shoottest) { // If the player exists
-		Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
+	//if (G1.shoottest) { // If the player exists
+	//	Vector3 playerPos = Util::RP3dToNCL(G1.shoottest->GetTransform().GetPosition());
 
-		// Set the spotlight 5 units above the player
-		Vector3 lightPos = playerPos + Vector3(0, 5, 0);
+	//	// Set the spotlight 5 units above the player
+	//	Vector3 lightPos = playerPos + Vector3(0, 5, 0);
 
-		// Always point the spotlight downward
+	//	// Always point the spotlight downward
+	//	Vector3 lightDir = Vector3(0, -1, 0);
+	//	//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
+
+	//	// Update the spotlight's position and direction
+	//	renderer->UpdateLight(2, lightPos, lightDir);
+	//}
+
+	if (GameManager::GetInstance().HasDyingEnemy()) {
+		Vector3 enemyDeathPos = GameManager::GetInstance().GetDyingEnemyPosition();
+
+		// Light is slightly above the death position
+		Vector3 lightPos = enemyDeathPos + Vector3(0, 5, 0);
+		Vector3 lightDir = Vector3(0, -1, 0); // Always pointing down
+
+		// Update the light
+		renderer->UpdateLight(2, lightPos, lightDir);
+
+		
+		GameManager::GetInstance().ClearDyingEnemy();
+	}
+	else
+
+	{
+		Vector3 lightPos = Vector3(0, -20, 0);
 		Vector3 lightDir = Vector3(0, -1, 0);
-		//std::cout << "Updating light at: " << lightPos.x << ", " << lightPos.y << ", " << lightPos.z << std::endl;
-
-		// Update the spotlight's position and direction
 		renderer->UpdateLight(2, lightPos, lightDir);
 	}
 
