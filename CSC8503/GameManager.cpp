@@ -592,8 +592,16 @@ void GameManager::InitWorld_Map2() {
     playerObject = shoottest;
     SetPlayer(shoottest);
 
-    enemyObject = AddEnemyClass(rp3d::Vector3(-20, 5, 0));
-    enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, 5));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-100, 44, 40));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-170, 4, 29));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-220, 4, -130));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-100, 4, -75));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-40, 4, -120));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-100, 29, -80));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-95, 24, -185));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-25, 4, -30));
+
+
 
     forceMagnitude = 60.0f;
 
