@@ -9,6 +9,7 @@
 #include "PaintballBullet.h"
 #include "PaintballPlayer.h"
 #include "PaintballEnemy.h"
+#include "PaintballCoward.h"
 #include "BulletContactListener.h"
 #include "Camera.h"
 #include <unordered_set>
@@ -130,6 +131,7 @@ namespace NCL {
 
             PaintballPlayer* AddPlayerClass(rp3d::Vector3 position);
             PaintballEnemy* AddEnemyClass(rp3d::Vector3 position);
+            PaintballCoward* AddCowardEnemyClass(rp3d::Vector3 position);
 
             PaintballBullet* AddBullet(rp3d::Vector3 ori3, bool isenemy, const rp3d::Vector3& position, rp3d::Vector3 dimensions, rp3d::Quaternion orientation, Vector4 color, float mass = 10.0f);
             reactphysics3d::ConcaveMeshShape* CreateConcaveMeshShape(Mesh* mesh);

@@ -530,6 +530,8 @@ void GameManager::InitWorld_Map1() {
 
     enemyObject = AddEnemyClass(rp3d::Vector3(-112, 5, -121));
 
+    enemyObject = AddCowardEnemyClass(rp3d::Vector3(-100, 5, -50));
+
 
     forceMagnitude = 60.0f;
 
@@ -1193,6 +1195,81 @@ PaintballEnemy* GameManager::AddEnemyClass(rp3d::Vector3 position)
 
 
     world->AddGameObject(enemy);
+
+    return enemy;
+}
+
+PaintballCoward* GameManager::AddCowardEnemyClass(rp3d::Vector3 position)
+{
+    rp3d::Vector3 dimensions = rp3d::Vector3(1.0f, 2.f, 1.0f);
+    rp3d::Vector3 ratioRender = rp3d::Vector3(2.1f, 2.1f, 2.1f);
+    ResourceManager& resources = ResourceManager::GetInstance();
+
+    // 随机选择敌人颜色
+    Vector4 enemyColor = (rand() % 3 == 0) ? Vector4(1, 0, 0, 1) : (rand() % 2 == 0) ? Vector4(0, 0, 1, 1) : Vector4(0, 1, 0, 1);
+
+    // 创建胆小敌人
+    PaintballCoward* enemy = new PaintballCoward("CowardEnemy", enemyColor);
+
+    enemy->GetTransform()
+        .SetPosition(position)
+        .SetScale(dimensions * 1.0f)
+        .SetRatioR(ratioRender)
+        .SetOffsetR(rp3d::Vector3(0, -dimensions.y * 0.5f * ratioRender.y, 0));
+
+    // 创建带动画支持的渲染对象
+    PaintballRenderObject* renderObj = new PaintballRenderObject(
+        &enemy->GetTransform(),
+        "role",
+        "basic",
+        "basic",
+        resources.GetIdleanim(),
+        resources.GetRolemat()
+    );
+
+    renderObj->SetColour(enemyColor); // 设置敌人颜色
+
+    // 将渲染对象关联到敌人
+    enemy->SetRenderObject(renderObj);
+
+    // 创建物理刚体
+    rp3d::RigidBody* cubeBody = RpWorld->createRigidBody(enemy->GetTransform().GetRpTransform());
+
+    // 创建碰撞形状
+    rp3d::CapsuleShape* shape = physicsCommon.createCapsuleShape(dimensions.x, dimensions.y);
+
+    // 关联碰撞形状到刚体
+    rp3d::Transform shapeTransform = rp3d::Transform::identity();
+    rp3d::Collider* collider = cubeBody->addCollider(shape, shapeTransform);
+
+    // 为敌人添加物理对象
+    enemy->SetPhysicsObject(new PaintballPhysicsObject(&enemy->GetTransform(), *cubeBody, *RpWorld));
+    enemy->GetPhysicsObject()->SetMass(1);
+    enemy->GetPhysicsObject()->GetRigidbody().setAngularLockAxisFactor(rp3d::Vector3(0, 1, 0));
+
+    // 设置导航网格和目标玩家
+    enemy->SetNavMesh(navMesh);
+    enemy->SetPlayer(player);
+
+    // 创建颜色指示器球体
+    Vector4 indicatorColor = GetRequiredBulletColor(enemyColor);
+    rp3d::Vector3 indicatorPos = position + rp3d::Vector3(0, 3.5f, 0);
+    rp3d::Vector3 indicatorSize = rp3d::Vector3(0.3f, 0.3f, 0.3f);
+
+    PaintballGameObject* indicator = AddSphere(indicatorPos, indicatorSize, rp3d::Quaternion::identity(), 0.0f, indicatorColor);
+    indicator->SetType(GameObjectType::indicator);
+
+    enemy->SetIndicator(indicator);
+
+    // 添加音频对象
+    enemy->SetAudioObject(new PaintballAudioObject(&enemy->GetTransform()));
+    enemy->GetAudioObject()->AddEvent("event:/Effect/FootStep");
+
+    // 添加到游戏世界
+    world->AddGameObject(enemy);
+
+    // 增加敌人计数
+    IncreaseEnemyCount();
 
     return enemy;
 }

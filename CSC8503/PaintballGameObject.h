@@ -39,6 +39,7 @@ namespace NCL::CSC8503 {
 
         trigger1,
         indicator,
+        coward,
         //If u want to add a new type, please put it below
 
     };
