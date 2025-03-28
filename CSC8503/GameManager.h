@@ -159,6 +159,7 @@ namespace NCL {
                 return world->GetMainCamera();
             }
             Vector3 GetCameraFront();
+            void ResetEnemyCount();
 			Controller* GetController() { return controller; }
 
             PaintballGameWorld* GetWorld() { return world; }

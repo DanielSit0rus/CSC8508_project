@@ -510,7 +510,7 @@ void GameManager::InitWorld_Map1() {
 
     navMesh = new NavigationMesh("Map1Navmesh", "FirstMapMesh");
 
-    shoottest = AddPlayerClass(rp3d::Vector3(-30, 5, -22));
+    shoottest = AddPlayerClass(rp3d::Vector3(0, 6, -75));
     playerObject = shoottest;
     SetPlayer(shoottest);
 
@@ -518,7 +518,7 @@ void GameManager::InitWorld_Map1() {
     
     enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
 
-    enemyObject = AddEnemyClass(rp3d::Vector3(-100, 5, 70));
+    //enemyObject = AddEnemyClass(rp3d::Vector3(-100, 5, 70));
 
     enemyObject = AddEnemyClass(rp3d::Vector3(-8, 5, -178));
 
@@ -834,6 +834,8 @@ void GameManager::InitWorld_Map2() {
 void GameManager::InitWorld(int arg)
 {
     CleanWorld();
+    GameManager::GetInstance().ResetEnemyCount();
+
 
     if (arg == 1) {
         InitWorld_Map1();
@@ -1602,6 +1604,11 @@ Vector3 GameManager::GetCameraFront()
     float pitch = DegreesToRadians(-world->GetMainCamera().GetPitch());
     Vector3 front(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw));
     return     front = -Vector::Normalise(front);
+}
+
+
+void GameManager::ResetEnemyCount() {
+    enemyCount = 0;
 }
 
 

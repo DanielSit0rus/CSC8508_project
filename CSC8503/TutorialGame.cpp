@@ -248,7 +248,7 @@ void TutorialGame::InitCamera() {
 void TutorialGame::UpdateKeys() {
 	if (!G1.isPhysEnabled())return;
 
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left)) {
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Left) && renderer->GetUI()->IsDebugMode()) {
 		if (G1.selectionObject) {	//set colour to deselected;
 			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
 			G1.selectionObject = nullptr;
@@ -279,7 +279,7 @@ void TutorialGame::UpdateKeys() {
 		}
 	}
 
-	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right)) {
+	if (Window::GetMouse()->ButtonPressed(NCL::MouseButtons::Right) && renderer->GetUI()->IsDebugMode() ) {
 		if (!G1.selectionObject) return;
 
 		rp3d::Vector3 dir = Util::NCLToRP3d(world->GetMainCamera().GetScreenDir(0.5f, 0.5f));
@@ -292,7 +292,7 @@ void TutorialGame::UpdateKeys() {
 				callback.rb->applyWorldForceAtWorldPosition(dir * G1.forceMagnitude * 100, callback.hitpoint);
 		}
 	}
-	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L)) {
+	if (Window::GetKeyboard()->KeyPressed(NCL::KeyCodes::L) && renderer->GetUI()->IsDebugMode()) {
 		if (G1.selectionObject) {
 			G1.selectionObject->GetRenderObject()->SetColour(Vector4(1, 1, 1, 1));
 			if (G1.lockedObject == G1.selectionObject) {
