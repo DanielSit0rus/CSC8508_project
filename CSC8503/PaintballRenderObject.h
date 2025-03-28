@@ -34,11 +34,9 @@ namespace NCL {
 				return texture;
 			}
 
-			// New: Setters for specular and normal maps
 
 			
 
-			// Getters for specular and normal maps
 			Texture* GetSpecularTexture() const { return specularTexture; }
 			Texture* GetNormalTexture() const { return normalTexture; }
 			Texture* GetHeightTexture() const { return heightTexture; }
@@ -48,7 +46,7 @@ namespace NCL {
 			Texture* GetRoughnessTexture() const { return roughnessTexture; }
 
 
-			Texture* GetTexture() const { return texture; }  // Still returns the diffuse texture
+			Texture* GetTexture() const { return texture; }  
 		
 
 			Mesh* GetMesh() const {

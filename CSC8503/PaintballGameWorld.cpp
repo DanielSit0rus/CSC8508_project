@@ -57,12 +57,7 @@ void PaintballGameWorld::OperateOnContents(PaintballGameObjectFunc f) {
 }
 
 void PaintballGameWorld::UpdateWorld(float dt) {
-	//// Only update physics and game objects in playing states
-	//if (currentstate != PaintballGameState::PLAYING &&
-	//	currentstate != PaintballGameState::SERVERPLAYING &&
-	//	currentstate != PaintballGameState::CLIENTPLAYING) {
-	//	return;
-	//}
+
 
 	auto rng = std::default_random_engine{};
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();

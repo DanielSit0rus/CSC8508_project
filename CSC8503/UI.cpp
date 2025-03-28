@@ -413,12 +413,12 @@ void UI::DrawMenu(float dt) {
 	ImGui::PushFont(bigfont);
 
 	// Center the title
-	float titleWidth = ImGui::CalcTextSize("Main Menu").x;
+	float titleWidth = ImGui::CalcTextSize("Color Theory").x;
 	ImGui::SetCursorPos(ImVec2(
 		(main_viewport->Size.x - titleWidth) * 0.5f,
 		main_viewport->Size.y * 0.2f
 	));
-	ImGui::Text("Main Menu");
+	ImGui::Text("Color Theory");
 	ImGui::PopFont();
 	ImGui::PopStyleColor();
 

@@ -1,4 +1,4 @@
-# Install script for directory: E:/GroupProject/CSC8508_project/CSC8503CoreClasses
+# Install script for directory: C:/Project/Group/CSC8508_project/CSC8503CoreClasses
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

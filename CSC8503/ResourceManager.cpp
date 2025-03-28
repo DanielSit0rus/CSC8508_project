@@ -233,21 +233,5 @@ std::string ResourceManager::GetResourceByID(const std::string& type, const int&
     }
 }
 
-//void ResourceManager::ReloadAnimations() {
-//
-//    if (Roleanim) {
-//        delete Roleanim;
-//        Roleanim = nullptr;
-//    }
-//    if (Rolemat) {
-//        delete Rolemat;
-//        Rolemat = nullptr;
-//    }
-//    Roleanim = new MeshAnimation("Role_T.anm");
-//    Rolemat = new MeshMaterial("Role_T.mat");
-//
-//    if (!Roleanim) {
-//        std::cerr << "Error: Failed to reload role animation!" << std::endl;
-//    }
-//}
+
 
