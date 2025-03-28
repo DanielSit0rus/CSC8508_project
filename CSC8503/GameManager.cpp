@@ -530,8 +530,6 @@ void GameManager::InitWorld_Map1() {
 
     enemyObject = AddEnemyClass(rp3d::Vector3(-112, 5, -121));
 
-    enemyObject = AddCowardEnemyClass(rp3d::Vector3(-100, 5, -50));
-
 
     forceMagnitude = 60.0f;
 
