@@ -518,7 +518,7 @@ void GameManager::InitWorld_Map1() {
     
     enemyObject = AddEnemyClass(rp3d::Vector3(7, 5, 2));
 
-    //enemyObject = AddEnemyClass(rp3d::Vector3(-100, 5, 70));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-73, 5, 12));
 
     enemyObject = AddEnemyClass(rp3d::Vector3(-8, 5, -178));
 
@@ -592,8 +592,8 @@ void GameManager::InitWorld_Map2() {
     playerObject = shoottest;
     SetPlayer(shoottest);
 
-    //enemyObject = AddEnemyClass(rp3d::Vector3(-20, 5, 0));
-    //enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, 5));
+    enemyObject = AddEnemyClass(rp3d::Vector3(-20, 5, 0));
+    enemyObject = AddEnemyClass(rp3d::Vector3(5, 5, 5));
 
     forceMagnitude = 60.0f;
 
@@ -1654,7 +1654,7 @@ void GameManager::SetGameState(PaintballGameState state) {
     case FAILURE:
         break;
     case FINISH:
-        curLevel++;
+      
         break;
     case MENU:
         EventManager::Trigger(EventType::MainMenu_Start);
