@@ -21,6 +21,7 @@ void Console::Init(Window* win) {
     RegisterCommand("audio", [this](const std::string& args) { AudioCommand(args); }, "Audio command");
 
     RegisterCommand("test", [this](const std::string& args) { TestCommand(args); }, "Test command");
+    RegisterCommand("game", [this](const std::string& args) { GameCommand(args); }, "Game command");
 
     ShowConsole(false);
     
@@ -270,6 +271,26 @@ void Console::TestCommand(const std::string& s) {
         std::cout << "Unknown argument: " << s << std::endl;
     }
 }
+void Console::GameCommand(const std::string& s) {
+    std::istringstream stream(s);
+    std::string target;
 
+    stream >> target;
+    if (target == "pvp") {
+        std::string isPVP;
+        stream >> isPVP;
+        if (isPVP != "0") {
+            GameManager::GetInstance().isPVP = true;
+            std::cout << "PVP : enabled" << std::endl;
+        }
+        else {
+            GameManager::GetInstance().isPVP = false;
+            std::cout << "PVP : disabled" << std::endl;
+        }
+    }
+    else {
+        std::cout << "Unknown argument: " << s << std::endl;
+    }
+}
 
 #pragma endregion

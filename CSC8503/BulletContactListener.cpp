@@ -46,18 +46,22 @@ void BulletContactListener::onTrigger(const rp3d::OverlapCallback::CallbackData&
 
 		// Make sure both objects have valid data and check if one is a bullet and the other is a player
 		if (object1->GetType() == GameObjectType::bullet && object2->GetType() == GameObjectType::player) {
-			PaintballPlayer* player = static_cast<PaintballPlayer*>(object2);
-			player->TakeDamage(10);  // Apply 10 damage to the player
+			if (GameManager::GetInstance().isPVP || (!GameManager::GetInstance().isPVP && ((PaintballBullet*)object1)->GetIsEnemy() == true)) {
+				PaintballPlayer* player = static_cast<PaintballPlayer*>(object2);
+				player->TakeDamage(10);  // Apply 10 damage to the player
 
-			player->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
+				player->GetRenderObject()->SetColour(object1->GetRenderObject()->GetColour());
+			}
 			// Destroy the bullet after impact
 			((PaintballBullet*)object1)->Destroy();
 		}
-		else if (object2->GetType() == GameObjectType::bullet && object1->GetType() == GameObjectType::player) {
-			PaintballPlayer* player = static_cast<PaintballPlayer*>(object1);
-			player->TakeDamage(10);  // Apply 10 damage to the player
+		else if (object2->GetType() == GameObjectType::bullet && object1->GetType() == GameObjectType::player ) {
+			if (GameManager::GetInstance().isPVP || (!GameManager::GetInstance().isPVP && ((PaintballBullet*)object2)->GetIsEnemy() == true)) {
+				PaintballPlayer* player = static_cast<PaintballPlayer*>(object1);
+				player->TakeDamage(10);  // Apply 10 damage to the player
 
-			player->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
+				player->GetRenderObject()->SetColour(object2->GetRenderObject()->GetColour());
+			}
 			// Destroy the bullet after impact
 			((PaintballBullet*)object2)->Destroy();
 		}

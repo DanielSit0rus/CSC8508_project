@@ -17,6 +17,10 @@ namespace NCL::CSC8503 {
 
 		void InitBullet(rp3d::Vector3 direction, bool isEnemy);
 		void Destroy();
+
+		bool GetIsEnemy() {
+			return isEnemy;
+		}
 	private:
 		Vector4 color;
 		bool isEnemy;
