@@ -26,6 +26,13 @@ A **first-person paintball game** developed as part of a Team Project (CSC8508) 
 ![screenshot2](https://media.journoportfolio.com/users/351105/images/7be31e7d-52d9-47ca-b949-ba8df69183dd.png)
 ![screenshot3](https://media.journoportfolio.com/users/351105/images/33de8158-5da7-4a73-a603-65c3d7507bf2.png)
 
+## Setup (PC):
+1. Clone the repository
+2. Generate project soultion with CMake:
+3. Open the generated Visual Studio solution and build the project
+4. Press F3 to open the developer console and 'help' command to get the list of commands  
+
+
 ## 👥 Credits
 Team members:
 - Daniel Sitorus
