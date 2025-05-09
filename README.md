@@ -28,7 +28,7 @@ A **first-person paintball game** developed as part of a Team Project (CSC8508) 
 
 ## Setup (PC):
 1. Clone the repository
-2. Generate project soultion with CMake:
+2. Generate project soultion with CMake
 3. Open the generated Visual Studio solution and build the project
 4. Press F3 to open the developer console and 'help' command to get the list of commands  
 
